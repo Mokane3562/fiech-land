@@ -8,7 +8,7 @@ Iteration 1 Goals
 
 Project Approach
 ----------------
-We will be using a USE CASE driven approach to the development of our game.
+We will be using a USE CASE driven approach for the development of our game.
 
 ### Iteration 1 Use Case: Start a New Game
 1. User runs the application.
