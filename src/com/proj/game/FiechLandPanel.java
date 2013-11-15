@@ -248,6 +248,20 @@ public class FiechLandPanel extends JPanel implements Runnable {
 
 
 
+	  private void gameOverMessage(Graphics g)
+	  // Center the game-over message in the panel.
+	  {
+	    String msg = "Game Over. Your score: " + score;
+
+		int x = (PWIDTH - metrics.stringWidth(msg))/2; 
+		int y = (PHEIGHT - metrics.getHeight())/2;
+		g.setColor(Color.red);
+	    g.setFont(msgsFont);
+		g.drawString(msg, x, y);
+	    g.setColor(Color.black);
+	  }  // end of gameOverMessage()
+
+
 	  private void paintScreen()
 	  // use active rendering to put the buffered image on-screen
 	  { 
