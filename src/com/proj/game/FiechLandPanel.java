@@ -1,15 +1,5 @@
 package com.proj.game;
 
-import AlienAStarSprite;
-import AlienQuadSprite;
-import AlienSprite;
-import AlienTiles;
-import ClipsLoader;
-import ImagesLoader;
-import PlayerSprite;
-import TiledSprite;
-import WorldDisplay;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -46,7 +36,6 @@ public class FiechLandPanel extends JPanel implements Runnable {
 
 
 	  private FiechLand fiechLand;
-	  private ClipsLoader clipsLoader;
 
 	  private long gameStartTime;   // when the game started
 	  private int timeSpentInGame;
@@ -87,27 +76,6 @@ public class FiechLandPanel extends JPanel implements Runnable {
 	  }  // end of FiechLandPanel()
 
 
-	  private void createWorld(ImagesLoader imsLoader)
-	  // create the game world, the player, and aliens
-	  {
-	    world = new WorldDisplay(imsLoader, this);  // game world, a WorldDisplay object
-
-	    player = new PlayerSprite(7,12, PWIDTH, PHEIGHT, clipsLoader, imsLoader, 
-	                                       world, this);  // start on tile (7,12)
-
-	    aliens = new AlienSprite[4];
-
-	    aliens[0] = new AlienAStarSprite(10, 11, PWIDTH, PHEIGHT, imsLoader, world);
-	    aliens[1] = new AlienQuadSprite(6, 21, PWIDTH, PHEIGHT, imsLoader, world);
-	    aliens[2] = new AlienQuadSprite(14, 20, PWIDTH, PHEIGHT, imsLoader, world);
-	    aliens[3] = new AlienAStarSprite(34, 34, PWIDTH, PHEIGHT, imsLoader, world);
-	       // use 2 AStar and 2 quad alien sprites
-	       // the 4th alien is positioned at an illegal tile location (34,34)
-
-	    world.addSprites(player, aliens);  // tell the world about the sprites
-	  }  // end of createWorld()
-
-
 	  private void processKey(KeyEvent e)
 	  // handles termination, help, and game-play keys
 	  {
@@ -121,34 +89,6 @@ public class FiechLandPanel extends JPanel implements Runnable {
 	        ((keyCode == KeyEvent.VK_C) && e.isControlDown()) )
 	      running = false;
 
-	    // help controls
-	    if (keyCode == KeyEvent.VK_H) {
-	      if (showHelp) {  // help being shown
-	        showHelp = false;  // switch off
-	        isPaused = false;
-	      }
-	      else {  // help not being shown
-	       showHelp = true;    // show it
-	       isPaused = true;    // isPaused may already be true
-	      }
-	    }
-
-	    // game-play keys
-	    if (!isPaused && !gameOver) {
-	      // move the player based on the numpad key pressed
-	      if (keyCode == KeyEvent.VK_NUMPAD7)
-	        player.move(TiledSprite.NW);   // move north west
-	      else if (keyCode == KeyEvent.VK_NUMPAD9)
-	        player.move(TiledSprite.NE);   // north east
-	      else if (keyCode == KeyEvent.VK_NUMPAD3)
-	        player.move(TiledSprite.SE);   // south east
-	      else if (keyCode == KeyEvent.VK_NUMPAD1)
-	        player.move(TiledSprite.SW);   // south west
-	      else if (keyCode == KeyEvent.VK_NUMPAD5)
-	        player.standStill();           // stand still
-	      else if (keyCode == KeyEvent.VK_NUMPAD2)
-	        player.tryPickup();      // try to pick up from this tile
-	    }
 	  }  // end of processKey()
 
 
@@ -161,7 +101,6 @@ public class FiechLandPanel extends JPanel implements Runnable {
 	    if (!gameOver) {
 	      gameOver = true; 
 	      score = (int) ((System.nanoTime() - gameStartTime)/1000000000L);
-	      clipsLoader.play("applause", false);
 	    }
 	  } // end of gameOver()
 
@@ -264,8 +203,6 @@ public class FiechLandPanel extends JPanel implements Runnable {
 	  private void gameUpdate() 
 	  { 
 	    if (!isPaused && !gameOver) {
-	      for(int i=0; i < aliens.length; i++)
-	        aliens[i].update();    // update all the aliens
 	    } 
 	  }  // end of gameUpdate()
 
@@ -285,11 +222,6 @@ public class FiechLandPanel extends JPanel implements Runnable {
 	    // a light blue background
 	    dbg.setColor(lightBlue);
 	    dbg.fillRect(0, 0, PWIDTH, PHEIGHT);
-
-	    // draw the game elements: order is important
-	    world.draw(dbg);  
-	    /* WorldDisplay draws the game world: the tile floor, blocks, 
-	       pickups, and the sprites. */
 
 	    reportStats(dbg);
 
@@ -311,25 +243,9 @@ public class FiechLandPanel extends JPanel implements Runnable {
 		g.setColor(Color.red);
 	    g.setFont(msgsFont);
 		g.drawString("Time: " + timeSpentInGame + " secs", 15, 25);
-	    g.drawString( player.getHitStatus(), 15, 50);     // ask the player
-	    g.drawString( world.getPickupsStatus(), 15, 75);  // ask WorldDisplay
 		g.setColor(Color.black);
 	  }  // end of reportStats()
 
-
-
-	  private void gameOverMessage(Graphics g)
-	  // Center the game-over message in the panel.
-	  {
-	    String msg = "Game Over. Your score: " + score;
-
-		int x = (PWIDTH - metrics.stringWidth(msg))/2; 
-		int y = (PHEIGHT - metrics.getHeight())/2;
-		g.setColor(Color.red);
-	    g.setFont(msgsFont);
-		g.drawString(msg, x, y);
-	    g.setColor(Color.black);
-	  }  // end of gameOverMessage()
 
 
 	  private void paintScreen()
