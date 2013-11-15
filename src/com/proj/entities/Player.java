@@ -1,5 +1,9 @@
 package com.proj.entities;
 
-public class Player {
+import com.proj.controllers.HappinessManager;
 
+public class Player {
+	private String name;
+	private HappinessManager hManager;
+	
 }
