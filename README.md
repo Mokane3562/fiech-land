@@ -1,8 +1,10 @@
 Iteration 1 Goals
 =================
-- [ ] Implement basic game logic.
-- [ ] Implement a start screen
-- [ ] Have the player initialize their 'values' for happiness
+[ ] Implement an isometric tile-based board.
+[ ] Implement a player sprite.
+[ ] Control movement of the player sprite on the board.
+[ ] Implement a start screen
+[ ] Have the player initialize their 'values' for happiness
 
 Project Approach
 ----------------
@@ -27,3 +29,31 @@ We will be using a USE CASE driven approach for the development of our game.
   1. Player can interact with territories.
 6. Player creates country in current territory.
 7. Player chooses type of government.
+
+What changed?
+-------------
++ Isometric board changed to orthogonal.
++ Did not implement start screen.
++ Did not initialize happiness values.
++ Started work on logic for creation of government.
++ Started work on determining the happiness of a player.
+
+What we Achieved
+----------------
++ Implemented an orthogonal board.
++ Implemented player sprite and animations for movement.
++ Implemented example/simple player stats.
++ Implemented multiple levels/territories and travel between them.
+
+Essential for Future Iterations:
+--------------------------------
++ [ ] Government and elections fully implemented.
++ [ ] Capturing player happiness is fully implemented.
++ [ ] Start screen/menu.
+
+Extras for Future Iterations:
+----------------------------
++ [ ] Multi-player interactions
++ [ ] NPCs
++ [ ] Items on the board to pickup
++ [ ] Trade items
