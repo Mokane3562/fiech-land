@@ -2,6 +2,7 @@ package ca.proj.game.entities;
 
 import java.util.Random;
 
+import ca.proj.game.Game;
 import ca.proj.game.gfx.Colours;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.level.Level;
@@ -190,16 +191,5 @@ public class NPC extends Mob {
 		}
 
 		return false;
-	}
-	public int castVote() {
-		Random rand = new Random();
-		int r = rand.nextInt(10);
-		if (r < 5){
-			r = 1;
-		}
-		else{
-			r = 0;
-		}
-		return r;
 	}
 }

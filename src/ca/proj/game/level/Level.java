@@ -140,4 +140,10 @@ public class Level {
 	public void removeEntity(Entity entity) {
 		this.entities.remove(entity);
 	}
+	public int getNPCVote(){
+		Random rand = new Random();
+		int r = rand.nextInt(Game.NUM_NPCS);
+		
+		return r;
+	}
 }

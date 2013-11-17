@@ -83,14 +83,7 @@ public class Player extends Mob {
 		// Hold an election
 		if (input.election.isPressed()) {
 			if (System.currentTimeMillis() - lastElectionTime > 2000) {
-				support = 0;
-				for (Entity e : level.entities) {
-					if (e instanceof NPC) {
-						if (((NPC) e).castVote() == 1) {
-							support++;
-						}
-					}
-				}
+				support = level.getNPCVote();
 				lastElectionTime = System.currentTimeMillis();
 			}
 		}
