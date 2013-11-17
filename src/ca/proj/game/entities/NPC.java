@@ -89,7 +89,7 @@ public class NPC extends Mob {
 				ya = 0;
 				xa = 0;
 			}
-			if (moveCount == 10) {
+			if (moveCount == 30) {
 				moveCount = 0;
 				stayPut = false;
 			}
