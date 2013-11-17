@@ -13,7 +13,7 @@ public class GameEvents {
 	static long lastTime;
 	static boolean playerIsIndoor = false;
 
-	// Colors vor various levels of player stats.
+	// Colors for various levels of player stats.
 	private int green = Colours.get(-1, 555, 141, 400);
 	private int blue = Colours.get(-1, 555, 115, 400);
 	private int orange = Colours.get(-1, 555, 542, 400);

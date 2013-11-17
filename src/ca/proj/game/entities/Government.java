@@ -19,16 +19,17 @@ public class Government {
 		chooseLeader(level);
 	}
 
-	public void chooseLeader(Level level) {
+	public void chooseLeader(Level level) {  // elects player with highest support to 'leader'
 		for (Entity e : level.entities) {
 			if (e instanceof Player) {
-				if (((Player)e).support > maxSupport){
+				if (((Player)e).support >= maxSupport && ((Player)e).support >= 50) {
 					leader = (Player) e;
 					maxSupport = leader.support;
 				}
 			}
 
 		}
+		System.out.println("New player chosen as leader!");
 	}
 
 }
