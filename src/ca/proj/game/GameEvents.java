@@ -12,11 +12,8 @@ public class GameEvents {
 	static Random generator = new Random();
 	static long lastTime;
 	static boolean playerIsIndoor = false;
-	private long lastShot;
-	private long Time;
-	public static boolean overItem = false;
-	public static boolean overCoin = false;
 
+	// Colors vor various levels of player stats.
 	private int green = Colours.get(-1, 555, 141, 400);
 	private int blue = Colours.get(-1, 555, 115, 400);
 	private int orange = Colours.get(-1, 555, 542, 400);
@@ -31,7 +28,9 @@ public class GameEvents {
 
 	}
 
+	// Update the HUD based on Player stats.
 	public void renderInterface(Screen screen, int x, int y) {
+		// If the player is indoors dont render the HUD
 		if (!playerIsIndoor)
 			if (playerHealth == 3) // HEALTH
 				Font.render("ccc", screen, x + 1, y,
@@ -61,37 +60,38 @@ public class GameEvents {
 			Font.render("f", screen, x + 31, y, black, 1);
 	}
 
+	// Render text to help with in-game events.
 	public void renderPlayerEvents(Screen screen, int x, int y,
 			InputHandler input, Player player, Level level) {
 
-
-		if (Player.triggeredDOOR == true) {
+		// Enter Africa
+		if (Player.triggeredAfrica == true) {
 			Font.render("ENTER-AFRICA", screen, x + 40, y + 37,
 					Colours.get(-1, 135, -1, 530), 1);
 			if (input.enter.isPressed()) {
 
 				Game.startLevel("/levels/africa.png", 505, 475);
-				playerIsIndoor = false;
 			}
 		}
-
-		if (Player.triggeredDOOR_LEAVE == true) { // FOREST/HOUSE_LEAVE
+		// Enter FiechLand
+		if (Player.triggeredFiechLand == true) {
 			Font.render("ENTER-FIECH-LAND", screen, x + 30, y + 37,
 					Colours.get(-1, 135, -1, 530), 1);
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/fiech.png", 505, 475);
-				playerIsIndoor = false;
 			}
 		}
-
-		if (Player.gettingDamage == false && playerHealth < 3) { // MEDIC
+		
+		// Regenerate health
+		if (Player.gettingDamage == false && playerHealth < 3) {
 			if (System.currentTimeMillis() >= lastTime) {
 				lastTime = System.currentTimeMillis() + 3000;
 				playerHealth++;
 			}
 		}
-
-		if (playerHealth <= 0) { // PLAYER DEAD
+		
+		// Display a message if the player dies.
+		if (playerHealth <= 0) {
 			Game.level = new Level("/levels/you_are_dead.png");
 			Font.render("Y O U  A R E", screen, 28, 30,
 					Colours.get(-1, 135, -1, 555), 2);

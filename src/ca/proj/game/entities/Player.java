@@ -1,14 +1,9 @@
 package ca.proj.game.entities;
 
-import ca.proj.game.Game;
-import ca.proj.game.GameEvents;
 import ca.proj.game.InputHandler;
-import ca.proj.game.entities.Entity.*;
 import ca.proj.game.gfx.Colours;
-import ca.proj.game.gfx.Font;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.level.Level;
-import ca.proj.game.level.tiles.Tile;
 
 public class Player extends Mob {
 	
@@ -18,8 +13,8 @@ public class Player extends Mob {
 	protected boolean isSwimming = false;
 	public static boolean gettingDamage;
 	private int tickCount;
-	public static boolean triggeredDOOR = false;
-	public static boolean triggeredDOOR_LEAVE = false;
+	public static boolean triggeredAfrica = false;
+	public static boolean triggeredFiechLand = false;
 	public static int xPos;
 	public static int yPos;
 	
@@ -77,18 +72,18 @@ public class Player extends Mob {
 		
 		//TRIGGERED DOOR_ENTER
 		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 13) {
-			triggeredDOOR = true;
+			triggeredAfrica = true;
 		}
 		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 13) {
-			triggeredDOOR = false;
+			triggeredAfrica = false;
 		}
 		
 		//TRIGGERED DOOR_LEAVE
 		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 14) {
-			triggeredDOOR_LEAVE = true;
+			triggeredFiechLand = true;
 		}
 		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 14) {
-			triggeredDOOR_LEAVE = false;
+			triggeredFiechLand = false;
 		}
 		tickCount++;
 	}
