@@ -58,7 +58,7 @@ public class GameEvents {
 			Font.render("f", screen, x + 31, y, red, 1);
 		if (food <= 0)
 			Font.render("f", screen, x + 31, y, black, 1);*/
-		Font.render(Integer.toString(Player.support), screen, x + 31, y, black, 1);
+		Font.render(Player.support + "%", screen, x + 31, y, black, 1);
 	}
 
 	// Render text to help with in-game events.

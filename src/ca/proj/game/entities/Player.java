@@ -1,5 +1,6 @@
 package ca.proj.game.entities;
 
+import ca.proj.game.Game;
 import ca.proj.game.InputHandler;
 import ca.proj.game.gfx.Colours;
 import ca.proj.game.gfx.Screen;
@@ -14,7 +15,7 @@ public class Player extends Mob {
 	public static boolean gettingDamage;
 	private int tickCount;
 	private long lastElectionTime = 0;
-	public static int support = 0;
+	public static double support = 0;
 	public static boolean triggeredAfrica = false;
 	public static boolean triggeredFiechLand = false;
 	public static int xPos;
@@ -83,7 +84,8 @@ public class Player extends Mob {
 		// Hold an election
 		if (input.election.isPressed()) {
 			if (System.currentTimeMillis() - lastElectionTime > 2000) {
-				support = level.getNPCVote();
+				support = (level.getNPCVote() / Game.NUM_NPCS) * 100;
+				System.out.println("Percentage of support: " + support);
 				lastElectionTime = System.currentTimeMillis();
 			}
 		}

@@ -70,5 +70,11 @@ public class Screen {
     	this.xOffset = xOffset;
     	this.yOffset = yOffset;
 	}
+	public int getWidth(){
+		return width;
+	}
+	public int getHeight(){
+		return height;
+	}
 }
 
