@@ -26,6 +26,7 @@ public class Game extends Canvas implements Runnable {
 	public static final int HEIGHT = WIDTH / 12 * 9;
 	public static final int SCALE = 4;
 	public static final String NAME = "Fiech Land";
+	public static final int MAX_NPCS = 100;
 
 	JFrame frame;
 	Random generator = new Random();
@@ -114,9 +115,11 @@ public class Game extends Canvas implements Runnable {
 	public static void startLevel(String levelPath, int x, int y) {
 		level = new Level(levelPath);
 		player = new Player(level, x, y, input);
-		npc = new NPC(level, x, y);
 		level.addEntity(player);
-		level.addEntity(npc);
+		for (int i = 0; i < MAX_NPCS; i++){
+			npc = new NPC(level, x, y);
+			level.addEntity(npc);
+		}
 		gameEvents = new GameEvents();
 	}
 

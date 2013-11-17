@@ -50,14 +50,15 @@ public class GameEvents {
 		if (water <= 0)
 			Font.render("w", screen, x + 24, y, black, 1);
 
-		if (food <= 100 && food > 50) // FOOD
+		/*if (food <= 100 && food > 50) // FOOD
 			Font.render("f", screen, x + 31, y, green, 1);
 		if (food <= 50 && food > 15)
 			Font.render("f", screen, x + 31, y, orange, 1);
 		if (food <= 15 && food > 0)
 			Font.render("f", screen, x + 31, y, red, 1);
 		if (food <= 0)
-			Font.render("f", screen, x + 31, y, black, 1);
+			Font.render("f", screen, x + 31, y, black, 1);*/
+		Font.render(Integer.toString(Player.support), screen, x + 31, y, black, 1);
 	}
 
 	// Render text to help with in-game events.
