@@ -26,9 +26,9 @@ public class NPC extends Mob {
 	}
 
 	public void tick() {
+		xa = 0;
+		ya = 0;
 		if (moveCount == 0) {
-			xa = 0;
-			ya = 0;
 			Random rand = new Random();
 			int r = rand.nextInt(201);
 			if (r <= 25) {
@@ -48,7 +48,7 @@ public class NPC extends Mob {
 			if (!hasCollided(xa, ya)) {
 				ya++;
 			}
-			if (moveCount == 3) {
+			if (moveCount == 10) {
 				moveCount = 0;
 				yIncr = false;
 			}
@@ -58,7 +58,7 @@ public class NPC extends Mob {
 			if (!hasCollided(xa, ya)) {
 				ya--;
 			}
-			if (moveCount == 3) {
+			if (moveCount == 10) {
 				moveCount = 0;
 				yDecr = false;
 			}
@@ -68,7 +68,7 @@ public class NPC extends Mob {
 			if (!hasCollided(xa, ya)) {
 				xa++;
 			}
-			if (moveCount == 3) {
+			if (moveCount == 10) {
 				moveCount = 0;
 				xIncr = false;
 			}
@@ -78,7 +78,7 @@ public class NPC extends Mob {
 			if (!hasCollided(xa, ya)) {
 				xa--;
 			}
-			if (moveCount == 3) {
+			if (moveCount == 10) {
 				moveCount = 0;
 				xDecr = false;
 			}
@@ -89,7 +89,7 @@ public class NPC extends Mob {
 				ya = 0;
 				xa = 0;
 			}
-			if (moveCount == 3) {
+			if (moveCount == 10) {
 				moveCount = 0;
 				stayPut = false;
 			}
