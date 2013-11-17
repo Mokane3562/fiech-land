@@ -13,214 +13,266 @@ import javax.swing.JFrame;
 
 import ca.proj.game.entities.Player;
 import ca.proj.game.gfx.Colours;
-import ca.proj.game.gfx.Menu;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.gfx.SpriteSheet;
 import ca.proj.game.level.Level;
-
 
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 
 	public static final int WIDTH = 160;
-	public static final int HEIGHT = WIDTH/12*9;
+	public static final int HEIGHT = WIDTH / 12 * 9;
 	public static final int SCALE = 4;
-	public static final String NAME = "Game";
-	
+	public static final String NAME = "Fiech Land";
+
 	JFrame frame;
 	Random generator = new Random();
-	
+
 	public boolean running = false;
 	public int tickCount = 0;
 	long lastTime;
+	// These act as the camera that follows the player
 	public static int xOffset;
 	public static int yOffset;
-	
-	private BufferedImage image = new BufferedImage(WIDTH,HEIGHT, BufferedImage.TYPE_INT_RGB);
-	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
-	private int[] colours = new int[6*6*6];
-	
+
+	// We fill the image with pixels later.
+	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
+			BufferedImage.TYPE_INT_RGB);
+	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer())
+			.getData();
+	// We can have up to 6^3 colors in our game
+	private int[] colours = new int[6 * 6 * 6];
+
 	private Screen screen;
+	// Handles keyboard inputs
 	public static InputHandler input;
+	// Each level is a "territory"
 	public static Level level;
+	// Handles different events that may happen in game, such as entering another territory.
 	public static GameEvents gameEvents;
-	
-	//ENTITIES
+
+	// ENTITIES
 	public static Player player;
-	
+
+	/**
+	 * Create the game and set properties for the window.
+	 */
 	public Game() {
-		setMinimumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-		setMaximumSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-		setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
-		
+		setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+		setMaximumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+
 		frame = new JFrame(NAME);
-		
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
-		
+
 		frame.add(this, BorderLayout.CENTER);
 		frame.pack();
-		
-		
+
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
+
 	}
-	
+
+	/**
+	 * Initialize the values we will use for color.
+	 */
 	public void init() {
+		//Fills th array with values that we can use as colors.
 		int index = 0;
-		for (int r = 0; r<6; r++) {
-			for (int g = 0; g<6; g++) {
-				for (int b = 0; b<6; b++) {
-					int rr = (r*255/5);
-					int gg = (g*255/5);
-					int bb = (b*255/5);
-					
+		for (int r = 0; r < 6; r++) {
+			for (int g = 0; g < 6; g++) {
+				for (int b = 0; b < 6; b++) {
+					int rr = (r * 255 / 5);
+					int gg = (g * 255 / 5);
+					int bb = (b * 255 / 5);
+
 					colours[index++] = rr << 16 | gg << 8 | bb;
+				}
 			}
 		}
+		// Tell the screen about the sprite sheet so it knows where to get the images to load.
+		screen = new Screen(WIDTH, HEIGHT, new SpriteSheet("/sprite_sheet.png"));
+		// Tell the input handler to manage our game.
+		input = new InputHandler(this);
+		// Start the default level in the game.
+		startLevel("/levels/africa.png", 390, 390);
+		addEntities();
 	}
-		
-		screen = new Screen(WIDTH, HEIGHT, new SpriteSheet("/sprite_sheet.png"));  // MAP; PLAYER; SHEEP
-	    input = new InputHandler(this);
-	    startLevel("/levels/africa.png", 390, 390);
-	    addEntities();
-    }
-	
+	/**
+	 * Start the level and add the player, and GameEvent manager.
+	 * 
+	 * @param levelPath
+	 * @param x
+	 * @param y
+	 */
 	public static void startLevel(String levelPath, int x, int y) {
-		level = new Level(levelPath);    
+		level = new Level(levelPath);
 		player = new Player(level, x, y, input);
 		level.addEntity(player);
 		gameEvents = new GameEvents();
 	}
-	
+
+	/**
+	 * Add any oter enties to the level.
+	 */
 	public void addEntities() {
-		
+
 	}
-	
-	public static void startIndoorLevel(String levelPath, int x, int y){
-		level = new Level(levelPath);    
-		Player player = new Player(level, x, y, input);
+
+	/**
+	 * Starts a level where the player keeps their stats and enters a new level.
+	 * 
+	 * @param levelPath
+	 * @param x
+	 * @param y
+	 */
+	public static void startOtherLevel(String levelPath, int x, int y) {
+		level = new Level(levelPath);
 		level.addEntity(player);
 	}
-	
+
+	/**
+	 * Start the thread for the game
+	 */
 	public synchronized void start() {
-    	running = true;
-    	Menu.running = true;
-    	new Thread(this).start();
-    }
-    
-    public synchronized void stop() {
-    	running = false;
-    	Menu.running = true;
+		running = true;
+		new Thread(this).start();
 	}
-    
-    public void close() {
-    	frame.dispose();
-    }
-	
+
+	/**
+	 * Stop the game thread.
+	 */
+	public synchronized void stop() {
+		running = false;
+	}
+
+	/**
+	 * Close the window.
+	 */
+	public void close() {
+		frame.dispose();
+	}
+
+	/**
+	 * Game implements runnable. A class that implements Runnable can run 
+	 * without subclassing Thread by instantiating a Thread instance and 
+	 * passing itself in as the target.
+	 */
 	public void run() {
 		long lastTime = System.nanoTime();
-		double nsPerTick = 1000000000/60D;
-		
+		// 1 second
+		double nsPerTick = 1000000000D / 60D;
+
 		int ticks = 0;
 		int frames = 0;
-		
+
 		long lastTimer = System.currentTimeMillis();
 		double delta = 0;
-		
+
 		init();
-		
-		while(running) {
+
+		while (running) {
 			long now = System.nanoTime();
-			delta += (now - lastTime)/nsPerTick;
+			delta += (now - lastTime) / nsPerTick;
 			lastTime = now;
 			boolean shouldRender = true;
-			
-			while(delta >= 1) {
-			ticks++;
-			tick();
-			delta -=1;
-			shouldRender = true;
-		}
-          try {
-	        Thread.sleep(2);
-        } 
-          catch (InterruptedException e) {
-	
-	        e.printStackTrace();
-        }
-			if (shouldRender) {
-			frames++;
-			render();
+			// Limit the amount of times we update the game.
+			while (delta >= 1) {
+				ticks++;
+				tick();
+				delta -= 1;
+				shouldRender = true;
 			}
-			
+			try {
+				Thread.sleep(2);
+			} catch (InterruptedException e) {
+
+				e.printStackTrace();
+			}
+			if (shouldRender) {
+				frames++;
+				render();
+			}
+			// USed to debug and determine if the game is updating.
+			// Game should run at ~60 frames, and 60 updates per second
 			if (System.currentTimeMillis() - lastTimer >= 1000) {
 				lastTimer += 1000;
-				System.out.println(""+ticks+ " ticks, "+frames+ " frames");
+				System.out
+						.println("" + ticks + " ticks, " + frames + " frames");
 				frames = 0;
-			    ticks = 0;
+				ticks = 0;
 			}
 		}
 	}
 	
-	
-	public void tick(){
+	/**
+	 * Keeps game logic in sync with rendering.
+	 */
+	public void tick() {
 		tickCount++;
 		level.tick();
 	}
-	
-	
-	public void render(){
+
+	/**
+	 * Render the tiles on the board, the player, etc
+	 */
+	public void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3);
 			return;
 		}
-		
-		xOffset = player.x - (screen.width/2);
-		yOffset = player.y - (screen.height/2);
-		
+
+		//Set the "camera" position
+		xOffset = player.x - (screen.width / 2);
+		yOffset = player.y - (screen.height / 2);
+
+		//Render the tiles first.
 		level.renderTiles(screen, xOffset, yOffset);
-		
-		for(int x = 0; x <level.width; x++) {
+
+		for (int x = 0; x < level.width; x++) {
 			int colour = Colours.get(-1, -1, -1, 000);
 			if (x % 10 == 0 && x != 0) {
-			colour = Colours.get(-1, -1, -1, 500);
+				colour = Colours.get(-1, -1, -1, 500);
 			}
-			
-		}
-		
-		level.renderEntities(screen); //ENTITIES
-		
-		gameEvents.renderInterface(screen, xOffset, yOffset);
-	    gameEvents.renderPlayerEvents(screen, xOffset, yOffset, input, player, level);
-	 
 
-		
-		
+		}
+		//Render any objects or other entities to the screen.
+		level.renderEntities(screen); // ENTITIES
+
+		//Render the player stats HUD
+		gameEvents.renderInterface(screen, xOffset, yOffset);
+		//Show messages about events in the game, ie enter a territory.
+		gameEvents.renderPlayerEvents(screen, xOffset, yOffset, input, player,
+				level);
+
 		for (int y = 0; y < screen.height; y++) {
 			for (int x = 0; x < screen.width; x++) {
-				int colourCode = screen.pixels[x+y * screen.width];
-				if (colourCode < 255) pixels [x + y * WIDTH] = colours[colourCode]; 
-				
+				int colourCode = screen.pixels[x + y * screen.width];
+				if (colourCode < 255)
+					pixels[x + y * WIDTH] = colours[colourCode];
+
 			}
 		}
-		
+
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		
+
 		g.dispose();
 		bs.show();
-		
+
 	}
-	
+
+	/**
+	 * Start the game when this file is run.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		new Game().start();
 	}
-
-	
 
 }

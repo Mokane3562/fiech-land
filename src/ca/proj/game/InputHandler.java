@@ -1,9 +1,8 @@
 package ca.proj.game;
 
+import java.awt.Menu;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import ca.proj.game.gfx.Menu;
 
 
 public class InputHandler implements KeyListener {
@@ -94,8 +93,8 @@ public class InputHandler implements KeyListener {
 		if(keyCode == KeyEvent.VK_R) { 
 			Game.startLevel("/levels/level_1.png", 390, 390);}
 		//MENU / ESCAPE
-		if(keyCode == KeyEvent.VK_ESCAPE) { 
-			Menu.main(null);}
+		//if(keyCode == KeyEvent.VK_ESCAPE) { 
+		//	Menu.main(null);}
 		
 		
 	}
