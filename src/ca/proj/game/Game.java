@@ -11,6 +11,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
+import ca.proj.game.entities.NPC;
 import ca.proj.game.entities.Player;
 import ca.proj.game.gfx.Colours;
 import ca.proj.game.gfx.Screen;
@@ -54,6 +55,7 @@ public class Game extends Canvas implements Runnable {
 
 	// ENTITIES
 	public static Player player;
+	public static NPC npc;
 
 	/**
 	 * Create the game and set properties for the window.
@@ -112,12 +114,14 @@ public class Game extends Canvas implements Runnable {
 	public static void startLevel(String levelPath, int x, int y) {
 		level = new Level(levelPath);
 		player = new Player(level, x, y, input);
+		npc = new NPC(level, x, y);
 		level.addEntity(player);
+		level.addEntity(npc);
 		gameEvents = new GameEvents();
 	}
 
 	/**
-	 * Add any oter enties to the level.
+	 * Add any other entities to the level.
 	 */
 	public void addEntities() {
 

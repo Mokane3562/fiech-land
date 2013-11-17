@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 
 import ca.proj.game.Game;
 import ca.proj.game.entities.Entity;
+import ca.proj.game.entities.NPC;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.level.tiles.Tile;
 
@@ -128,25 +129,15 @@ public class Level {
 		return Tile.tiles[tiles[x + y * width]];
 	}
 	
+	public void addNPC(List<NPC> npcs) {
+		this.entities.addAll(npcs);
+	}
+	
 	public void addEntity(Entity entity) {
 		this.entities.add(entity);
 	}
 	
 	public void removeEntity(Entity entity) {
 		this.entities.remove(entity);
-	}
-	
-	public static void generateForest() {
-		Game.startLevel("/levels/forest.png", 15, 15);
-		for (int y = 0; y < height; y++) {
-			int randomForest = generator.nextInt(10) + 7;
-			for (int x = 0; x < width; x++) {
-				if (x * y % 10 < randomForest) {
-			    tiles[x + y * width] = Tile.GRASS.getId();
-				//} else {
-					tiles[randomForest + y * width] = Tile.STONE.getId();
-				}
-			}
-		}
 	}
 }
