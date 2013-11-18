@@ -49,8 +49,7 @@ public class Menu extends JFrame {
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				new TerritoryMenu("Choose a Territory");
-				closeMenu();
+				jButton2_ActionPerformed(evt);
 			}
 		});
 		jButton1.setBackground(Color.WHITE);
@@ -88,7 +87,17 @@ public class Menu extends JFrame {
 
 		setVisible(true);
 	}
-
+	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+		if (running == false) {
+			new TerritoryMenu("Choose a Territory");
+			closeMenu();
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please restart the application to start a new game!",
+				    "Already Running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}
+	}
 	public void jButton2_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
 		if (running == false) {
 			JOptionPane.showMessageDialog(this, "No game running!",
