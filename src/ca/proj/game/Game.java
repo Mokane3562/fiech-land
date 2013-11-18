@@ -63,10 +63,13 @@ public class Game extends Canvas implements Runnable {
 	public static Player player;
 	public static NPC npc;
 
+	private String initialLevel = "/levels/fiech.png";
 	/**
 	 * Create the game and set properties for the window.
+	 * @param initialLevel 
 	 */
-	public Game() {
+	public Game(String initialLevel) {
+		this.initialLevel = initialLevel;
 		setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setMaximumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -108,7 +111,7 @@ public class Game extends Canvas implements Runnable {
 		// Tell the input handler to manage our game.
 		input = new InputHandler(this);
 		// Start the default level in the game.
-		startLevel("/levels/africa.png", 390, 390);
+		startLevel(initialLevel, 390, 390);
 		addEntities();
 	}
 
