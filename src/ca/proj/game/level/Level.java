@@ -11,7 +11,10 @@ import javax.imageio.ImageIO;
 
 import ca.proj.game.Game;
 import ca.proj.game.entities.Entity;
+import ca.proj.game.entities.Government;
+import ca.proj.game.entities.Government.Gov_Type;
 import ca.proj.game.entities.NPC;
+import ca.proj.game.entities.Player;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.level.tiles.Tile;
 
@@ -25,7 +28,9 @@ public class Level {
 	private BufferedImage image;
 	public boolean getTileId;
 	static Random generator = new Random();
-
+	private static Government government = null;
+	private static Gov_Type DEMOCRACY;
+	
 	public Level(String imagePath) {
 		if (imagePath != null) {
 			this.imagePath = imagePath;
@@ -136,5 +141,22 @@ public class Level {
 		int r = rand.nextInt(Game.NUM_NPCS);
 
 		return r;
+	}
+	public void startDemocraticGovernment(){
+		government = new Government(DEMOCRACY, this);
+	}
+
+	/**
+	 * @return the government
+	 */
+	public Government getGovernment() {
+		return government;
+	}
+
+	/**
+	 * @param government the government to set
+	 */
+	public void setGovernment(Government government) {
+		this.government = government;
 	}
 }

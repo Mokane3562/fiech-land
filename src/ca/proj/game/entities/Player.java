@@ -22,7 +22,7 @@ public class Player extends Mob {
 	public static int yPos;
 
 	public Player(Level level, int x, int y, InputHandler input) {
-		super(level, "Player", x, y, 1);
+		super(level, "PLAYER", x, y, 1);
 		this.input = input;
 	}
 

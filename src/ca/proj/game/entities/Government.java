@@ -31,5 +31,8 @@ public class Government {
 		}
 		System.out.println(">> New player chosen as leader!");
 	}
+	public String getLeaderName(){
+		return leader.name;
+	}
 
 }

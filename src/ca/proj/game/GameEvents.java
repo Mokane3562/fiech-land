@@ -11,8 +11,6 @@ import ca.proj.game.level.Level;
 
 public class GameEvents {
 	static Random generator = new Random();
-	static long lastTime;
-	static boolean playerIsIndoor = false;
 
 	// Colors for various levels of player stats.
 	private int green = Colours.get(-1, 555, 141, 400);
@@ -21,20 +19,25 @@ public class GameEvents {
 	private int red = Colours.get(-1, 555, 500, 400);
 	private int black = Colours.get(-1, 555, 000, 400);
 
-	private int playerHealth = 3;
-	private int water = 100;
-	private int food = 100;
-
 	public GameEvents() {
 
 	}
 
 	// Update the HUD based on Player stats.
 	public void renderInterface(Screen screen, int x, int y) {
-		
-		double playerSupp=Player.support; // format playerSupp to 2 decimal places
-		DecimalFormat df=new DecimalFormat("##.##");
-		Font.render(df.format(playerSupp) + "%", screen, x + 31, y, black, 1);  // support percent displayed in-game
+
+		double playerSupp = Player.support; // format playerSupp to 2 decimal
+											// places
+		DecimalFormat df = new DecimalFormat("##.##");
+		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, black, 1); // support
+																				// percent
+																				// displayed
+																				// in-game
+		if (Game.level.getGovernment() != null) {
+
+			Font.render(Game.level.getGovernment().getLeaderName(), screen, x,
+					y, orange, 1);
+		}
 	}
 
 	// Render text to help with in-game events.
@@ -57,21 +60,6 @@ public class GameEvents {
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/fiech.png", 505, 475);
 			}
-		}
-		
-		// Regenerate health
-		if (Player.gettingDamage == false && playerHealth < 3) {
-			if (System.currentTimeMillis() >= lastTime) {
-				lastTime = System.currentTimeMillis() + 3000;
-				playerHealth++;
-			}
-		}
-		
-		// Display a message if the player dies.
-		if (playerHealth <= 0) {
-			Game.level = new Level("/levels/you_are_dead.png");
-			Font.render("Y O U  A R E", screen, 28, 30,
-					Colours.get(-1, 135, -1, 555), 2);
 		}
 
 	}

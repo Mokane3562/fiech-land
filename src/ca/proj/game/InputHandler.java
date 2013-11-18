@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import ca.proj.game.menus.Menu;
+import ca.proj.game.level.Level;
 
 public class InputHandler implements KeyListener {
 	public static int lookDir;
@@ -41,7 +42,7 @@ public class InputHandler implements KeyListener {
 	// Hold Election
 	public Key election = new Key();
 	// Bring up the
-	public Key govAction = new Key();
+	public Key startGovernment = new Key();
 
 	public void keyPressed(KeyEvent e) {
 		toggleKey(e.getKeyCode(), true);
@@ -94,6 +95,13 @@ public class InputHandler implements KeyListener {
 		// Hold an election
 		if (keyCode == KeyEvent.VK_E) {
 			election.toggle(isPressed);
+		}
+		// Hold an election
+		if (keyCode == KeyEvent.VK_G) {
+			//startGovernment.toggle(isPressed);
+			if(Game.player.support > 50){
+				Game.level.startDemocraticGovernment();
+			}
 		}
 		// MENU / ESCAPE
 		if (keyCode == KeyEvent.VK_ESCAPE) {
