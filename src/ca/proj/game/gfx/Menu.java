@@ -20,15 +20,10 @@ import ca.proj.game.Game;
 public class Menu extends JFrame {
 
 	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
 	public static boolean enterLevel;
-	public static boolean enterDungeonForest;
-	public static boolean credtis;
 	public static boolean running = false;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
-	private int credits = 0;
 
 	public Menu(String title) {
 
@@ -46,7 +41,7 @@ public class Menu extends JFrame {
 		cp.setLayout(null);
 
 		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Start new Level");
+		jButton1.setText("Start New Game");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
