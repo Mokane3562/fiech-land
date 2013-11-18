@@ -1,7 +1,6 @@
-package ca.proj.game.gfx;
+package ca.proj.game.menus;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -14,6 +13,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
@@ -21,11 +21,12 @@ import ca.proj.game.Game;
 @SuppressWarnings("serial")
 public class TerritoryMenu extends JFrame {
 	private JButton jButton1 = new JButton();
-	public static boolean running = false;
+	private JButton jButton2 = new JButton();
+	private JButton jButton3 = new JButton();
+	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
-	private JButton jButton2 = new JButton();
-
+	private boolean running = Game.isRunning();
 	public TerritoryMenu(String title) {
 
 		super(title);
@@ -65,6 +66,20 @@ public class TerritoryMenu extends JFrame {
 	    jButton2.setBackground(Color.WHITE);
 	    jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
 	    cp.add(jButton2);
+	    
+	    jButton3.setBounds(168, 256, 305, 57);
+	    jButton3.setText("Return to Main Menu");
+	    jButton3.setMargin(new Insets(2, 2, 2, 2));
+	    jButton3.addActionListener(new ActionListener() { 
+	      public void actionPerformed(ActionEvent evt) { 
+	    	  new Menu("Menu");
+	    	  closeMenu();
+	      }
+	    });
+	    jButton3.setBackground(Color.WHITE);
+	    jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
+	    cp.add(jButton3);
+	    
 		cp.setBackground(new Color(0xFFC800));
 
 		setVisible(true);
@@ -76,7 +91,10 @@ public class TerritoryMenu extends JFrame {
 			g.start();
 			closeMenu();
 		} else {
-			System.out.println("Already running!");
+			JOptionPane.showMessageDialog(this,
+				    "Please restart the application to start a new game!",
+				    "Already Running!",
+				    JOptionPane.WARNING_MESSAGE);
 		}
 	}
 	
@@ -86,7 +104,10 @@ public class TerritoryMenu extends JFrame {
 			g.start();
 			closeMenu();
 		} else {
-			System.out.println("Already running!");
+			JOptionPane.showMessageDialog(this,
+				    "Please restart the application to start a new game!",
+				    "Already Running!",
+				    JOptionPane.WARNING_MESSAGE);
 		}
 	}
 

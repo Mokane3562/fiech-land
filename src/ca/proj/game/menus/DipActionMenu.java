@@ -1,4 +1,4 @@
-package ca.proj.game.gfx;
+package ca.proj.game.menus;
 
 import java.awt.Color;
 import java.awt.Container;

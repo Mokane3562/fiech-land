@@ -1,4 +1,4 @@
-package ca.proj.game.gfx;
+package ca.proj.game.menus;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -17,7 +17,7 @@ import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
 
-public class GovActionMenu extends JFrame {
+public class MilActionMenu extends JFrame {
 
 	private JButton jButton1 = new JButton();
 	private JButton jButton2 = new JButton();
@@ -29,7 +29,7 @@ public class GovActionMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
-	public GovActionMenu(String title) {
+	public MilActionMenu(String title) {
 
 		super(title);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -44,9 +44,9 @@ public class GovActionMenu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		//Military Action Button
+		//First Military Action Button
 		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Military Action");
+		jButton1.setText("Troop Skirmish");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -61,9 +61,9 @@ public class GovActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Diplomatic Action Button
+		//Second Military Action Button
 		jButton2.setBounds(168, 80, 305, 57);
-		jButton2.setText("Diplomatic Action");
+		jButton2.setText("Border Defense");
 		jButton2.setMargin(new Insets(2, 2, 2, 2));
 		jButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -78,9 +78,9 @@ public class GovActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Resource Action Button
+		//Third Military Action Button
 		jButton3.setBounds(168, 80, 305, 57);
-		jButton3.setText("Resource Action");
+		jButton3.setText("Border Patrol");
 		jButton3.setMargin(new Insets(2, 2, 2, 2));
 		jButton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -95,9 +95,9 @@ public class GovActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Trade Action Button
+		//Fourth Military Action Button
 		jButton4.setBounds(168, 80, 305, 57);
-		jButton4.setText("Trade Action");
+		jButton4.setText("Secret Operations");
 		jButton4.setMargin(new Insets(2, 2, 2, 2));
 		jButton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -112,9 +112,9 @@ public class GovActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Exit Menu Button
+		//Main Menu Button
 		jButton5.setBounds(168, 80, 305, 57);
-		jButton5.setText("Exit Menu");
+		jButton5.setText("Back to the Main Menu");
 		jButton5.setMargin(new Insets(2, 2, 2, 2));
 		jButton5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

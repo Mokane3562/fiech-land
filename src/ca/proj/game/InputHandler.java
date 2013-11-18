@@ -3,7 +3,7 @@ package ca.proj.game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import ca.proj.game.gfx.Menu;
+import ca.proj.game.menus.Menu;
 
 public class InputHandler implements KeyListener {
 	public static int lookDir;

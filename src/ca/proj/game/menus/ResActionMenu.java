@@ -1,4 +1,4 @@
-package ca.proj.game.gfx;
+package ca.proj.game.menus;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -17,7 +17,7 @@ import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
 
-public class MilActionMenu extends JFrame {
+public class ResActionMenu extends JFrame {
 
 	private JButton jButton1 = new JButton();
 	private JButton jButton2 = new JButton();
@@ -29,7 +29,7 @@ public class MilActionMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
-	public MilActionMenu(String title) {
+	public ResActionMenu(String title) {
 
 		super(title);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -44,9 +44,9 @@ public class MilActionMenu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		//First Military Action Button
+		//First Resource Action Button
 		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Troop Skirmish");
+		jButton1.setText("Look for Oil");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -61,9 +61,9 @@ public class MilActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Second Military Action Button
+		//Second Resource Action Button
 		jButton2.setBounds(168, 80, 305, 57);
-		jButton2.setText("Border Defense");
+		jButton2.setText("Harvest Renewable Resources");
 		jButton2.setMargin(new Insets(2, 2, 2, 2));
 		jButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -78,9 +78,9 @@ public class MilActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Third Military Action Button
+		//Third Resource Action Button
 		jButton3.setBounds(168, 80, 305, 57);
-		jButton3.setText("Border Patrol");
+		jButton3.setText("Harvest Non-Renewable Resources");
 		jButton3.setMargin(new Insets(2, 2, 2, 2));
 		jButton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -95,9 +95,9 @@ public class MilActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Fourth Military Action Button
+		//Fourth Resource Action Button
 		jButton4.setBounds(168, 80, 305, 57);
-		jButton4.setText("Secret Operations");
+		jButton4.setText("Look for Gold");
 		jButton4.setMargin(new Insets(2, 2, 2, 2));
 		jButton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

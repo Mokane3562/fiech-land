@@ -34,7 +34,7 @@ public class Game extends Canvas implements Runnable {
 	JFrame frame;
 	Random generator = new Random();
 
-	public boolean running = false;
+	public static boolean running = false;
 	public int tickCount = 0;
 	long lastTime;
 	// These act as the camera that follows the player
@@ -289,6 +289,11 @@ public class Game extends Canvas implements Runnable {
 	}
 	public static void quit(){
 		System.exit(1);
+	}
+
+	public static boolean isRunning() {
+		// TODO Auto-generated method stub
+		return running;
 	}
 
 }
