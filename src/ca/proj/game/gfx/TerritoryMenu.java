@@ -21,7 +21,6 @@ import ca.proj.game.Game;
 public class TerritoryMenu extends JFrame {
 
 	private JButton jButton1 = new JButton();
-	public static boolean enterLevel;
 	public static boolean running = false;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);

@@ -22,7 +22,6 @@ public class Menu extends JFrame {
 	private JButton jButton1 = new JButton();
 	private JButton jButton2 = new JButton();
 	private JButton jButton3 = new JButton();
-	public static boolean enterLevel;
 	public static boolean running = false;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
