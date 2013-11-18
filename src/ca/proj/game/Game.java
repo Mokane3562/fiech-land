@@ -3,6 +3,7 @@ package ca.proj.game;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -10,6 +11,7 @@ import java.awt.image.DataBufferInt;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JSlider;
 
 import ca.proj.game.entities.NPC;
 import ca.proj.game.entities.Player;
@@ -47,11 +49,14 @@ public class Game extends Canvas implements Runnable {
 	private int[] colours = new int[6 * 6 * 6];
 
 	private Screen screen;
+
+	private JSlider framesPerSecond;
 	// Handles keyboard inputs
 	public static InputHandler input;
 	// Each level is a "territory"
 	public static Level level;
-	// Handles different events that may happen in game, such as entering another territory.
+	// Handles different events that may happen in game, such as entering
+	// another territory.
 	public static GameEvents gameEvents;
 
 	// ENTITIES
@@ -84,7 +89,7 @@ public class Game extends Canvas implements Runnable {
 	 * Initialize the values we will use for color.
 	 */
 	public void init() {
-		//Fills th array with values that we can use as colors.
+		// Fills th array with values that we can use as colors.
 		int index = 0;
 		for (int r = 0; r < 6; r++) {
 			for (int g = 0; g < 6; g++) {
@@ -97,7 +102,8 @@ public class Game extends Canvas implements Runnable {
 				}
 			}
 		}
-		// Tell the screen about the sprite sheet so it knows where to get the images to load.
+		// Tell the screen about the sprite sheet so it knows where to get the
+		// images to load.
 		screen = new Screen(WIDTH, HEIGHT, new SpriteSheet("/sprite_sheet.png"));
 		// Tell the input handler to manage our game.
 		input = new InputHandler(this);
@@ -105,6 +111,7 @@ public class Game extends Canvas implements Runnable {
 		startLevel("/levels/africa.png", 390, 390);
 		addEntities();
 	}
+
 	/**
 	 * Start the level and add the player, and GameEvent manager.
 	 * 
@@ -115,10 +122,12 @@ public class Game extends Canvas implements Runnable {
 	public static void startLevel(String levelPath, int x, int y) {
 		Random rand = new Random();
 		level = new Level(levelPath);
-		player = new Player(level,(level.width >> 3) * SCALE, 511, input);
+		player = new Player(level, (level.width >> 3) * SCALE, 511, input);
 		level.addEntity(player);
-		for (int i = 0; i < NUM_NPCS; i++){
-			npc = new NPC(level, rand.nextInt((level.tiles.length/SCALE) - 8), rand.nextInt((level.tiles.length/SCALE) - 8));
+		for (int i = 0; i < NUM_NPCS; i++) {
+			npc = new NPC(level,
+					rand.nextInt((level.tiles.length / SCALE) - 8),
+					rand.nextInt((level.tiles.length / SCALE) - 8));
 			level.addEntity(npc);
 		}
 		gameEvents = new GameEvents();
@@ -149,6 +158,7 @@ public class Game extends Canvas implements Runnable {
 	public synchronized void start() {
 		running = true;
 		new Thread(this).start();
+
 	}
 
 	/**
@@ -166,9 +176,9 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	/**
-	 * Game implements runnable. A class that implements Runnable can run 
-	 * without subclassing Thread by instantiating a Thread instance and 
-	 * passing itself in as the target.
+	 * Game implements runnable. A class that implements Runnable can run
+	 * without subclassing Thread by instantiating a Thread instance and passing
+	 * itself in as the target.
 	 */
 	public void run() {
 		long lastTime = System.nanoTime();
@@ -216,7 +226,7 @@ public class Game extends Canvas implements Runnable {
 			}
 		}
 	}
-	
+
 	/**
 	 * Keeps game logic in sync with rendering.
 	 */
@@ -235,11 +245,11 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 
-		//Set the "camera" position
+		// Set the "camera" position
 		xOffset = player.x - (screen.width / 2);
 		yOffset = player.y - (screen.height / 2);
 
-		//Render the tiles first.
+		// Render the tiles first.
 		level.renderTiles(screen, xOffset, yOffset);
 
 		for (int x = 0; x < level.width; x++) {
@@ -249,12 +259,12 @@ public class Game extends Canvas implements Runnable {
 			}
 
 		}
-		//Render any objects or other entities to the screen.
+		// Render any objects or other entities to the screen.
 		level.renderEntities(screen); // ENTITIES
 
-		//Render the player stats HUD
+		// Render the player stats HUD
 		gameEvents.renderInterface(screen, xOffset, yOffset);
-		//Show messages about events in the game, ie enter a territory.
+		// Show messages about events in the game, ie enter a territory.
 		gameEvents.renderPlayerEvents(screen, xOffset, yOffset, input, player,
 				level);
 
@@ -273,14 +283,6 @@ public class Game extends Canvas implements Runnable {
 		g.dispose();
 		bs.show();
 
-	}
-
-	/**
-	 * Start the game when this file is run.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new Game().start();
 	}
 
 }
