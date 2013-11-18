@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -24,8 +25,7 @@ public class GovActionMenu extends JFrame {
 	private JButton jButton3 = new JButton();
 	private JButton jButton4 = new JButton();
 	private JButton jButton5 = new JButton();
-	public static boolean enterLevel;
-	public static boolean running = false;
+	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
@@ -130,13 +130,29 @@ public class GovActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		if (running == false) {
-			//new Game().start();
-			closeMenu();
-		} else {
-			System.out.println("Already running!");
-		}
+	// First Government Action
+	public void jButton1_ActionPerformed(ActionEvent evt) { 
+			
+	}
+		
+	// Second Government Action
+	public void jButton2_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Third Government Action
+	public void jButton3_ActionPerformed(ActionEvent evt) { 
+				
+	}
+
+	// Fourth Government Action
+	public void jButton4_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Exit Menu Action
+	public void jButton5_ActionPerformed(ActionEvent evt) { 
+				
 	}
 
 	public void closeMenu() {

@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -24,8 +25,16 @@ public class TradeActionMenu extends JFrame {
 	private JButton jButton3 = new JButton();
 	private JButton jButton4 = new JButton();
 	private JButton jButton5 = new JButton();
-	public static boolean enterLevel;
-	public static boolean running = false;
+	
+	//Random number generator
+	static Random tradeGen = new Random();
+	
+	//Holds random number
+	private double r;
+	
+	//Value to be added to Happiness
+	private double h;
+	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
@@ -130,13 +139,54 @@ public class TradeActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		if (running == false) {
-			//new Game().start();
-			closeMenu();
-		} else {
-			System.out.println("Already running!");
+	// First Trade Action
+	public void jButton1_ActionPerformed(ActionEvent evt) { 
+		r = tradeGen.nextInt(100);
+		if (r<=50.00){
+			//h=tradeFocus*15;
+			System.out.println("You have gained" + h + "happiness points.");
 		}
+		else
+			System.out.println("Action failed. No happiness gained");
+			
+	}
+		
+	// Second Trade Action
+	public void jButton2_ActionPerformed(ActionEvent evt) { 
+		r = tradeGen.nextInt(100);
+		if (r<=75.00){
+			//h=tradeFocus*5;
+			System.out.println("You have gained" + h + "happiness points.");
+		}
+		else
+			System.out.println("Action failed. No happiness gained");
+	}
+		
+	// Third Trade Action
+	public void jButton3_ActionPerformed(ActionEvent evt) { 
+		r = tradeGen.nextInt(100);
+		if (r<=60.00){
+			//h=tradeFocus*10;
+			System.out.println("You have gained" + h + "happiness points.");
+		}
+		else
+			System.out.println("Action failed. No happiness gained");		
+	}
+
+	// Fourth Trade Action
+	public void jButton4_ActionPerformed(ActionEvent evt) { 
+		r = tradeGen.nextInt(100);
+		if (r<=25.00){
+			//h=tradeFocus*25;
+			System.out.println("You have gained" + h + "happiness points.");
+		}
+		else
+			System.out.println("Action failed. No happiness gained");		
+	}
+		
+	// Main Menu Action
+	public void jButton5_ActionPerformed(ActionEvent evt) { 
+				//Back to GovActionMenu
 	}
 
 	public void closeMenu() {
