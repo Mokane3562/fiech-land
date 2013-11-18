@@ -32,9 +32,6 @@ public class InputHandler implements KeyListener {
 
 	// ACTIONS
 	public Key coords = new Key();
-
-	public Key eins = new Key();
-	public Key zwei = new Key();
 	// DOOR
 	public Key enter = new Key();
 	// PICK UP
@@ -93,10 +90,6 @@ public class InputHandler implements KeyListener {
 		// INVESTIGATE
 		if (keyCode == KeyEvent.VK_I) {
 			investigate.toggle(isPressed);
-		}
-		// RESET LEVEL
-		if (keyCode == KeyEvent.VK_R) {
-			Game.startLevel("/levels/level_1.png", 390, 390);
 		}
 		// Hold an election
 		if (keyCode == KeyEvent.VK_E) {

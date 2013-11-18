@@ -116,9 +116,5 @@ public class TerritoryMenu extends JFrame {
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
 	}
 
-	public static void main(String[] args) {
-		new Menu("Menu");
-	}
-
 }
 
