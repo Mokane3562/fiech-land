@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -24,8 +25,7 @@ public class GovActionMenu extends JFrame {
 	private JButton jButton3 = new JButton();
 	private JButton jButton4 = new JButton();
 	private JButton jButton5 = new JButton();
-	public static boolean enterLevel;
-	public static boolean running = false;
+	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
