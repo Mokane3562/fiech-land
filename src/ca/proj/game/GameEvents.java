@@ -31,34 +31,7 @@ public class GameEvents {
 
 	// Update the HUD based on Player stats.
 	public void renderInterface(Screen screen, int x, int y) {
-		// If the player is indoors dont render the HUD
-		if (!playerIsIndoor)
-			if (playerHealth == 3) // HEALTH
-				Font.render("ccc", screen, x + 1, y,
-						Colours.get(-1, 555, -1, 400), 1);
-		if (playerHealth == 2)
-			Font.render("cc", screen, x + 1, y, Colours.get(-1, 555, -1, 400),
-					1);
-		if (playerHealth == 1)
-			Font.render("c", screen, x + 1, y, Colours.get(-1, 555, -1, 400), 1);
-
-		if (water <= 100 && water > 50) // WATER
-			Font.render("w", screen, x + 24, y, blue, 1);
-		if (water <= 50 && water > 15)
-			Font.render("w", screen, x + 24, y, orange, 1);
-		if (water <= 15 && water > 0)
-			Font.render("w", screen, x + 24, y, red, 1);
-		if (water <= 0)
-			Font.render("w", screen, x + 24, y, black, 1);
-
-		/*if (food <= 100 && food > 50) // FOOD
-			Font.render("f", screen, x + 31, y, green, 1);
-		if (food <= 50 && food > 15)
-			Font.render("f", screen, x + 31, y, orange, 1);
-		if (food <= 15 && food > 0)
-			Font.render("f", screen, x + 31, y, red, 1);
-		if (food <= 0)
-			Font.render("f", screen, x + 31, y, black, 1);*/
+		
 		double playerSupp=Player.support; // format playerSupp to 2 decimal places
 		DecimalFormat df=new DecimalFormat("##.##");
 		Font.render(df.format(playerSupp) + "%", screen, x + 31, y, black, 1);  // support percent displayed in-game

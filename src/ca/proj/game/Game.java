@@ -12,6 +12,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JSlider;
+import javax.swing.WindowConstants;
 
 import ca.proj.game.entities.NPC;
 import ca.proj.game.entities.Player;
@@ -50,7 +51,6 @@ public class Game extends Canvas implements Runnable {
 
 	private Screen screen;
 
-	private JSlider framesPerSecond;
 	// Handles keyboard inputs
 	public static InputHandler input;
 	// Each level is a "territory"
@@ -76,7 +76,7 @@ public class Game extends Canvas implements Runnable {
 
 		frame = new JFrame(NAME);
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 
 		frame.add(this, BorderLayout.CENTER);
@@ -125,7 +125,7 @@ public class Game extends Canvas implements Runnable {
 	public static void startLevel(String levelPath, int x, int y) {
 		Random rand = new Random();
 		level = new Level(levelPath);
-		player = new Player(level, (level.width >> 3) * SCALE, 511, input);
+		player = new Player(level, 390, 390, input);
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
 			npc = new NPC(level,

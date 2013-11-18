@@ -18,8 +18,8 @@ import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
 
+@SuppressWarnings("serial")
 public class TerritoryMenu extends JFrame {
-
 	private JButton jButton1 = new JButton();
 	public static boolean running = false;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
