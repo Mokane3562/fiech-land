@@ -130,13 +130,29 @@ public class TradeActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		if (running == false) {
-			//new Game().start();
-			closeMenu();
-		} else {
-			System.out.println("Already running!");
-		}
+	// First Trade Action
+	public void jButton1_ActionPerformed(ActionEvent evt) { 
+			
+	}
+		
+	// Second Trade Action
+	public void jButton2_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Third Trade Action
+	public void jButton3_ActionPerformed(ActionEvent evt) { 
+				
+	}
+
+	// Fourth Trade Action
+	public void jButton4_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Main Menu Action
+	public void jButton5_ActionPerformed(ActionEvent evt) { 
+				
 	}
 
 	public void closeMenu() {

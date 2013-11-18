@@ -130,13 +130,29 @@ public class ResActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		if (running == false) {
-			//new Game().start();
-			closeMenu();
-		} else {
-			System.out.println("Already running!");
-		}
+	// First Resource Action
+	public void jButton1_ActionPerformed(ActionEvent evt) { 
+			
+	}
+		
+	// Second Resource Action
+	public void jButton2_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Third Resource Action
+	public void jButton3_ActionPerformed(ActionEvent evt) { 
+				
+	}
+
+	// Fourth Resource Action
+	public void jButton4_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Main Menu Action
+	public void jButton5_ActionPerformed(ActionEvent evt) { 
+				
 	}
 
 	public void closeMenu() {

@@ -130,13 +130,29 @@ public class GovActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		if (running == false) {
-			//new Game().start();
-			closeMenu();
-		} else {
-			System.out.println("Already running!");
-		}
+	// First Government Action
+	public void jButton1_ActionPerformed(ActionEvent evt) { 
+			
+	}
+		
+	// Second Government Action
+	public void jButton2_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Third Government Action
+	public void jButton3_ActionPerformed(ActionEvent evt) { 
+				
+	}
+
+	// Fourth Government Action
+	public void jButton4_ActionPerformed(ActionEvent evt) { 
+				
+	}
+		
+	// Exit Menu Action
+	public void jButton5_ActionPerformed(ActionEvent evt) { 
+				
 	}
 
 	public void closeMenu() {

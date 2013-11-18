@@ -129,16 +129,32 @@ public class DipActionMenu extends JFrame {
 
 		setVisible(true);
 	}
-
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		if (running == false) {
-			//new Game().start();
-			closeMenu();
-		} else {
-			System.out.println("Already running!");
-		}
+	
+	// First Diplomatic Action
+	public void jButton1_ActionPerformed(ActionEvent evt) { 
+		
+	}
+	
+	// Second Diplomatic Action
+	public void jButton2_ActionPerformed(ActionEvent evt) { 
+			
+	}
+	
+	// Third Diplomatic Action
+	public void jButton3_ActionPerformed(ActionEvent evt) { 
+			
 	}
 
+	// Fourth Diplomatic Action
+	public void jButton4_ActionPerformed(ActionEvent evt) { 
+			
+	}
+	
+	// Main Menu Action
+	public void jButton5_ActionPerformed(ActionEvent evt) { 
+			
+	}
+	
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
