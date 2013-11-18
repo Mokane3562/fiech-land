@@ -49,7 +49,7 @@ public class Menu extends JFrame {
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton2_ActionPerformed(evt);
+				jButton1_ActionPerformed(evt);
 			}
 		});
 		jButton1.setBackground(Color.WHITE);
