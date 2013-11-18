@@ -9,7 +9,7 @@ public class Government {
 	}
 
 	Gov_Type gov;
-	private int maxSupport = 0;
+	private double maxSupport = 0;
 	Player leader = null;
 	Level level;
 	
