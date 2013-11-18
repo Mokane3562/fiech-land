@@ -9,7 +9,7 @@ public class Government {
 	}
 
 	Gov_Type gov;
-	private int maxSupport = 0;
+	private double maxSupport = 0;
 	Player leader = null;
 	Level level;
 	
@@ -29,7 +29,7 @@ public class Government {
 			}
 
 		}
-		System.out.println("New player chosen as leader!");
+		System.out.println(">> New player chosen as leader!");
 	}
 
 }

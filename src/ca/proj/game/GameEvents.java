@@ -1,6 +1,7 @@
 package ca.proj.game;
 
-import java.util.Random;
+import java.util.*;
+import java.text.*;
 
 import ca.proj.game.entities.Player;
 import ca.proj.game.gfx.Colours;
@@ -58,7 +59,9 @@ public class GameEvents {
 			Font.render("f", screen, x + 31, y, red, 1);
 		if (food <= 0)
 			Font.render("f", screen, x + 31, y, black, 1);*/
-		Font.render(Player.support + "%", screen, x + 31, y, black, 1);
+		double playerSupp=Player.support; // format playerSupp to 2 decimal places
+		DecimalFormat df=new DecimalFormat("##.##");
+		Font.render(df.format(playerSupp) + "%", screen, x + 31, y, black, 1);  // support percent displayed in-game
 	}
 
 	// Render text to help with in-game events.
