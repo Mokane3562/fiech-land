@@ -48,6 +48,7 @@ public class Menu extends JFrame {
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				new TerritoryMenu("Choose a Territory");
+				closeMenu();
 			}
 		});
 		jButton1.setBackground(Color.WHITE);
