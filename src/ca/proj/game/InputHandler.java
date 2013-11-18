@@ -1,8 +1,9 @@
 package ca.proj.game;
 
-import java.awt.Menu;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import ca.proj.game.gfx.Menu;
 
 public class InputHandler implements KeyListener {
 	public static int lookDir;
@@ -42,6 +43,8 @@ public class InputHandler implements KeyListener {
 	public Key escape = new Key();
 	// Hold Election
 	public Key election = new Key();
+	// Bring up the
+	public Key govAction = new Key();
 
 	public void keyPressed(KeyEvent e) {
 		toggleKey(e.getKeyCode(), true);
@@ -100,8 +103,9 @@ public class InputHandler implements KeyListener {
 			election.toggle(isPressed);
 		}
 		// MENU / ESCAPE
-		// if(keyCode == KeyEvent.VK_ESCAPE) {
-		// Menu.main(null);}
+		if (keyCode == KeyEvent.VK_ESCAPE) {
+			Menu.main(null);
+		}
 
 	}
 

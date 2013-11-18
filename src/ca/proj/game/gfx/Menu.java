@@ -20,6 +20,8 @@ import ca.proj.game.Game;
 public class Menu extends JFrame {
 
 	private JButton jButton1 = new JButton();
+	private JButton jButton2 = new JButton();
+	private JButton jButton3 = new JButton();
 	public static boolean enterLevel;
 	public static boolean running = false;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
@@ -52,6 +54,31 @@ public class Menu extends JFrame {
 		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
 		cp.add(jButton1);
+		
+		jButton2.setBounds(168, 168, 305, 57);
+	    jButton2.setText("Return to Game");
+	    jButton2.setMargin(new Insets(2, 2, 2, 2));
+	    jButton2.addActionListener(new ActionListener() { 
+	      public void actionPerformed(ActionEvent evt) { 
+	        closeMenu();
+	      }
+	    });
+	    jButton2.setBackground(Color.WHITE);
+	    jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
+	    cp.add(jButton2);
+	    
+	    jButton3.setBounds(168, 256, 305, 57);
+	    jButton3.setText("Exit Game");
+	    jButton3.setMargin(new Insets(2, 2, 2, 2));
+	    jButton3.addActionListener(new ActionListener() { 
+	      public void actionPerformed(ActionEvent evt) { 
+	        Game.quit();
+	      }
+	    });
+	    jButton3.setBackground(Color.WHITE);
+	    jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
+	    cp.add(jButton3);
+	    
 		cp.setBackground(new Color(0xFFC800));
 
 		setVisible(true);

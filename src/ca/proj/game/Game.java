@@ -287,5 +287,8 @@ public class Game extends Canvas implements Runnable {
 		bs.show();
 
 	}
+	public static void quit(){
+		System.exit(1);
+	}
 
 }
