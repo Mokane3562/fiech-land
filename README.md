@@ -1,9 +1,9 @@
 Iteration 1 Goals
 =================
 - [ ] Implement an isometric tile-based board.
-- [ ] Implement a player sprite.
-- [ ] Control movement of the player sprite on the board.
-- [ ] Implement a start screen
+- [x] Implement a player sprite.
+- [x] Control movement of the player sprite on the board.
+- [x] Implement a start screen
 - [ ] Have the player initialize their 'values' for happiness
 
 Project Approach
@@ -49,11 +49,11 @@ Essential for Future Iterations:
 --------------------------------
 + [ ] Government and elections fully implemented.
 + [ ] Capturing player happiness is fully implemented.
-+ [ ] Start screen/menu.
++ [x] Start screen/menu.
 
 Extras for Future Iterations:
 ----------------------------
 + [ ] Multi-player interactions
-+ [ ] NPCs
++ [x] NPCs
 + [ ] Items on the board to pickup
 + [ ] Trade items
