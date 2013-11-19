@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ import javax.swing.event.ChangeListener;
 public class AttributeMenu extends JFrame {
 	
 	//initialize components
+	private JLabel jLabelHeader = new JLabel("Distribute your points", JLabel.CENTER);
 	private JLabel jLabel1 = new JLabel("Wealth", JLabel.CENTER);
 	private JLabel jLabel2 = new JLabel("Resources", JLabel.CENTER);
 	private JLabel jLabel3 = new JLabel("Politics", JLabel.CENTER);
@@ -65,12 +67,18 @@ public class AttributeMenu extends JFrame {
 		
 		//initialize panels
 		final int VERT_SPACE = 50; 
+		JPanel header = new JPanel(new FlowLayout());
 		JPanel labels = new JPanel(new GridLayout(5, 1, 0, VERT_SPACE));
 		JPanel buttons = new JPanel(new GridLayout(1, 3));
 		JPanel numbers = new JPanel(new GridLayout(5, 1, 0, VERT_SPACE));
 		JPanel sliders = new JPanel(new GridLayout(5, 1, 0, VERT_SPACE));
 		
 		//modify and add components to panels
+		header.setBackground(Color.WHITE);
+		header.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+				Color.BLACK));
+		header.add(jLabelHeader);
+		
 		labels.add(jLabel1);
 		labels.add(jLabel2);
 		labels.add(jLabel3);
@@ -205,6 +213,7 @@ public class AttributeMenu extends JFrame {
 				Color.BLACK));
 		numbers.add(jSpinner5);
 		
+		cp.add(header, BorderLayout.NORTH);
 		cp.add(labels, BorderLayout.WEST); //add panels to container
 		cp.add(buttons, BorderLayout.SOUTH);
 		cp.add(numbers, BorderLayout.EAST);
