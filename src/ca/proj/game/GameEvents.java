@@ -13,11 +13,11 @@ public class GameEvents {
 	static Random generator = new Random();
 
 	// Colors for various levels of player stats.
-	private int green = Colours.get(-1, 555, 141, 400);
-	private int blue = Colours.get(-1, 555, 115, 400);
-	private int orange = Colours.get(-1, 555, 542, 400);
-	private int red = Colours.get(-1, 555, 500, 400);
-	private int black = Colours.get(-1, 555, 000, 400);
+	private int green = Colours.get(-1, 555, 555, 050);
+	private int cyan = Colours.get(-1, 555, 555, 055);
+	private int orange = Colours.get(-1, 555, 555, 530);
+	private int red = Colours.get(-1, 555, 555, 400);
+	private int black = Colours.get(-1, 555, 555, 000);
 
 	public GameEvents() {
 
@@ -29,7 +29,7 @@ public class GameEvents {
 		double playerSupp = Player.support; // format playerSupp to 2 decimal
 											// places
 		DecimalFormat df = new DecimalFormat("##.##");
-		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, black, 1); // support
+		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, cyan, 1); // support
 																				// percent
 																				// displayed
 																				// in-game

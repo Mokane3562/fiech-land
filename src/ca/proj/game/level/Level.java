@@ -159,4 +159,8 @@ public class Level {
 	public void setGovernment(Government government) {
 		this.government = government;
 	}
+	
+	public String getImagePath(){
+		return imagePath;
+	}
 }

@@ -3,15 +3,14 @@ package ca.proj.game;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.JSlider;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.entities.NPC;
@@ -64,9 +63,13 @@ public class Game extends Canvas implements Runnable {
 	public static NPC npc;
 
 	private String initialLevel = "/levels/fiech.png";
+
+	private static ArrayList<Level> currentLevels = new ArrayList<Level>();
+
 	/**
 	 * Create the game and set properties for the window.
-	 * @param initialLevel 
+	 * 
+	 * @param initialLevel
 	 */
 	public Game(String initialLevel) {
 		this.initialLevel = initialLevel;
@@ -75,7 +78,6 @@ public class Game extends Canvas implements Runnable {
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 
 		frame = new JFrame(NAME);
-
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 
@@ -124,8 +126,9 @@ public class Game extends Canvas implements Runnable {
 	 */
 	public static void startLevel(String levelPath, int x, int y) {
 		Random rand = new Random();
+		
 		level = new Level(levelPath);
-		player = new Player(level, 390, 390, input);
+		player = new Player(level, x, y, input);
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
 			npc = new NPC(level,
@@ -287,7 +290,8 @@ public class Game extends Canvas implements Runnable {
 		bs.show();
 
 	}
-	public static void quit(){
+
+	public static void quit() {
 		System.exit(1);
 	}
 
