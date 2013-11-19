@@ -91,6 +91,7 @@ public class Level {
 			}
 			t.tick();
 		}
+		
 	}
 
 	public void renderTiles(Screen screen, int xOffset, int yOffset) {

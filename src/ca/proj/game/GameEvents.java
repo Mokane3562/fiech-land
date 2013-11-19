@@ -27,16 +27,18 @@ public class GameEvents {
 	public void renderInterface(Screen screen, int x, int y) {
 
 		double playerSupp = Player.support; // format playerSupp to 2 decimal
-											// places
+		// places
 		DecimalFormat df = new DecimalFormat("##.##");
 		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, cyan, 1); // support
-																				// percent
-																				// displayed
-																				// in-game
+		// percent
+		// displayed
+		// in-game
 		if (Game.level.getGovernment() != null) {
 
 			Font.render(Game.level.getGovernment().getLeaderName(), screen, x,
 					y, orange, 1);
+		} else {
+			Font.render("null", screen, x, y, green, 1);
 		}
 	}
 
@@ -46,19 +48,19 @@ public class GameEvents {
 
 		// Enter Africa
 		if (Player.triggeredAfrica == true) {
-			Font.render("ENTER-AFRICA", screen, x + 40, y + 37,
-					Colours.get(-1, 135, -1, 530), 1);
+			Font.render("ENTER-AFRICA", screen, x + 40, y + 37, Colours.get(-1,
+					135, -1, 530), 1);
 			if (input.enter.isPressed()) {
 
-				Game.startLevel("/levels/africa.png", 505, 475);
+				Game.startOtherLevel("/levels/africa.png", 505, 475);
 			}
 		}
 		// Enter FiechLand
 		if (Player.triggeredFiechLand == true) {
-			Font.render("ENTER-FIECH-LAND", screen, x + 30, y + 37,
-					Colours.get(-1, 135, -1, 530), 1);
+			Font.render("ENTER-FIECH-LAND", screen, x + 30, y + 37, Colours
+					.get(-1, 135, -1, 530), 1);
 			if (input.enter.isPressed()) {
-				Game.startLevel("/levels/fiech.png", 505, 475);
+				Game.startOtherLevel("/levels/fiech.png", 505, 475);
 			}
 		}
 

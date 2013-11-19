@@ -227,6 +227,8 @@ public class Game extends Canvas implements Runnable {
 				lastTimer += 1000;
 				System.out
 						.println("" + ticks + " ticks, " + frames + " frames");
+				System.out.println("The governemnt is: " + level.getGovernment());
+				System.out.println("The level is: " + level);
 				frames = 0;
 				ticks = 0;
 			}
