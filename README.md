@@ -67,7 +67,7 @@ Iteration 2 Goals
 - [x] Player attributes can be set.
 - [ ] Government initalization menu.
 - [ ] Create save games.
-- [ ] Fix goverments accross levels
+- [ ] Fix governments across levels
 
 What we Achieved so Far:
 ------------------------
