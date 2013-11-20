@@ -108,7 +108,7 @@ public class TerritoryMenu extends JFrame {
 
 	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
 		if (running == false) {
-			Game g = new Game("/levels/africa.png");
+			Game g = new Game("/levels/ancient-ruins.png");
 			g.start();
 			closeMenu();
 		} else {

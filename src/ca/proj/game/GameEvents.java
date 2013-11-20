@@ -73,7 +73,7 @@ public class GameEvents {
 					135, -1, 530), 1);
 			if (input.enter.isPressed()) {
 
-				Game.startLevel("/levels/africa.png", 505, 475);
+				Game.startLevel("/levels/ancient-ruins.png", 505, 475);
 			}
 		}
 		// Enter FiechLand
