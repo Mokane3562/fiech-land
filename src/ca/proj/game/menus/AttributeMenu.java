@@ -27,6 +27,27 @@ import javax.swing.event.ChangeListener;
 
 import ca.proj.game.entities.Player;
 
+/**
+ * 
+ * AttributeMenu.java
+ * 
+ * Copyright (C) 2013 
+ * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 public class AttributeMenu extends JFrame {
 	
 	//components
@@ -62,6 +83,11 @@ public class AttributeMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
+	/**
+	 * Creates the Attribute Menu
+	 * 
+	 * @param title
+	 */
 	public AttributeMenu(String title) {
 
 		super(title);
@@ -100,6 +126,9 @@ public class AttributeMenu extends JFrame {
 		
 		//prepare footer panel
 		jButton1.addActionListener(new ActionListener() {
+			/* (non-Javadoc)
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
 			public void actionPerformed(ActionEvent evt) {
 				jSlider1.setValue(10);
 				jSlider2.setValue(10);
@@ -121,8 +150,10 @@ public class AttributeMenu extends JFrame {
 		footer.add(jTextField1);
 		
 		jButton2.addActionListener(new ActionListener() {
+			/* (non-Javadoc)
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
 			public void actionPerformed(ActionEvent evt) {
-				//send out the values and close the window
 				Player.setWealth(wealthVal);
 				Player.setResources(resourcesVal);
 				Player.setMilitary(militaryVal);
@@ -139,6 +170,9 @@ public class AttributeMenu extends JFrame {
 		//prepare spinners panel
 		jSpinner1.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinner1.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				jSlider1.setValue((Integer) jSpinner1.getValue());
 			}
@@ -150,6 +184,9 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinner2.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinner2.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				jSlider2.setValue((Integer) jSpinner2.getValue());
 			}
@@ -161,6 +198,9 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinner3.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinner3.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				jSlider3.setValue((Integer) jSpinner3.getValue());
 			}
@@ -172,6 +212,9 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinner4.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinner4.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				jSlider4.setValue((Integer) jSpinner4.getValue());
 			}
@@ -183,6 +226,9 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinner5.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinner5.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				jSlider5.setValue((Integer) jSpinner5.getValue());
 			}
@@ -200,6 +246,9 @@ public class AttributeMenu extends JFrame {
 		jSlider1.setPaintTicks(true);
 		jSlider1.setEnabled(true);
 		jSlider1.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = wealthVal;
 				int newVal = jSlider1.getValue();
@@ -226,6 +275,9 @@ public class AttributeMenu extends JFrame {
 		jSlider2.setPaintLabels(true);
 		jSlider2.setPaintTicks(true);
 		jSlider2.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = resourcesVal;
 				int newVal = jSlider2.getValue();
@@ -252,6 +304,9 @@ public class AttributeMenu extends JFrame {
 		jSlider3.setPaintLabels(true);
 		jSlider3.setPaintTicks(true);
 		jSlider3.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = politicsVal;
 				int newVal = jSlider3.getValue();
@@ -278,6 +333,9 @@ public class AttributeMenu extends JFrame {
 		jSlider4.setPaintLabels(true);
 		jSlider4.setPaintTicks(true);
 		jSlider4.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = expansionVal;
 				int newVal = jSlider4.getValue();
@@ -304,6 +362,9 @@ public class AttributeMenu extends JFrame {
 		jSlider5.setPaintLabels(true);
 		jSlider5.setPaintTicks(true);
 		jSlider5.addChangeListener(new ChangeListener() {
+			/* (non-Javadoc)
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = militaryVal;
 				int newVal = jSlider5.getValue();
@@ -339,6 +400,9 @@ public class AttributeMenu extends JFrame {
 		setVisible(true);
 	}
 
+	/**
+	 * Closes the menu
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
