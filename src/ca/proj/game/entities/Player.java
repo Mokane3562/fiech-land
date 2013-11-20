@@ -37,8 +37,7 @@ public class Player extends Mob {
 	private int tickCount;
 	private long lastElectionTime = 0;
 	public static double support = 0;
-	public static boolean triggeredAfrica = false;
-	public static boolean triggeredFiechLand = false;
+	public static boolean triggeredTeleport = false;
 	public static int xPos;
 	public static int yPos;
 
@@ -93,18 +92,10 @@ public class Player extends Mob {
 
 		// TRIGGERED africaDoor
 		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 13) {
-			triggeredAfrica = true;
+			triggeredTeleport= true;
 		}
 		if (level.getTile(this.x >> 3, this.y >> 3).getId() != 13) {
-			triggeredAfrica = false;
-		}
-
-		// TRIGGERED fiechLandDoor
-		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 14) {
-			triggeredFiechLand = true;
-		}
-		if (level.getTile(this.x >> 3, this.y >> 3).getId() != 14) {
-			triggeredFiechLand = false;
+			triggeredTeleport = false;
 		}
 		// Hold an election
 		if (input.election.isPressed()) {

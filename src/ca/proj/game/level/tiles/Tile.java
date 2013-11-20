@@ -39,8 +39,7 @@ public abstract class Tile {
 	public static final Tile WATERFALLSPLASH = new AnimatedTile(9, new int[][] {{6, 5}, {7, 5}, {8, 5}, {7, 5}}, Colours.get(004, 335, 115, 225), 0x0FF00FFFF, 900);
 	
 	//TRIGGER TILES
-	public static final Tile DOOR_ENTER = new BasicTile(13, 10, 0, Colours.get(321, 000, 444, 542), 0x0FF666666);
-	public static final Tile DOOR_LEAVE = new BasicTile(14, 11, 0, Colours.get(-1, 000, 510, -1), 0x0FF820000);
+	public static final Tile TELEPORT_TILE = new BasicTile(13, 10, 0, Colours.get(321, 000, 444, 542), 0x0FF666666);
 	
 	
 	

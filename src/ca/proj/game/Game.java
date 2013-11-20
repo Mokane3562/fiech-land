@@ -24,22 +24,21 @@ import ca.proj.game.level.Level;
  * 
  * Game.java is the game-state manager.
  * 
- * Copyright (C) 2013 
- * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Copyright (C) 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
  */
 public class Game extends Canvas implements Runnable {
 
@@ -49,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 	public static final int HEIGHT = WIDTH / 12 * 9;
 	public static final int SCALE = 4;
 	public static final String NAME = "Fiech Land";
-	public static final int NUM_NPCS = 5000;
+	public static final int NUM_NPCS = 500;
 
 	JFrame frame;
 	Random generator = new Random();
@@ -84,8 +83,6 @@ public class Game extends Canvas implements Runnable {
 	public static NPC npc;
 
 	private String initialLevel = "/levels/fiech.png";
-
-	private static ArrayList<Level> currentLevels = new ArrayList<Level>();
 
 	/**
 	 * Create the game and set properties for the window.
@@ -134,7 +131,7 @@ public class Game extends Canvas implements Runnable {
 		// Tell the input handler to manage our game.
 		input = new InputHandler(this);
 		// Start the default level in the game.
-		startLevel(initialLevel, 390, 390);
+		startLevel(initialLevel);
 		addEntities();
 	}
 
@@ -145,16 +142,18 @@ public class Game extends Canvas implements Runnable {
 	 * @param x
 	 * @param y
 	 */
-	public static void startLevel(String levelPath, int x, int y) {
+	public static void startLevel(String levelPath) {
 		Random rand = new Random();
-		
+
 		level = new Level(levelPath);
+		int x = ((level.tiles.length / SCALE) >> 3);
+		int y = ((level.tiles.length / SCALE) >> 3);
 		player = new Player(level, x, y, input);
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
-			npc = new NPC(level,
-					rand.nextInt((level.tiles.length / SCALE) - 8),
-					rand.nextInt((level.tiles.length / SCALE) - 8));
+			int nx = rand.nextInt(((level.tiles.length / SCALE) >> 2) - 50);
+			int ny = rand.nextInt(((level.tiles.length / SCALE) >> 2) - 50);
+			npc = new NPC(level, nx, ny);
 			level.addEntity(npc);
 		}
 		gameEvents = new GameEvents();
@@ -248,7 +247,8 @@ public class Game extends Canvas implements Runnable {
 				lastTimer += 1000;
 				System.out
 						.println("" + ticks + " ticks, " + frames + " frames");
-				System.out.println("The governemnt is: " + level.getGovernment());
+				System.out.println("The governemnt is: "
+						+ level.getGovernment());
 				System.out.println("The level is: " + level);
 				frames = 0;
 				ticks = 0;

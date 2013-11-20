@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import ca.proj.game.menus.Menu;
+import ca.proj.game.menus.TeleportMenu;
 import ca.proj.game.level.Level;
 
 /**
@@ -64,6 +65,8 @@ public class InputHandler implements KeyListener {
 	public Key election = new Key();
 	// Bring up the
 	public Key startGovernment = new Key();
+	//Teleport
+	public Key teleport = new Key();
 
 	public void keyPressed(KeyEvent e) {
 		toggleKey(e.getKeyCode(), true);
@@ -127,6 +130,11 @@ public class InputHandler implements KeyListener {
 		// MENU / ESCAPE
 		if (keyCode == KeyEvent.VK_ESCAPE) {
 			Menu.main(null);
+		}
+		// MENU / ESCAPE
+		if (keyCode == KeyEvent.VK_T) {
+			//teleport.toggle(isPressed);
+			new TeleportMenu("Teleport to...");
 		}
 
 	}
