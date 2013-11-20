@@ -68,9 +68,28 @@ public class GameEvents {
 	public void renderPlayerEvents(Screen screen, int x, int y,
 			InputHandler input, Player player, Level level) {
 
+<<<<<<< HEAD
 		// Teleport menu
 		if (Player.triggeredTeleport == true) {
 			Font.render("TELEPORT", screen, x + 50, y + 37, cyan, 1);
+=======
+		// Enter Africa
+		if (Player.triggeredAfrica == true) {
+			Font.render("ENTER-AFRICA", screen, x + 40, y + 37, Colours.get(-1,
+					135, -1, 530), 1);
+			if (input.enter.isPressed()) {
+
+				Game.startLevel("/levels/ancient-ruins.png", 505, 475);
+			}
+		}
+		// Enter FiechLand
+		if (Player.triggeredFiechLand == true) {
+			Font.render("ENTER-FIECH-LAND", screen, x + 30, y + 37, Colours
+					.get(-1, 135, -1, 530), 1);
+			if (input.enter.isPressed()) {
+				Game.startLevel("/levels/fiech.png", 505, 475);
+			}
+>>>>>>> 787aca4edf07f58bec0bd15a817d94b2314cd157
 		}
 
 	}
