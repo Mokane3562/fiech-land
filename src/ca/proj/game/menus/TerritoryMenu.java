@@ -111,6 +111,7 @@ public class TerritoryMenu extends JFrame {
 			Game g = new Game("/levels/waterfall-grassland.png");
 			g.start();
 			closeMenu();
+			new AttributeMenu("Adjust your Attributes...");
 		} else {
 			JOptionPane.showMessageDialog(this,
 				    "Please restart the application to start a new game!",
@@ -124,6 +125,7 @@ public class TerritoryMenu extends JFrame {
 			Game g = new Game("/levels/ancient-ruins.png");
 			g.start();
 			closeMenu();
+			new AttributeMenu("Adjust your Attributes...");
 		} else {
 			JOptionPane.showMessageDialog(this,
 				    "Please restart the application to start a new game!",

@@ -25,6 +25,8 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import ca.proj.game.entities.Player;
+
 public class AttributeMenu extends JFrame {
 	
 	//initialize components
@@ -115,7 +117,12 @@ public class AttributeMenu extends JFrame {
 		jButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				//send out the values and close the window
-				System.out.println("\"Ok\" pressed");
+				Player.setWealth(wealthVal);
+				Player.setResources(resourcesVal);
+				Player.setMilitary(militaryVal);
+				Player.setExpansion(expansionVal);
+				Player.setPolitics(politicsVal);
+				closeMenu();
 			}
 		});
 		jButton2.setBackground(Color.WHITE);
@@ -325,10 +332,6 @@ public class AttributeMenu extends JFrame {
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
-	}
-
-	public static void main(String[] args) {
-		new AttributeMenu("Attribute Menu");
 	}
 
 }

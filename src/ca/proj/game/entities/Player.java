@@ -40,6 +40,13 @@ public class Player extends Mob {
 	public static boolean triggeredTeleport = false;
 	public static int xPos;
 	public static int yPos;
+	
+	private static int wealth = 0;
+	private static int resources = 0;
+	private static int politics = 0;
+	private static int expansion = 0;
+	private static int military = 0;
+	private static final int ATTRIBUTE_TOTAL = 100;
 
 	public Player(Level level, int x, int y, InputHandler input) {
 		super(level, "PLAYER", x, y, 1);
@@ -187,6 +194,76 @@ public class Player extends Mob {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * @return the wealth
+	 */
+	public static int getWealth() {
+		return wealth;
+	}
+
+	/**
+	 * @param wealth the wealth to set
+	 */
+	public static void setWealth(int wealth) {
+		Player.wealth = wealth;
+	}
+
+	/**
+	 * @return the resources
+	 */
+	public static int getResources() {
+		return resources;
+	}
+
+	/**
+	 * @param resources the resources to set
+	 */
+	public static void setResources(int resources) {
+		Player.resources = resources;
+	}
+
+	/**
+	 * @return the expansion
+	 */
+	public static int getExpansion() {
+		return expansion;
+	}
+
+	/**
+	 * @param expansion the expansion to set
+	 */
+	public static void setExpansion(int expansion) {
+		Player.expansion = expansion;
+	}
+
+	/**
+	 * @return the politics
+	 */
+	public static int getPolitics() {
+		return politics;
+	}
+
+	/**
+	 * @param politics the politics to set
+	 */
+	public static void setPolitics(int politics) {
+		Player.politics = politics;
+	}
+
+	/**
+	 * @return the military
+	 */
+	public static int getMilitary() {
+		return military;
+	}
+
+	/**
+	 * @param military the military to set
+	 */
+	public static void setMilitary(int military) {
+		Player.military = military;
 	}
 
 }
