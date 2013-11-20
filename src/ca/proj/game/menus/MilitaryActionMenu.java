@@ -17,9 +17,10 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+
 /**
  * 
- * TradeActionMenu.java 
+ * MilitaryActionMenu.java 
  * Copyright (C) 2013 
  * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
  *
@@ -37,7 +38,7 @@ import ca.proj.game.Game;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-public class TradeActionMenu extends JFrame {
+public class MilitaryActionMenu extends JFrame {
 
 	private JButton jButton1 = new JButton();
 	private JButton jButton2 = new JButton();
@@ -46,18 +47,18 @@ public class TradeActionMenu extends JFrame {
 	private JButton jButton5 = new JButton();
 	
 	//Random number generator
-	static Random tradeGen = new Random();
+	static Random militaryGen = new Random();
 	
 	//Holds random number
 	private double random;
-	
+			
 	//Value to be added to Happiness
 	private double happiness;
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
-	public TradeActionMenu(String title) {
+	public MilitaryActionMenu(String title) {
 
 		super(title);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -72,9 +73,9 @@ public class TradeActionMenu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		//First Trade Action Button - Put Money in the Piggy Bank
+		//First Military Action Button - Troop Skirmish
 		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Put Money in the Piggy Bank");
+		jButton1.setText("Troop Skirmish");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -89,9 +90,9 @@ public class TradeActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Second Trade Action Button - Free Trade Agreement
+		//Second Military Action Button - Border Defense
 		jButton2.setBounds(168, 80, 305, 57);
-		jButton2.setText("Free Trade Agreement");
+		jButton2.setText("Border Defense");
 		jButton2.setMargin(new Insets(2, 2, 2, 2));
 		jButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -106,9 +107,9 @@ public class TradeActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Third Trade Action Button - Foreign Trade Mission
+		//Third Military Action Button - Border Patrol
 		jButton3.setBounds(168, 80, 305, 57);
-		jButton3.setText("Foreign Trade Mission");
+		jButton3.setText("Border Patrol");
 		jButton3.setMargin(new Insets(2, 2, 2, 2));
 		jButton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -123,9 +124,9 @@ public class TradeActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Fourth Trade Action Button - Buy Stocks
+		//Fourth Military Action Button - Secret Operations
 		jButton4.setBounds(168, 80, 305, 57);
-		jButton4.setText("Buy Stocks");
+		jButton4.setText("Secret Operations");
 		jButton4.setMargin(new Insets(2, 2, 2, 2));
 		jButton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -158,18 +159,18 @@ public class TradeActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	// Perform First Trade Action
+	// Perform First Military Action
 	public void jButton1_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = militaryGen.nextInt(100);
 		//	This action has a 50% chance of success
 		if (random<=50.00){
-			/*	If successful, happiness variable will be set to 15 * Trade Focus value,
+			/*	If successful, happiness variable will be set to 15 * Military Focus value,
 			 *	a message to the player will tell them how many happiness points they've
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*15;
+			//happiness=militaryFocus*15;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -181,18 +182,18 @@ public class TradeActionMenu extends JFrame {
 			//--actionPoints;
 	}
 		
-	// Perform Second Trade Action
+	// Perform Second Military Action
 	public void jButton2_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = militaryGen.nextInt(100);
 		//	This action has a 75% chance of success
 		if (random<=75.00){
-			/*	If successful, happiness variable will be set to 5 * Trade Focus value,
+			/*	If successful, happiness variable will be set to 5 * Military Focus value,
 			 *	a message to the player will tell them how many happiness points they've
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*5;
+			//happiness=militaryFocus*5;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -204,18 +205,18 @@ public class TradeActionMenu extends JFrame {
 			//--actionPoints;
 	}
 		
-	// Perform Third Trade Action
+	// Perform Third Military Action
 	public void jButton3_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = militaryGen.nextInt(100);
 		//	This action has a 60% chance of success
 		if (random<=60.00){
-			/*	If successful, happiness variable will be set to 10 * Trade Focus value,
+			/*	If successful, happiness variable will be set to 10 * Military Focus value,
 			 *	a message to the player will tell them how many happiness points they've
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*10;
+			//happiness=militaryFocus*10;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -227,18 +228,18 @@ public class TradeActionMenu extends JFrame {
 			//--actionPoints;
 	}
 
-	// Perform Fourth Trade Action
+	// Perform Fourth Military Action
 	public void jButton4_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
-		//	This action has a 25% chance of success
+		random = militaryGen.nextInt(100);
+		//	This action hasa 25% chance of success
 		if (random<=25.00){
-			/*	If successful, happiness variable will be set to 25 * Trade Focus value,
+			/*	If successful, happiness variable will be set to 25 * Military Focus value,
 			 *	a message to the player will tell them how many happiness points they've
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*25;
+			//happiness=militaryFocus*25;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -246,13 +247,13 @@ public class TradeActionMenu extends JFrame {
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
-			System.out.println("Action failed. No happiness gained");	
+			System.out.println("Action failed. No happiness gained");			
 			//--actionPoints;
 	}
 		
-	// Main Menu Action
+	// Perform Main Menu Action
 	public void jButton5_ActionPerformed(ActionEvent evt) { 
-				//Back to GovActionMenu
+		//Go back to GovActionMenu		
 	}
 
 	public void closeMenu() {
