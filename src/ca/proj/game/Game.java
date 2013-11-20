@@ -82,7 +82,7 @@ public class Game extends Canvas implements Runnable {
 	public static Player player;
 	public static NPC npc;
 
-	private String initialLevel = "/levels/fiech.png";
+	private String initialLevel = "/levels/waterfall-grassland.png";
 
 	/**
 	 * Create the game and set properties for the window.

@@ -64,7 +64,7 @@ public class TerritoryMenu extends JFrame {
 		cp.setLayout(null);
 
 		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Start in Africa");
+		jButton1.setText("Start in WaterFall-Grassland");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -77,7 +77,7 @@ public class TerritoryMenu extends JFrame {
 		cp.add(jButton1);
 		
 		jButton2.setBounds(168, 168, 305, 57);
-	    jButton2.setText("Start in Fiech Land");
+	    jButton2.setText("Start in Ancient-Ruins");
 	    jButton2.setMargin(new Insets(2, 2, 2, 2));
 	    jButton2.addActionListener(new ActionListener() { 
 	      public void actionPerformed(ActionEvent evt) { 
@@ -121,7 +121,7 @@ public class TerritoryMenu extends JFrame {
 	
 	public void jButton2_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
 		if (running == false) {
-			Game g = new Game("/levels/fiech.png");
+			Game g = new Game("/levels/ancient-ruins.png");
 			g.start();
 			closeMenu();
 		} else {

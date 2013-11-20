@@ -64,7 +64,7 @@ public class TeleportMenu extends JFrame {
 		cp.setLayout(null);
 
 		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Teleport to Africa");
+		jButton1.setText("Teleport to Water-Fall Grassland");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -77,7 +77,7 @@ public class TeleportMenu extends JFrame {
 		cp.add(jButton1);
 
 		jButton2.setBounds(168, 168, 305, 57);
-		jButton2.setText("Teleport to Fiech Land");
+		jButton2.setText("Teleport to Ancient-Ruins");
 		jButton2.setMargin(new Insets(2, 2, 2, 2));
 		jButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -109,12 +109,12 @@ public class TeleportMenu extends JFrame {
 	}
 
 	public void jButton1_ActionPerformed(ActionEvent evt) {
-		Game.startLevel("/levels/africa.png");
+		Game.startLevel("/levels/waterfall-grassland.png");
 		closeMenu();
 	}
 
 	public void jButton2_ActionPerformed(ActionEvent evt) {
-		Game.startLevel("/levels/fiech.png");
+		Game.startLevel("/levels/ancient-ruins.png");
 		closeMenu();
 	}
 
