@@ -6,6 +6,27 @@ import ca.proj.game.gfx.Colours;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.level.Level;
 
+/**
+ * 
+ * Player.java represents the playable character.
+ * 
+ * Copyright (C) 2013 
+ * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 public class Player extends Mob {
 
 	private InputHandler input;
@@ -26,10 +47,14 @@ public class Player extends Mob {
 		this.input = input;
 	}
 
+	/**
+	 * Called from the level to "tick" or update the character.
+	 */
 	public void tick() {
 		int xa = 0;
 		int ya = 0;
 
+		//Depending on the button pressed move the character.
 		if (input.up.isPressed()) {
 			ya--;
 		}
@@ -66,7 +91,7 @@ public class Player extends Mob {
 			isSwimming = false;
 		}
 
-		// TRIGGERED DOOR_ENTER
+		// TRIGGERED africaDoor
 		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 13) {
 			triggeredAfrica = true;
 		}
@@ -74,7 +99,7 @@ public class Player extends Mob {
 			triggeredAfrica = false;
 		}
 
-		// TRIGGERED DOOR_LEAVE
+		// TRIGGERED fiechLandDoor
 		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 14) {
 			triggeredFiechLand = true;
 		}
@@ -92,6 +117,9 @@ public class Player extends Mob {
 		tickCount++;
 	}
 
+	/**
+	 * Render any updates to the screen
+	 */
 	public void render(Screen screen) {
 		int xTile = 0;
 		int yTile = 28;
@@ -143,7 +171,10 @@ public class Player extends Mob {
 
 		}
 	}
-
+	
+	/**
+	 * Check to see if the character has collided with a solid tile.
+	 */
 	public boolean hasCollided(int xa, int ya) {
 		int xMin = 0;
 		int xMax = 7;

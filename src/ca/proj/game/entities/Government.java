@@ -3,6 +3,27 @@ package ca.proj.game.entities;
 import ca.proj.game.Game;
 import ca.proj.game.level.Level;
 
+/**
+ * 
+ * Government.java represents the government of a specific level.
+ * 
+ * Copyright (C) 2013 
+ * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 public class Government {
 
 	public enum Gov_Type {
@@ -32,6 +53,10 @@ public class Government {
 		}
 		System.out.println(">> New player chosen as leader!");
 	}*/
+	/**
+	 * Set the player as leader if support is great enough, done when a 
+	 * government is created.
+	 */
 	public void chooseLeader(){
 		if (Game.player.support >= 50){
 			leader = Game.player;
@@ -40,6 +65,10 @@ public class Government {
 			System.out.println(Game.player + " Is the player");
 		}
 	}
+	/**
+	 * Return the name of the governemnt leader.
+	 * @return name of the leader.
+	 */
 	public String getLeaderName(){
 		return leader.name;
 	}
