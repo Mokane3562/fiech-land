@@ -133,6 +133,9 @@ public class NPC extends Mob {
 		if (isSwimming && level.getTile(this.x >> 3, this.y >> 3).getId() != 4) {
 			isSwimming = false;
 		}
+		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 6) {
+			isSwimming = true;
+		}
 		tickCount++;
 
 	}
