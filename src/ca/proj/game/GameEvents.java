@@ -47,9 +47,8 @@ public class GameEvents {
 	// Update the HUD based on Player stats.
 	public void renderInterface(Screen screen, int x, int y) {
 
-		double playerSupp = Player.support; // format playerSupp to 2 decimal
-		// places
-		DecimalFormat df = new DecimalFormat("##.##");
+		double playerSupp = Player.support; // playerSupp => player support value
+		DecimalFormat df = new DecimalFormat("##.##");  // format playerSupp to 2 decimal places
 		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, cyan, 1); // support
 		// percent
 		// displayed

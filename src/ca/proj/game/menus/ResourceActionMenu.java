@@ -171,7 +171,7 @@ public class ResourceActionMenu extends JFrame {
 			 */
 			
 			//happiness=resourceFocus*15;
-			System.out.println("You have gained" + happiness + "happiness points.");
+			System.out.println(">> You have gained " + happiness + " happiness points.");
 			//--actionPoints;
 		}
 		else
@@ -194,7 +194,7 @@ public class ResourceActionMenu extends JFrame {
 			 */
 			
 			//happiness=resourceFocus*5;
-			System.out.println("You have gained" + happiness + "happiness points.");
+			System.out.println(">> You have gained " + happiness + " happiness points.");
 			//--actionPoints;
 		}
 		else
@@ -217,7 +217,7 @@ public class ResourceActionMenu extends JFrame {
 			 */
 			
 			//happiness=resourceFocus*10;
-			System.out.println("You have gained" + happiness + "happiness points.");
+			System.out.println(">> You have gained " + happiness + " happiness points.");
 			//--actionPoints;
 		}
 		else
@@ -240,7 +240,7 @@ public class ResourceActionMenu extends JFrame {
 			 */
 			
 			//happiness=resourceFocus*25;
-			System.out.println("You have gained" + happiness + "happiness points.");
+			System.out.println(">> You have gained " + happiness + " happiness points.");
 			//--actionPoints;
 		}
 		else
