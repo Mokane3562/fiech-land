@@ -22,22 +22,21 @@ import ca.proj.game.level.tiles.Tile;
  * 
  * Level.java a representation of in-game levels/territories.
  * 
- * Copyright (C) 2013 
- * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Copyright (C) 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
  */
 public class Level {
 
@@ -51,7 +50,7 @@ public class Level {
 	static Random generator = new Random();
 	private static Government government = null;
 	private static Gov_Type DEMOCRACY;
-	
+
 	public Level(String imagePath) {
 		if (imagePath != null) {
 			this.imagePath = imagePath;
@@ -112,18 +111,22 @@ public class Level {
 			}
 			t.tick();
 		}
-		
+
 	}
 
 	public void renderTiles(Screen screen, int xOffset, int yOffset) {
-		if (xOffset < 0)
+		if (xOffset < 0) {
 			xOffset = 0;
-		if (xOffset > ((width << 3) - screen.width))
+		}
+		if (xOffset > ((width << 3) - screen.width)) {
 			xOffset = ((width << 3) - screen.width);
-		if (yOffset < 0)
+		}
+		if (yOffset < 0) {
 			yOffset = 0;
-		if (yOffset > ((height << 3) - screen.height))
+		}
+		if (yOffset > ((height << 3) - screen.height)) {
 			yOffset = ((height << 3) - screen.height);
+		}
 
 		screen.setOffset(xOffset, yOffset);
 
@@ -164,7 +167,8 @@ public class Level {
 
 		return r;
 	}
-	public void startDemocraticGovernment(){
+
+	public void startDemocraticGovernment() {
 		government = new Government(DEMOCRACY, this);
 	}
 
@@ -176,13 +180,14 @@ public class Level {
 	}
 
 	/**
-	 * @param government the government to set
+	 * @param government
+	 *            the government to set
 	 */
 	public void setGovernment(Government government) {
 		this.government = government;
 	}
-	
-	public String getImagePath(){
+
+	public String getImagePath() {
 		return imagePath;
 	}
 }

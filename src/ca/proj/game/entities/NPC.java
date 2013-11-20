@@ -6,26 +6,26 @@ import ca.proj.game.Game;
 import ca.proj.game.gfx.Colours;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.level.Level;
+
 /**
  * 
  * NPC.java represents non-playable-characters in game.
  * 
- * Copyright (C) 2013 
- * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Copyright (C) 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
  */
 public class NPC extends Mob {
 
@@ -126,11 +126,11 @@ public class NPC extends Mob {
 		} else {
 			isMoving = false;
 		}
-		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 3) {
+		// SWIMMING
+		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 4) {
 			isSwimming = true;
-
 		}
-		if (isSwimming && level.getTile(this.x >> 3, this.y >> 3).getId() != 3) {
+		if (isSwimming && level.getTile(this.x >> 3, this.y >> 3).getId() != 4) {
 			isSwimming = false;
 		}
 		tickCount++;
@@ -141,10 +141,10 @@ public class NPC extends Mob {
 	 * Render any updates to the screen
 	 */
 	public void render(Screen screen) {
-		//Position of the sprite on the sheet.
+		// Position of the sprite on the sheet.
 		int xTile = 0;
 		int yTile = 28;
-		//Controls the "glide" of the character on screen.
+		// Controls the "glide" of the character on screen.
 		int walkingSpeed = 4;
 		int flipTop = (numSteps >> walkingSpeed) & 1;
 		int flipBottom = (numSteps >> walkingSpeed) & 1;

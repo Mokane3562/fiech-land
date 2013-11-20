@@ -83,19 +83,14 @@ public class Player extends Mob {
 			}
 
 		// SWIMMING
-		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 3) {
+		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 4) {
 			isSwimming = true;
 		}
-		if (isSwimming && level.getTile(this.x >> 3, this.y >> 3).getId() != 3) {
+		if (isSwimming && level.getTile(this.x >> 3, this.y >> 3).getId() != 4) {
 			isSwimming = false;
 		}
-
-		// TRIGGERED africaDoor
-		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 13) {
-			triggeredTeleport= true;
-		}
-		if (level.getTile(this.x >> 3, this.y >> 3).getId() != 13) {
-			triggeredTeleport = false;
+		if (level.getTile(this.x >> 3, this.y >> 3).getId() == 6) {
+			isSwimming = true;
 		}
 		// Hold an election
 		if (input.election.isPressed()) {
