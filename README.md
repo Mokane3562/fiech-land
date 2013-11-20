@@ -57,3 +57,30 @@ Extras for Future Iterations:
 + [x] NPCs
 + [ ] Items on the board to pickup
 + [ ] Trade items
+
+Iteration 2 Goals
+=================
+- [x] Start Screen/menu.
+- [x] Player attribute set screen.
+- [ ] Government and elections fully implemented.
+- [ ] Capturing player happiness is fully implemented.
+- [x] Player attributes can be set.
+- [ ] Government initalization menu.
+- [ ] Create save games.
+- [ ] Fix governments across levels
+
+What we Achieved so Far:
+------------------------
++ Start Screen/menu.
++ Player attribute set screen.
++ Player attributes can be set.
++ Teleport system implemented.
++ Added new levels.
++ Added new animations.
++ Fix player HUD from disappearing.
++ Government partially implemented.
++ Elections partially implemented.
++ Action menus partially implemented.
+
+
+
