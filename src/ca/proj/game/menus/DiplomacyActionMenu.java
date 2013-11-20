@@ -20,7 +20,7 @@ import ca.proj.game.Game;
 
 /**
  * 
- * DiplomacyActionMenu.java 
+ * DiplomacyActionMenu.java menu for diplomatic actions.
  * Copyright (C) 2013 
  * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
  *

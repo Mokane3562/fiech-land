@@ -146,13 +146,18 @@ public class Game extends Canvas implements Runnable {
 		Random rand = new Random();
 
 		level = new Level(levelPath);
-		int x = ((level.tiles.length / SCALE) >> 3);
-		int y = ((level.tiles.length / SCALE) >> 3);
+		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
+		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
 		player = new Player(level, x, y, input);
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
-			int nx = rand.nextInt(((level.tiles.length / SCALE) >> 2) - 50);
-			int ny = rand.nextInt(((level.tiles.length / SCALE) >> 2) - 50);
+			int nx = rand.nextInt(x * 2);
+			int ny = rand.nextInt(y * 2);
+			while(level.getTile(nx >> 3, ny >> 3).isSolid()){
+				nx = rand.nextInt(x * 2);
+				ny = rand.nextInt(y * 2);
+				
+			}
 			npc = new NPC(level, nx, ny);
 			level.addEntity(npc);
 		}
@@ -250,7 +255,7 @@ public class Game extends Canvas implements Runnable {
 				System.out.println("The governemnt is: "
 						+ level.getGovernment());
 				System.out.println("The level is: " + level);
-				
+
 				System.out.println("Expansion: " + player.getExpansion());
 				System.out.println("Mil: " + player.getMilitary());
 				System.out.println("Politics: " + player.getPolitics());
