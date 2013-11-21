@@ -44,6 +44,8 @@ public class TerritoryMenu extends JFrame {
 	private JButton jButton1 = new JButton();
 	private JButton jButton2 = new JButton();
 	private JButton jButton3 = new JButton();
+	private JButton jButton4 = new JButton();
+	private JButton jButton5 = new JButton();
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
@@ -87,6 +89,30 @@ public class TerritoryMenu extends JFrame {
 	    jButton2.setBackground(Color.WHITE);
 	    jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
 	    cp.add(jButton2);
+	    
+	    jButton4.setBounds(168, 256, 305, 57);
+	    jButton4.setText("Start in Three-Lakes");
+	    jButton4.setMargin(new Insets(2, 2, 2, 2));
+	    jButton4.addActionListener(new ActionListener() { 
+	      public void actionPerformed(ActionEvent evt) { 
+	    	  jButton4_ActionPerformed(evt);
+	      }
+	    });
+	    jButton4.setBackground(Color.WHITE);
+	    jButton4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
+	    cp.add(jButton4);
+	    
+	    jButton5.setBounds(168, 256, 305, 57);
+	    jButton5.setText("Start in Desert-Border");
+	    jButton5.setMargin(new Insets(2, 2, 2, 2));
+	    jButton5.addActionListener(new ActionListener() { 
+	      public void actionPerformed(ActionEvent evt) { 
+	    	  jButton5_ActionPerformed(evt);
+	      }
+	    });
+	    jButton5.setBackground(Color.WHITE);
+	    jButton5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
+	    cp.add(jButton5);
 	    
 	    jButton3.setBounds(168, 256, 305, 57);
 	    jButton3.setText("Return to Main Menu");
@@ -133,6 +159,35 @@ public class TerritoryMenu extends JFrame {
 				    JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	public void jButton4_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+		if (running == false) {
+			Game g = new Game("/levels/three-lakes.png");
+			g.start();
+			closeMenu();
+			new AttributeMenu("Adjust your Attributes...");
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please restart the application to start a new game!",
+				    "Already Running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}
+	}
+	
+	public void jButton5_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+		if (running == false) {
+			Game g = new Game("/levels/desert-border.png");
+			g.start();
+			closeMenu();
+			new AttributeMenu("Adjust your Attributes...");
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please restart the application to start a new game!",
+				    "Already Running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}
+	}
+	
 
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
