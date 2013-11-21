@@ -44,6 +44,7 @@ public class TeleportMenu extends JFrame {
 	private JButton ancientRuinsButton = new JButton();
 	private JButton threeLakesButton = new JButton();
 	private JButton desertBorderButton = new JButton();
+	private JButton fiechLandButton = new JButton();
 	private JButton returnToGameButton = new JButton();
 
 	private boolean running = Game.isRunning();
@@ -114,8 +115,21 @@ public class TeleportMenu extends JFrame {
 		desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(desertBorderButton);
+		
+		fiechLandButton.setBounds(168, 392, 305, 57);
+		fiechLandButton.setText("Return to Game");
+		fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
+		fiechLandButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				fiechLandButton_ActionPerformed(evt);
+			}
+		});
+		fiechLandButton.setBackground(Color.WHITE);
+		fiechLandButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(fiechLandButton);
 
-		returnToGameButton.setBounds(168, 392, 305, 57);
+		returnToGameButton.setBounds(168, 480, 305, 57);
 		returnToGameButton.setText("Return to Game");
 		returnToGameButton.setMargin(new Insets(2, 2, 2, 2));
 		returnToGameButton.addActionListener(new ActionListener() {
@@ -127,6 +141,7 @@ public class TeleportMenu extends JFrame {
 		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(returnToGameButton);
+	
 
 		cp.setBackground(new Color(0xFFC800));
 
@@ -150,6 +165,10 @@ public class TeleportMenu extends JFrame {
 
 	public void desertBorderButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/desert-border.png");
+		closeMenu();
+	}
+	public void fiechLandButton_ActionPerformed(ActionEvent evt) {
+		Game.startLevel("/levels/fiech-land.png");
 		closeMenu();
 	}
 
