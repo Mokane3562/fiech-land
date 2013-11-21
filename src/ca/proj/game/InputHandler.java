@@ -30,6 +30,11 @@ import ca.proj.game.Key;
 public class InputHandler implements KeyListener {
 	public static int lookDir;
 
+	/**
+	 * Creates a new input handler.
+	 * 
+	 * @param game the game to handle input from
+	 */
 	public InputHandler(Game game) {
 		game.addKeyListener(this);
 	}
@@ -55,18 +60,36 @@ public class InputHandler implements KeyListener {
 	// Teleport
 	public Key teleport = new Key();
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
+	@Override
 	public void keyPressed(KeyEvent e) {
 		toggleKey(e.getKeyCode(), true);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
+	@Override
 	public void keyReleased(KeyEvent e) {
 		toggleKey(e.getKeyCode(), false);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	@Override
 	public void keyTyped(KeyEvent e) {
 
 	}
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @param keyCode add a description
+	 * @param isPressed add a description
+	 */
 	public void toggleKey(int keyCode, boolean isPressed) {
 		// MOVEMENT
 		if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_UP) {

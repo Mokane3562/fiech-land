@@ -23,10 +23,20 @@ package ca.proj.game;
 public class Key {
 	private boolean pressed = false;
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @return add a description
+	 */
 	public boolean isPressed() {
 		return pressed;
 	}
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @param isPressed add a description
+	 */
 	public void toggle(boolean isPressed) {
 		pressed = isPressed;
 	}
