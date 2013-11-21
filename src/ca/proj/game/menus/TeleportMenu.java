@@ -76,7 +76,7 @@ public class TeleportMenu extends JFrame {
 		waterfallGrasslandButton.setPreferredSize(buttonSize);
 		waterfallGrasslandButton.setMaximumSize(buttonSize);
 		waterfallGrasslandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		waterfallGrasslandButton.setText("Enter WaterFall-Grassland");
+		waterfallGrasslandButton.setText("WaterFall-Grassland");
 		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -93,7 +93,7 @@ public class TeleportMenu extends JFrame {
 		ancientRuinsButton.setPreferredSize(buttonSize);
 		ancientRuinsButton.setMaximumSize(buttonSize);
 		ancientRuinsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		ancientRuinsButton.setText("Enter Ancient-Ruins");
+		ancientRuinsButton.setText("Ancient-Ruins");
 		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -110,7 +110,7 @@ public class TeleportMenu extends JFrame {
 		threeLakesButton.setPreferredSize(buttonSize);
 		threeLakesButton.setMaximumSize(buttonSize);
 		threeLakesButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		threeLakesButton.setText("Enter Three-Lakes");
+		threeLakesButton.setText("Three-Lakes");
 		threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
 		threeLakesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -127,7 +127,7 @@ public class TeleportMenu extends JFrame {
 		desertBorderButton.setPreferredSize(buttonSize);
 		desertBorderButton.setMaximumSize(buttonSize);
 		desertBorderButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		desertBorderButton.setText("Enter Desert-Border");
+		desertBorderButton.setText("Desert-Border");
 		desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
 		desertBorderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -144,7 +144,7 @@ public class TeleportMenu extends JFrame {
 		fiechLandButton.setPreferredSize(buttonSize);
 		fiechLandButton.setMaximumSize(buttonSize);
 		fiechLandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		fiechLandButton.setText("Enter Fiech-Land");
+		fiechLandButton.setText("Fiech-Land");
 		fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
 		fiechLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
