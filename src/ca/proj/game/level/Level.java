@@ -51,6 +51,11 @@ public class Level {
 	private Government government = null;
 	private static Gov_Type DEMOCRACY;
 
+	/**
+	 * Creates a level from the specified image.
+	 * 
+	 * @param imagePath the path to the image on the disk
+	 */
 	public Level(String imagePath) {
 		if (imagePath != null) {
 			this.imagePath = imagePath;
@@ -58,6 +63,9 @@ public class Level {
 		}
 	}
 
+	/**
+	 * Loads a level from the file.
+	 */
 	private void loadLevelFromFile() {
 		try {
 			this.image = ImageIO.read(Level.class.getResource(this.imagePath));
@@ -70,6 +78,9 @@ public class Level {
 		}
 	}
 
+	/**
+	 * Loads the tiles on a per pixel basis based on the level image.
+	 */
 	private void loadTiles() {
 		int[] tileColours = this.image.getRGB(0, 0, width, height, null, 0,
 				width);
@@ -86,6 +97,9 @@ public class Level {
 		}
 	}
 
+	/**
+	 * Exports a level to a .png image.
+	 */
 	private void saveLevelToFile() {
 		try {
 			ImageIO.write(image, "png",
@@ -95,12 +109,22 @@ public class Level {
 		}
 	}
 
+	/**
+	 * Alters a tile on the level by replacing it with another tile configuration.
+	 * 
+	 * @param x the x coordinate of the tile to be altered
+	 * @param y the x coordinate of the tile to be altered
+	 * @param newTile the tile to replace the altered tile
+	 */
 	public void alterTile(int x, int y, Tile newTile) {
 		tiles[x + y * width] = newTile.getId();
 		image.setRGB(x, y, newTile.getLevelColour());
 
 	}
 
+	/**
+	 * Please add a description.
+	 */
 	public void tick() {
 		for (Entity e : entities) {
 			e.tick();
@@ -114,6 +138,13 @@ public class Level {
 
 	}
 
+	/**
+	 * Renders the tiles to the screen.
+	 * 
+	 * @param screen the screen to render the tiles to
+	 * @param xOffset add a description
+	 * @param yOffset add a description
+	 */
 	public void renderTiles(Screen screen, int xOffset, int yOffset) {
 		if (xOffset < 0) {
 			xOffset = 0;
@@ -137,12 +168,24 @@ public class Level {
 		}
 	}
 
+	/**
+	 * Renders the level's entities to the screen.
+	 * 
+	 * @param screen the screen to render the entities to
+	 */
 	public void renderEntities(Screen screen) {
 		for (Entity e : entities) {
 			e.render(screen);
 		}
 	}
 
+	/**
+	 * Returns the tile at a specified location on the level.
+	 * 
+	 * @param x the x coordinate of the tile location
+	 * @param y the y coordinate of the tile location
+	 * @return the tile at the specific location
+	 */
 	public Tile getTile(int x, int y) {
 		if (0 > x || x >= width || 0 > y || y >= height){
 			return Tile.VOID;
@@ -150,18 +193,38 @@ public class Level {
 		return Tile.tiles[tiles[x + y * width]];
 	}
 
+	/**
+	 * Adds a number of NPCs to the level's list of entities.
+	 * 
+	 * @param npcs the list of NPCs to add
+	 */
 	public void addNPC(List<NPC> npcs) {
 		this.entities.addAll(npcs);
 	}
 
+	/**
+	 * Adds a number of entities to the level's list of entities.
+	 * 
+	 * @param entity the list of entities to add
+	 */
 	public void addEntity(Entity entity) {
 		this.entities.add(entity);
 	}
 
+	/**
+	 * Removes a specific instance of an entity from the level's list of entities.
+	 * 
+	 * @param entity the entity to be removed
+	 */
 	public void removeEntity(Entity entity) {
 		this.entities.remove(entity);
 	}
 
+	/**
+	 * Returns a vote from the NPCs.
+	 * 
+	 * @return the NPCs vote
+	 */
 	public double getNPCVote() {
 		Random rand = new Random();
 		int r = rand.nextInt(Game.NUM_NPCS);
@@ -169,25 +232,36 @@ public class Level {
 		return r;
 	}
 
+	/**
+	 * Starts a democratic government.
+	 */
 	public void startDemocraticGovernment() {
 		government = new Government(DEMOCRACY);
 	}
 
 	/**
-	 * @return the government
+	 * Returns the current government.
+	 * 
+	 * @return the current government
 	 */
 	public Government getGovernment() {
 		return government;
 	}
 
-	/**
-	 * @param government
-	 *            the government to set
+	/** 
+	 * Sets the government to a specific type.
+	 * 
+	 * @param government the new government
 	 */
 	public void setGovernment(Government government) {
 		this.government = government;
 	}
 
+	/**
+	 * Returns the image path of the level.
+	 * 
+	 * @return the level's image path
+	 */
 	public String getImagePath() {
 		return imagePath;
 	}
