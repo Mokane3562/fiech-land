@@ -34,6 +34,15 @@ public abstract class Mob extends Entity {
 	protected int movingDir = 1;
 	protected int scale = 1;
 
+	/**
+	 * Creates a new Mob
+	 * 
+	 * @param level
+	 * @param name
+	 * @param x
+	 * @param y
+	 * @param speed
+	 */
 	public Mob(Level level, String name, int x, int y, int speed) {
 		super(level);
 		this.name = name;
@@ -81,6 +90,13 @@ public abstract class Mob extends Entity {
 
 	}
 
+	/**
+	 * Please add a description
+	 * 
+	 * @param xa
+	 * @param ya
+	 * @return
+	 */
 	public abstract boolean hasCollided(int xa, int ya);
 
 	/**
