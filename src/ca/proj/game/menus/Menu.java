@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -38,16 +37,14 @@ import ca.proj.game.Game;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+@SuppressWarnings("serial")
 public class Menu extends JFrame {
 
-	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
+	private JButton startNewGameButton = new JButton();
+	private JButton returnToGameButton = new JButton();
+	private JButton quitGameButton = new JButton();
 
 	private boolean running = Game.isRunning();
-
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
-			BufferedImage.TYPE_INT_RGB);
 
 	public Menu(String title) {
 
@@ -64,50 +61,50 @@ public class Menu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Start New Game");
-		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener() {
+		startNewGameButton.setBounds(168, 80, 305, 57);
+		startNewGameButton.setText("Start New Game");
+		startNewGameButton.setMargin(new Insets(2, 2, 2, 2));
+		startNewGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				startNewGameButton_ActionPerformed(evt);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		startNewGameButton.setBackground(Color.WHITE);
+		startNewGameButton.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton1);
+		cp.add(startNewGameButton);
 
-		jButton2.setBounds(168, 168, 305, 57);
-		jButton2.setText("Return to Game");
-		jButton2.setMargin(new Insets(2, 2, 2, 2));
-		jButton2.addActionListener(new ActionListener() {
+		returnToGameButton.setBounds(168, 168, 305, 57);
+		returnToGameButton.setText("Return to Game");
+		returnToGameButton.setMargin(new Insets(2, 2, 2, 2));
+		returnToGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton2_ActionPerformed(evt);
+				returnToGameButton_ActionPerformed(evt);
 			}
 		});
-		jButton2.setBackground(Color.WHITE);
-		jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		returnToGameButton.setBackground(Color.WHITE);
+		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton2);
+		cp.add(returnToGameButton);
 
-		jButton3.setBounds(168, 256, 305, 57);
-		jButton3.setText("Exit Game");
-		jButton3.setMargin(new Insets(2, 2, 2, 2));
-		jButton3.addActionListener(new ActionListener() {
+		quitGameButton.setBounds(168, 256, 305, 57);
+		quitGameButton.setText("Exit Game");
+		quitGameButton.setMargin(new Insets(2, 2, 2, 2));
+		quitGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Game.quit();
+				quitGameButton_ActionPerformed(evt);
 			}
 		});
-		jButton3.setBackground(Color.WHITE);
-		jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		quitGameButton.setBackground(Color.WHITE);
+		quitGameButton.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton3);
+		cp.add(quitGameButton);
 
 		cp.setBackground(new Color(0xFFC800));
 
 		setVisible(true);
 	}
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+	public void startNewGameButton_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
 		if (running == false) {
 			new TerritoryMenu("Choose a Territory");
 			closeMenu();
@@ -118,13 +115,16 @@ public class Menu extends JFrame {
 				    JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	public void jButton2_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+	public void returnToGameButton_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
 		if (running == false) {
 			JOptionPane.showMessageDialog(this, "No game running!",
 					"Not Running!", JOptionPane.WARNING_MESSAGE);
 		} else {
 			closeMenu();
 		}
+	}
+	public void quitGameButton_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+		Game.quit();
 	}
 
 	public void closeMenu() {
