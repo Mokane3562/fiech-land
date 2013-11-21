@@ -22,34 +22,32 @@ import ca.proj.game.Game;
  * 
  * TerritoryMenu.java is used to select a territory to start a new game in.
  * 
- * Copyright (C) 2013 
- * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Copyright (C) 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
  */
 @SuppressWarnings("serial")
 public class TerritoryMenu extends JFrame {
-	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
-	private JButton jButton4 = new JButton();
-	private JButton jButton5 = new JButton();
+	private JButton waterfallGrasslandButton = new JButton();
+	private JButton ancientRuinsButton = new JButton();
+	private JButton returnToMainButton = new JButton();
+	private JButton threeLakesButton = new JButton();
+	private JButton desertBorderButton = new JButton();
 	
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
-			BufferedImage.TYPE_INT_RGB);
 	private boolean running = Game.isRunning();
+
 	public TerritoryMenu(String title) {
 
 		super(title);
@@ -65,74 +63,78 @@ public class TerritoryMenu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Start in WaterFall-Grassland");
-		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener() {
+		waterfallGrasslandButton.setBounds(168, 40, 305, 57);
+		waterfallGrasslandButton.setText("Start in WaterFall-Grassland");
+		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
+		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				waterfallGrasslandButton_ActionPerformed(evt);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
-		cp.add(jButton1);
-		
-		jButton2.setBounds(168, 168, 305, 57);
-	    jButton2.setText("Start in Ancient-Ruins");
-	    jButton2.setMargin(new Insets(2, 2, 2, 2));
-	    jButton2.addActionListener(new ActionListener() { 
-	      public void actionPerformed(ActionEvent evt) { 
-	        jButton2_ActionPerformed(evt);
-	      }
-	    });
-	    jButton2.setBackground(Color.WHITE);
-	    jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
-	    cp.add(jButton2);
-	    
-	    jButton4.setBounds(168, 256, 305, 57);
-	    jButton4.setText("Start in Three-Lakes");
-	    jButton4.setMargin(new Insets(2, 2, 2, 2));
-	    jButton4.addActionListener(new ActionListener() { 
-	      public void actionPerformed(ActionEvent evt) { 
-	    	  jButton4_ActionPerformed(evt);
-	      }
-	    });
-	    jButton4.setBackground(Color.WHITE);
-	    jButton4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
-	    cp.add(jButton4);
-	    
-	    jButton5.setBounds(168, 256, 305, 57);
-	    jButton5.setText("Start in Desert-Border");
-	    jButton5.setMargin(new Insets(2, 2, 2, 2));
-	    jButton5.addActionListener(new ActionListener() { 
-	      public void actionPerformed(ActionEvent evt) { 
-	    	  jButton5_ActionPerformed(evt);
-	      }
-	    });
-	    jButton5.setBackground(Color.WHITE);
-	    jButton5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
-	    cp.add(jButton5);
-	    
-	    jButton3.setBounds(168, 256, 305, 57);
-	    jButton3.setText("Return to Main Menu");
-	    jButton3.setMargin(new Insets(2, 2, 2, 2));
-	    jButton3.addActionListener(new ActionListener() { 
-	      public void actionPerformed(ActionEvent evt) { 
-	    	  new Menu("Menu");
-	    	  closeMenu();
-	      }
-	    });
-	    jButton3.setBackground(Color.WHITE);
-	    jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN, Color.BLACK));
-	    cp.add(jButton3);
-	    
+		waterfallGrasslandButton.setBackground(Color.WHITE);
+		waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(waterfallGrasslandButton);
+
+		ancientRuinsButton.setBounds(168, 128, 305, 57);
+		ancientRuinsButton.setText("Start in Ancient-Ruins");
+		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
+		ancientRuinsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ancientRuinsButton_ActionPerformed(evt);
+			}
+		});
+		ancientRuinsButton.setBackground(Color.WHITE);
+		ancientRuinsButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(ancientRuinsButton);
+
+		threeLakesButton.setBounds(168, 216, 305, 57);
+		threeLakesButton.setText("Start in Three-Lakes");
+		threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
+		threeLakesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				threeLakesButton_ActionPerformed(evt);
+			}
+		});
+		threeLakesButton.setBackground(Color.WHITE);
+		threeLakesButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(threeLakesButton);
+
+		desertBorderButton.setBounds(168, 304, 305, 57);
+		desertBorderButton.setText("Start in Desert-Border");
+		desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
+		desertBorderButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				desertBorderButton_ActionPerformed(evt);
+			}
+		});
+		desertBorderButton.setBackground(Color.WHITE);
+		desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(desertBorderButton);
+
+		returnToMainButton.setBounds(168, 392, 305, 57);
+		returnToMainButton.setText("Return to Main Menu");
+		returnToMainButton.setMargin(new Insets(2, 2, 2, 2));
+		returnToMainButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				returnToMainButton_ActionPerformed(evt);
+			}
+		});
+		returnToMainButton.setBackground(Color.WHITE);
+		returnToMainButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(returnToMainButton);
+
 		cp.setBackground(new Color(0xFFC800));
 
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) { // ENTER
+																			// LEVEL
 		if (running == false) {
 			Game g = new Game("/levels/waterfall-grassland.png");
 			g.start();
@@ -140,13 +142,13 @@ public class TerritoryMenu extends JFrame {
 			new AttributeMenu("Adjust your Attributes...");
 		} else {
 			JOptionPane.showMessageDialog(this,
-				    "Please restart the application to start a new game!",
-				    "Already Running!",
-				    JOptionPane.WARNING_MESSAGE);
+					"Please restart the application to start a new game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	public void jButton2_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+
+	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) { // ENTER
+																		// LEVEL
 		if (running == false) {
 			Game g = new Game("/levels/ancient-ruins.png");
 			g.start();
@@ -154,13 +156,13 @@ public class TerritoryMenu extends JFrame {
 			new AttributeMenu("Adjust your Attributes...");
 		} else {
 			JOptionPane.showMessageDialog(this,
-				    "Please restart the application to start a new game!",
-				    "Already Running!",
-				    JOptionPane.WARNING_MESSAGE);
+					"Please restart the application to start a new game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	public void jButton4_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+
+	public void threeLakesButton_ActionPerformed(ActionEvent evt) { // ENTER
+																	// LEVEL
 		if (running == false) {
 			Game g = new Game("/levels/three-lakes.png");
 			g.start();
@@ -168,13 +170,13 @@ public class TerritoryMenu extends JFrame {
 			new AttributeMenu("Adjust your Attributes...");
 		} else {
 			JOptionPane.showMessageDialog(this,
-				    "Please restart the application to start a new game!",
-				    "Already Running!",
-				    JOptionPane.WARNING_MESSAGE);
+					"Please restart the application to start a new game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	public void jButton5_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+
+	public void desertBorderButton_ActionPerformed(ActionEvent evt) { // ENTER
+																		// LEVEL
 		if (running == false) {
 			Game g = new Game("/levels/desert-border.png");
 			g.start();
@@ -182,12 +184,16 @@ public class TerritoryMenu extends JFrame {
 			new AttributeMenu("Adjust your Attributes...");
 		} else {
 			JOptionPane.showMessageDialog(this,
-				    "Please restart the application to start a new game!",
-				    "Already Running!",
-				    JOptionPane.WARNING_MESSAGE);
+					"Please restart the application to start a new game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
+
+	public void returnToMainButton_ActionPerformed(ActionEvent evt) { // ENTER
+																		// LEVEL
+		new Menu("Menu");
+		closeMenu();
+	}
 
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
@@ -195,4 +201,3 @@ public class TerritoryMenu extends JFrame {
 	}
 
 }
-
