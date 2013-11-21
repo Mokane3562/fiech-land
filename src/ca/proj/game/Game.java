@@ -139,8 +139,6 @@ public class Game extends Canvas implements Runnable {
 	 * Start the level and add the player, and GameEvent manager.
 	 * 
 	 * @param levelPath
-	 * @param x
-	 * @param y
 	 */
 	public static void startLevel(String levelPath) {
 		Random rand = new Random();
