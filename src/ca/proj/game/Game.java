@@ -48,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 	public static final int HEIGHT = WIDTH / 12 * 9;
 	public static final int SCALE = 4;
 	public static final String NAME = "Fiech Land";
-	public static final int NUM_NPCS = 500;
+	public static final int NUM_NPCS = 300;
 
 	JFrame frame;
 	Random generator = new Random();
@@ -146,6 +146,7 @@ public class Game extends Canvas implements Runnable {
 		Random rand = new Random();
 
 		level = new Level(levelPath);
+		level.setGovernment(null);
 		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
 		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
 		player = new Player(level, x, y, input);

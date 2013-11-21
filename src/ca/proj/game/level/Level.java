@@ -48,7 +48,7 @@ public class Level {
 	private BufferedImage image;
 	public boolean getTileId;
 	static Random generator = new Random();
-	private static Government government = null;
+	private Government government = null;
 	private static Gov_Type DEMOCRACY;
 
 	public Level(String imagePath) {

@@ -40,12 +40,12 @@ import ca.proj.game.Game;
  */
 @SuppressWarnings("serial")
 public class TeleportMenu extends JFrame {
-	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
+	private JButton waterfallGrasslandButton = new JButton();
+	private JButton ancientRuinsButton = new JButton();
+	private JButton threeLakesButton = new JButton();
+	private JButton desertBorderButton = new JButton();
+	private JButton returnToGameButton = new JButton();
 
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
-			BufferedImage.TYPE_INT_RGB);
 	private boolean running = Game.isRunning();
 
 	public TeleportMenu(String title) {
@@ -63,58 +63,97 @@ public class TeleportMenu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Teleport to Water-Fall Grassland");
-		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener() {
+		waterfallGrasslandButton.setBounds(168, 40, 305, 57);
+		waterfallGrasslandButton.setText("Start in WaterFall-Grassland");
+		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
+		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				waterfallGrasslandButton_ActionPerformed(evt);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
-		cp.add(jButton1);
+		waterfallGrasslandButton.setBackground(Color.WHITE);
+		waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(waterfallGrasslandButton);
 
-		jButton2.setBounds(168, 168, 305, 57);
-		jButton2.setText("Teleport to Ancient-Ruins");
-		jButton2.setMargin(new Insets(2, 2, 2, 2));
-		jButton2.addActionListener(new ActionListener() {
+		ancientRuinsButton.setBounds(168, 128, 305, 57);
+		ancientRuinsButton.setText("Start in Ancient-Ruins");
+		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
+		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton2_ActionPerformed(evt);
+				ancientRuinsButton_ActionPerformed(evt);
 			}
 		});
-		jButton2.setBackground(Color.WHITE);
-		jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
-		cp.add(jButton2);
+		ancientRuinsButton.setBackground(Color.WHITE);
+		ancientRuinsButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(ancientRuinsButton);
 
-		jButton3.setBounds(168, 256, 305, 57);
-		jButton3.setText("Return to Main Menu");
-		jButton3.setMargin(new Insets(2, 2, 2, 2));
-		jButton3.addActionListener(new ActionListener() {
+		threeLakesButton.setBounds(168, 216, 305, 57);
+		threeLakesButton.setText("Start in Three-Lakes");
+		threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
+		threeLakesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				new Menu("Menu");
-				closeMenu();
+				threeLakesButton_ActionPerformed(evt);
 			}
 		});
-		jButton3.setBackground(Color.WHITE);
-		jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
-		cp.add(jButton3);
+		threeLakesButton.setBackground(Color.WHITE);
+		threeLakesButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(threeLakesButton);
+
+		desertBorderButton.setBounds(168, 304, 305, 57);
+		desertBorderButton.setText("Start in Desert-Border");
+		desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
+		desertBorderButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				desertBorderButton_ActionPerformed(evt);
+			}
+		});
+		desertBorderButton.setBackground(Color.WHITE);
+		desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(desertBorderButton);
+
+		returnToGameButton.setBounds(168, 392, 305, 57);
+		returnToGameButton.setText("Return to Game");
+		returnToGameButton.setMargin(new Insets(2, 2, 2, 2));
+		returnToGameButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				returnToGameButton_ActionPerformed(evt);
+			}
+		});
+		returnToGameButton.setBackground(Color.WHITE);
+		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(returnToGameButton);
 
 		cp.setBackground(new Color(0xFFC800));
 
 		setVisible(true);
 	}
 
-	public void jButton1_ActionPerformed(ActionEvent evt) {
+	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/waterfall-grassland.png");
 		closeMenu();
 	}
 
-	public void jButton2_ActionPerformed(ActionEvent evt) {
+	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/ancient-ruins.png");
+		closeMenu();
+	}
+
+	public void threeLakesButton_ActionPerformed(ActionEvent evt) {
+		Game.startLevel("/levels/three-lakes.png");
+		closeMenu();
+	}
+
+	public void desertBorderButton_ActionPerformed(ActionEvent evt) {
+		Game.startLevel("/levels/desert-border.png");
+		closeMenu();
+	}
+
+	public void returnToGameButton_ActionPerformed(ActionEvent evt) {
 		closeMenu();
 	}
 
