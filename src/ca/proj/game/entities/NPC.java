@@ -54,10 +54,9 @@ public class NPC extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Called from the level to "tick" or update the character.
-	 * 
 	 * @see ca.proj.game.entities.Entity#tick()
 	 */
+	@Override
 	public void tick() {
 		xa = 0;
 		ya = 0;
@@ -150,10 +149,9 @@ public class NPC extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Render any updates to the screen.
-	 * 
 	 * @see ca.proj.game.entities.Entity#render(ca.proj.game.gfx.Screen)
 	 */
+	@Override
 	public void render(Screen screen) {
 		// Position of the sprite on the sheet.
 		int xTile = 0;
@@ -209,10 +207,9 @@ public class NPC extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Check to see if the character has collided with a solid tile.
-	 * 
 	 * @see ca.proj.game.entities.Mob#hasCollided(int, int)
 	 */
+	@Override
 	public boolean hasCollided(int xa, int ya) {
 		int xMin = 0;
 		int xMax = 7;

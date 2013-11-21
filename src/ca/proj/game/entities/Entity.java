@@ -50,12 +50,12 @@ public abstract class Entity {
 	}
 
 	/**
-	 * Please add a description.
+	 * Called from the level to "tick" or update the entity
 	 */
 	public abstract void tick();
 
 	/**
-	 * Please add a description.
+	 * Render any updates to the screen.
 	 * 
 	 * @param screen add a description
 	 */

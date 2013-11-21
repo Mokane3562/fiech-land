@@ -62,10 +62,9 @@ public class Player extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Called from the level to "tick" or update the character.
-	 * 
 	 * @see ca.proj.game.entities.Entity#tick()
 	 */
+	@Override
 	public void tick() {
 		int xa = 0;
 		int ya = 0;
@@ -121,10 +120,9 @@ public class Player extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Render any updates to the screen.
-	 * 
 	 * @see ca.proj.game.entities.Entity#render(ca.proj.game.gfx.Screen)
 	 */
+	@Override
 	public void render(Screen screen) {
 		int xTile = 0;
 		int yTile = 28;
@@ -178,10 +176,9 @@ public class Player extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Check to see if the character has collided with a solid tile.
-	 * 
 	 * @see ca.proj.game.entities.Mob#hasCollided(int, int)
 	 */
+	@Override
 	public boolean hasCollided(int xa, int ya) {
 		int xMin = 0;
 		int xMax = 7;

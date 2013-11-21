@@ -91,7 +91,7 @@ public abstract class Mob extends Entity {
 	}
 
 	/**
-	 * Please add a description.
+	 * Check to see if the character has collided with a solid tile.
 	 * 
 	 * @param xa add a description
 	 * @param ya add a description
