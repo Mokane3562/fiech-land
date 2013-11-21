@@ -40,6 +40,13 @@ public class Screen {
 	
 	public SpriteSheet sheet;
 	
+	/**
+	 * Creates a new screen.
+	 * 
+	 * @param width add a description
+	 * @param height add a description
+	 * @param sheet add a description
+	 */
 	public Screen(int width, int height, SpriteSheet sheet) {
 		
 		this.width = width;
@@ -50,8 +57,17 @@ public class Screen {
 		
 	
 	}
-	
-	
+
+	/**
+	 * Please add a description.
+	 * 
+	 * @param xPos add a description
+	 * @param yPos add a description
+	 * @param tile add a description
+	 * @param colour add a description
+	 * @param mirrorDir add a description
+	 * @param scale add a description
+	 */
 	public void render(int xPos, int yPos, int tile, int colour, int mirrorDir, int scale) {
 		xPos -= xOffset;
 		yPos -= yOffset;
@@ -81,19 +97,38 @@ public class Screen {
 			    			if (xPixel + xScale < 0 || xPixel + xScale >= width) continue;
 			    			pixels[(xPixel + xScale) + (yPixel + yScale) * width] = col;
 			    			
-			    		    }	
-			    	    }	
-			        }
+			    		}	
+			    	}	
 			    }
-		    }
+			}
 		}
+	}
+	
+	/**
+	 * Please add a description.
+	 * 
+	 * @param xOffset add a description
+	 * @param yOffset add a description
+	 */
 	public void setOffset(int xOffset, int yOffset) {
     	this.xOffset = xOffset;
     	this.yOffset = yOffset;
 	}
+	
+	/**
+	 * Returns the width of the screen.
+	 * 
+	 * @return the width of the screen
+	 */
 	public int getWidth(){
 		return width;
 	}
+	
+	/**
+	 * Returns the height of the screen.
+	 * 
+	 * @return the height of the screen
+	 */
 	public int getHeight(){
 		return height;
 	}

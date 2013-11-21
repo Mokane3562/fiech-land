@@ -26,6 +26,16 @@ public class Font {
 	
 	private static String chars = "" + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdm " + "0123456789.,:;'\"!?$%()-=+/wf    ";
 	
+	/**
+	 * Please add a description.
+	 * 
+	 * @param msg add a description
+	 * @param screen add a description
+	 * @param x add a description
+	 * @param y add a description
+	 * @param colour add a description
+	 * @param scale add a description
+	 */
 	public static void render(String msg, Screen screen, int x, int y, int colour, int scale) {
 		msg = msg.toUpperCase();
 		
