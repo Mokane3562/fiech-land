@@ -19,7 +19,7 @@ import javax.swing.WindowConstants;
 import ca.proj.game.Game;
 /**
  * 
- * TradeActionMenu.java 
+ * WealthActionMenu.java 
  * Copyright (C) 2013 
  * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
  *
@@ -37,7 +37,7 @@ import ca.proj.game.Game;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-public class TradeActionMenu extends JFrame {
+public class WealthActionMenu extends JFrame {
 
 	private JButton jButton1 = new JButton();
 	private JButton jButton2 = new JButton();
@@ -46,7 +46,7 @@ public class TradeActionMenu extends JFrame {
 	private JButton jButton5 = new JButton();
 	
 	//Random number generator
-	static Random tradeGen = new Random();
+	static Random wealthGen = new Random();
 	
 	//Holds random number
 	private double random;
@@ -57,7 +57,7 @@ public class TradeActionMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
-	public TradeActionMenu(String title) {
+	public WealthActionMenu(String title) {
 
 		super(title);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -72,7 +72,7 @@ public class TradeActionMenu extends JFrame {
 		Container cp = getContentPane();
 		cp.setLayout(null);
 
-		//First Trade Action Button - Put Money in the Piggy Bank
+		//First Wealth Action Button - Put Money in the Piggy Bank
 		jButton1.setBounds(168, 80, 305, 57);
 		jButton1.setText("Put Money in the Piggy Bank");
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
@@ -89,7 +89,7 @@ public class TradeActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Second Trade Action Button - Free Trade Agreement
+		//Second Wealth Action Button - Free Trade Agreement
 		jButton2.setBounds(168, 80, 305, 57);
 		jButton2.setText("Free Trade Agreement");
 		jButton2.setMargin(new Insets(2, 2, 2, 2));
@@ -106,7 +106,7 @@ public class TradeActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Third Trade Action Button - Foreign Trade Mission
+		//Third Wealth Action Button - Foreign Trade Mission
 		jButton3.setBounds(168, 80, 305, 57);
 		jButton3.setText("Foreign Trade Mission");
 		jButton3.setMargin(new Insets(2, 2, 2, 2));
@@ -123,7 +123,7 @@ public class TradeActionMenu extends JFrame {
 
 		setVisible(true);
 		
-		//Fourth Trade Action Button - Buy Stocks
+		//Fourth Wealth Action Button - Buy Stocks
 		jButton4.setBounds(168, 80, 305, 57);
 		jButton4.setText("Buy Stocks");
 		jButton4.setMargin(new Insets(2, 2, 2, 2));
@@ -158,10 +158,10 @@ public class TradeActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	// Perform First Trade Action
+	// Perform First Wealth Action
 	public void jButton1_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = wealthGen.nextInt(100);
 		//	This action has a 50% chance of success
 		if (random<=50.00){
 			/*	If successful, happiness variable will be set to 15 * Trade Focus value,
@@ -169,7 +169,7 @@ public class TradeActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*15;
+			//happiness=wealthFocus*15;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -181,10 +181,10 @@ public class TradeActionMenu extends JFrame {
 			//--actionPoints;
 	}
 		
-	// Perform Second Trade Action
+	// Perform Second Wealth Action
 	public void jButton2_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = wealthGen.nextInt(100);
 		//	This action has a 75% chance of success
 		if (random<=75.00){
 			/*	If successful, happiness variable will be set to 5 * Trade Focus value,
@@ -192,7 +192,7 @@ public class TradeActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*5;
+			//happiness=wealthFocus*5;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -204,10 +204,10 @@ public class TradeActionMenu extends JFrame {
 			//--actionPoints;
 	}
 		
-	// Perform Third Trade Action
+	// Perform Third Wealth Action
 	public void jButton3_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = wealthGen.nextInt(100);
 		//	This action has a 60% chance of success
 		if (random<=60.00){
 			/*	If successful, happiness variable will be set to 10 * Trade Focus value,
@@ -215,7 +215,7 @@ public class TradeActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*10;
+			//happiness=wealthFocus*10;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
@@ -227,10 +227,10 @@ public class TradeActionMenu extends JFrame {
 			//--actionPoints;
 	}
 
-	// Perform Fourth Trade Action
+	// Perform Fourth Wealth Action
 	public void jButton4_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
-		random = tradeGen.nextInt(100);
+		random = wealthGen.nextInt(100);
 		//	This action has a 25% chance of success
 		if (random<=25.00){
 			/*	If successful, happiness variable will be set to 25 * Trade Focus value,
@@ -238,7 +238,7 @@ public class TradeActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=tradeFocus*25;
+			//happiness=wealthFocus*25;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
