@@ -9,9 +9,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -47,6 +48,7 @@ public class TerritoryMenu extends JFrame {
 	private JButton threeLakesButton = new JButton();
 	private JButton fiechLandButton = new JButton();
 	private JButton desertBorderButton = new JButton();
+	
 
 	private boolean running = Game.isRunning();
 
@@ -63,9 +65,19 @@ public class TerritoryMenu extends JFrame {
 		setLocation(x, y);
 		setResizable(false);
 		Container cp = getContentPane();
-		cp.setLayout(null);
-
-		waterfallGrasslandButton.setBounds(168, 40, 305, 57);
+		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
+		cp.setLayout(boxLayout);
+		
+		Dimension buttonSize = new Dimension(305, 40);
+		Dimension minSize = new Dimension(0, 5);
+		Dimension prefSize = new Dimension(0, 5);
+		Dimension maxSize = new Dimension(0, 5);
+		
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		waterfallGrasslandButton.setMinimumSize(buttonSize);
+		waterfallGrasslandButton.setPreferredSize(buttonSize);
+		waterfallGrasslandButton.setMaximumSize(buttonSize);
+		waterfallGrasslandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		waterfallGrasslandButton.setText("Start in WaterFall-Grassland");
 		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
@@ -77,8 +89,12 @@ public class TerritoryMenu extends JFrame {
 		waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(waterfallGrasslandButton);
-
-		ancientRuinsButton.setBounds(168, 128, 305, 57);
+		
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		ancientRuinsButton.setMinimumSize(buttonSize);
+		ancientRuinsButton.setPreferredSize(buttonSize);
+		ancientRuinsButton.setMaximumSize(buttonSize);
+		ancientRuinsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		ancientRuinsButton.setText("Start in Ancient-Ruins");
 		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
@@ -91,7 +107,11 @@ public class TerritoryMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(ancientRuinsButton);
 
-		threeLakesButton.setBounds(168, 216, 305, 57);
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		threeLakesButton.setMinimumSize(buttonSize);
+		threeLakesButton.setPreferredSize(buttonSize);
+		threeLakesButton.setMaximumSize(buttonSize);
+		threeLakesButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		threeLakesButton.setText("Start in Three-Lakes");
 		threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
 		threeLakesButton.addActionListener(new ActionListener() {
@@ -104,7 +124,11 @@ public class TerritoryMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(threeLakesButton);
 
-		desertBorderButton.setBounds(168, 304, 305, 57);
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		desertBorderButton.setMinimumSize(buttonSize);
+		desertBorderButton.setPreferredSize(buttonSize);
+		desertBorderButton.setMaximumSize(buttonSize);
+		desertBorderButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		desertBorderButton.setText("Start in Desert-Border");
 		desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
 		desertBorderButton.addActionListener(new ActionListener() {
@@ -117,7 +141,11 @@ public class TerritoryMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(desertBorderButton);
 
-		fiechLandButton.setBounds(168, 392, 305, 57);
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		fiechLandButton.setMinimumSize(buttonSize);
+		fiechLandButton.setPreferredSize(buttonSize);
+		fiechLandButton.setMaximumSize(buttonSize);
+		fiechLandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		fiechLandButton.setText("Start in Fiech-Land");
 		fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
 		fiechLandButton.addActionListener(new ActionListener() {
@@ -130,7 +158,11 @@ public class TerritoryMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(fiechLandButton);
 		
-		returnToMainButton.setBounds(168, 480, 305, 57);
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		returnToMainButton.setMinimumSize(buttonSize);
+		returnToMainButton.setPreferredSize(buttonSize);
+		returnToMainButton.setMaximumSize(buttonSize);
+		returnToMainButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		returnToMainButton.setText("Return to Main Menu");
 		returnToMainButton.setMargin(new Insets(2, 2, 2, 2));
 		returnToMainButton.addActionListener(new ActionListener() {
