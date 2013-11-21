@@ -51,10 +51,10 @@ public class Player extends Mob {
 	/**
 	 * Creates a new Player.
 	 * 
-	 * @param level
-	 * @param x
-	 * @param y
-	 * @param input
+	 * @param level the level to add the player to
+	 * @param x the x position on the level to add the player to
+	 * @param y the y position on the level to add the player to
+	 * @param input the input handler for the player
 	 */
 	public Player(Level level, int x, int y, InputHandler input) {
 		super(level, "PLAYER", x, y, 1);

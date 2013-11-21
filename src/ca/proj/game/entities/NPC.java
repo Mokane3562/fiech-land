@@ -45,9 +45,9 @@ public class NPC extends Mob {
 	/**
 	 * Creates a new NPC.
 	 * 
-	 * @param level
-	 * @param x
-	 * @param y
+	 * @param level the level to add the NPC to
+	 * @param x the x position on the level to add the NPC to
+	 * @param y the y position on the level to add the NPC to
 	 */
 	public NPC(Level level, int x, int y) {
 		super(level, "NPC", x, y, 1);

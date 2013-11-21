@@ -33,7 +33,7 @@ public abstract class Entity {
 	/**
 	 * Creates a new Entity object.
 	 * 
-	 * @param level
+	 * @param level the level to add the entity to
 	 */
 	public Entity(Level level) {
 		init(level);
@@ -43,7 +43,7 @@ public abstract class Entity {
 	/**
 	 * Please add a description.
 	 * 
-	 * @param level
+	 * @param level add a description
 	 */
 	public final void init(Level level) {
 		this.level = level;
@@ -57,7 +57,7 @@ public abstract class Entity {
 	/**
 	 * Please add a description.
 	 * 
-	 * @param screen
+	 * @param screen add a description
 	 */
 	public abstract void render(Screen screen);
 

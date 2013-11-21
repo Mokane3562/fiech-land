@@ -37,11 +37,11 @@ public abstract class Mob extends Entity {
 	/**
 	 * Creates a new Mob.
 	 * 
-	 * @param level
-	 * @param name
-	 * @param x
-	 * @param y
-	 * @param speed
+	 * @param level the level to add the mob to
+	 * @param name the name of the mob
+	 * @param x the x position on the level to add the mob to
+	 * @param y the y position on the level to add the mob to
+	 * @param speed the movement speed of the mob
 	 */
 	public Mob(Level level, String name, int x, int y, int speed) {
 		super(level);
@@ -93,8 +93,8 @@ public abstract class Mob extends Entity {
 	/**
 	 * Please add a description.
 	 * 
-	 * @param xa
-	 * @param ya
+	 * @param xa add a description
+	 * @param ya add a description
 	 * @return add a description
 	 */
 	public abstract boolean hasCollided(int xa, int ya);
