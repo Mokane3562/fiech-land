@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 import ca.proj.game.menus.Menu;
 import ca.proj.game.menus.TeleportMenu;
-import ca.proj.game.level.Level;
+import ca.proj.game.Key;
 
 /**
  * 
@@ -33,18 +33,6 @@ public class InputHandler implements KeyListener {
 
 	public InputHandler(Game game) {
 		game.addKeyListener(this);
-	}
-
-	public class Key {
-		private boolean pressed = false;
-
-		public boolean isPressed() {
-			return pressed;
-		}
-
-		public void toggle(boolean isPressed) {
-			pressed = isPressed;
-		}
 	}
 
 	// MOVEMENT
