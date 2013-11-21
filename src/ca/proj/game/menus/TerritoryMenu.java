@@ -45,7 +45,7 @@ public class TerritoryMenu extends JFrame {
 	private JButton returnToMainButton = new JButton();
 	private JButton threeLakesButton = new JButton();
 	private JButton desertBorderButton = new JButton();
-	
+
 	private boolean running = Game.isRunning();
 
 	public TerritoryMenu(String title) {
@@ -133,8 +133,7 @@ public class TerritoryMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) { // ENTER
-																			// LEVEL
+	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/waterfall-grassland.png");
 			g.start();
@@ -147,8 +146,7 @@ public class TerritoryMenu extends JFrame {
 		}
 	}
 
-	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) { // ENTER
-																		// LEVEL
+	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/ancient-ruins.png");
 			g.start();
@@ -161,8 +159,7 @@ public class TerritoryMenu extends JFrame {
 		}
 	}
 
-	public void threeLakesButton_ActionPerformed(ActionEvent evt) { // ENTER
-																	// LEVEL
+	public void threeLakesButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/three-lakes.png");
 			g.start();
@@ -175,8 +172,7 @@ public class TerritoryMenu extends JFrame {
 		}
 	}
 
-	public void desertBorderButton_ActionPerformed(ActionEvent evt) { // ENTER
-																		// LEVEL
+	public void desertBorderButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/desert-border.png");
 			g.start();
@@ -189,8 +185,7 @@ public class TerritoryMenu extends JFrame {
 		}
 	}
 
-	public void returnToMainButton_ActionPerformed(ActionEvent evt) { // ENTER
-																		// LEVEL
+	public void returnToMainButton_ActionPerformed(ActionEvent evt) {
 		new Menu("Menu");
 		closeMenu();
 	}
