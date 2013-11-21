@@ -52,24 +52,24 @@ public class AttributeMenu extends JFrame {
 	
 	//components
 	private JLabel jLabelHeader = new JLabel("Distribute your points", JLabel.CENTER);
-	private JLabel jLabel1 = new JLabel("Wealth", JLabel.CENTER);
-	private JLabel jLabel2 = new JLabel("Resources", JLabel.CENTER);
-	private JLabel jLabel3 = new JLabel("Politics", JLabel.CENTER);
-	private JLabel jLabel4 = new JLabel("Expansion", JLabel.CENTER);
-	private JLabel jLabel5 = new JLabel("Military", JLabel.CENTER);
-	private JButton jButton1 = new JButton("Reset");
-	private JButton jButton2 = new JButton("Ok");
-	private JTextField jTextField1 = new JTextField();
-	private JSlider jSlider1 = new JSlider(10, 60, 10);
-	private JSlider jSlider2 = new JSlider(10, 60, 10);
-	private JSlider jSlider3 = new JSlider(10, 60, 10);
-	private JSlider jSlider4 = new JSlider(10, 60, 10);
-	private JSlider jSlider5 = new JSlider(10, 60, 10);
-	private JSpinner jSpinner1 = new JSpinner();
-	private JSpinner jSpinner2 = new JSpinner();
-	private JSpinner jSpinner3 = new JSpinner();
-	private JSpinner jSpinner4 = new JSpinner();
-	private JSpinner jSpinner5 = new JSpinner();
+	private JLabel jLabelWealth = new JLabel("Wealth", JLabel.CENTER);
+	private JLabel jLabelResources = new JLabel("Resources", JLabel.CENTER);
+	private JLabel jLabelPolitics = new JLabel("Politics", JLabel.CENTER);
+	private JLabel jLabelExpansion = new JLabel("Expansion", JLabel.CENTER);
+	private JLabel jLabelMilitary = new JLabel("Military", JLabel.CENTER);
+	private JButton jButtonReset = new JButton("Reset");
+	private JButton jButtonOk = new JButton("Ok");
+	private JTextField jTextFieldPointPool = new JTextField();
+	private JSlider jSliderWealth = new JSlider(10, 60, 10);
+	private JSlider jSliderResources = new JSlider(10, 60, 10);
+	private JSlider jSliderPolitics = new JSlider(10, 60, 10);
+	private JSlider jSliderExpansion = new JSlider(10, 60, 10);
+	private JSlider jSliderMilitary = new JSlider(10, 60, 10);
+	private JSpinner jSpinnerWealth = new JSpinner();
+	private JSpinner jSpinnerResources = new JSpinner();
+	private JSpinner jSpinnerPolitics = new JSpinner();
+	private JSpinner jSpinnerExpansion = new JSpinner();
+	private JSpinner jSpinnerMilitary = new JSpinner();
 	
 	//player vars
 	private int wealthVal = 10;
@@ -118,38 +118,38 @@ public class AttributeMenu extends JFrame {
 		header.add(jLabelHeader);
 		
 		//prepare labels panel
-		labels.add(jLabel1);
-		labels.add(jLabel2);
-		labels.add(jLabel3);
-		labels.add(jLabel4);
-		labels.add(jLabel5);
+		labels.add(jLabelWealth);
+		labels.add(jLabelResources);
+		labels.add(jLabelPolitics);
+		labels.add(jLabelExpansion);
+		labels.add(jLabelMilitary);
 		
 		//prepare footer panel
-		jButton1.addActionListener(new ActionListener() {
+		jButtonReset.addActionListener(new ActionListener() {
 			/* (non-Javadoc)
 			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 			 */
 			public void actionPerformed(ActionEvent evt) {
-				jSlider1.setValue(10);
-				jSlider2.setValue(10);
-				jSlider3.setValue(10);
-				jSlider4.setValue(10);
-				jSlider5.setValue(10);
+				jSliderWealth.setValue(10);
+				jSliderResources.setValue(10);
+				jSliderPolitics.setValue(10);
+				jSliderExpansion.setValue(10);
+				jSliderMilitary.setValue(10);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jButtonReset.setBackground(Color.WHITE);
+		jButtonReset.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		footer.add(jButton1);
+		footer.add(jButtonReset);
 		
-		jTextField1.setText("Points left: " + String.valueOf(pointPool));
-		jTextField1.setEditable(false);
-		jTextField1.setBackground(Color.WHITE);
-		jTextField1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jTextFieldPointPool.setText("Points left: " + String.valueOf(pointPool));
+		jTextFieldPointPool.setEditable(false);
+		jTextFieldPointPool.setBackground(Color.WHITE);
+		jTextFieldPointPool.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		footer.add(jTextField1);
+		footer.add(jTextFieldPointPool);
 		
-		jButton2.addActionListener(new ActionListener() {
+		jButtonOk.addActionListener(new ActionListener() {
 			/* (non-Javadoc)
 			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 			 */
@@ -162,228 +162,228 @@ public class AttributeMenu extends JFrame {
 				closeMenu();
 			}
 		});
-		jButton2.setBackground(Color.WHITE);
-		jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jButtonOk.setBackground(Color.WHITE);
+		jButtonOk.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		footer.add(jButton2);
+		footer.add(jButtonOk);
 		
 		//prepare spinners panel
-		jSpinner1.setModel(new SpinnerNumberModel(10, 10, 60, 1));
-		jSpinner1.addChangeListener(new ChangeListener() {
+		jSpinnerWealth.setModel(new SpinnerNumberModel(10, 10, 60, 1));
+		jSpinnerWealth.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
-				jSlider1.setValue((Integer) jSpinner1.getValue());
+				jSliderWealth.setValue((Integer) jSpinnerWealth.getValue());
 			}
 		});
-		jSpinner1.setBackground(Color.WHITE);
-		jSpinner1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSpinnerWealth.setBackground(Color.WHITE);
+		jSpinnerWealth.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		spinners.add(jSpinner1);
+		spinners.add(jSpinnerWealth);
 		
-		jSpinner2.setModel(new SpinnerNumberModel(10, 10, 60, 1));
-		jSpinner2.addChangeListener(new ChangeListener() {
+		jSpinnerResources.setModel(new SpinnerNumberModel(10, 10, 60, 1));
+		jSpinnerResources.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
-				jSlider2.setValue((Integer) jSpinner2.getValue());
+				jSliderResources.setValue((Integer) jSpinnerResources.getValue());
 			}
 		});
-		jSpinner2.setBackground(Color.WHITE);
-		jSpinner2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSpinnerResources.setBackground(Color.WHITE);
+		jSpinnerResources.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		spinners.add(jSpinner2);
+		spinners.add(jSpinnerResources);
 		
-		jSpinner3.setModel(new SpinnerNumberModel(10, 10, 60, 1));
-		jSpinner3.addChangeListener(new ChangeListener() {
+		jSpinnerPolitics.setModel(new SpinnerNumberModel(10, 10, 60, 1));
+		jSpinnerPolitics.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
-				jSlider3.setValue((Integer) jSpinner3.getValue());
+				jSliderPolitics.setValue((Integer) jSpinnerPolitics.getValue());
 			}
 		});
-		jSpinner3.setBackground(Color.WHITE);
-		jSpinner3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSpinnerPolitics.setBackground(Color.WHITE);
+		jSpinnerPolitics.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		spinners.add(jSpinner3);
+		spinners.add(jSpinnerPolitics);
 		
-		jSpinner4.setModel(new SpinnerNumberModel(10, 10, 60, 1));
-		jSpinner4.addChangeListener(new ChangeListener() {
+		jSpinnerExpansion.setModel(new SpinnerNumberModel(10, 10, 60, 1));
+		jSpinnerExpansion.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
-				jSlider4.setValue((Integer) jSpinner4.getValue());
+				jSliderExpansion.setValue((Integer) jSpinnerExpansion.getValue());
 			}
 		});
-		jSpinner4.setBackground(Color.WHITE);
-		jSpinner4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSpinnerExpansion.setBackground(Color.WHITE);
+		jSpinnerExpansion.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		spinners.add(jSpinner4);
+		spinners.add(jSpinnerExpansion);
 		
-		jSpinner5.setModel(new SpinnerNumberModel(10, 10, 60, 1));
-		jSpinner5.addChangeListener(new ChangeListener() {
+		jSpinnerMilitary.setModel(new SpinnerNumberModel(10, 10, 60, 1));
+		jSpinnerMilitary.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
-				jSlider5.setValue((Integer) jSpinner5.getValue());
+				jSliderMilitary.setValue((Integer) jSpinnerMilitary.getValue());
 			}
 		});
-		jSpinner5.setBackground(Color.WHITE);
-		jSpinner5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSpinnerMilitary.setBackground(Color.WHITE);
+		jSpinnerMilitary.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		spinners.add(jSpinner5);
+		spinners.add(jSpinnerMilitary);
 		
 		//prepare sliders panel
-		jSlider1.setMajorTickSpacing(10);
-		jSlider1.setMinorTickSpacing(1);
-		jSlider1.setSnapToTicks(true);
-		jSlider1.setPaintLabels(true);
-		jSlider1.setPaintTicks(true);
-		jSlider1.setEnabled(true);
-		jSlider1.addChangeListener(new ChangeListener() {
+		jSliderWealth.setMajorTickSpacing(10);
+		jSliderWealth.setMinorTickSpacing(1);
+		jSliderWealth.setSnapToTicks(true);
+		jSliderWealth.setPaintLabels(true);
+		jSliderWealth.setPaintTicks(true);
+		jSliderWealth.setEnabled(true);
+		jSliderWealth.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = wealthVal;
-				int newVal = jSlider1.getValue();
+				int newVal = jSliderWealth.getValue();
 				if (newVal - prevVal > pointPool){
-					jSlider1.setValue(prevVal + pointPool);
-					newVal = jSlider1.getValue();
+					jSliderWealth.setValue(prevVal + pointPool);
+					newVal = jSliderWealth.getValue();
 				}
 				pointPool -= newVal - prevVal;
-                jSpinner1.setValue(jSlider1.getValue());
-                wealthVal = jSlider1.getValue();
-                jTextField1.setText("Points left: " + String.valueOf(pointPool));
+                jSpinnerWealth.setValue(jSliderWealth.getValue());
+                wealthVal = jSliderWealth.getValue();
+                jTextFieldPointPool.setText("Points left: " + String.valueOf(pointPool));
                 System.out.println("Wealth: " + wealthVal);
                 System.out.println("Points: " + pointPool);
 			}
 		});
-		jSlider1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSliderWealth.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		jSlider1.setBackground(Color.WHITE);
-		sliders.add(jSlider1);
+		jSliderWealth.setBackground(Color.WHITE);
+		sliders.add(jSliderWealth);
 		
-		jSlider2.setMajorTickSpacing(10);
-		jSlider2.setMinorTickSpacing(1);
-		jSlider2.setSnapToTicks(true);
-		jSlider2.setPaintLabels(true);
-		jSlider2.setPaintTicks(true);
-		jSlider2.addChangeListener(new ChangeListener() {
+		jSliderResources.setMajorTickSpacing(10);
+		jSliderResources.setMinorTickSpacing(1);
+		jSliderResources.setSnapToTicks(true);
+		jSliderResources.setPaintLabels(true);
+		jSliderResources.setPaintTicks(true);
+		jSliderResources.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = resourcesVal;
-				int newVal = jSlider2.getValue();
+				int newVal = jSliderResources.getValue();
 				if (newVal - prevVal > pointPool){
-					jSlider2.setValue(prevVal + pointPool);
-					newVal = jSlider2.getValue();
+					jSliderResources.setValue(prevVal + pointPool);
+					newVal = jSliderResources.getValue();
 				}
 				pointPool -= newVal - prevVal;
-                jSpinner2.setValue(jSlider2.getValue());
-                resourcesVal = jSlider2.getValue();
-                jTextField1.setText("Points left: " + String.valueOf(pointPool));
+                jSpinnerResources.setValue(jSliderResources.getValue());
+                resourcesVal = jSliderResources.getValue();
+                jTextFieldPointPool.setText("Points left: " + String.valueOf(pointPool));
                 System.out.println("Resources: " + resourcesVal);
                 System.out.println("Points: " + pointPool);
 			}
 		});
-		jSlider2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSliderResources.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		jSlider2.setBackground(Color.WHITE);
-		sliders.add(jSlider2);
+		jSliderResources.setBackground(Color.WHITE);
+		sliders.add(jSliderResources);
 		
-		jSlider3.setMajorTickSpacing(10);
-		jSlider3.setMinorTickSpacing(1);
-		jSlider3.setSnapToTicks(true);
-		jSlider3.setPaintLabels(true);
-		jSlider3.setPaintTicks(true);
-		jSlider3.addChangeListener(new ChangeListener() {
+		jSliderPolitics.setMajorTickSpacing(10);
+		jSliderPolitics.setMinorTickSpacing(1);
+		jSliderPolitics.setSnapToTicks(true);
+		jSliderPolitics.setPaintLabels(true);
+		jSliderPolitics.setPaintTicks(true);
+		jSliderPolitics.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = politicsVal;
-				int newVal = jSlider3.getValue();
+				int newVal = jSliderPolitics.getValue();
 				if (newVal - prevVal > pointPool){
-					jSlider3.setValue(prevVal + pointPool);
-					newVal = jSlider3.getValue();
+					jSliderPolitics.setValue(prevVal + pointPool);
+					newVal = jSliderPolitics.getValue();
 				}
 				pointPool -= newVal - prevVal;
-                jSpinner3.setValue(jSlider3.getValue());
-                politicsVal = jSlider3.getValue();
-                jTextField1.setText("Points left: " + String.valueOf(pointPool));
+                jSpinnerPolitics.setValue(jSliderPolitics.getValue());
+                politicsVal = jSliderPolitics.getValue();
+                jTextFieldPointPool.setText("Points left: " + String.valueOf(pointPool));
                 System.out.println("Politics: " + politicsVal);
                 System.out.println("Points: " + pointPool);
 			}
 		});
-		jSlider3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSliderPolitics.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		jSlider3.setBackground(Color.WHITE);
-		sliders.add(jSlider3);
+		jSliderPolitics.setBackground(Color.WHITE);
+		sliders.add(jSliderPolitics);
 		
-		jSlider4.setMajorTickSpacing(10);
-		jSlider4.setMinorTickSpacing(1);
-		jSlider4.setSnapToTicks(true);
-		jSlider4.setPaintLabels(true);
-		jSlider4.setPaintTicks(true);
-		jSlider4.addChangeListener(new ChangeListener() {
+		jSliderExpansion.setMajorTickSpacing(10);
+		jSliderExpansion.setMinorTickSpacing(1);
+		jSliderExpansion.setSnapToTicks(true);
+		jSliderExpansion.setPaintLabels(true);
+		jSliderExpansion.setPaintTicks(true);
+		jSliderExpansion.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = expansionVal;
-				int newVal = jSlider4.getValue();
+				int newVal = jSliderExpansion.getValue();
 				if (newVal - prevVal > pointPool){
-					jSlider4.setValue(prevVal + pointPool);
-					newVal = jSlider4.getValue();
+					jSliderExpansion.setValue(prevVal + pointPool);
+					newVal = jSliderExpansion.getValue();
 				}
 				pointPool -= newVal - prevVal;
-                jSpinner4.setValue(jSlider4.getValue());
-                expansionVal = jSlider4.getValue();
-                jTextField1.setText("Points left: " + String.valueOf(pointPool));
+                jSpinnerExpansion.setValue(jSliderExpansion.getValue());
+                expansionVal = jSliderExpansion.getValue();
+                jTextFieldPointPool.setText("Points left: " + String.valueOf(pointPool));
                 System.out.println("Expansion: " + expansionVal);
                 System.out.println("Points: " + pointPool);
 			}
 		});
-		jSlider4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSliderExpansion.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		jSlider4.setBackground(Color.WHITE);
-		sliders.add(jSlider4);
+		jSliderExpansion.setBackground(Color.WHITE);
+		sliders.add(jSliderExpansion);
 		
-		jSlider5.setMajorTickSpacing(10);
-		jSlider5.setMinorTickSpacing(1);
-		jSlider5.setSnapToTicks(true);
-		jSlider5.setPaintLabels(true);
-		jSlider5.setPaintTicks(true);
-		jSlider5.addChangeListener(new ChangeListener() {
+		jSliderMilitary.setMajorTickSpacing(10);
+		jSliderMilitary.setMinorTickSpacing(1);
+		jSliderMilitary.setSnapToTicks(true);
+		jSliderMilitary.setPaintLabels(true);
+		jSliderMilitary.setPaintTicks(true);
+		jSliderMilitary.addChangeListener(new ChangeListener() {
 			/* (non-Javadoc)
 			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
 			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = militaryVal;
-				int newVal = jSlider5.getValue();
+				int newVal = jSliderMilitary.getValue();
 				if (newVal - prevVal > pointPool){
-					jSlider5.setValue(prevVal + pointPool);
-					newVal = jSlider5.getValue();
+					jSliderMilitary.setValue(prevVal + pointPool);
+					newVal = jSliderMilitary.getValue();
 				}
 				pointPool -= newVal - prevVal;
-                jSpinner5.setValue(jSlider5.getValue());
-                militaryVal = jSlider5.getValue();
-                jTextField1.setText("Points left: " + String.valueOf(pointPool));
+                jSpinnerMilitary.setValue(jSliderMilitary.getValue());
+                militaryVal = jSliderMilitary.getValue();
+                jTextFieldPointPool.setText("Points left: " + String.valueOf(pointPool));
                 System.out.println("Military: " + militaryVal);
                 System.out.println("Points: " + pointPool);
 			}
 		});
-		jSlider5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		jSliderMilitary.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		jSlider5.setBackground(Color.WHITE);
-		sliders.add(jSlider5);
+		jSliderMilitary.setBackground(Color.WHITE);
+		sliders.add(jSliderMilitary);
 		
 		//add panels to frame
 		cp.add(header, BorderLayout.NORTH);
