@@ -1,5 +1,7 @@
 package ca.proj.game.entities;
 
+import java.util.ArrayList;
+
 import ca.proj.game.Game;
 import ca.proj.game.level.Level;
 
@@ -29,15 +31,16 @@ public class Government {
 	public enum Gov_Type {
 		DEMOCRACY, DICTATORSHIP
 	}
-
-	Gov_Type gov;
-	private double maxSupport = 0;
-	Player leader = null;
-	Level level;
 	
-	public Government(Gov_Type gov, Level level) {
-		this.gov = gov;
-		this.level = level;
+	
+
+	private Gov_Type gov;
+	private double maxSupport = 0;
+	private Player leader = null;
+	ArrayList<Player> ministers = new ArrayList<Player>(10);
+	
+	public Government(Gov_Type gov) {
+		this.setGovType(gov);
 		chooseLeader();
 	}
 
@@ -72,5 +75,46 @@ public class Government {
 	public String getLeaderName(){
 		return leader.name;
 	}
+
+	/**
+	 * @return the gov
+	 */
+	public Gov_Type getGovType() {
+		return gov;
+	}
+
+	/**
+	 * @param gov the gov to set
+	 */
+	public void setGovType(Gov_Type gov) {
+		this.gov = gov;
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void addMinister(Player player){
+		ministers.add(player);
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void removeMinister(Player player){
+		ministers.remove(player);
+	}
+	
+	/**
+	 * 
+	 * @param oldPlayer
+	 * @param newPlayer
+	 */
+	public void replaceMinister(Player oldPlayer, Player newPlayer){
+		ministers.set(ministers.indexOf(oldPlayer), newPlayer);
+	}
+	
+	
 
 }

@@ -81,6 +81,8 @@ What we Achieved so Far:
 + Government partially implemented.
 + Elections partially implemented.
 + Action menus partially implemented.
++ Added a Help Menu
++ Government class now Garbage Collects properly.
 
 
 

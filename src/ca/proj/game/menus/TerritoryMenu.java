@@ -48,7 +48,6 @@ public class TerritoryMenu extends JFrame {
 	private JButton threeLakesButton = new JButton();
 	private JButton fiechLandButton = new JButton();
 	private JButton desertBorderButton = new JButton();
-	
 
 	private boolean running = Game.isRunning();
 
@@ -67,12 +66,12 @@ public class TerritoryMenu extends JFrame {
 		Container cp = getContentPane();
 		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
 		cp.setLayout(boxLayout);
-		
+
 		Dimension buttonSize = new Dimension(305, 40);
 		Dimension minSize = new Dimension(0, 5);
 		Dimension prefSize = new Dimension(0, 5);
 		Dimension maxSize = new Dimension(0, 5);
-		
+
 		cp.add(new Box.Filler(minSize, prefSize, maxSize));
 		waterfallGrasslandButton.setMinimumSize(buttonSize);
 		waterfallGrasslandButton.setPreferredSize(buttonSize);
@@ -89,7 +88,7 @@ public class TerritoryMenu extends JFrame {
 		waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(waterfallGrasslandButton);
-		
+
 		cp.add(new Box.Filler(minSize, prefSize, maxSize));
 		ancientRuinsButton.setMinimumSize(buttonSize);
 		ancientRuinsButton.setPreferredSize(buttonSize);
@@ -157,7 +156,7 @@ public class TerritoryMenu extends JFrame {
 		fiechLandButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(fiechLandButton);
-		
+
 		cp.add(new Box.Filler(minSize, prefSize, maxSize));
 		returnToMainButton.setMinimumSize(buttonSize);
 		returnToMainButton.setPreferredSize(buttonSize);
@@ -231,7 +230,7 @@ public class TerritoryMenu extends JFrame {
 					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
+
 	public void fiechLandButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/fiech-land.png");
