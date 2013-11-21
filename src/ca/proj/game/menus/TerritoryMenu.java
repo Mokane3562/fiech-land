@@ -1,6 +1,7 @@
 package ca.proj.game.menus;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -44,6 +45,7 @@ public class TerritoryMenu extends JFrame {
 	private JButton ancientRuinsButton = new JButton();
 	private JButton returnToMainButton = new JButton();
 	private JButton threeLakesButton = new JButton();
+	private JButton fiechLandButton = new JButton();
 	private JButton desertBorderButton = new JButton();
 
 	private boolean running = Game.isRunning();
@@ -115,6 +117,19 @@ public class TerritoryMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(desertBorderButton);
 
+		fiechLandButton.setBounds(168, 392, 305, 57);
+		fiechLandButton.setText("Return to Game");
+		fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
+		fiechLandButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				fiechLandButton_ActionPerformed(evt);
+			}
+		});
+		fiechLandButton.setBackground(Color.WHITE);
+		fiechLandButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(fiechLandButton);
+		
 		returnToMainButton.setBounds(168, 392, 305, 57);
 		returnToMainButton.setText("Return to Main Menu");
 		returnToMainButton.setMargin(new Insets(2, 2, 2, 2));
@@ -175,6 +190,19 @@ public class TerritoryMenu extends JFrame {
 	public void desertBorderButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/desert-border.png");
+			g.start();
+			closeMenu();
+			new AttributeMenu("Adjust your Attributes...");
+		} else {
+			JOptionPane.showMessageDialog(this,
+					"Please restart the application to start a new game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
+		}
+	}
+	
+	public void fiechLandButton_ActionPerformed(ActionEvent evt) {
+		if (running == false) {
+			Game g = new Game("/levels/fiech-land.png");
 			g.start();
 			closeMenu();
 			new AttributeMenu("Adjust your Attributes...");
