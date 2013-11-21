@@ -118,7 +118,7 @@ public class TerritoryMenu extends JFrame {
 		cp.add(desertBorderButton);
 
 		fiechLandButton.setBounds(168, 392, 305, 57);
-		fiechLandButton.setText("Return to Game");
+		fiechLandButton.setText("Start in Fiech-Land");
 		fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
 		fiechLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -130,7 +130,7 @@ public class TerritoryMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(fiechLandButton);
 		
-		returnToMainButton.setBounds(168, 392, 305, 57);
+		returnToMainButton.setBounds(168, 480, 305, 57);
 		returnToMainButton.setText("Return to Main Menu");
 		returnToMainButton.setMargin(new Insets(2, 2, 2, 2));
 		returnToMainButton.addActionListener(new ActionListener() {
