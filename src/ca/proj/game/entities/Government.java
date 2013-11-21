@@ -26,6 +26,9 @@ import ca.proj.game.level.Level;
  */
 public class Government {
 
+	/**
+	 * Enum containing the two possible types of governments, DEMOCRACY and DICTATORSHIP.
+	 */
 	public enum Gov_Type {
 		DEMOCRACY, DICTATORSHIP
 	}
@@ -35,6 +38,12 @@ public class Government {
 	Player leader = null;
 	Level level;
 	
+	/**
+	 * Creates a new Government object.
+	 * 
+	 * @param gov
+	 * @param level
+	 */
 	public Government(Gov_Type gov, Level level) {
 		this.gov = gov;
 		this.level = level;
@@ -53,6 +62,7 @@ public class Government {
 		}
 		System.out.println(">> New player chosen as leader!");
 	}*/
+
 	/**
 	 * Set the player as leader if support is great enough, done when a 
 	 * government is created.
@@ -65,9 +75,11 @@ public class Government {
 			System.out.println(Game.player + " Is the player");
 		}
 	}
+	
 	/**
 	 * Return the name of the governemnt leader.
-	 * @return name of the leader.
+	 * 
+	 * @return the name of the leader
 	 */
 	public String getLeaderName(){
 		return leader.name;

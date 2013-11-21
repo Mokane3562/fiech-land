@@ -30,17 +30,35 @@ public abstract class Entity {
 	public int y;
 	protected static Level level;
 
+	/**
+	 * Creates a new Entity object.
+	 * 
+	 * @param level
+	 */
 	public Entity(Level level) {
 		init(level);
 
 	}
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @param level
+	 */
 	public final void init(Level level) {
 		this.level = level;
 	}
 
+	/**
+	 * Please add a description.
+	 */
 	public abstract void tick();
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @param screen
+	 */
 	public abstract void render(Screen screen);
 
 }
