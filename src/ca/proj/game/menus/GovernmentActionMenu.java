@@ -1,6 +1,7 @@
 package ca.proj.game.menus;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -12,14 +13,17 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
 /**
  * 
- * GovActionMenu.java 
+ * GovernmentActionMenu.java 
  * Copyright (C) 2013 
  * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
  *
@@ -37,13 +41,16 @@ import ca.proj.game.Game;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
 public class GovernmentActionMenu extends JFrame {
 
-	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
-	private JButton jButton4 = new JButton();
-	private JButton jButton5 = new JButton();
+	private JButton militaryAction = new JButton();
+	private JButton politicalAction = new JButton();
+	private JButton resourceAction = new JButton();
+	private JButton wealthAction = new JButton();
+	private JButton exitMenu = new JButton();
+	
+	private boolean running = Game.isRunning();
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
@@ -61,117 +68,165 @@ public class GovernmentActionMenu extends JFrame {
 		setLocation(x, y);
 		setResizable(false);
 		Container cp = getContentPane();
-		cp.setLayout(null);
+		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
+		cp.setLayout(boxLayout);
+		
+		Dimension buttonSize = new Dimension(305, 40);
+		Dimension minSize = new Dimension(0, 5);
+		Dimension prefSize = new Dimension(0, 5);
+		Dimension maxSize = new Dimension(0, 5);
 
 		//Military Action Button - Opens Military Action Menu
-		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Military Action");
-		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		militaryAction.setMinimumSize(buttonSize);
+		militaryAction.setPreferredSize(buttonSize);
+		militaryAction.setMaximumSize(buttonSize);
+		militaryAction.setAlignmentX(Component.CENTER_ALIGNMENT);
+		militaryAction.setText("Military Action");
+		militaryAction.setMargin(new Insets(2, 2, 2, 2));
+		militaryAction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				militaryAction_ActionPerformed(evt);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		militaryAction.setBackground(Color.WHITE);
+		militaryAction.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton1);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
-		//Diplomatic Action Button - Opens Diplomatic Action Menu
-		jButton2.setBounds(168, 80, 305, 57);
-		jButton2.setText("Diplomatic Action");
-		jButton2.setMargin(new Insets(2, 2, 2, 2));
-		jButton2.addActionListener(new ActionListener() {
+		cp.add(militaryAction);
+				
+		//Political Action Button - Opens Diplomatic Action Menu
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		politicalAction.setMinimumSize(buttonSize);
+		politicalAction.setPreferredSize(buttonSize);
+		politicalAction.setMaximumSize(buttonSize);
+		politicalAction.setAlignmentX(Component.CENTER_ALIGNMENT);
+		politicalAction.setText("Political Action");
+		politicalAction.setMargin(new Insets(2, 2, 2, 2));
+		politicalAction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				militaryAction_ActionPerformed(evt);
 			}
 		});
-		jButton2.setBackground(Color.WHITE);
-		jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		politicalAction.setBackground(Color.WHITE);
+		politicalAction.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton2);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
+		cp.add(politicalAction);
 		
 		//Resource Action Button - Opens Resource Action Menu
-		jButton3.setBounds(168, 80, 305, 57);
-		jButton3.setText("Resource Action");
-		jButton3.setMargin(new Insets(2, 2, 2, 2));
-		jButton3.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		resourceAction.setMinimumSize(buttonSize);
+		resourceAction.setPreferredSize(buttonSize);
+		resourceAction.setMaximumSize(buttonSize);
+		resourceAction.setAlignmentX(Component.CENTER_ALIGNMENT);
+		resourceAction.setText("Resource Action");
+		resourceAction.setMargin(new Insets(2, 2, 2, 2));
+		resourceAction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				militaryAction_ActionPerformed(evt);
 			}
 		});
-		jButton3.setBackground(Color.WHITE);
-		jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		resourceAction.setBackground(Color.WHITE);
+		resourceAction.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton3);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
+		cp.add(resourceAction);
 		
-		//Trade Action Button - Opens Trade Action Button
-		jButton4.setBounds(168, 80, 305, 57);
-		jButton4.setText("Trade Action");
-		jButton4.setMargin(new Insets(2, 2, 2, 2));
-		jButton4.addActionListener(new ActionListener() {
+		//Wealth Action Button - Opens Trade Action Button
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		wealthAction.setMinimumSize(buttonSize);
+		wealthAction.setPreferredSize(buttonSize);
+		wealthAction.setMaximumSize(buttonSize);
+		wealthAction.setAlignmentX(Component.CENTER_ALIGNMENT);
+		wealthAction.setText("Wealth Action");
+		wealthAction.setMargin(new Insets(2, 2, 2, 2));
+		wealthAction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				militaryAction_ActionPerformed(evt);
 			}
 		});
-		jButton4.setBackground(Color.WHITE);
-		jButton4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		wealthAction.setBackground(Color.WHITE);
+		wealthAction.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton4);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(wealthAction);
+				
 		//Exit Menu Button - Closes menu screen
-		jButton5.setBounds(168, 80, 305, 57);
-		jButton5.setText("Exit Menu");
-		jButton5.setMargin(new Insets(2, 2, 2, 2));
-		jButton5.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		exitMenu.setMinimumSize(buttonSize);
+		exitMenu.setPreferredSize(buttonSize);
+		exitMenu.setMaximumSize(buttonSize);
+		exitMenu.setAlignmentX(Component.CENTER_ALIGNMENT);
+		exitMenu.setText("Exit Menu");
+		exitMenu.setMargin(new Insets(2, 2, 2, 2));
+		exitMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				militaryAction_ActionPerformed(evt);
 			}
 		});
-		jButton5.setBackground(Color.WHITE);
-		jButton5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		exitMenu.setBackground(Color.WHITE);
+		exitMenu.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton5);
+		cp.add(exitMenu);
+		
 		cp.setBackground(new Color(0xFFC800));
 
 		setVisible(true);
 	}
 
-	// First Government Action
-	public void jButton1_ActionPerformed(ActionEvent evt) { 
-			
+	// Take Military Action
+	public void militaryAction_ActionPerformed(ActionEvent evt) { 
+		if (running == false) {
+			new MilitaryActionMenu("Take a Military Action");
+			closeMenu();
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please close the menu and try again!",
+				    "This menu is already running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}
+	
 	}
 		
-	// Second Government Action
-	public void jButton2_ActionPerformed(ActionEvent evt) { 
-				
+	// Take Political Action
+	public void politicalAction_ActionPerformed(ActionEvent evt) { 
+		if (running == false) {
+			new PoliticsActionMenu("Take a Political Action");
+			closeMenu();
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please close the menu and try again!",
+				    "This menu is already running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}		
 	}
 		
-	// Third Government Action
-	public void jButton3_ActionPerformed(ActionEvent evt) { 
-				
+	// Take Resource Action
+	public void resourceAction_ActionPerformed(ActionEvent evt) { 
+		if (running == false) {
+			new ResourceActionMenu("Take a Resource Action");
+			closeMenu();
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please close the menu and try again!",
+				    "This menu is already running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}		
 	}
 
-	// Fourth Government Action
-	public void jButton4_ActionPerformed(ActionEvent evt) { 
-				
+	// Take Wealth Action
+	public void wealthAction_ActionPerformed(ActionEvent evt) { 
+		if (running == false) {
+			new WealthActionMenu("Take a Wealth Action");
+			closeMenu();
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please close the menu and try again!",
+				    "This menu is already running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}				
 	}
 		
 	// Exit Menu Action
-	public void jButton5_ActionPerformed(ActionEvent evt) { 
-				
+	public void exitMenu_ActionPerformed(ActionEvent evt) { 
+		closeMenu();
 	}
 
 	public void closeMenu() {

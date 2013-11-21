@@ -1,6 +1,7 @@
 package ca.proj.game.menus;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -12,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -40,11 +43,11 @@ import ca.proj.game.Game;
  */
 public class MilitaryActionMenu extends JFrame {
 
-	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
-	private JButton jButton4 = new JButton();
-	private JButton jButton5 = new JButton();
+	private JButton troopSkirmish = new JButton();
+	private JButton borderDefense = new JButton();
+	private JButton borderPatrol = new JButton();
+	private JButton secretOperations = new JButton();
+	private JButton mainMenu = new JButton();
 	
 	//Random number generator
 	static Random militaryGen = new Random();
@@ -71,96 +74,110 @@ public class MilitaryActionMenu extends JFrame {
 		setLocation(x, y);
 		setResizable(false);
 		Container cp = getContentPane();
-		cp.setLayout(null);
+		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
+		cp.setLayout(boxLayout);
 
+		Dimension buttonSize = new Dimension(305, 40);
+		Dimension minSize = new Dimension(0, 5);
+		Dimension prefSize = new Dimension(0, 5);
+		Dimension maxSize = new Dimension(0, 5);
+		
 		//First Military Action Button - Troop Skirmish
-		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Troop Skirmish");
-		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		troopSkirmish.setMinimumSize(buttonSize);
+		troopSkirmish.setPreferredSize(buttonSize);
+		troopSkirmish.setMaximumSize(buttonSize);
+		troopSkirmish.setAlignmentX(Component.CENTER_ALIGNMENT);
+		troopSkirmish.setText("Troop Skirmish");
+		troopSkirmish.setMargin(new Insets(2, 2, 2, 2));
+		troopSkirmish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				troopSkirmish_ActionPerformed(evt);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		troopSkirmish.setBackground(Color.WHITE);
+		troopSkirmish.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton1);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(troopSkirmish);
+				
 		//Second Military Action Button - Border Defense
-		jButton2.setBounds(168, 80, 305, 57);
-		jButton2.setText("Border Defense");
-		jButton2.setMargin(new Insets(2, 2, 2, 2));
-		jButton2.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		borderDefense.setMinimumSize(buttonSize);
+		borderDefense.setPreferredSize(buttonSize);
+		borderDefense.setMaximumSize(buttonSize);
+		borderDefense.setAlignmentX(Component.CENTER_ALIGNMENT);
+		borderDefense.setText("Border Defense");
+		borderDefense.setMargin(new Insets(2, 2, 2, 2));
+		borderDefense.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				troopSkirmish_ActionPerformed(evt);
 			}
 		});
-		jButton2.setBackground(Color.WHITE);
-		jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		borderDefense.setBackground(Color.WHITE);
+		borderDefense.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton2);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(borderDefense);
+	
 		//Third Military Action Button - Border Patrol
-		jButton3.setBounds(168, 80, 305, 57);
-		jButton3.setText("Border Patrol");
-		jButton3.setMargin(new Insets(2, 2, 2, 2));
-		jButton3.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		borderPatrol.setMinimumSize(buttonSize);
+		borderPatrol.setPreferredSize(buttonSize);
+		borderPatrol.setMaximumSize(buttonSize);
+		borderPatrol.setAlignmentX(Component.CENTER_ALIGNMENT);
+		borderPatrol.setText("Border Patrol");
+		borderPatrol.setMargin(new Insets(2, 2, 2, 2));
+		borderPatrol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				troopSkirmish_ActionPerformed(evt);
 			}
 		});
-		jButton3.setBackground(Color.WHITE);
-		jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		borderPatrol.setBackground(Color.WHITE);
+		borderPatrol.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton3);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(borderPatrol);
+				
 		//Fourth Military Action Button - Secret Operations
-		jButton4.setBounds(168, 80, 305, 57);
-		jButton4.setText("Secret Operations");
-		jButton4.setMargin(new Insets(2, 2, 2, 2));
-		jButton4.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		secretOperations.setMinimumSize(buttonSize);
+		secretOperations.setPreferredSize(buttonSize);
+		secretOperations.setMaximumSize(buttonSize);
+		secretOperations.setAlignmentX(Component.CENTER_ALIGNMENT);
+		secretOperations.setText("Secret Operations");
+		secretOperations.setMargin(new Insets(2, 2, 2, 2));
+		secretOperations.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				troopSkirmish_ActionPerformed(evt);
 			}
 		});
-		jButton4.setBackground(Color.WHITE);
-		jButton4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		secretOperations.setBackground(Color.WHITE);
+		secretOperations.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton4);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(secretOperations);
+				
 		//Main Menu Button
-		jButton5.setBounds(168, 80, 305, 57);
-		jButton5.setText("Back to the Main Menu");
-		jButton5.setMargin(new Insets(2, 2, 2, 2));
-		jButton5.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		mainMenu.setMinimumSize(buttonSize);
+		mainMenu.setPreferredSize(buttonSize);
+		mainMenu.setMaximumSize(buttonSize);
+		mainMenu.setAlignmentX(Component.CENTER_ALIGNMENT);
+		mainMenu.setText("Back to the Main Menu");
+		mainMenu.setMargin(new Insets(2, 2, 2, 2));
+		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				troopSkirmish_ActionPerformed(evt);
 			}
 		});
-		jButton5.setBackground(Color.WHITE);
-		jButton5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		mainMenu.setBackground(Color.WHITE);
+		mainMenu.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton5);
+		cp.add(mainMenu);
+		
 		cp.setBackground(new Color(0xFFC800));
-
 		setVisible(true);
 	}
 
 	// Perform First Military Action
-	public void jButton1_ActionPerformed(ActionEvent evt) { 
+	public void troopSkirmish_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
 		//	This action has a 50% chance of success
@@ -183,7 +200,7 @@ public class MilitaryActionMenu extends JFrame {
 	}
 		
 	// Perform Second Military Action
-	public void jButton2_ActionPerformed(ActionEvent evt) { 
+	public void borderDefense_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
 		//	This action has a 75% chance of success
@@ -206,7 +223,7 @@ public class MilitaryActionMenu extends JFrame {
 	}
 		
 	// Perform Third Military Action
-	public void jButton3_ActionPerformed(ActionEvent evt) { 
+	public void borderPatrol_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
 		//	This action has a 60% chance of success
@@ -229,7 +246,7 @@ public class MilitaryActionMenu extends JFrame {
 	}
 
 	// Perform Fourth Military Action
-	public void jButton4_ActionPerformed(ActionEvent evt) { 
+	public void secretOperations_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
 		//	This action hasa 25% chance of success
@@ -252,8 +269,9 @@ public class MilitaryActionMenu extends JFrame {
 	}
 		
 	// Perform Main Menu Action
-	public void jButton5_ActionPerformed(ActionEvent evt) { 
-		//Go back to GovActionMenu		
+	public void mainMenu_ActionPerformed(ActionEvent evt) { 
+		//Close Military Menu
+		closeMenu();
 	}
 
 	public void closeMenu() {

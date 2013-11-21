@@ -1,6 +1,7 @@
 package ca.proj.game.menus;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -12,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -39,11 +42,11 @@ import ca.proj.game.Game;
  */
 public class WealthActionMenu extends JFrame {
 
-	private JButton jButton1 = new JButton();
-	private JButton jButton2 = new JButton();
-	private JButton jButton3 = new JButton();
-	private JButton jButton4 = new JButton();
-	private JButton jButton5 = new JButton();
+	private JButton piggyBank = new JButton();
+	private JButton freeTradeAgreement = new JButton();
+	private JButton foreignTradeMission = new JButton();
+	private JButton buyStocks = new JButton();
+	private JButton mainMenu = new JButton();
 	
 	//Random number generator
 	static Random wealthGen = new Random();
@@ -70,96 +73,110 @@ public class WealthActionMenu extends JFrame {
 		setLocation(x, y);
 		setResizable(false);
 		Container cp = getContentPane();
-		cp.setLayout(null);
+		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
+		cp.setLayout(boxLayout);
+		
+		Dimension buttonSize = new Dimension(305, 40);
+		Dimension minSize = new Dimension(0, 5);
+		Dimension prefSize = new Dimension(0, 5);
+		Dimension maxSize = new Dimension(0, 5);
 
 		//First Wealth Action Button - Put Money in the Piggy Bank
-		jButton1.setBounds(168, 80, 305, 57);
-		jButton1.setText("Put Money in the Piggy Bank");
-		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		piggyBank.setMinimumSize(buttonSize);
+		piggyBank.setPreferredSize(buttonSize);
+		piggyBank.setMaximumSize(buttonSize);
+		piggyBank.setAlignmentX(Component.CENTER_ALIGNMENT);
+		piggyBank.setText("Put Money in the Piggy Bank");
+		piggyBank.setMargin(new Insets(2, 2, 2, 2));
+		piggyBank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				piggyBank_ActionPerformed(evt);
 			}
 		});
-		jButton1.setBackground(Color.WHITE);
-		jButton1.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		piggyBank.setBackground(Color.WHITE);
+		piggyBank.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton1);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(piggyBank);
+				
 		//Second Wealth Action Button - Free Trade Agreement
-		jButton2.setBounds(168, 80, 305, 57);
-		jButton2.setText("Free Trade Agreement");
-		jButton2.setMargin(new Insets(2, 2, 2, 2));
-		jButton2.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		freeTradeAgreement.setMinimumSize(buttonSize);
+		freeTradeAgreement.setPreferredSize(buttonSize);
+		freeTradeAgreement.setMaximumSize(buttonSize);
+		freeTradeAgreement.setAlignmentX(Component.CENTER_ALIGNMENT);
+		freeTradeAgreement.setText("Free Trade Agreement");
+		freeTradeAgreement.setMargin(new Insets(2, 2, 2, 2));
+		freeTradeAgreement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				piggyBank_ActionPerformed(evt);
 			}
 		});
-		jButton2.setBackground(Color.WHITE);
-		jButton2.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		freeTradeAgreement.setBackground(Color.WHITE);
+		freeTradeAgreement.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton2);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(freeTradeAgreement);
+				
 		//Third Wealth Action Button - Foreign Trade Mission
-		jButton3.setBounds(168, 80, 305, 57);
-		jButton3.setText("Foreign Trade Mission");
-		jButton3.setMargin(new Insets(2, 2, 2, 2));
-		jButton3.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		foreignTradeMission.setMinimumSize(buttonSize);
+		foreignTradeMission.setPreferredSize(buttonSize);
+		foreignTradeMission.setMaximumSize(buttonSize);
+		foreignTradeMission.setAlignmentX(Component.CENTER_ALIGNMENT);
+		foreignTradeMission.setText("Foreign Trade Mission");
+		foreignTradeMission.setMargin(new Insets(2, 2, 2, 2));
+		foreignTradeMission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				piggyBank_ActionPerformed(evt);
 			}
 		});
-		jButton3.setBackground(Color.WHITE);
-		jButton3.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		foreignTradeMission.setBackground(Color.WHITE);
+		foreignTradeMission.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton3);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
+		cp.add(foreignTradeMission);
 		
 		//Fourth Wealth Action Button - Buy Stocks
-		jButton4.setBounds(168, 80, 305, 57);
-		jButton4.setText("Buy Stocks");
-		jButton4.setMargin(new Insets(2, 2, 2, 2));
-		jButton4.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		buyStocks.setMinimumSize(buttonSize);
+		buyStocks.setPreferredSize(buttonSize);
+		buyStocks.setMaximumSize(buttonSize);
+		buyStocks.setAlignmentX(Component.CENTER_ALIGNMENT);
+		buyStocks.setText("Buy Stocks");
+		buyStocks.setMargin(new Insets(2, 2, 2, 2));
+		buyStocks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				piggyBank_ActionPerformed(evt);
 			}
 		});
-		jButton4.setBackground(Color.WHITE);
-		jButton4.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		buyStocks.setBackground(Color.WHITE);
+		buyStocks.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton4);
-		cp.setBackground(new Color(0xFFC800));
-
-		setVisible(true);
-		
+		cp.add(buyStocks);
+				
 		//Main Menu Button
-		jButton5.setBounds(168, 80, 305, 57);
-		jButton5.setText("Back to the Main Menu");
-		jButton5.setMargin(new Insets(2, 2, 2, 2));
-		jButton5.addActionListener(new ActionListener() {
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		mainMenu.setMinimumSize(buttonSize);
+		mainMenu.setPreferredSize(buttonSize);
+		mainMenu.setMaximumSize(buttonSize);
+		mainMenu.setAlignmentX(Component.CENTER_ALIGNMENT);
+		mainMenu.setText("Back to the Main Menu");
+		mainMenu.setMargin(new Insets(2, 2, 2, 2));
+		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton1_ActionPerformed(evt);
+				piggyBank_ActionPerformed(evt);
 			}
 		});
-		jButton5.setBackground(Color.WHITE);
-		jButton5.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
+		mainMenu.setBackground(Color.WHITE);
+		mainMenu.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
-		cp.add(jButton5);
+		cp.add(mainMenu);
+		
 		cp.setBackground(new Color(0xFFC800));
-
 		setVisible(true);
 	}
 
 	// Perform First Wealth Action
-	public void jButton1_ActionPerformed(ActionEvent evt) { 
+	public void piggyBank_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = wealthGen.nextInt(100);
 		//	This action has a 50% chance of success
@@ -182,7 +199,7 @@ public class WealthActionMenu extends JFrame {
 	}
 		
 	// Perform Second Wealth Action
-	public void jButton2_ActionPerformed(ActionEvent evt) { 
+	public void freeTradeAgreement_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = wealthGen.nextInt(100);
 		//	This action has a 75% chance of success
@@ -205,7 +222,7 @@ public class WealthActionMenu extends JFrame {
 	}
 		
 	// Perform Third Wealth Action
-	public void jButton3_ActionPerformed(ActionEvent evt) { 
+	public void foreignTradeMission_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = wealthGen.nextInt(100);
 		//	This action has a 60% chance of success
@@ -228,7 +245,7 @@ public class WealthActionMenu extends JFrame {
 	}
 
 	// Perform Fourth Wealth Action
-	public void jButton4_ActionPerformed(ActionEvent evt) { 
+	public void buyStocks_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = wealthGen.nextInt(100);
 		//	This action has a 25% chance of success
@@ -251,8 +268,9 @@ public class WealthActionMenu extends JFrame {
 	}
 		
 	// Main Menu Action
-	public void jButton5_ActionPerformed(ActionEvent evt) { 
-				//Back to GovActionMenu
+	public void mainMenu_ActionPerformed(ActionEvent evt) { 
+				//Close Wealth Menu
+				closeMenu();
 	}
 
 	public void closeMenu() {
