@@ -22,9 +22,18 @@ package ca.proj.game.level.tiles;
  */
 public class BasicSolidTile extends BasicTile {
 
+	/**
+	 * Creates a new basic solid tile.
+	 * 
+	 * @param id the id of the tile
+	 * @param x the x coordinate of the tile on the level
+	 * @param y the y coordinate of the tile on the level
+	 * @param tileColour the colour of the tile
+	 * @param levelColour the color of the corresponding pixel on a level's image
+	 */
 	public BasicSolidTile(int id, int x, int y, int tileColour, int levelColour) {
 		super(id, x, y, tileColour, levelColour);
 		this.solid = true;
-}
+	}
 
 }
