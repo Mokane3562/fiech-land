@@ -44,7 +44,13 @@ public class GameEvents {
 
 	}
 
-	// Update the HUD based on Player stats.
+	/**
+	 * Update the HUD based on Player stats.
+	 * 
+	 * @param screen
+	 * @param x
+	 * @param y
+	 */
 	public void renderInterface(Screen screen, int x, int y) {
 
 		double playerSupp = Player.support; // playerSupp => player support value
@@ -62,7 +68,16 @@ public class GameEvents {
 		}
 	}
 
-	// Render text to help with in-game events.
+	/**
+	 * Render text to help with in-game events.
+	 * 
+	 * @param screen
+	 * @param x
+	 * @param y
+	 * @param input
+	 * @param player
+	 * @param level
+	 */
 	public void renderPlayerEvents(Screen screen, int x, int y,
 			InputHandler input, Player player, Level level) {
 
