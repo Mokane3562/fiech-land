@@ -1,5 +1,7 @@
 package ca.proj.game.entities;
 
+import java.util.ArrayList;
+
 import ca.proj.game.Game;
 import ca.proj.game.level.Level;
 
@@ -26,27 +28,19 @@ import ca.proj.game.level.Level;
  */
 public class Government {
 
-	/**
-	 * Enum containing the two possible types of governments, DEMOCRACY and DICTATORSHIP.
-	 */
 	public enum Gov_Type {
 		DEMOCRACY, DICTATORSHIP
 	}
-
-	Gov_Type gov;
-	private double maxSupport = 0;
-	Player leader = null;
-	Level level;
 	
-	/**
-	 * Creates a new Government object.
-	 * 
-	 * @param gov
-	 * @param level
-	 */
-	public Government(Gov_Type gov, Level level) {
-		this.gov = gov;
-		this.level = level;
+	
+
+	private Gov_Type gov;
+	private double maxSupport = 0;
+	private Player leader = null;
+	ArrayList<Player> ministers = new ArrayList<Player>(10);
+	
+	public Government(Gov_Type gov) {
+		this.setGovType(gov);
 		chooseLeader();
 	}
 
@@ -62,7 +56,6 @@ public class Government {
 		}
 		System.out.println(">> New player chosen as leader!");
 	}*/
-
 	/**
 	 * Set the player as leader if support is great enough, done when a 
 	 * government is created.
@@ -75,14 +68,53 @@ public class Government {
 			System.out.println(Game.player + " Is the player");
 		}
 	}
-	
 	/**
 	 * Return the name of the governemnt leader.
-	 * 
-	 * @return the name of the leader
+	 * @return name of the leader.
 	 */
 	public String getLeaderName(){
 		return leader.name;
 	}
+
+	/**
+	 * @return the gov
+	 */
+	public Gov_Type getGovType() {
+		return gov;
+	}
+
+	/**
+	 * @param gov the gov to set
+	 */
+	public void setGovType(Gov_Type gov) {
+		this.gov = gov;
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void addMinister(Player player){
+		ministers.add(player);
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void removeMinister(Player player){
+		ministers.remove(player);
+	}
+	
+	/**
+	 * 
+	 * @param oldPlayer
+	 * @param newPlayer
+	 */
+	public void replaceMinister(Player oldPlayer, Player newPlayer){
+		ministers.set(ministers.indexOf(oldPlayer), newPlayer);
+	}
+	
+	
 
 }
