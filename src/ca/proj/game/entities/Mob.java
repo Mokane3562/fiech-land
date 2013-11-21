@@ -35,7 +35,7 @@ public abstract class Mob extends Entity {
 	protected int scale = 1;
 
 	/**
-	 * Creates a new Mob
+	 * Creates a new Mob.
 	 * 
 	 * @param level
 	 * @param name
@@ -91,11 +91,11 @@ public abstract class Mob extends Entity {
 	}
 
 	/**
-	 * Please add a description
+	 * Please add a description.
 	 * 
 	 * @param xa
 	 * @param ya
-	 * @return
+	 * @return add a description
 	 */
 	public abstract boolean hasCollided(int xa, int ya);
 
@@ -106,7 +106,7 @@ public abstract class Mob extends Entity {
 	 * @param ya y-position of character
 	 * @param x x-position of tile
 	 * @param y y-position of tile
-	 * @return
+	 * @return true if the mob has collided with a blocked tile
 	 */
 	protected boolean isSolidTile(int xa, int ya, int x, int y) {
 		if (level == null) {

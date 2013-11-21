@@ -238,7 +238,7 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * Sets the wealth of the player to the specified value.
+	 * Sets the recources of the player to the specified value.
 	 * 
 	 * @param resources the resources to set
 	 */
@@ -256,7 +256,7 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * Sets the wealth of the player to the specified value.
+	 * Sets the expansion of the player to the specified value.
 	 * 
 	 * @param expansion the expansion to set
 	 */
@@ -274,7 +274,7 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * Sets the wealth of the player to the specified value.
+	 * Sets the politics of the player to the specified value.
 	 * 
 	 * @param politics the politics to set
 	 */
@@ -292,7 +292,7 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * Sets the wealth of the player to the specified value.
+	 * Sets the military of the player to the specified value.
 	 * 
 	 * @param military the military to set
 	 */

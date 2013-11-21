@@ -43,7 +43,7 @@ public class NPC extends Mob {
 	private boolean stayPut;
 
 	/**
-	 * Creates a new NPC
+	 * Creates a new NPC.
 	 * 
 	 * @param level
 	 * @param x
@@ -54,7 +54,7 @@ public class NPC extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Called from the level to "tick" or update the character
+	 * Called from the level to "tick" or update the character.
 	 * 
 	 * @see ca.proj.game.entities.Entity#tick()
 	 */
@@ -150,7 +150,7 @@ public class NPC extends Mob {
 	}
 
 	/* (non-Javadoc)
-	 * Render any updates to the screen
+	 * Render any updates to the screen.
 	 * 
 	 * @see ca.proj.game.entities.Entity#render(ca.proj.game.gfx.Screen)
 	 */
