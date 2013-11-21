@@ -170,7 +170,7 @@ public class Level {
 	}
 
 	public void startDemocraticGovernment() {
-		government = new Government(DEMOCRACY, this);
+		government = new Government(DEMOCRACY);
 	}
 
 	/**
