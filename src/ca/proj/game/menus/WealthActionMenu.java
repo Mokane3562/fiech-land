@@ -180,119 +180,51 @@ public class WealthActionMenu extends JFrame {
 
 	// Perform First Wealth Action
 	public void piggyBank_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = wealthGen.nextInt(100);
-		//Ensure that the player has Action points to spend
-		if (Player.getActionPoints() > 0) {
-			//	This action has a 50% chance of success
-			if (random<=50.00){
-				/*	If successful, happiness variable will be set to 15 * Trade Focus value,
-				 *	a message to the player will tell them how many happiness points they've
-				 *	gained and decrement the players action points by 1.
-				 */
-			
-				Player.setHappiness(Player.getHappiness() + Player.getWealth()* 15);
-				System.out.println("You have" + Player.getHappiness() + "happiness points.");
-			
-			}
-			else
-				/*	If unsuccessful, still decrement action points, tell the player that
-				 *	they've gained no points, and decrement action points by 1.
-				 */
-				System.out.println("Action failed. No happiness gained");
-		}
-		//Decrease the Player's action points by 1
-		Player.setActionPoints(Player.getActionPoints() - 1);
-			
+		performWealthAction(15, 0.50);
 	}
 		
 	// Perform Second Wealth Action
 	public void freeTradeAgreement_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = wealthGen.nextInt(100);
-		//Ensure that the player has Action points to spend
-		if (Player.getActionPoints() > 0) {
-			//	This action has a 75% chance of success
-			if (random<=75.00){
-				/*	If successful, happiness variable will be set to 5 * Trade Focus value,
-				 *	a message to the player will tell them how many happiness points they've
-				 *	gained and decrement the players action points by 1.
-				 */
-			
-				Player.setHappiness(Player.getHappiness() + Player.getWealth()* 5);
-				System.out.println("You have" + Player.getHappiness() + "happiness points.");
-			
-			}
-			else
-				/*	If unsuccessful, still decrement action points, tell the player that
-				 *	they've gained no points, and decrement action points by 1.
-				 */
-				System.out.println("Action failed. No happiness gained");
-		}
-		//Decrease the Player's action points by 1
-		Player.setActionPoints(Player.getActionPoints() - 1);
+		performWealthAction(5, 0.75);
 	}
 		
 	// Perform Third Wealth Action
 	public void foreignTradeMission_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = wealthGen.nextInt(100);
-		//Ensure that the player has Action points to spend
-		if (Player.getActionPoints() > 0) {
-			//	This action has a 60% chance of success
-			if (random<=60.00){
-				/*	If successful, happiness variable will be set to 10 * Trade Focus value,
-				 *	a message to the player will tell them how many happiness points they've
-				 *	gained and decrement the players action points by 1.
-				 */
-			
-				Player.setHappiness(Player.getHappiness() + Player.getWealth()* 10);
-				System.out.println("You have " + Player.getHappiness() + "happiness points.");
-			
-			}
-			else
-				/*	If unsuccessful, still decrement action points, tell the player that
-				 *	they've gained no points, and decrement action points by 1.
-				 */
-				System.out.println("Action failed. No happiness gained");
-		}	
-		
-		//Decrease the Player's action points by 1
-		Player.setActionPoints(Player.getActionPoints() - 1);
+		performWealthAction(10, 0.60);
 	}
 
 	// Perform Fourth Wealth Action
 	public void buyStocks_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = wealthGen.nextInt(100);
-		//Ensure that the player has Action points to spend
-		if (Player.getActionPoints() > 0) {
-			//	This action has a 25% chance of success
-			if (random<=25.00){
-				/*	If successful, happiness variable will be set to 25 * Trade Focus value,
-				 *	a message to the player will tell them how many happiness points they've
-				 *	gained and decrement the players action points by 1.
-				 */
-			
-				Player.setHappiness(Player.getHappiness() + Player.getWealth()* 25);
-				System.out.println("You have " + Player.getHappiness() + "happiness points.");
-			
-			}
-			else
-				/*	If unsuccessful, still decrement action points, tell the player that
-				 *	they've gained no points, and decrement action points by 1.
-				 */
-				System.out.println("Action failed. No happiness gained");	
-		}
-		
-		//Decrease the Player's action points by 1
-		Player.setActionPoints(Player.getActionPoints() - 1);
+		performWealthAction(25, 0.25);
 	}
 		
 	// Main Menu Action
 	public void mainMenu_ActionPerformed(ActionEvent evt) { 
 				//Close Wealth Menu
 				closeMenu();
+	}
+	
+	public void performWealthAction(int mult, double percentChance){
+		//Generate the random percentage needed out of 100
+		random = wealthGen.nextDouble();
+		if (Player.getActionPoints() > 0) {
+			//	This action has a chance of success
+			if (random <= percentChance) {
+				/*	If successful, happiness variable will be set to mult * Wealth Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+				Player.setHappiness(Player.getHappiness() + Player.getWealth() * mult);
+				System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
+		}
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 
 	/**
