@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.entities.Player;
 
 /**
  * 
@@ -54,9 +55,6 @@ public class MilitaryActionMenu extends JFrame {
 	
 	//Holds random number
 	private double random;
-			
-	//Value to be added to Happiness
-	private double happiness;
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
@@ -97,7 +95,7 @@ public class MilitaryActionMenu extends JFrame {
 		troopSkirmish.setMargin(new Insets(2, 2, 2, 2));
 		troopSkirmish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				performMilitaryAction(15, 0.50);
 			}
 		});
 		troopSkirmish.setBackground(Color.WHITE);
@@ -115,7 +113,7 @@ public class MilitaryActionMenu extends JFrame {
 		borderDefense.setMargin(new Insets(2, 2, 2, 2));
 		borderDefense.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				performMilitaryAction(5, 0.75);
 			}
 		});
 		borderDefense.setBackground(Color.WHITE);
@@ -133,7 +131,7 @@ public class MilitaryActionMenu extends JFrame {
 		borderPatrol.setMargin(new Insets(2, 2, 2, 2));
 		borderPatrol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				performMilitaryAction(10, 0.60);
 			}
 		});
 		borderPatrol.setBackground(Color.WHITE);
@@ -151,7 +149,7 @@ public class MilitaryActionMenu extends JFrame {
 		secretOperations.setMargin(new Insets(2, 2, 2, 2));
 		secretOperations.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				performMilitaryAction(25, 0.25);
 			}
 		});
 		secretOperations.setBackground(Color.WHITE);
@@ -169,7 +167,7 @@ public class MilitaryActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
@@ -180,105 +178,42 @@ public class MilitaryActionMenu extends JFrame {
 		cp.setBackground(new Color(0xFFC800));
 		setVisible(true);
 	}
-
-	// Perform First Military Action
-	public void troopSkirmish_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = militaryGen.nextInt(100);
-		//	This action has a 50% chance of success
-		if (random<=50.00){
-			/*	If successful, happiness variable will be set to 15 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=militaryFocus*15;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
-	}
-		
-	// Perform Second Military Action
-	public void borderDefense_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = militaryGen.nextInt(100);
-		//	This action has a 75% chance of success
-		if (random<=75.00){
-			/*	If successful, happiness variable will be set to 5 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=militaryFocus*5;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
-	}
-		
-	// Perform Third Military Action
-	public void borderPatrol_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = militaryGen.nextInt(100);
-		//	This action has a 60% chance of success
-		if (random<=60.00){
-			/*	If successful, happiness variable will be set to 10 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=militaryFocus*10;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
-	}
-
-	// Perform Fourth Military Action
-	public void secretOperations_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = militaryGen.nextInt(100);
-		//	This action hasa 25% chance of success
-		if (random<=25.00){
-			/*	If successful, happiness variable will be set to 25 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=militaryFocus*25;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");			
-			//--actionPoints;
-	}
 		
 	// Perform Main Menu Action
 	public void mainMenu_ActionPerformed(ActionEvent evt) { 
 		//Close Military Menu
 		closeMenu();
 	}
-
+	
+	/**
+	 * Performs a military action with a specific chance of success. Happiness gained is equal to the specified score multiplier multiplied by the players military attribute. Costs one action point.
+	 * 
+	 * @param mult the multiplier that decides how many happiness points the player gets
+	 * @param percentChance	the chance the action succeeds
+	 */
+	public void performMilitaryAction(int mult, double percentChance){
+		//Generate the random percentage needed out of 100
+		random = militaryGen.nextDouble();
+		if (Player.getActionPoints() > 0) {
+			//	This action has a chance of success
+			if (random <= percentChance) {
+				/*	If successful, happiness variable will be set to mult * Military Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+				Player.setHappiness(Player.getHappiness() + Player.getMilitary() * mult);
+				System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
+		}
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
+	}
+	
 	/**
 	 * Closes the menu.
 	 */
@@ -287,5 +222,7 @@ public class MilitaryActionMenu extends JFrame {
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
 	}
 
-	
+	public static void main(String[] args){
+		new MilitaryActionMenu("YEAH BUDDY");
+	}
 }

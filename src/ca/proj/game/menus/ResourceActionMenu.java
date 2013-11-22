@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.entities.Player;
 
 /**
  * 
@@ -55,9 +56,6 @@ public class ResourceActionMenu extends JFrame {
 	//Holds random number
 	private double random;
 		
-	//Value to be added to Happiness
-	private double happiness;
-	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
@@ -97,7 +95,7 @@ public class ResourceActionMenu extends JFrame {
 		lookForOil.setMargin(new Insets(2, 2, 2, 2));
 		lookForOil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				performResourceAction(15, 0.50);
 			}
 		});
 		lookForOil.setBackground(Color.WHITE);
@@ -115,7 +113,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				performResourceAction(5, 0.75);
 			}
 		});
 		harvestRenewableResources.setBackground(Color.WHITE);
@@ -133,7 +131,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestNonRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestNonRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				performResourceAction(10, 0.60);
 			}
 		});
 		harvestNonRenewableResources.setBackground(Color.WHITE);
@@ -151,7 +149,7 @@ public class ResourceActionMenu extends JFrame {
 		lookForGold.setMargin(new Insets(2, 2, 2, 2));
 		lookForGold.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				performResourceAction(25, 0.25);
 			}
 		});
 		lookForGold.setBackground(Color.WHITE);
@@ -169,7 +167,7 @@ public class ResourceActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
@@ -181,102 +179,39 @@ public class ResourceActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	// Perform First Resource Action
-	public void lookForOil_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = resourceGen.nextInt(100);
-		//	This action has a 50% chance of success
-		if (random<=50.00){
-			/*	If successful, happiness variable will be set to 15 * Resource Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=resourceFocus*15;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");				
-			//--actionPoints;
-	}
-		
-	// Second Resource Action
-	public void harvestRenewableResources_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = resourceGen.nextInt(100);
-		//	This action has a 75% chance of success
-		if (random<=75.00){
-			/*	If successful, happiness variable will be set to 5 * Resource Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=resourceFocus*5;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");		
-			//--actionPoints;
-	}
-		
-	// Third Resource Action
-	public void harvestNonRenewableResources_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = resourceGen.nextInt(100);
-		//	This action has a 60% chance of success
-		if (random<=60.00){
-			/*	If successful, happiness variable will be set to 10 * Resource Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=resourceFocus*10;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");		
-			//--actionPoints;
-	}
-
-	// Fourth Resource Action
-	public void lookForGold_ActionPerformed(ActionEvent evt) { 
-		//	Generate the random number needed out of 100
-		random = resourceGen.nextInt(100);
-		//	This action has a 25% chance of success
-		if (random<=25.00){
-			/*	If successful, happiness variable will be set to 25 * Resource Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			//happiness=resourceFocus*25;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
-		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");	
-			//--actionPoints;
-	}
-		
 	// Main Menu Action
 	public void mainMenu_ActionPerformed(ActionEvent evt) { 
 		//Close Resource Menu
 		closeMenu();
+	}
+	
+	/**
+	 * Performs a resource action with a specific chance of success. Happiness gained is equal to the specified score multiplier multiplied by the players resource attribute. Costs one action point.
+	 * 
+	 * @param mult the multiplier that decides how many happiness points the player gets
+	 * @param percentChance	the chance the action succeeds
+	 */
+	public void performResourceAction(int mult, double percentChance){
+		//Generate the random percentage needed out of 100
+		random = resourceGen.nextDouble();
+		if (Player.getActionPoints() > 0) {
+			//	This action has a chance of success
+			if (random <= percentChance) {
+				/*	If successful, happiness variable will be set to mult * Resource Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+				Player.setHappiness(Player.getHappiness() + Player.getResources() * mult);
+				System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
+		}
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 
 	/**
