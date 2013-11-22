@@ -184,6 +184,12 @@ public class WealthActionMenu extends JFrame {
 				closeMenu();
 	}
 	
+	/**
+	 * Performs a wealth action with a specific chance of success. Happiness gained is equal to the specified score multiplier multiplied by the players wealth attribute. Costs one action point.
+	 * 
+	 * @param mult the multiplier that decides how many happiness points the player gets
+	 * @param percentChance	the chance the action succeeds
+	 */
 	public void performWealthAction(int mult, double percentChance){
 		//Generate the random percentage needed out of 100
 		random = wealthGen.nextDouble();

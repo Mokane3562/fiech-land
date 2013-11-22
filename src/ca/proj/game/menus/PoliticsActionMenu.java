@@ -211,6 +211,12 @@ public class PoliticsActionMenu extends JFrame {
 		closeMenu();
 	}
 	
+	/**
+	 * Performs a political action with a specific chance of success. Happiness gained is equal to the specified score multiplier multiplied by the players politics attribute. Costs one action point.
+	 * 
+	 * @param mult the multiplier that decides how many happiness points the player gets
+	 * @param percentChance	the chance the action succeeds
+	 */
 	public void performPoliticsAction(int mult, double percentChance){
 		//Generate the random percentage needed out of 100
 		random = politicsGen.nextDouble();
