@@ -95,7 +95,7 @@ public class ResourceActionMenu extends JFrame {
 		lookForOil.setMargin(new Insets(2, 2, 2, 2));
 		lookForOil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				performResourceAction(15, 0.50);
 			}
 		});
 		lookForOil.setBackground(Color.WHITE);
@@ -113,7 +113,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				harvestRenewableResources_ActionPerformed(evt);
+				performResourceAction(5, 0.75);
 			}
 		});
 		harvestRenewableResources.setBackground(Color.WHITE);
@@ -131,7 +131,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestNonRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestNonRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				harvestNonRenewableResources_ActionPerformed(evt);
+				performResourceAction(10, 0.60);
 			}
 		});
 		harvestNonRenewableResources.setBackground(Color.WHITE);
@@ -149,7 +149,7 @@ public class ResourceActionMenu extends JFrame {
 		lookForGold.setMargin(new Insets(2, 2, 2, 2));
 		lookForGold.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForGold_ActionPerformed(evt);
+				performResourceAction(25, 0.25);
 			}
 		});
 		lookForGold.setBackground(Color.WHITE);
@@ -179,29 +179,6 @@ public class ResourceActionMenu extends JFrame {
 		setVisible(true);
 	}
 
-	// Perform First Resource Action
-	public void lookForOil_ActionPerformed(ActionEvent evt) { 
-		performResourceAction(15, 0.50);
-	}
-		
-	// Second Resource Action
-	public void harvestRenewableResources_ActionPerformed(ActionEvent evt) { 
-		performResourceAction(5, 0.75);
-		
-	}
-		
-	// Third Resource Action
-	public void harvestNonRenewableResources_ActionPerformed(ActionEvent evt) { 
-		performResourceAction(10, 0.60);
-			
-	}
-
-	// Fourth Resource Action
-	public void lookForGold_ActionPerformed(ActionEvent evt) { 
-		performResourceAction(25, 0.25);
-			
-	}
-		
 	// Main Menu Action
 	public void mainMenu_ActionPerformed(ActionEvent evt) { 
 		//Close Resource Menu

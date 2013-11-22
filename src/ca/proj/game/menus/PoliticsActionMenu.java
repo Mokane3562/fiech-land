@@ -96,7 +96,7 @@ public class PoliticsActionMenu extends JFrame {
 		establishEmbassy.setMargin(new Insets(2, 2, 2, 2));
 		establishEmbassy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				establishEmbassy_ActionPerformed(evt);
+				performPoliticsAction(15, 0.50);
 			}
 		});
 		establishEmbassy.setBackground(Color.WHITE);
@@ -114,7 +114,7 @@ public class PoliticsActionMenu extends JFrame {
 		hostStateDinner.setMargin(new Insets(2, 2, 2, 2));
 		hostStateDinner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				hostStateDinner_ActionPerformed(evt);
+				performPoliticsAction(5, 0.75);
 			}
 		});
 		hostStateDinner.setBackground(Color.WHITE);
@@ -132,7 +132,7 @@ public class PoliticsActionMenu extends JFrame {
 		offerForeignAid.setMargin(new Insets(2, 2, 2, 2));
 		offerForeignAid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				offerForeignAid_ActionPerformed(evt);
+				performPoliticsAction(10, 0.60);
 			}
 		});
 		offerForeignAid.setBackground(Color.WHITE);
@@ -150,7 +150,7 @@ public class PoliticsActionMenu extends JFrame {
 		spyOnOtherCountries.setMargin(new Insets(2, 2, 2, 2));
 		spyOnOtherCountries.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				spyOnOtherCountries_ActionPerformed(evt);
+				performPoliticsAction(25, 0.25);
 			}
 		});
 		spyOnOtherCountries.setBackground(Color.WHITE);
@@ -180,26 +180,6 @@ public class PoliticsActionMenu extends JFrame {
 		
 		cp.setBackground(new Color(0xFFC800));
 		setVisible(true);
-	}
-	
-	// Perform First Politics Action
-	public void establishEmbassy_ActionPerformed(ActionEvent evt) { 
-		performPoliticsAction(15, 0.50);
-	}
-	
-	// Perform Second Politics Action
-	public void hostStateDinner_ActionPerformed(ActionEvent evt) { 
-		performPoliticsAction(5, 0.75);
-	}
-	
-	// Perform Third Politics Action
-	public void offerForeignAid_ActionPerformed(ActionEvent evt) { 
-		performPoliticsAction(10, 0.60);
-	}
-
-	// Perform Fourth Politics Action
-	public void spyOnOtherCountries_ActionPerformed(ActionEvent evt) { 
-		performPoliticsAction(25, 0.25);
 	}
 	
 	// Perform Fifth Politics Action

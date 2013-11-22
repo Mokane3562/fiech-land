@@ -94,7 +94,7 @@ public class WealthActionMenu extends JFrame {
 		piggyBank.setMargin(new Insets(2, 2, 2, 2));
 		piggyBank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				piggyBank_ActionPerformed(evt);
+				performWealthAction(15, 0.50);
 			}
 		});
 		piggyBank.setBackground(Color.WHITE);
@@ -112,7 +112,7 @@ public class WealthActionMenu extends JFrame {
 		freeTradeAgreement.setMargin(new Insets(2, 2, 2, 2));
 		freeTradeAgreement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				freeTradeAgreement_ActionPerformed(evt);
+				performWealthAction(5, 0.75);
 			}
 		});
 		freeTradeAgreement.setBackground(Color.WHITE);
@@ -130,7 +130,7 @@ public class WealthActionMenu extends JFrame {
 		foreignTradeMission.setMargin(new Insets(2, 2, 2, 2));
 		foreignTradeMission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				foreignTradeMission_ActionPerformed(evt);
+				performWealthAction(10, 0.60);
 			}
 		});
 		foreignTradeMission.setBackground(Color.WHITE);
@@ -148,7 +148,7 @@ public class WealthActionMenu extends JFrame {
 		buyStocks.setMargin(new Insets(2, 2, 2, 2));
 		buyStocks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				buyStocks_ActionPerformed(evt);
+				performWealthAction(25, 0.25);
 			}
 		});
 		buyStocks.setBackground(Color.WHITE);
@@ -176,26 +176,6 @@ public class WealthActionMenu extends JFrame {
 		
 		cp.setBackground(new Color(0xFFC800));
 		setVisible(true);
-	}
-
-	// Perform First Wealth Action
-	public void piggyBank_ActionPerformed(ActionEvent evt) { 
-		performWealthAction(15, 0.50);
-	}
-		
-	// Perform Second Wealth Action
-	public void freeTradeAgreement_ActionPerformed(ActionEvent evt) { 
-		performWealthAction(5, 0.75);
-	}
-		
-	// Perform Third Wealth Action
-	public void foreignTradeMission_ActionPerformed(ActionEvent evt) { 
-		performWealthAction(10, 0.60);
-	}
-
-	// Perform Fourth Wealth Action
-	public void buyStocks_ActionPerformed(ActionEvent evt) { 
-		performWealthAction(25, 0.25);
 	}
 		
 	// Main Menu Action

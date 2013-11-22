@@ -95,7 +95,7 @@ public class MilitaryActionMenu extends JFrame {
 		troopSkirmish.setMargin(new Insets(2, 2, 2, 2));
 		troopSkirmish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				performMilitaryAction(15, 0.50);
 			}
 		});
 		troopSkirmish.setBackground(Color.WHITE);
@@ -113,7 +113,7 @@ public class MilitaryActionMenu extends JFrame {
 		borderDefense.setMargin(new Insets(2, 2, 2, 2));
 		borderDefense.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				borderDefense_ActionPerformed(evt);
+				performMilitaryAction(5, 0.75);
 			}
 		});
 		borderDefense.setBackground(Color.WHITE);
@@ -131,7 +131,7 @@ public class MilitaryActionMenu extends JFrame {
 		borderPatrol.setMargin(new Insets(2, 2, 2, 2));
 		borderPatrol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				borderPatrol_ActionPerformed(evt);
+				performMilitaryAction(10, 0.60);
 			}
 		});
 		borderPatrol.setBackground(Color.WHITE);
@@ -149,7 +149,7 @@ public class MilitaryActionMenu extends JFrame {
 		secretOperations.setMargin(new Insets(2, 2, 2, 2));
 		secretOperations.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				secretOperations_ActionPerformed(evt);
+				performMilitaryAction(25, 0.25);
 			}
 		});
 		secretOperations.setBackground(Color.WHITE);
@@ -177,26 +177,6 @@ public class MilitaryActionMenu extends JFrame {
 		
 		cp.setBackground(new Color(0xFFC800));
 		setVisible(true);
-	}
-
-	// Perform First Military Action
-	public void troopSkirmish_ActionPerformed(ActionEvent evt) { 
-		performMilitaryAction(15, 0.50);
-	}
-		
-	// Perform Second Military Action
-	public void borderDefense_ActionPerformed(ActionEvent evt) { 
-		performMilitaryAction(5, 0.75);
-	}
-		
-	// Perform Third Military Action
-	public void borderPatrol_ActionPerformed(ActionEvent evt) { 
-		performMilitaryAction(10, 0.60);
-	}
-
-	// Perform Fourth Military Action
-	public void secretOperations_ActionPerformed(ActionEvent evt) { 
-		performMilitaryAction(25, 0.25);
 	}
 		
 	// Perform Main Menu Action
