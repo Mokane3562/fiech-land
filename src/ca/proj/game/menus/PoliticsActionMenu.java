@@ -62,6 +62,11 @@ public class PoliticsActionMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
+	/**
+	 * Creates a new politics action menu frame.
+	 * 
+	 * @param title the title of the frame
+	 */
 	public PoliticsActionMenu(String title) {
 
 		super(title);
@@ -300,6 +305,9 @@ public class PoliticsActionMenu extends JFrame {
 		closeMenu();
 	}
 	
+	/**
+	 * Closes the menu
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);

@@ -147,7 +147,7 @@ public class Game extends Canvas implements Runnable {
 		level.setGovernment(null);
 		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
 		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-		player = new Player(level, x, y, input);
+		player = new Player(level, x, y, input, 0.0);
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
 			int nx = rand.nextInt(x * 2);

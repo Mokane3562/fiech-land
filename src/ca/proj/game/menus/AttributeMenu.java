@@ -84,9 +84,9 @@ public class AttributeMenu extends JFrame {
 			BufferedImage.TYPE_INT_RGB);
 
 	/**
-	 * Creates the Attribute Menu
+	 * Creates a new attribute menu frame.
 	 * 
-	 * @param title
+	 * @param title the title of the frame
 	 */
 	public AttributeMenu(String title) {
 
@@ -126,9 +126,6 @@ public class AttributeMenu extends JFrame {
 		
 		//prepare footer panel
 		jButtonReset.addActionListener(new ActionListener() {
-			/* (non-Javadoc)
-			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-			 */
 			public void actionPerformed(ActionEvent evt) {
 				jSliderWealth.setValue(10);
 				jSliderResources.setValue(10);
@@ -150,9 +147,6 @@ public class AttributeMenu extends JFrame {
 		footer.add(jTextFieldPointPool);
 		
 		jButtonOk.addActionListener(new ActionListener() {
-			/* (non-Javadoc)
-			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-			 */
 			public void actionPerformed(ActionEvent evt) {
 				Player.setWealth(wealthVal);
 				Player.setResources(resourcesVal);
@@ -170,9 +164,6 @@ public class AttributeMenu extends JFrame {
 		//prepare spinners panel
 		jSpinnerWealth.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinnerWealth.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				jSliderWealth.setValue((Integer) jSpinnerWealth.getValue());
 			}
@@ -184,9 +175,6 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinnerResources.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinnerResources.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				jSliderResources.setValue((Integer) jSpinnerResources.getValue());
 			}
@@ -198,9 +186,6 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinnerPolitics.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinnerPolitics.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				jSliderPolitics.setValue((Integer) jSpinnerPolitics.getValue());
 			}
@@ -212,9 +197,6 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinnerExpansion.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinnerExpansion.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				jSliderExpansion.setValue((Integer) jSpinnerExpansion.getValue());
 			}
@@ -226,9 +208,6 @@ public class AttributeMenu extends JFrame {
 		
 		jSpinnerMilitary.setModel(new SpinnerNumberModel(10, 10, 60, 1));
 		jSpinnerMilitary.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				jSliderMilitary.setValue((Integer) jSpinnerMilitary.getValue());
 			}
@@ -246,9 +225,6 @@ public class AttributeMenu extends JFrame {
 		jSliderWealth.setPaintTicks(true);
 		jSliderWealth.setEnabled(true);
 		jSliderWealth.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = wealthVal;
 				int newVal = jSliderWealth.getValue();
@@ -275,9 +251,6 @@ public class AttributeMenu extends JFrame {
 		jSliderResources.setPaintLabels(true);
 		jSliderResources.setPaintTicks(true);
 		jSliderResources.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = resourcesVal;
 				int newVal = jSliderResources.getValue();
@@ -304,9 +277,6 @@ public class AttributeMenu extends JFrame {
 		jSliderPolitics.setPaintLabels(true);
 		jSliderPolitics.setPaintTicks(true);
 		jSliderPolitics.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = politicsVal;
 				int newVal = jSliderPolitics.getValue();
@@ -333,9 +303,6 @@ public class AttributeMenu extends JFrame {
 		jSliderExpansion.setPaintLabels(true);
 		jSliderExpansion.setPaintTicks(true);
 		jSliderExpansion.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = expansionVal;
 				int newVal = jSliderExpansion.getValue();
@@ -362,9 +329,6 @@ public class AttributeMenu extends JFrame {
 		jSliderMilitary.setPaintLabels(true);
 		jSliderMilitary.setPaintTicks(true);
 		jSliderMilitary.addChangeListener(new ChangeListener() {
-			/* (non-Javadoc)
-			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
-			 */
 			public void stateChanged(ChangeEvent e) {
 				int prevVal = militaryVal;
 				int newVal = jSliderMilitary.getValue();
@@ -401,7 +365,7 @@ public class AttributeMenu extends JFrame {
 	}
 
 	/**
-	 * Closes the menu
+	 * Closes the menu.
 	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);

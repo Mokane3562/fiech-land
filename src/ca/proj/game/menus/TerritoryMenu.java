@@ -51,6 +51,11 @@ public class TerritoryMenu extends JFrame {
 
 	private boolean running = Game.isRunning();
 
+	/**
+	 * Creates a new territory menu frame.
+	 * 
+	 * @param title the title of the frame
+	 */
 	public TerritoryMenu(String title) {
 
 		super(title);
@@ -249,6 +254,9 @@ public class TerritoryMenu extends JFrame {
 		closeMenu();
 	}
 
+	/**
+	 * Closes the menu.
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);

@@ -55,6 +55,11 @@ public class GovernmentActionMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
+	/**
+	 * Creates a new government action menu frame.
+	 * 
+	 * @param title the title on the frame
+	 */
 	public GovernmentActionMenu(String title) {
 
 		super(title);
@@ -229,6 +234,9 @@ public class GovernmentActionMenu extends JFrame {
 		closeMenu();
 	}
 
+	/**
+	 * Closes the menu.
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);

@@ -133,7 +133,7 @@ public class InputHandler implements KeyListener {
 		// Hold an election
 		if (keyCode == KeyEvent.VK_G) {
 			// startGovernment.toggle(isPressed);
-			if (Game.player.support > 50) {
+			if (Game.player.getLevelSupport() > 50) {
 				Game.level.startDemocraticGovernment();
 			}
 		}

@@ -46,6 +46,11 @@ public class Menu extends JFrame {
 
 	private boolean running = Game.isRunning();
 
+	/**
+	 * Creates a new menu frame.
+	 * 
+	 * @param title the title of the frame
+	 */
 	public Menu(String title) {
 
 		super(title);
@@ -127,6 +132,9 @@ public class Menu extends JFrame {
 		Game.quit();
 	}
 
+	/**
+	 * Closes the menu.
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
