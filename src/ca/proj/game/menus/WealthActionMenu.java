@@ -112,7 +112,7 @@ public class WealthActionMenu extends JFrame {
 		freeTradeAgreement.setMargin(new Insets(2, 2, 2, 2));
 		freeTradeAgreement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				piggyBank_ActionPerformed(evt);
+				freeTradeAgreement_ActionPerformed(evt);
 			}
 		});
 		freeTradeAgreement.setBackground(Color.WHITE);
@@ -130,7 +130,7 @@ public class WealthActionMenu extends JFrame {
 		foreignTradeMission.setMargin(new Insets(2, 2, 2, 2));
 		foreignTradeMission.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				piggyBank_ActionPerformed(evt);
+				foreignTradeMission_ActionPerformed(evt);
 			}
 		});
 		foreignTradeMission.setBackground(Color.WHITE);
@@ -148,7 +148,7 @@ public class WealthActionMenu extends JFrame {
 		buyStocks.setMargin(new Insets(2, 2, 2, 2));
 		buyStocks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				piggyBank_ActionPerformed(evt);
+				buyStocks_ActionPerformed(evt);
 			}
 		});
 		buyStocks.setBackground(Color.WHITE);
@@ -166,7 +166,7 @@ public class WealthActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				piggyBank_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
