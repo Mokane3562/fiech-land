@@ -75,7 +75,7 @@ What we Achieved so Far:
 + Player attribute set screen.
 + Player attributes can be set.
 + Teleport system implemented.
-+ Added new levels.
++ Added new levels/maps
 + Added new animations.
 + Fix player HUD from disappearing.
 + Government partially implemented.
