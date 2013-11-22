@@ -67,7 +67,7 @@ Iteration 2 Goals
 - [x] Player attributes can be set.
 - [ ] Government initalization menu.
 - [ ] Create save games.
-- [ ] Fix governments across levels
+- [X] Fix governments across levels
 
 What we Achieved so Far:
 ------------------------
@@ -83,6 +83,7 @@ What we Achieved so Far:
 + Action menus partially implemented.
 + Added a Help Menu
 + Government class now Garbage Collects properly.
++ Government and support is now tied to the level.
 
 
 

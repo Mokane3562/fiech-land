@@ -12,7 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.entities.Government;
@@ -88,7 +90,6 @@ public class Game extends Canvas implements Runnable {
 	private String initialLevel = "/levels/waterfall-grassland.png";
 	private static ArrayList<String> loadedLevels = new ArrayList<String>();
 	private static Map<String, Government> governmentMap = new HashMap<String, Government>();
-
 	/**
 	 * Create the game and set properties for the window.
 	 * 
@@ -106,7 +107,8 @@ public class Game extends Canvas implements Runnable {
 
 		frame.add(this, BorderLayout.CENTER);
 		frame.pack();
-
+		
+	    
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
