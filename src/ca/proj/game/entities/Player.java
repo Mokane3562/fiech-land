@@ -43,6 +43,8 @@ public class Player extends Mob {
 	public static int xPos;
 	public static int yPos;
 	
+	private static int happiness = 0;
+	private static int actionPoints = 0;
 	private static int wealth = 0;
 	private static int resources = 0;
 	private static int politics = 0;
@@ -213,6 +215,34 @@ public class Player extends Mob {
 		return false;
 	}
 
+	/**
+	 * @return
+	 */
+	public static int getHappiness() {
+		return happiness;
+	}
+
+	/**
+	 * @param happiness
+	 */
+	public static void setHappiness(int happiness) {
+		Player.happiness = happiness;
+	}
+
+	/**
+	 * @return
+	 */
+	public static int getActionPoints() {
+		return actionPoints;
+	}
+
+	/**
+	 * @param actionPoints
+	 */
+	public static void setActionPoints(int actionPoints) {
+		Player.actionPoints = actionPoints;
+	}
+	
 	/**
 	 * Returns the wealth of the player.
 	 * 
