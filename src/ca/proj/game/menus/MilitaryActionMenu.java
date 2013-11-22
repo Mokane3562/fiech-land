@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.entities.Player;
 
 /**
  * 
@@ -54,9 +55,6 @@ public class MilitaryActionMenu extends JFrame {
 	
 	//Holds random number
 	private double random;
-			
-	//Value to be added to Happiness
-	private double happiness;
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
@@ -192,16 +190,16 @@ public class MilitaryActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=militaryFocus*15;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*15);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
 		}
-		else
+		else{
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
+		}
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 		
 	// Perform Second Military Action
@@ -215,16 +213,16 @@ public class MilitaryActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=militaryFocus*5;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*5);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
 		}
-		else
+		else{
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
+		}
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 		
 	// Perform Third Military Action
@@ -238,16 +236,16 @@ public class MilitaryActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=militaryFocus*10;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*10);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
 		}
-		else
+		else{
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
+		}
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 
 	// Perform Fourth Military Action
@@ -261,16 +259,16 @@ public class MilitaryActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=militaryFocus*25;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*25);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
 		}
-		else
+		else{
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
-			System.out.println("Action failed. No happiness gained");			
-			//--actionPoints;
+			System.out.println("Action failed. No happiness gained");
+		}
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 		
 	// Perform Main Menu Action
