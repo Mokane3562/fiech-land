@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.entities.Player;
 
 /**
  * 
@@ -55,9 +56,6 @@ public class ResourceActionMenu extends JFrame {
 	//Holds random number
 	private double random;
 		
-	//Value to be added to Happiness
-	private double happiness;
-	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
@@ -115,7 +113,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				harvestRenewableResources_ActionPerformed(evt);
 			}
 		});
 		harvestRenewableResources.setBackground(Color.WHITE);
@@ -133,7 +131,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestNonRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestNonRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				harvestNonRenewableResources_ActionPerformed(evt);
 			}
 		});
 		harvestNonRenewableResources.setBackground(Color.WHITE);
@@ -151,7 +149,7 @@ public class ResourceActionMenu extends JFrame {
 		lookForGold.setMargin(new Insets(2, 2, 2, 2));
 		lookForGold.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				lookForGold_ActionPerformed(evt);
 			}
 		});
 		lookForGold.setBackground(Color.WHITE);
@@ -169,7 +167,7 @@ public class ResourceActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
@@ -192,16 +190,18 @@ public class ResourceActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=resourceFocus*15;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getResources()* 15);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");				
-			//--actionPoints;
+			
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
 	}
 		
 	// Second Resource Action
@@ -215,16 +215,19 @@ public class ResourceActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=resourceFocus*5;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getResources()* 5);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");		
-			//--actionPoints;
+			
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
+		
 	}
 		
 	// Third Resource Action
@@ -238,16 +241,19 @@ public class ResourceActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=resourceFocus*10;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getResources()* 10);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
-			System.out.println("Action failed. No happiness gained");		
-			//--actionPoints;
+			System.out.println("Action failed. No happiness gained");	
+		
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
+			
 	}
 
 	// Fourth Resource Action
@@ -261,16 +267,19 @@ public class ResourceActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=resourceFocus*25;
-			System.out.println(">> You have gained " + happiness + " happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getResources()* 25);
+			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");	
-			//--actionPoints;
+		
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
+			
 	}
 		
 	// Main Menu Action
