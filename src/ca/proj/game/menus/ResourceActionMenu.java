@@ -113,7 +113,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				harvestRenewableResources_ActionPerformed(evt);
 			}
 		});
 		harvestRenewableResources.setBackground(Color.WHITE);
@@ -131,7 +131,7 @@ public class ResourceActionMenu extends JFrame {
 		harvestNonRenewableResources.setMargin(new Insets(2, 2, 2, 2));
 		harvestNonRenewableResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				harvestNonRenewableResources_ActionPerformed(evt);
 			}
 		});
 		harvestNonRenewableResources.setBackground(Color.WHITE);
@@ -149,7 +149,7 @@ public class ResourceActionMenu extends JFrame {
 		lookForGold.setMargin(new Insets(2, 2, 2, 2));
 		lookForGold.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				lookForGold_ActionPerformed(evt);
 			}
 		});
 		lookForGold.setBackground(Color.WHITE);
@@ -167,7 +167,7 @@ public class ResourceActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				lookForOil_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
