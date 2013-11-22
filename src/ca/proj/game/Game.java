@@ -83,6 +83,7 @@ public class Game extends Canvas implements Runnable {
 	public static NPC npc;
 
 	private String initialLevel = "/levels/waterfall-grassland.png";
+	private static ArrayList<String> loadedLevels = new ArrayList<String>();
 
 	/**
 	 * Create the game and set properties for the window.
@@ -141,6 +142,9 @@ public class Game extends Canvas implements Runnable {
 	 * @param levelPath
 	 */
 	public static void startLevel(String levelPath) {
+		if (loadedLevels.contains(levelPath)){
+			loadSerializedLevel(levelPath);
+		}
 		Random rand = new Random();
 
 		level = new Level(levelPath);
@@ -161,6 +165,11 @@ public class Game extends Canvas implements Runnable {
 			level.addEntity(npc);
 		}
 		gameEvents = new GameEvents();
+	}
+
+	private static void loadSerializedLevel(String levelPath) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
