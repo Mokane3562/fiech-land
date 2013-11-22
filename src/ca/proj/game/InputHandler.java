@@ -11,26 +11,30 @@ import ca.proj.game.Key;
  * 
  * InputHandler.java handles input from the keyboard.
  * 
- * Copyright (C) 2013 
- * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Copyright (C) 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
  */
 public class InputHandler implements KeyListener {
 	public static int lookDir;
 
+	/**
+	 * Creates a new input handler.
+	 * 
+	 * @param game the game to handle input from
+	 */
 	public InputHandler(Game game) {
 		game.addKeyListener(this);
 	}
@@ -53,21 +57,39 @@ public class InputHandler implements KeyListener {
 	public Key election = new Key();
 	// Bring up the
 	public Key startGovernment = new Key();
-	//Teleport
+	// Teleport
 	public Key teleport = new Key();
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
+	@Override
 	public void keyPressed(KeyEvent e) {
 		toggleKey(e.getKeyCode(), true);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
+	@Override
 	public void keyReleased(KeyEvent e) {
 		toggleKey(e.getKeyCode(), false);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	@Override
 	public void keyTyped(KeyEvent e) {
 
 	}
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @param keyCode add a description
+	 * @param isPressed add a description
+	 */
 	public void toggleKey(int keyCode, boolean isPressed) {
 		// MOVEMENT
 		if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_UP) {
@@ -110,8 +132,8 @@ public class InputHandler implements KeyListener {
 		}
 		// Hold an election
 		if (keyCode == KeyEvent.VK_G) {
-			//startGovernment.toggle(isPressed);
-			if(Game.player.support > 50){
+			// startGovernment.toggle(isPressed);
+			if (Game.player.support > 50) {
 				Game.level.startDemocraticGovernment();
 			}
 		}
@@ -121,7 +143,7 @@ public class InputHandler implements KeyListener {
 		}
 		// MENU / ESCAPE
 		if (keyCode == KeyEvent.VK_T) {
-			//teleport.toggle(isPressed);
+			// teleport.toggle(isPressed);
 			new TeleportMenu("Teleport to...");
 		}
 

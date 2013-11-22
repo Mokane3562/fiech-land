@@ -139,8 +139,6 @@ public class Game extends Canvas implements Runnable {
 	 * Start the level and add the player, and GameEvent manager.
 	 * 
 	 * @param levelPath
-	 * @param x
-	 * @param y
 	 */
 	public static void startLevel(String levelPath) {
 		Random rand = new Random();
@@ -207,11 +205,10 @@ public class Game extends Canvas implements Runnable {
 		frame.dispose();
 	}
 
-	/**
-	 * Game implements runnable. A class that implements Runnable can run
-	 * without subclassing Thread by instantiating a Thread instance and passing
-	 * itself in as the target.
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
 	 */
+	@Override
 	public void run() {
 		long lastTime = System.nanoTime();
 		// 1 second
@@ -326,12 +323,19 @@ public class Game extends Canvas implements Runnable {
 
 	}
 
+	/**
+	 * Please add a description.
+	 */
 	public static void quit() {
 		System.exit(1);
 	}
 
+	/**
+	 * Please add a description.
+	 * 
+	 * @return add a description
+	 */
 	public static boolean isRunning() {
-		// TODO Auto-generated method stub
 		return running;
 	}
 

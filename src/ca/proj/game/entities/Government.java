@@ -1,5 +1,7 @@
 package ca.proj.game.entities;
 
+import java.util.ArrayList;
+
 import ca.proj.game.Game;
 import ca.proj.game.level.Level;
 
@@ -26,18 +28,27 @@ import ca.proj.game.level.Level;
  */
 public class Government {
 
+	/**
+	 * Enum for the two government types, DEMOCRACY and DICTATORSHIP.
+	 */
 	public enum Gov_Type {
 		DEMOCRACY, DICTATORSHIP
 	}
-
-	Gov_Type gov;
-	private double maxSupport = 0;
-	Player leader = null;
-	Level level;
 	
-	public Government(Gov_Type gov, Level level) {
-		this.gov = gov;
-		this.level = level;
+	
+
+	private Gov_Type gov;
+	private double maxSupport = 0;
+	private Player leader = null;
+	ArrayList<Player> ministers = new ArrayList<Player>(10);
+	
+	/**
+	 * Creates a new Government object.
+	 * 
+	 * @param gov the government type
+	 */
+	public Government(Gov_Type gov) {
+		this.setGovType(gov);
 		chooseLeader();
 	}
 
@@ -53,6 +64,7 @@ public class Government {
 		}
 		System.out.println(">> New player chosen as leader!");
 	}*/
+
 	/**
 	 * Set the player as leader if support is great enough, done when a 
 	 * government is created.
@@ -65,12 +77,59 @@ public class Government {
 			System.out.println(Game.player + " Is the player");
 		}
 	}
+	
 	/**
 	 * Return the name of the governemnt leader.
-	 * @return name of the leader.
+	 * 
+	 * @return name of the leader
 	 */
 	public String getLeaderName(){
 		return leader.name;
 	}
 
+	/**
+	 * Returns the government type.
+	 * 
+	 * @return the gov
+	 */
+	public Gov_Type getGovType() {
+		return gov;
+	}
+
+	/**
+	 * Sets the government to the specified government type.
+	 * 
+	 * @param gov the gov to set
+	 */
+	public void setGovType(Gov_Type gov) {
+		this.gov = gov;
+	}
+
+	/**
+	 * Adds the specified player as a minister.
+	 * 
+	 * @param player the player to be minister
+	 */
+	public void addMinister(Player player){
+		ministers.add(player);
+	}
+	
+	/**
+	 * removes the specified player as a minister.
+	 * 
+	 * @param player the player to be removed as a minister
+	 */
+	public void removeMinister(Player player){
+		ministers.remove(player);
+	}
+	
+	/**
+	 * Replaces one instance of a player with another as minister.
+	 * 
+	 * @param oldPlayer the player to be removed as a minister
+	 * @param newPlayer the player to replace the other player as a minister
+	 */
+	public void replaceMinister(Player oldPlayer, Player newPlayer){
+		ministers.set(ministers.indexOf(oldPlayer), newPlayer);
+	}
 }

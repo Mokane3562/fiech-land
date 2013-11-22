@@ -9,14 +9,12 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
@@ -67,7 +65,7 @@ public class TeleportMenu extends JFrame {
 		Container cp = getContentPane();
 		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
 		cp.setLayout(boxLayout);
-		
+
 		Dimension buttonSize = new Dimension(305, 40);
 		Dimension minSize = new Dimension(0, 5);
 		Dimension prefSize = new Dimension(0, 5);
@@ -78,7 +76,7 @@ public class TeleportMenu extends JFrame {
 		waterfallGrasslandButton.setPreferredSize(buttonSize);
 		waterfallGrasslandButton.setMaximumSize(buttonSize);
 		waterfallGrasslandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		waterfallGrasslandButton.setText("Enter WaterFall-Grassland");
+		waterfallGrasslandButton.setText("WaterFall-Grassland");
 		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -95,7 +93,7 @@ public class TeleportMenu extends JFrame {
 		ancientRuinsButton.setPreferredSize(buttonSize);
 		ancientRuinsButton.setMaximumSize(buttonSize);
 		ancientRuinsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		ancientRuinsButton.setText("Enter Ancient-Ruins");
+		ancientRuinsButton.setText("Ancient-Ruins");
 		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -112,7 +110,7 @@ public class TeleportMenu extends JFrame {
 		threeLakesButton.setPreferredSize(buttonSize);
 		threeLakesButton.setMaximumSize(buttonSize);
 		threeLakesButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		threeLakesButton.setText("Enter Three-Lakes");
+		threeLakesButton.setText("Three-Lakes");
 		threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
 		threeLakesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -129,7 +127,7 @@ public class TeleportMenu extends JFrame {
 		desertBorderButton.setPreferredSize(buttonSize);
 		desertBorderButton.setMaximumSize(buttonSize);
 		desertBorderButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		desertBorderButton.setText("Enter Desert-Border");
+		desertBorderButton.setText("Desert-Border");
 		desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
 		desertBorderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -140,13 +138,13 @@ public class TeleportMenu extends JFrame {
 		desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(desertBorderButton);
-		
+
 		cp.add(new Box.Filler(minSize, prefSize, maxSize));
 		fiechLandButton.setMinimumSize(buttonSize);
 		fiechLandButton.setPreferredSize(buttonSize);
 		fiechLandButton.setMaximumSize(buttonSize);
 		fiechLandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		fiechLandButton.setText("Enter Fiech-Land");
+		fiechLandButton.setText("Fiech-Land");
 		fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
 		fiechLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -174,7 +172,6 @@ public class TeleportMenu extends JFrame {
 		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(returnToGameButton);
-	
 
 		cp.setBackground(new Color(0xFFC800));
 
@@ -200,6 +197,7 @@ public class TeleportMenu extends JFrame {
 		Game.startLevel("/levels/desert-border.png");
 		closeMenu();
 	}
+
 	public void fiechLandButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/fiech-land.png");
 		closeMenu();

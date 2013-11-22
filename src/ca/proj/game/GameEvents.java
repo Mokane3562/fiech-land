@@ -40,6 +40,9 @@ public class GameEvents {
 	private int red = Colours.get(-1, 555, 555, 400);
 	private int black = Colours.get(-1, 555, 555, 000);
 
+	/**
+	 * Please add a description.
+	 */
 	public GameEvents() {
 
 	}

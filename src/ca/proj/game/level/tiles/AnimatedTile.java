@@ -32,6 +32,15 @@ public class AnimatedTile extends BasicTile {
 	private long lastIterationTime;
 	private int animationSwitchDelay;
 
+	/**
+	 * Creates a new animated tile.
+	 * 
+	 * @param id the id of the tile
+	 * @param animationCoords add a description
+	 * @param tileColour the colour of the tile
+	 * @param levelColour the color of the corresponding pixel on a level's image
+	 * @param animationSwitchDelay the delay between switching animation frames in milliseconds
+	 */
 	public AnimatedTile(int id, int[][] animationCoords, int tileColour, int levelColour, int animationSwitchDelay) {
 		super(id, animationCoords[0][0], animationCoords[0][1], tileColour, levelColour);
 		this.animationTileCoords = animationCoords;
@@ -40,6 +49,10 @@ public class AnimatedTile extends BasicTile {
 		this.animationSwitchDelay = animationSwitchDelay;
 	}
 	
+	/* (non-Javadoc)
+	 * @see ca.proj.game.level.tiles.BasicTile#tick()
+	 */
+	@Override
 	public void tick() {
 		if ((System.currentTimeMillis() - lastIterationTime) >= (animationSwitchDelay)) {
 			lastIterationTime = System.currentTimeMillis();

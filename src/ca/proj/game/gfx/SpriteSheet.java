@@ -35,6 +35,11 @@ public class SpriteSheet {
 	
 	public int[] pixels;
 	
+	/**
+	 * Imports a sprite sheet.
+	 * 
+	 * @param path the path to the sprite sheet on the disk
+	 */
 	public SpriteSheet(String path) {
 		BufferedImage image = null;
 		

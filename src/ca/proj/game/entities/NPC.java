@@ -42,13 +42,21 @@ public class NPC extends Mob {
 	private boolean xDecr;
 	private boolean stayPut;
 
+	/**
+	 * Creates a new NPC.
+	 * 
+	 * @param level the level to add the NPC to
+	 * @param x the x position on the level to add the NPC to
+	 * @param y the y position on the level to add the NPC to
+	 */
 	public NPC(Level level, int x, int y) {
 		super(level, "NPC", x, y, 1);
 	}
 
-	/**
-	 * Called from the level to "tick" or update the character.
+	/* (non-Javadoc)
+	 * @see ca.proj.game.entities.Entity#tick()
 	 */
+	@Override
 	public void tick() {
 		xa = 0;
 		ya = 0;
@@ -140,9 +148,10 @@ public class NPC extends Mob {
 
 	}
 
-	/**
-	 * Render any updates to the screen
+	/* (non-Javadoc)
+	 * @see ca.proj.game.entities.Entity#render(ca.proj.game.gfx.Screen)
 	 */
+	@Override
 	public void render(Screen screen) {
 		// Position of the sprite on the sheet.
 		int xTile = 0;
@@ -197,9 +206,10 @@ public class NPC extends Mob {
 		}
 	}
 
-	/**
-	 * Check to see if the character has collided with a solid tile.
+	/* (non-Javadoc)
+	 * @see ca.proj.game.entities.Mob#hasCollided(int, int)
 	 */
+	@Override
 	public boolean hasCollided(int xa, int ya) {
 		int xMin = 0;
 		int xMax = 7;

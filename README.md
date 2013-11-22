@@ -75,12 +75,14 @@ What we Achieved so Far:
 + Player attribute set screen.
 + Player attributes can be set.
 + Teleport system implemented.
-+ Added new levels.
++ Added new levels/maps
 + Added new animations.
 + Fix player HUD from disappearing.
 + Government partially implemented.
 + Elections partially implemented.
 + Action menus partially implemented.
++ Added a Help Menu
++ Government class now Garbage Collects properly.
 
 
 

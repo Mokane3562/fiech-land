@@ -50,6 +50,14 @@ public abstract class Tile {
     private int levelColour;
   
     
+    /**
+     * Creates a new Tile.
+     * 
+     * @param id the id of the tile
+     * @param isSolid true if the tile is a solid tile (collision)
+     * @param isEmitter add a description
+     * @param levelColour the color of the corresponding pixel on a level's image
+     */
     public Tile(int id, boolean isSolid, boolean isEmitter, int levelColour) {
     	this.id = (byte) id;
     	if (tiles[id] != null) throw new RuntimeException("Duplicate tile id on " + id);
@@ -62,24 +70,55 @@ public abstract class Tile {
     	tiles[id] = this;
     }
     
+    /**
+     * Returns the id of the tile.
+     * 
+     * @return the tile's id
+     */
     public byte getId() {
     	return id;
     }
     
+    /**
+     * Checks if the tile is solid (collides).
+     * 
+     * @return true if the tile is solid
+     */
     public boolean isSolid() {
     	return solid;
     }
     
+    /**
+     * Please add a description.
+     * 
+     * @return add a description
+     */
     public boolean isEmitter() {
     	return emitter;
     }
     
+    /**
+     * Returns the color of the corresponding pixel on a level's image.
+     * 
+     * @return the color of the corresponding pixel on a level's image
+     */
     public int getLevelColour() {
     	return levelColour;
     }
     
+    /**
+     * Please add a description.
+     */
     public abstract void tick();
     
+	/**
+	 * Please add a description.
+	 * 
+	 * @param screen add a description
+	 * @param level add a description
+	 * @param x add a description
+	 * @param y add a description
+	 */
 	public abstract void render(Screen screen, Level level, int x, int y);
 		
 	

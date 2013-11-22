@@ -48,14 +48,23 @@ public class Player extends Mob {
 	private static int military = 0;
 	private static final int ATTRIBUTE_TOTAL = 100;
 
+	/**
+	 * Creates a new Player.
+	 * 
+	 * @param level the level to add the player to
+	 * @param x the x position on the level to add the player to
+	 * @param y the y position on the level to add the player to
+	 * @param input the input handler for the player
+	 */
 	public Player(Level level, int x, int y, InputHandler input) {
 		super(level, "PLAYER", x, y, 1);
 		this.input = input;
 	}
 
-	/**
-	 * Called from the level to "tick" or update the character.
+	/* (non-Javadoc)
+	 * @see ca.proj.game.entities.Entity#tick()
 	 */
+	@Override
 	public void tick() {
 		int xa = 0;
 		int ya = 0;
@@ -110,9 +119,10 @@ public class Player extends Mob {
 		tickCount++;
 	}
 
-	/**
-	 * Render any updates to the screen
+	/* (non-Javadoc)
+	 * @see ca.proj.game.entities.Entity#render(ca.proj.game.gfx.Screen)
 	 */
+	@Override
 	public void render(Screen screen) {
 		int xTile = 0;
 		int yTile = 28;
@@ -164,10 +174,11 @@ public class Player extends Mob {
 
 		}
 	}
-	
-	/**
-	 * Check to see if the character has collided with a solid tile.
+
+	/* (non-Javadoc)
+	 * @see ca.proj.game.entities.Mob#hasCollided(int, int)
 	 */
+	@Override
 	public boolean hasCollided(int xa, int ya) {
 		int xMin = 0;
 		int xMax = 7;
@@ -197,13 +208,17 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * @return the wealth
+	 * Returns the wealth of the player.
+	 * 
+	 * @return the player's wealth
 	 */
 	public static int getWealth() {
 		return wealth;
 	}
 
 	/**
+	 * Sets the wealth of the player to the specified value.
+	 * 
 	 * @param wealth the wealth to set
 	 */
 	public static void setWealth(int wealth) {
@@ -211,13 +226,17 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * @return the resources
+	 * Returns the resources of the player.
+	 * 
+	 * @return the player's resources
 	 */
 	public static int getResources() {
 		return resources;
 	}
 
 	/**
+	 * Sets the recources of the player to the specified value.
+	 * 
 	 * @param resources the resources to set
 	 */
 	public static void setResources(int resources) {
@@ -225,13 +244,17 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * @return the expansion
+	 * Returns the expansion of the player.
+	 * 
+	 * @return the player's expansion
 	 */
 	public static int getExpansion() {
 		return expansion;
 	}
 
 	/**
+	 * Sets the expansion of the player to the specified value.
+	 * 
 	 * @param expansion the expansion to set
 	 */
 	public static void setExpansion(int expansion) {
@@ -239,13 +262,17 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * @return the politics
+	 * Returns the politics of the player.
+	 * 
+	 * @return the player's politics
 	 */
 	public static int getPolitics() {
 		return politics;
 	}
 
 	/**
+	 * Sets the politics of the player to the specified value.
+	 * 
 	 * @param politics the politics to set
 	 */
 	public static void setPolitics(int politics) {
@@ -253,13 +280,17 @@ public class Player extends Mob {
 	}
 
 	/**
-	 * @return the military
+	 * Returns the military of the player.
+	 * 
+	 * @return the player's military
 	 */
 	public static int getMilitary() {
 		return military;
 	}
 
 	/**
+	 * Sets the military of the player to the specified value.
+	 * 
 	 * @param military the military to set
 	 */
 	public static void setMilitary(int military) {

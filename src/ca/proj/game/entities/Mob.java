@@ -34,6 +34,15 @@ public abstract class Mob extends Entity {
 	protected int movingDir = 1;
 	protected int scale = 1;
 
+	/**
+	 * Creates a new Mob.
+	 * 
+	 * @param level the level to add the mob to
+	 * @param name the name of the mob
+	 * @param x the x position on the level to add the mob to
+	 * @param y the y position on the level to add the mob to
+	 * @param speed the movement speed of the mob
+	 */
 	public Mob(Level level, String name, int x, int y, int speed) {
 		super(level);
 		this.name = name;
@@ -81,6 +90,13 @@ public abstract class Mob extends Entity {
 
 	}
 
+	/**
+	 * Check to see if the character has collided with a solid tile.
+	 * 
+	 * @param xa add a description
+	 * @param ya add a description
+	 * @return add a description
+	 */
 	public abstract boolean hasCollided(int xa, int ya);
 
 	/**
@@ -90,7 +106,7 @@ public abstract class Mob extends Entity {
 	 * @param ya y-position of character
 	 * @param x x-position of tile
 	 * @param y y-position of tile
-	 * @return
+	 * @return true if the mob has collided with a blocked tile
 	 */
 	protected boolean isSolidTile(int xa, int ya, int x, int y) {
 		if (level == null) {
