@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.entities.Player;
 /**
  * 
  * WealthActionMenu.java 
@@ -53,9 +54,6 @@ public class WealthActionMenu extends JFrame {
 	
 	//Holds random number
 	private double random;
-	
-	//Value to be added to Happiness
-	private double happiness;
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
@@ -191,16 +189,19 @@ public class WealthActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness+=wealthFocus*15;
-			System.out.println("You have gained" + happiness + "happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getWealth()* 15);
+			System.out.println("You have" + Player.getHappiness() + "happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
+		
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
+			
 	}
 		
 	// Perform Second Wealth Action
@@ -214,16 +215,18 @@ public class WealthActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=wealthFocus*5;
-			System.out.println("You have gained" + happiness + "happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getWealth()* 5);
+			System.out.println("You have" + Player.getHappiness() + "happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
+		
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
 	}
 		
 	// Perform Third Wealth Action
@@ -237,16 +240,19 @@ public class WealthActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=wealthFocus*10;
-			System.out.println("You have gained" + happiness + "happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getWealth()* 10);
+			System.out.println("You have " + Player.getHappiness() + "happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");
-			//--actionPoints;
+			
+		
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
 	}
 
 	// Perform Fourth Wealth Action
@@ -260,16 +266,19 @@ public class WealthActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=wealthFocus*25;
-			System.out.println("You have gained" + happiness + "happiness points.");
-			//--actionPoints;
+			Player.setHappiness(Player.getHappiness() + Player.getWealth()* 25);
+			System.out.println("You have " + Player.getHappiness() + "happiness points.");
+			
 		}
 		else
 			/*	If unsuccessful, still decrement action points, tell the player that
 			 *	they've gained no points, and decrement action points by 1.
 			 */
 			System.out.println("Action failed. No happiness gained");	
-			//--actionPoints;
+		
+		
+		//Decrease the Player's action points by 1
+		Player.setActionPoints(Player.getActionPoints() - 1);
 	}
 		
 	// Main Menu Action
