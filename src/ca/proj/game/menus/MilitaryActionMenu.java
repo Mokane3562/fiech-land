@@ -113,7 +113,7 @@ public class MilitaryActionMenu extends JFrame {
 		borderDefense.setMargin(new Insets(2, 2, 2, 2));
 		borderDefense.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				borderDefense_ActionPerformed(evt);
 			}
 		});
 		borderDefense.setBackground(Color.WHITE);
@@ -131,7 +131,7 @@ public class MilitaryActionMenu extends JFrame {
 		borderPatrol.setMargin(new Insets(2, 2, 2, 2));
 		borderPatrol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				borderPatrol_ActionPerformed(evt);
 			}
 		});
 		borderPatrol.setBackground(Color.WHITE);
@@ -149,7 +149,7 @@ public class MilitaryActionMenu extends JFrame {
 		secretOperations.setMargin(new Insets(2, 2, 2, 2));
 		secretOperations.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				secretOperations_ActionPerformed(evt);
 			}
 		});
 		secretOperations.setBackground(Color.WHITE);
@@ -167,7 +167,7 @@ public class MilitaryActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				troopSkirmish_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
@@ -184,21 +184,26 @@ public class MilitaryActionMenu extends JFrame {
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
 		//	This action has a 50% chance of success
-		if (random<=50.00){
-			/*	If successful, happiness variable will be set to 15 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*15);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+		
+		if (Player.getActionPoints() > 0) {
+			if (random <= 50.00) {
+				/*	If successful, happiness variable will be set to 15 * Military Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getMilitary() * 15);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else{
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-		}
+		else System.out.println("You don't have enough action points");
 		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 		
@@ -206,22 +211,26 @@ public class MilitaryActionMenu extends JFrame {
 	public void borderDefense_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
-		//	This action has a 75% chance of success
-		if (random<=75.00){
-			/*	If successful, happiness variable will be set to 5 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*5);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+		if (Player.getActionPoints() > 0) {
+			//	This action has a 75% chance of success
+			if (random <= 75.00) {
+				/*	If successful, happiness variable will be set to 5 * Military Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getMilitary() * 5);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else{
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-		}
+		else System.out.println("You don't have enough action points");
 		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 		
@@ -229,22 +238,26 @@ public class MilitaryActionMenu extends JFrame {
 	public void borderPatrol_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
-		//	This action has a 60% chance of success
-		if (random<=60.00){
-			/*	If successful, happiness variable will be set to 10 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*10);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+		if (Player.getActionPoints() > 0) {
+			//	This action has a 60% chance of success
+			if (random <= 60.00) {
+				/*	If successful, happiness variable will be set to 10 * Military Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getMilitary() * 10);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else{
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-		}
+		else System.out.println("You don't have enough action points");
 		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 
@@ -252,22 +265,26 @@ public class MilitaryActionMenu extends JFrame {
 	public void secretOperations_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = militaryGen.nextInt(100);
-		//	This action hasa 25% chance of success
-		if (random<=25.00){
-			/*	If successful, happiness variable will be set to 25 * Military Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getMilitary()*25);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+		if (Player.getActionPoints() > 0) {
+			//	This action hasa 25% chance of success
+			if (random <= 25.00) {
+				/*	If successful, happiness variable will be set to 25 * Military Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getMilitary() * 25);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else{
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-		}
+		else System.out.println("You don't have enough action points");
 		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 		
@@ -285,5 +302,7 @@ public class MilitaryActionMenu extends JFrame {
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
 	}
 
-	
+	public static void main(String[] args){
+		new MilitaryActionMenu("YEAH BUDDY");
+	}
 }
