@@ -39,7 +39,7 @@ import ca.proj.game.level.tiles.Tile;
  * this program. If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-public class Level implements Serializable, Cloneable {
+public class Level implements Serializable{
 
 	public static byte[] tiles;
 	public static int width;
@@ -238,6 +238,7 @@ public class Level implements Serializable, Cloneable {
 	 */
 	public void startDemocraticGovernment() {
 		government = new Government(DEMOCRACY);
+		Game.getGovernmentMap().put(this.getImagePath(), government);
 	}
 
 	/**

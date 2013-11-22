@@ -336,7 +336,8 @@ public class Player extends Mob {
 	public static double getLevelSupport() {
 		return supportMap.get(level.getImagePath());
 	}
-	public static Map getSupportMap() {
+	
+	public static Map<String, Double> getSupportMap() {
 		return supportMap;
 	}
 

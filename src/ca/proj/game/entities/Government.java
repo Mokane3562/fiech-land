@@ -79,7 +79,7 @@ public class Government {
 	}
 	
 	/**
-	 * Return the name of the governemnt leader.
+	 * Return the name of the government leader.
 	 * 
 	 * @return name of the leader
 	 */

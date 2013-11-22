@@ -7,15 +7,15 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import ca.proj.game.entities.Government;
 import ca.proj.game.entities.NPC;
 import ca.proj.game.entities.Player;
 import ca.proj.game.gfx.Colours;
@@ -87,6 +87,7 @@ public class Game extends Canvas implements Runnable {
 
 	private String initialLevel = "/levels/waterfall-grassland.png";
 	private static ArrayList<String> loadedLevels = new ArrayList<String>();
+	private static Map<String, Government> governmentMap = new HashMap<String, Government>();
 
 	/**
 	 * Create the game and set properties for the window.
@@ -154,6 +155,7 @@ public class Game extends Canvas implements Runnable {
 			level = new Level(levelPath);
 			loadedLevels.add(levelPath);
 			level.setGovernment(null);
+			governmentMap.put(levelPath, level.getGovernment());
 			int x = (int) (Math.sqrt(level.tiles.length)) * 4;
 			int y = (int) (Math.sqrt(level.tiles.length)) * 4;
 			player = new Player(level, x, y, input, 0.0);
@@ -176,10 +178,11 @@ public class Game extends Canvas implements Runnable {
 	private static void loadPreviousLevel(String levelPath) {
 		Random rand = new Random();
 		level = new Level(levelPath);
+		level.setGovernment(governmentMap.get(levelPath));
 		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
 		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-		player.xPos = x;
-		player.yPos = y;
+		player.x = x;
+		player.y = y;
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
 			int nx = rand.nextInt(x * 2);
@@ -370,6 +373,10 @@ public class Game extends Canvas implements Runnable {
 	 */
 	public static boolean isRunning() {
 		return running;
+	}
+	
+	public static Map<String, Government> getGovernmentMap(){
+		return governmentMap;
 	}
 
 }

@@ -64,7 +64,7 @@ public class GameEvents {
 		// in-game
 		if (Game.level.getGovernment() != null) {
 
-			Font.render(Game.level.getGovernment().getLeaderName(), screen, x,
+			Font.render(Game.getGovernmentMap().get(Game.level.getImagePath()).getLeaderName(), screen, x,
 					y, orange, 1);
 		} else {
 			Font.render("null", screen, x, y, green, 1);
