@@ -1,5 +1,8 @@
 package ca.proj.game.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import ca.proj.game.Game;
 import ca.proj.game.InputHandler;
 import ca.proj.game.gfx.Colours;
@@ -36,7 +39,6 @@ public class Player extends Mob {
 	public static boolean gettingDamage;
 	private int tickCount;
 	private long lastElectionTime = 0;
-	public static double support = 0;
 	public static boolean triggeredTeleport = false;
 	public static int xPos;
 	public static int yPos;
@@ -47,6 +49,8 @@ public class Player extends Mob {
 	private static int expansion = 0;
 	private static int military = 0;
 	private static final int ATTRIBUTE_TOTAL = 100;
+	
+	static Map<Level, Double> supportMap = new HashMap<Level, Double>();
 
 	/**
 	 * Creates a new Player.
@@ -56,9 +60,10 @@ public class Player extends Mob {
 	 * @param y the y position on the level to add the player to
 	 * @param input the input handler for the player
 	 */
-	public Player(Level level, int x, int y, InputHandler input) {
+	public Player(Level level, int x, int y, InputHandler input, double support) {
 		super(level, "PLAYER", x, y, 1);
 		this.input = input;
+		supportMap.put(level, support);
 	}
 
 	/* (non-Javadoc)
@@ -111,12 +116,13 @@ public class Player extends Mob {
 		// Hold an election
 		if (input.election.isPressed()) {
 			if (System.currentTimeMillis() - lastElectionTime > 2000) {
-				support = (level.getNPCVote() / Game.NUM_NPCS) * 100;
-				System.out.println("Percentage of support: " + support);
+				supportMap.put(level, level.getNPCVote() / Game.NUM_NPCS * 100);
+				System.out.println("Percentage of support: " + supportMap.get(level));
 				lastElectionTime = System.currentTimeMillis();
 			}
 		}
 		tickCount++;
+		
 	}
 
 	/* (non-Javadoc)
@@ -295,6 +301,10 @@ public class Player extends Mob {
 	 */
 	public static void setMilitary(int military) {
 		Player.military = military;
+	}
+
+	public static double getLevelSupport() {
+		return supportMap.get(level);
 	}
 
 }

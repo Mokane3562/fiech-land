@@ -70,7 +70,7 @@ public class Government {
 	 * government is created.
 	 */
 	public void chooseLeader(){
-		if (Game.player.support >= 50){
+		if (Game.player.getLevelSupport() >= 50){
 			leader = Game.player;
 			//Confirms that the player is the leader.
 			System.out.println(leader + " Chosen as Leader");
