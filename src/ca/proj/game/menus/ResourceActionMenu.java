@@ -58,6 +58,11 @@ public class ResourceActionMenu extends JFrame {
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
 
+	/**
+	 * Creates a new resource action menu frame.
+	 * 
+	 * @param title the title of the frame
+	 */
 	public ResourceActionMenu(String title) {
 
 		super(title);
@@ -256,6 +261,9 @@ public class ResourceActionMenu extends JFrame {
 		//Go back to GovActionMenu		
 	}
 
+	/**
+	 * Closes the menu.
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);

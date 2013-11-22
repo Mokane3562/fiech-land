@@ -50,6 +50,11 @@ public class TeleportMenu extends JFrame {
 
 	private boolean running = Game.isRunning();
 
+	/**
+	 * Creates a new teleport menu frame.
+	 * 
+	 * @param title the title of the frame
+	 */
 	public TeleportMenu(String title) {
 
 		super(title);
@@ -207,6 +212,9 @@ public class TeleportMenu extends JFrame {
 		closeMenu();
 	}
 
+	/**
+	 * Closes the menu.
+	 */
 	public void closeMenu() {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
