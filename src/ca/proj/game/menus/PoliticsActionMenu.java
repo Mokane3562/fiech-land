@@ -56,9 +56,6 @@ public class PoliticsActionMenu extends JFrame {
 	
 	//Holds random number
 	private double random;
-				
-	//Value to be added to Happiness
-	private double happiness;
 		
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
 			BufferedImage.TYPE_INT_RGB);
@@ -117,7 +114,7 @@ public class PoliticsActionMenu extends JFrame {
 		hostStateDinner.setMargin(new Insets(2, 2, 2, 2));
 		hostStateDinner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				establishEmbassy_ActionPerformed(evt);
+				hostStateDinner_ActionPerformed(evt);
 			}
 		});
 		hostStateDinner.setBackground(Color.WHITE);
@@ -135,7 +132,7 @@ public class PoliticsActionMenu extends JFrame {
 		offerForeignAid.setMargin(new Insets(2, 2, 2, 2));
 		offerForeignAid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				establishEmbassy_ActionPerformed(evt);
+				offerForeignAid_ActionPerformed(evt);
 			}
 		});
 		offerForeignAid.setBackground(Color.WHITE);
@@ -153,7 +150,7 @@ public class PoliticsActionMenu extends JFrame {
 		spyOnOtherCountries.setMargin(new Insets(2, 2, 2, 2));
 		spyOnOtherCountries.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				establishEmbassy_ActionPerformed(evt);
+				spyOnOtherCountries_ActionPerformed(evt);
 			}
 		});
 		spyOnOtherCountries.setBackground(Color.WHITE);
@@ -173,7 +170,7 @@ public class PoliticsActionMenu extends JFrame {
 		mainMenu.setMargin(new Insets(2, 2, 2, 2));
 		mainMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				establishEmbassy_ActionPerformed(evt);
+				mainMenu_ActionPerformed(evt);
 			}
 		});
 		mainMenu.setBackground(Color.WHITE);
@@ -189,92 +186,108 @@ public class PoliticsActionMenu extends JFrame {
 	public void establishEmbassy_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = politicsGen.nextInt(100);
-		//	This action has a 50% chance of success
-		if (random<=50.00){
-			/*	If successful, happiness variable will be set to 15 * Diplomacy Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getPolitics()*15);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		if (Player.getActionPoints() > 0) {
+			//	This action has a 50% chance of success
+			if (random <= 50.00) {
+				/*	If successful, happiness variable will be set to 15 * Diplomacy Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getPolitics() * 15);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 *	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 *	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 	
 	// Perform Second Politics Action
 	public void hostStateDinner_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = politicsGen.nextInt(100);
-		//	This action has a 75% of success
-		if (random <=75.00){
-			/*	If successful, happiness variable will be set to 5 * Diplomacy Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getPolitics()*5);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		if (Player.getActionPoints() > 0) {
+			//	This action has a 75% of success
+			if (random <= 75.00) {
+				/*	If successful, happiness variable will be set to 5 * Diplomacy Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getPolitics() * 5);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*	If unsuccessful, still decrement action points, tell the player that
+				 * 	they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else
-			/*	If unsuccessful, still decrement action points, tell the player that
-			 * 	they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");	
-			Player.setActionPoints(Player.getActionPoints()-1);
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 	
 	// Perform Third Politics Action
 	public void offerForeignAid_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = politicsGen.nextInt(100);
-		//This action has a 60% of success
-		if (random <=60.00){
-			/*	If successful, happiness variable will be set to 10 * Diplomacy Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getPolitics()*10);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		if (Player.getActionPoints() > 0) {
+			//This action has a 60% of success
+			if (random <= 60.00) {
+				/*	If successful, happiness variable will be set to 10 * Diplomacy Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getPolitics() * 10);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*If unsuccessful, still decrement action points, tell the player that
+				 * they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else
-			/*If unsuccessful, still decrement action points, tell the player that
-			 * they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 
 	// Perform Fourth Politics Action
 	public void spyOnOtherCountries_ActionPerformed(ActionEvent evt) { 
 		//	Generate the random number needed out of 100
 		random = politicsGen.nextInt(100);
-		//This action has a 25% of success
-		if (random<=25.00){
-			/*	If successful, happiness variable will be set to 25 * Diplomacy Focus value,
-			 *	a message to the player will tell them how many happiness points they've
-			 *	gained and decrement the players action points by 1.
-			 */
-			
-			Player.setHappiness(Player.getHappiness() + Player.getPolitics()*25);
-			System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		if (Player.getActionPoints() > 0) {
+			//This action has a 25% of success
+			if (random <= 25.00) {
+				/*	If successful, happiness variable will be set to 25 * Diplomacy Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+
+				Player.setHappiness(Player.getHappiness()
+						+ Player.getPolitics() * 25);
+				System.out.println(">> You have " + Player.getHappiness()
+						+ " happiness points.");
+			} else {
+				/*If unsuccessful, still decrement action points, tell the player that
+				 * they've gained no points, and decrement action points by 1.
+				 */
+				System.out.println("Action failed. No happiness gained");
+			}
 		}
-		else
-			/*If unsuccessful, still decrement action points, tell the player that
-			 * they've gained no points, and decrement action points by 1.
-			 */
-			System.out.println("Action failed. No happiness gained");
-			Player.setActionPoints(Player.getActionPoints()-1);
+		else System.out.println("You don't have enough action points");
+		Player.setActionPoints(Player.getActionPoints()-1);
 	}
 	
 	// Perform Fifth Politics Action
@@ -313,6 +326,8 @@ public class PoliticsActionMenu extends JFrame {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
 	}
-
 	
+	public static void main(String[] args){
+		new PoliticsActionMenu("YEAH BUDDY");
+	}
 }
