@@ -52,7 +52,7 @@ public class Player extends Mob {
 	private static int military = 0;
 	private static final int ATTRIBUTE_TOTAL = 100;
 	
-	static Map<Level, Double> supportMap = new HashMap<Level, Double>();
+	private static Map<String, Double> supportMap = new HashMap<String, Double>();
 
 	/**
 	 * Creates a new Player.
@@ -65,7 +65,7 @@ public class Player extends Mob {
 	public Player(Level level, int x, int y, InputHandler input, double support) {
 		super(level, "PLAYER", x, y, 1);
 		this.input = input;
-		supportMap.put(level, support);
+		supportMap.put(level.getImagePath(), support);
 	}
 
 	/* (non-Javadoc)
@@ -118,7 +118,7 @@ public class Player extends Mob {
 		// Hold an election
 		if (input.election.isPressed()) {
 			if (System.currentTimeMillis() - lastElectionTime > 2000) {
-				supportMap.put(level, level.getNPCVote() / Game.NUM_NPCS * 100);
+				supportMap.put(level.getImagePath(), level.getNPCVote() / Game.NUM_NPCS * 100);
 				System.out.println("Percentage of support: " + supportMap.get(level));
 				lastElectionTime = System.currentTimeMillis();
 			}
@@ -334,7 +334,10 @@ public class Player extends Mob {
 	}
 
 	public static double getLevelSupport() {
-		return supportMap.get(level);
+		return supportMap.get(level.getImagePath());
+	}
+	public static Map getSupportMap() {
+		return supportMap;
 	}
 
 }

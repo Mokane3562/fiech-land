@@ -9,6 +9,9 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -18,6 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.level.Level;
 
 /**
  * 
@@ -53,7 +57,8 @@ public class TeleportMenu extends JFrame {
 	/**
 	 * Creates a new teleport menu frame.
 	 * 
-	 * @param title the title of the frame
+	 * @param title
+	 *            the title of the frame
 	 */
 	public TeleportMenu(String title) {
 
@@ -85,7 +90,15 @@ public class TeleportMenu extends JFrame {
 		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				waterfallGrasslandButton_ActionPerformed(evt);
+				try {
+					waterfallGrasslandButton_ActionPerformed(evt);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (CloneNotSupportedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		waterfallGrasslandButton.setBackground(Color.WHITE);
@@ -102,7 +115,15 @@ public class TeleportMenu extends JFrame {
 		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				ancientRuinsButton_ActionPerformed(evt);
+				try {
+					ancientRuinsButton_ActionPerformed(evt);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (CloneNotSupportedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		ancientRuinsButton.setBackground(Color.WHITE);
@@ -183,12 +204,12 @@ public class TeleportMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) {
+	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) throws InterruptedException, CloneNotSupportedException {
 		Game.startLevel("/levels/waterfall-grassland.png");
 		closeMenu();
 	}
 
-	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) {
+	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) throws InterruptedException, CloneNotSupportedException {
 		Game.startLevel("/levels/ancient-ruins.png");
 		closeMenu();
 	}

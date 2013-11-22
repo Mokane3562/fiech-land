@@ -7,6 +7,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -142,34 +145,53 @@ public class Game extends Canvas implements Runnable {
 	 * @param levelPath
 	 */
 	public static void startLevel(String levelPath) {
-		if (loadedLevels.contains(levelPath)){
-			loadSerializedLevel(levelPath);
-		}
-		Random rand = new Random();
 
+		if (loadedLevels.contains(levelPath)) {
+			loadPreviousLevel(levelPath);
+		} else {
+			Random rand = new Random();
+
+			level = new Level(levelPath);
+			loadedLevels.add(levelPath);
+			level.setGovernment(null);
+			int x = (int) (Math.sqrt(level.tiles.length)) * 4;
+			int y = (int) (Math.sqrt(level.tiles.length)) * 4;
+			player = new Player(level, x, y, input, 0.0);
+			level.addEntity(player);
+			for (int i = 0; i < NUM_NPCS; i++) {
+				int nx = rand.nextInt(x * 2);
+				int ny = rand.nextInt(y * 2);
+				while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
+					nx = rand.nextInt(x * 2);
+					ny = rand.nextInt(y * 2);
+
+				}
+				npc = new NPC(level, nx, ny);
+				level.addEntity(npc);
+			}
+			gameEvents = new GameEvents();
+		}
+	}
+
+	private static void loadPreviousLevel(String levelPath) {
+		Random rand = new Random();
 		level = new Level(levelPath);
-		level.setGovernment(null);
 		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
 		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-		player = new Player(level, x, y, input, 0.0);
+		player.xPos = x;
+		player.yPos = y;
 		level.addEntity(player);
 		for (int i = 0; i < NUM_NPCS; i++) {
 			int nx = rand.nextInt(x * 2);
 			int ny = rand.nextInt(y * 2);
-			while(level.getTile(nx >> 3, ny >> 3).isSolid()){
+			while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
 				nx = rand.nextInt(x * 2);
 				ny = rand.nextInt(y * 2);
-				
+
 			}
 			npc = new NPC(level, nx, ny);
 			level.addEntity(npc);
 		}
-		gameEvents = new GameEvents();
-	}
-
-	private static void loadSerializedLevel(String levelPath) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -214,7 +236,9 @@ public class Game extends Canvas implements Runnable {
 		frame.dispose();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Runnable#run()
 	 */
 	@Override

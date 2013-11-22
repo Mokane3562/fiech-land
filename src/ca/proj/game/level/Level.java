@@ -3,6 +3,7 @@ package ca.proj.game.level;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -38,7 +39,7 @@ import ca.proj.game.level.tiles.Tile;
  * this program. If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-public class Level {
+public class Level implements Serializable, Cloneable {
 
 	public static byte[] tiles;
 	public static int width;
@@ -264,5 +265,17 @@ public class Level {
 	 */
 	public String getImagePath() {
 		return imagePath;
+	}
+
+	public Player getPlayer() {
+		for(Entity e : entities){
+			if(e instanceof Player){
+				return (Player)e;
+			}
+		}
+		return null;
+	}
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }
