@@ -47,6 +47,7 @@ public class PoliticsActionMenu extends JFrame {
 	private JButton hostStateDinner = new JButton();
 	private JButton offerForeignAid = new JButton();
 	private JButton spyOnOtherCountries = new JButton();
+	//private JButton holdElection = new JButton();
 	private JButton mainMenu = new JButton();
 	
 	//Random number generator
@@ -153,6 +154,8 @@ public class PoliticsActionMenu extends JFrame {
 		spyOnOtherCountries.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
 				Color.BLACK));
 		cp.add(spyOnOtherCountries);
+		
+		
 		
 		//Main Menu Button
 		cp.add(new Box.Filler(minSize, prefSize, maxSize));
@@ -267,6 +270,29 @@ public class PoliticsActionMenu extends JFrame {
 			System.out.println("Action failed. No happiness gained");
 			//--actionPoints;
 	}
+	
+	// Perform Fifth Politics Action
+		/*public void hostElection_ActionPerformed(ActionEvent evt) { 
+			//	Generate the random number needed out of 100
+			random = politicsGen.nextInt(100);
+			//This action has a 25% of success
+			if (player.getLevelSupport()>50){
+				/*	If successful, happiness variable will be set to 25 * Diplomacy Focus value,
+				 *	a message to the player will tell them how many happiness points they've
+				 *	gained and decrement the players action points by 1.
+				 */
+		/*		
+				System.out.println(">> You have gained " + happiness + " happiness points.");
+				//--actionPoints;
+			}
+			else
+				/*If unsuccessful, still decrement action points, tell the player that
+				 * they've gained no points, and decrement action points by 1.
+				 */
+		/*		System.out.println("Action failed. No happiness gained");
+				//--actionPoints;
+		}
+		*/
 	
 	// Perform Main Menu Action
 	public void mainMenu_ActionPerformed(ActionEvent evt) { 

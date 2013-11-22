@@ -186,7 +186,7 @@ public class WealthActionMenu extends JFrame {
 			 *	gained and decrement the players action points by 1.
 			 */
 			
-			//happiness=wealthFocus*15;
+			//happiness+=wealthFocus*15;
 			System.out.println("You have gained" + happiness + "happiness points.");
 			//--actionPoints;
 		}
