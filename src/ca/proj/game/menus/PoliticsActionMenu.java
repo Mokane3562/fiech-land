@@ -21,7 +21,6 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
-import ca.proj.game.entities.Player;
 
 /**
  * 
@@ -194,21 +193,21 @@ public class PoliticsActionMenu extends JFrame {
 			//	Generate the random number needed out of 100
 			random = politicsGen.nextInt(100);
 			//This action has a 25% of success
-			if (player.getLevelSupport()>50){
+			if (Game.player.getLevelSupport()>50){
 				/*	If successful, happiness variable will be set to 25 * Diplomacy Focus value,
-				 *	a message to the player will tell them how many happiness points they've
-				 *	gained and decrement the players action points by 1.
+				 *	a message to the Game.player will tell them how many happiness points they've
+				 *	gained and decrement the Game.players action points by 1.
 				 */
 		/*		
 				System.out.println(">> You have gained " + happiness + " happiness points.");
-				Player.setActionPoints(Player.getActionPoints()-1);
+				Game.player.setActionPoints(Game.player.getActionPoints()-1);
 			}
 			else
-				/*If unsuccessful, still decrement action points, tell the player that
+				/*If unsuccessful, still decrement action points, tell the Game.player that
 				 * they've gained no points, and decrement action points by 1.
 				 */
 		/*		System.out.println("Action failed. No happiness gained");
-				Player.setActionPoints(Player.getActionPoints()-1);
+				Game.player.setActionPoints(Game.player.getActionPoints()-1);
 		}
 		*/
 	
@@ -219,32 +218,32 @@ public class PoliticsActionMenu extends JFrame {
 	}
 	
 	/**
-	 * Performs a political action with a specific chance of success. Happiness gained is equal to the specified score multiplier multiplied by the players politics attribute. Costs one action point.
+	 * Performs a political action with a specific chance of success. Happiness gained is equal to the specified score multiplier multiplied by the Game.players politics attribute. Costs one action point.
 	 * 
-	 * @param mult the multiplier that decides how many happiness points the player gets
+	 * @param mult the multiplier that decides how many happiness points the Game.player gets
 	 * @param percentChance	the chance the action succeeds
 	 */
 	public void performPoliticsAction(int mult, double percentChance){
 		//Generate the random percentage needed out of 100
 		random = politicsGen.nextDouble();
-		if (Player.getActionPoints() > 0) {
+		if (Game.player.getActionPoints() > 0) {
 			//	This action has a chance of success
 			if (random <= percentChance) {
 				/*	If successful, happiness variable will be set to mult * Politics Focus value,
-				 *	a message to the player will tell them how many happiness points they've
-				 *	gained and decrement the players action points by 1.
+				 *	a message to the Game.player will tell them how many happiness points they've
+				 *	gained and decrement the Game.players action points by 1.
 				 */
-				Player.setHappiness(Player.getHappiness() + Player.getPolitics() * mult);
-				System.out.println(">> You have " + Player.getHappiness() + " happiness points.");
+				Game.player.setHappiness(Game.player.getHappiness() + Game.player.getPolitics() * mult);
+				System.out.println(">> You have " + Game.player.getHappiness() + " happiness points.");
 			} else {
-				/*	If unsuccessful, still decrement action points, tell the player that
+				/*	If unsuccessful, still decrement action points, tell the Game.player that
 				 *	they've gained no points, and decrement action points by 1.
 				 */
 				System.out.println("Action failed. No happiness gained");
 			}
 		}
 		else System.out.println("You don't have enough action points");
-		Player.setActionPoints(Player.getActionPoints()-1);
+		Game.player.setActionPoints(Game.player.getActionPoints()-1);
 	}
 	
 	/**

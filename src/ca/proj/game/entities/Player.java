@@ -1,5 +1,6 @@
 package ca.proj.game.entities;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,33 +31,31 @@ import ca.proj.game.level.Level;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-public class Player extends Mob {
-
-	private InputHandler input;
-	public static int colour = Colours.get(-1, 000, 500, 543);
+public class Player extends Mob{
+	
+	private transient InputHandler input;
+	public int colour = Colours.get(-1, 000, 500, 543);
 	private int scale = 1;
-	protected boolean isSwimming = false;
-	public static boolean gettingDamage;
+	public boolean isSwimming = false;
 	private int tickCount;
 	private long lastElectionTime = 0;
-	public static boolean triggeredTeleport = false;
 	public static int xPos;
 	public static int yPos;
 	
 	// Happiness
-	private static int happinessScore = 0;
-	private static final int MAX_HAPPINESS = 1000;
+	private  int happinessScore = 0;
+	private  final int MAX_HAPPINESS = 1000;
 	// Points are required to take certain in-game actions.
-	private static int actionPoints = 0;
+	private  int actionPoints = 0;
 	//Attributes
-	private static int wealthModifier = 0;
-	private static int resourcesModifier = 0;
-	private static int politicsModifier = 0;
-	private static int solitudeModifier = 0;
-	private static int militaryModifier = 0;
-	private static final int ATTRIBUTE_TOTAL = 100;
+	private  int wealthModifier = 0;
+	private  int resourcesModifier = 0;
+	private  int politicsModifier = 0;
+	private  int solitudeModifier = 0;
+	private  int militaryModifier = 0;
+	private  final int ATTRIBUTE_TOTAL = 100;
 	
-	private static Map<String, Double> supportMap = new HashMap<String, Double>();
+	private Map<String, Double> supportMap = new HashMap<String, Double>();
 
 	/**
 	 * Creates a new Player.
@@ -222,29 +221,29 @@ public class Player extends Mob {
 	/**
 	 * @return
 	 */
-	public static int getHappiness() {
+	public  int getHappiness() {
 		return happinessScore;
 	}
 
 	/**
 	 * @param happiness
 	 */
-	public static void setHappiness(int happiness) {
-		Player.happinessScore = happiness;
+	public void setHappiness(int happiness) {
+		this.happinessScore = happiness;
 	}
 
 	/**
 	 * @return
 	 */
-	public static int getActionPoints() {
+	public int getActionPoints() {
 		return actionPoints;
 	}
 
 	/**
 	 * @param actionPoints
 	 */
-	public static void setActionPoints(int actionPoints) {
-		Player.actionPoints = actionPoints;
+	public  void setActionPoints(int actionPoints) {
+		this.actionPoints = actionPoints;
 	}
 	
 	/**
@@ -252,7 +251,7 @@ public class Player extends Mob {
 	 * 
 	 * @return the player's wealth
 	 */
-	public static int getWealth() {
+	public int getWealth() {
 		return wealthModifier;
 	}
 
@@ -261,8 +260,8 @@ public class Player extends Mob {
 	 * 
 	 * @param wealth the wealth to set
 	 */
-	public static void setWealth(int wealth) {
-		Player.wealthModifier = wealth;
+	public void setWealth(int wealth) {
+		this.wealthModifier = wealth;
 	}
 
 	/**
@@ -270,7 +269,7 @@ public class Player extends Mob {
 	 * 
 	 * @return the player's resources
 	 */
-	public static int getResources() {
+	public int getResources() {
 		return resourcesModifier;
 	}
 
@@ -279,8 +278,8 @@ public class Player extends Mob {
 	 * 
 	 * @param resources the resources to set
 	 */
-	public static void setResources(int resources) {
-		Player.resourcesModifier = resources;
+	public void setResources(int resources) {
+		this.resourcesModifier = resources;
 	}
 
 	/**
@@ -288,7 +287,7 @@ public class Player extends Mob {
 	 * 
 	 * @return the player's expansion
 	 */
-	public static int getSolitude() {
+	public int getSolitude() {
 		return solitudeModifier;
 	}
 
@@ -297,8 +296,8 @@ public class Player extends Mob {
 	 * 
 	 * @param expansion the expansion to set
 	 */
-	public static void setSolitude(int expansion) {
-		Player.solitudeModifier = expansion;
+	public void setSolitude(int expansion) {
+		this.solitudeModifier = expansion;
 	}
 
 	/**
@@ -306,7 +305,7 @@ public class Player extends Mob {
 	 * 
 	 * @return the player's politics
 	 */
-	public static int getPolitics() {
+	public int getPolitics() {
 		return politicsModifier;
 	}
 
@@ -315,8 +314,8 @@ public class Player extends Mob {
 	 * 
 	 * @param politics the politics to set
 	 */
-	public static void setPolitics(int politics) {
-		Player.politicsModifier = politics;
+	public void setPolitics(int politics) {
+		this.politicsModifier = politics;
 	}
 
 	/**
@@ -324,7 +323,7 @@ public class Player extends Mob {
 	 * 
 	 * @return the player's military
 	 */
-	public static int getMilitary() {
+	public int getMilitary() {
 		return militaryModifier;
 	}
 
@@ -333,15 +332,15 @@ public class Player extends Mob {
 	 * 
 	 * @param military the military to set
 	 */
-	public static void setMilitary(int military) {
-		Player.militaryModifier = military;
+	public void setMilitary(int military) {
+		this.militaryModifier = military;
 	}
 
-	public static double getLevelSupport() {
+	public double getLevelSupport() {
 		return supportMap.get(level.getImagePath());
 	}
 	
-	public static Map<String, Double> getSupportMap() {
+	public Map<String, Double> getSupportMap() {
 		return supportMap;
 	}
 

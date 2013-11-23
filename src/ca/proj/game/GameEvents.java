@@ -56,7 +56,7 @@ public class GameEvents {
 	 */
 	public void renderInterface(Screen screen, int x, int y) {
 
-		double playerSupp = Player.getLevelSupport(); // playerSupp => player support value
+		double playerSupp = Game.player.getLevelSupport(); // playerSupp => player support value
 		DecimalFormat df = new DecimalFormat("##.##");  // format playerSupp to 2 decimal places
 		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, cyan, 1); // support
 		// percent

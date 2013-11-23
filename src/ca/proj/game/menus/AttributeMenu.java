@@ -27,6 +27,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import ca.proj.game.Game;
 import ca.proj.game.entities.Player;
 
 /**
@@ -150,11 +151,11 @@ public class AttributeMenu extends JFrame {
 		
 		jButtonOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Player.setWealth(wealthVal);
-				Player.setResources(resourcesVal);
-				Player.setMilitary(militaryVal);
-				Player.setSolitude(expansionVal);
-				Player.setPolitics(politicsVal);
+				Game.player.setWealth(wealthVal);
+				Game.player.setResources(resourcesVal);
+				Game.player.setMilitary(militaryVal);
+				Game.player.setSolitude(expansionVal);
+				Game.player.setPolitics(politicsVal);
 				closeMenu();
 			}
 		});

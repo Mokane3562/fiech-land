@@ -117,7 +117,7 @@ public class Menu extends JFrame {
 
 		setVisible(true);
 	}
-	public void startNewGameButton_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+	public void startNewGameButton_ActionPerformed(ActionEvent evt) { 
 		if (running == false) {
 			new TerritoryMenu("Choose a Territory");
 			closeMenu();
@@ -128,7 +128,7 @@ public class Menu extends JFrame {
 				    JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	public void returnToGameButton_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
+	public void returnToGameButton_ActionPerformed(ActionEvent evt) { 
 		if (running == false) {
 			JOptionPane.showMessageDialog(this, "No game running!",
 					"Not Running!", JOptionPane.WARNING_MESSAGE);
@@ -136,8 +136,8 @@ public class Menu extends JFrame {
 			closeMenu();
 		}
 	}
-	public void quitGameButton_ActionPerformed(ActionEvent evt) { // ENTER LEVEL
-		Game.quit();
+	public void quitGameButton_ActionPerformed(ActionEvent evt) { 
+		Game.saveAndQuit();
 	}
 
 	/**

@@ -7,14 +7,14 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.entities.Government;
@@ -24,6 +24,10 @@ import ca.proj.game.gfx.Colours;
 import ca.proj.game.gfx.Screen;
 import ca.proj.game.gfx.SpriteSheet;
 import ca.proj.game.level.Level;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 /**
  * 
@@ -230,7 +234,7 @@ public class Game extends Canvas implements Runnable {
 	/**
 	 * Stop the game thread.
 	 */
-	public synchronized void stop() {
+	public synchronized static void stop() {
 		running = false;
 	}
 
@@ -301,6 +305,25 @@ public class Game extends Canvas implements Runnable {
 				ticks = 0;
 			}
 		}
+	}
+
+	public static void saveAndQuit(){
+		stop();
+		saveGameToDisk();
+		quit();
+	}
+	private static void saveGameToDisk() {
+		XStream xstream = new XStream();
+		String xml = xstream.toXML(player);
+		System.out.print(xml);
+		try {
+			PrintWriter out = new PrintWriter("./player.xml");
+			out.println(xml);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**

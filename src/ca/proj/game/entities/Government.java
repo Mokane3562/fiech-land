@@ -1,5 +1,6 @@
 package ca.proj.game.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ca.proj.game.Game;
@@ -26,8 +27,7 @@ import ca.proj.game.level.Level;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-public class Government {
-
+public class Government{
 	/**
 	 * Enum for the two government types, DEMOCRACY and DICTATORSHIP.
 	 */
