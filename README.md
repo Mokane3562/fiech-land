@@ -65,7 +65,7 @@ Iteration 2 Goals
 - [ ] Government and elections fully implemented.
 - [ ] Capturing player happiness is fully implemented.
 - [x] Player attributes can be set.
-- [ ] Government initalization menu.
+- [x] Government initalization menu.
 - [ ] Create save games.
 - [X] Fix governments across levels
 
