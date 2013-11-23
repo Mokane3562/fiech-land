@@ -3,6 +3,7 @@ package ca.proj.game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import ca.proj.game.menus.HelpMenu;
 import ca.proj.game.menus.Menu;
 import ca.proj.game.menus.TeleportMenu;
 import ca.proj.game.Key;
@@ -137,14 +138,18 @@ public class InputHandler implements KeyListener {
 				Game.level.startDemocraticGovernment();
 			}
 		}
-		// MENU / ESCAPE
+		// Menu / Quit
 		if (keyCode == KeyEvent.VK_ESCAPE) {
 			Menu.main(null);
 		}
-		// MENU / ESCAPE
+		// Teleport
 		if (keyCode == KeyEvent.VK_T) {
 			// teleport.toggle(isPressed);
 			new TeleportMenu("Teleport to...");
+		}
+		// Display Help Menu
+		if (keyCode == KeyEvent.VK_F1){
+			new HelpMenu("Help");
 		}
 
 	}

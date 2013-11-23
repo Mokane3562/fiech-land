@@ -2,9 +2,11 @@ package ca.proj.game.menus;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -356,10 +358,15 @@ public class AttributeMenu extends JFrame {
 		cp.add(spinners, BorderLayout.EAST);
 		cp.add(sliders, BorderLayout.CENTER);
 		
-		
-		labels.setBackground(new Color(0xFFC800));
-		spinners.setBackground(new Color(0xFFC800));
-		sliders.setBackground(new Color(0xFFC800));
+		for (Component j : cp.getComponents() ){
+			if (j instanceof JButton){
+				j.setFont(new Font("Sans", Font.BOLD, 14));
+			}
+			
+		}
+		labels.setBackground(new Color(0x3399FF));
+		spinners.setBackground(new Color(0x3399FF));
+		sliders.setBackground(new Color(0x3399FF));
 
 		setVisible(true);
 	}

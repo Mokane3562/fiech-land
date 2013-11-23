@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -171,7 +172,13 @@ public class GovernmentActionMenu extends JFrame {
 				Color.BLACK));
 		cp.add(exitMenu);
 		
-		cp.setBackground(new Color(0xFFC800));
+		for (Component j : cp.getComponents() ){
+			if (j instanceof JButton){
+				j.setFont(new Font("Sans", Font.BOLD, 14));
+			}
+			
+		}
+		cp.setBackground(new Color(0x3399FF));
 
 		setVisible(true);
 	}
