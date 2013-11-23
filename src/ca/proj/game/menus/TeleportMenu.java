@@ -53,8 +53,6 @@ public class TeleportMenu extends JFrame {
 	private JButton fiechLandButton = new JButton();
 	private JButton returnToGameButton = new JButton();
 
-	private boolean running = Game.isRunning();
-
 	/**
 	 * Creates a new teleport menu frame.
 	 * 

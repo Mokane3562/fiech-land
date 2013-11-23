@@ -3,6 +3,7 @@ package ca.proj.game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import ca.proj.game.menus.GovernmentInitMenu;
 import ca.proj.game.menus.HelpMenu;
 import ca.proj.game.menus.Menu;
 import ca.proj.game.menus.TeleportMenu;
@@ -34,7 +35,8 @@ public class InputHandler implements KeyListener {
 	/**
 	 * Creates a new input handler.
 	 * 
-	 * @param game the game to handle input from
+	 * @param game
+	 *            the game to handle input from
 	 */
 	public InputHandler(Game game) {
 		game.addKeyListener(this);
@@ -61,7 +63,9 @@ public class InputHandler implements KeyListener {
 	// Teleport
 	public Key teleport = new Key();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -69,7 +73,9 @@ public class InputHandler implements KeyListener {
 		toggleKey(e.getKeyCode(), true);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -77,7 +83,9 @@ public class InputHandler implements KeyListener {
 		toggleKey(e.getKeyCode(), false);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -88,8 +96,10 @@ public class InputHandler implements KeyListener {
 	/**
 	 * Please add a description.
 	 * 
-	 * @param keyCode add a description
-	 * @param isPressed add a description
+	 * @param keyCode
+	 *            add a description
+	 * @param isPressed
+	 *            add a description
 	 */
 	public void toggleKey(int keyCode, boolean isPressed) {
 		// MOVEMENT
@@ -134,9 +144,7 @@ public class InputHandler implements KeyListener {
 		// Hold an election
 		if (keyCode == KeyEvent.VK_G) {
 			// startGovernment.toggle(isPressed);
-			if (Game.player.getLevelSupport() > 50) {
-				Game.level.startDemocraticGovernment();
-			}
+			new GovernmentInitMenu("Setup your Government");
 		}
 		// Menu / Quit
 		if (keyCode == KeyEvent.VK_ESCAPE) {
@@ -148,8 +156,28 @@ public class InputHandler implements KeyListener {
 			new TeleportMenu("Teleport to...");
 		}
 		// Display Help Menu
-		if (keyCode == KeyEvent.VK_F1){
+		if (keyCode == KeyEvent.VK_F1) {
 			new HelpMenu("Help");
+		}
+		// Display GovernmentActionMenu
+		if (keyCode == KeyEvent.VK_F2) {
+			// TODO Add proper menus
+		}
+		// Display MilitaryActionMenu
+		if (keyCode == KeyEvent.VK_F3) {
+			// TODO Add proper menus
+		}
+		// Display PoliticsActionMenu
+		if (keyCode == KeyEvent.VK_F4) {
+			// TODO Add proper menus
+		}
+		// Display ResourceActionMenu
+		if (keyCode == KeyEvent.VK_F5) {
+			// TODO Add proper menus
+		}
+		// Display WealthActionMenu
+		if (keyCode == KeyEvent.VK_F6) {
+			// TODO Add proper menus
 		}
 
 	}

@@ -38,7 +38,6 @@ public class Government {
 	
 
 	private Gov_Type gov;
-	private double maxSupport = 0;
 	private Player leader = null;
 	ArrayList<Player> ministers = new ArrayList<Player>(10);
 	

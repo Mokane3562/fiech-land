@@ -39,7 +39,7 @@ import ca.proj.game.level.tiles.Tile;
  * this program. If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-public class Level implements Serializable{
+public class Level{
 
 	public static byte[] tiles;
 	public static int width;
@@ -50,7 +50,6 @@ public class Level implements Serializable{
 	public boolean getTileId;
 	static Random generator = new Random();
 	private Government government = null;
-	private static Gov_Type DEMOCRACY;
 
 	/**
 	 * Creates a level from the specified image.
@@ -236,8 +235,8 @@ public class Level implements Serializable{
 	/**
 	 * Starts a democratic government.
 	 */
-	public void startDemocraticGovernment() {
-		government = new Government(DEMOCRACY);
+	public void startGovernment(Gov_Type gov) {
+		government = new Government(gov);
 		Game.getGovernmentMap().put(this.getImagePath(), government);
 	}
 

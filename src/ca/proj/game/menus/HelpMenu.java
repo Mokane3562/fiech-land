@@ -31,6 +31,7 @@ import javax.swing.WindowConstants;
  * this program. If not, see <http://www.gnu.org/licenses/>.
  * 
  */
+@SuppressWarnings("serial")
 public class HelpMenu extends JFrame {
 
 	public HelpMenu(String title) {
@@ -47,6 +48,11 @@ public class HelpMenu extends JFrame {
 		Container cp = getContentPane();
 		String helpText = "<html>ESC - Display the Main Menu<br>"
 				+ "F1 - Looks like you found this one already<br>"
+				+ "F2 - Display Government Action<br>"
+				+ "F3 - Display Military actions<br>"
+				+ "F4 - Display Political actions menu<br>"
+				+ "F5 - Display Resource actions<br>"
+				+ "F6 - Display wealth actions<br>"
 				+ "WASD - Movement of the player<br>"
 				+ "UP,DOWN,LEFT,RIGHT - Movement of the player<br>"
 				+ "T - Display the teleport menu<br>"

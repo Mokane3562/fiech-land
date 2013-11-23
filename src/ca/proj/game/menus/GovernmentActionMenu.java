@@ -43,6 +43,7 @@ import ca.proj.game.Game;
  *
  */
 
+@SuppressWarnings("serial")
 public class GovernmentActionMenu extends JFrame {
 
 	private JButton militaryAction = new JButton();
