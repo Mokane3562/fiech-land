@@ -57,7 +57,7 @@ public class AttributeMenu extends JFrame {
 	private JLabel jLabelWealth = new JLabel("Wealth", JLabel.CENTER);
 	private JLabel jLabelResources = new JLabel("Resources", JLabel.CENTER);
 	private JLabel jLabelPolitics = new JLabel("Politics", JLabel.CENTER);
-	private JLabel jLabelExpansion = new JLabel("Expansion", JLabel.CENTER);
+	private JLabel jLabelSolitude = new JLabel("Solitude", JLabel.CENTER);
 	private JLabel jLabelMilitary = new JLabel("Military", JLabel.CENTER);
 	private JButton jButtonReset = new JButton("Reset");
 	private JButton jButtonOk = new JButton("Ok");
@@ -123,7 +123,7 @@ public class AttributeMenu extends JFrame {
 		labels.add(jLabelWealth);
 		labels.add(jLabelResources);
 		labels.add(jLabelPolitics);
-		labels.add(jLabelExpansion);
+		labels.add(jLabelSolitude);
 		labels.add(jLabelMilitary);
 		
 		//prepare footer panel
@@ -153,7 +153,7 @@ public class AttributeMenu extends JFrame {
 				Player.setWealth(wealthVal);
 				Player.setResources(resourcesVal);
 				Player.setMilitary(militaryVal);
-				Player.setExpansion(expansionVal);
+				Player.setSolitude(expansionVal);
 				Player.setPolitics(politicsVal);
 				closeMenu();
 			}

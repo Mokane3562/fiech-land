@@ -292,7 +292,7 @@ public class Game extends Canvas implements Runnable {
 						+ level.getGovernment());
 				System.out.println("The level is: " + level);
 
-				System.out.println("Expansion: " + player.getExpansion());
+				System.out.println("Solitude: " + player.getSolitude());
 				System.out.println("Mil: " + player.getMilitary());
 				System.out.println("Politics: " + player.getPolitics());
 				System.out.println("Resources: " + player.getResources());

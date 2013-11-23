@@ -43,13 +43,17 @@ public class Player extends Mob {
 	public static int xPos;
 	public static int yPos;
 	
-	private static int happiness = 0;
+	// Happiness
+	private static int happinessScore = 0;
+	private static final int MAX_HAPPINESS = 1000;
+	// Points are required to take certain in-game actions.
 	private static int actionPoints = 0;
-	private static int wealth = 0;
-	private static int resources = 0;
-	private static int politics = 0;
-	private static int expansion = 0;
-	private static int military = 0;
+	//Attributes
+	private static int wealthModifier = 0;
+	private static int resourcesModifier = 0;
+	private static int politicsModifier = 0;
+	private static int solitudeModifier = 0;
+	private static int militaryModifier = 0;
 	private static final int ATTRIBUTE_TOTAL = 100;
 	
 	private static Map<String, Double> supportMap = new HashMap<String, Double>();
@@ -219,14 +223,14 @@ public class Player extends Mob {
 	 * @return
 	 */
 	public static int getHappiness() {
-		return happiness;
+		return happinessScore;
 	}
 
 	/**
 	 * @param happiness
 	 */
 	public static void setHappiness(int happiness) {
-		Player.happiness = happiness;
+		Player.happinessScore = happiness;
 	}
 
 	/**
@@ -249,7 +253,7 @@ public class Player extends Mob {
 	 * @return the player's wealth
 	 */
 	public static int getWealth() {
-		return wealth;
+		return wealthModifier;
 	}
 
 	/**
@@ -258,7 +262,7 @@ public class Player extends Mob {
 	 * @param wealth the wealth to set
 	 */
 	public static void setWealth(int wealth) {
-		Player.wealth = wealth;
+		Player.wealthModifier = wealth;
 	}
 
 	/**
@@ -267,7 +271,7 @@ public class Player extends Mob {
 	 * @return the player's resources
 	 */
 	public static int getResources() {
-		return resources;
+		return resourcesModifier;
 	}
 
 	/**
@@ -276,7 +280,7 @@ public class Player extends Mob {
 	 * @param resources the resources to set
 	 */
 	public static void setResources(int resources) {
-		Player.resources = resources;
+		Player.resourcesModifier = resources;
 	}
 
 	/**
@@ -284,8 +288,8 @@ public class Player extends Mob {
 	 * 
 	 * @return the player's expansion
 	 */
-	public static int getExpansion() {
-		return expansion;
+	public static int getSolitude() {
+		return solitudeModifier;
 	}
 
 	/**
@@ -293,8 +297,8 @@ public class Player extends Mob {
 	 * 
 	 * @param expansion the expansion to set
 	 */
-	public static void setExpansion(int expansion) {
-		Player.expansion = expansion;
+	public static void setSolitude(int expansion) {
+		Player.solitudeModifier = expansion;
 	}
 
 	/**
@@ -303,7 +307,7 @@ public class Player extends Mob {
 	 * @return the player's politics
 	 */
 	public static int getPolitics() {
-		return politics;
+		return politicsModifier;
 	}
 
 	/**
@@ -312,7 +316,7 @@ public class Player extends Mob {
 	 * @param politics the politics to set
 	 */
 	public static void setPolitics(int politics) {
-		Player.politics = politics;
+		Player.politicsModifier = politics;
 	}
 
 	/**
@@ -321,7 +325,7 @@ public class Player extends Mob {
 	 * @return the player's military
 	 */
 	public static int getMilitary() {
-		return military;
+		return militaryModifier;
 	}
 
 	/**
@@ -330,7 +334,7 @@ public class Player extends Mob {
 	 * @param military the military to set
 	 */
 	public static void setMilitary(int military) {
-		Player.military = military;
+		Player.militaryModifier = military;
 	}
 
 	public static double getLevelSupport() {
