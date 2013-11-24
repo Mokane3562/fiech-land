@@ -66,7 +66,7 @@ Iteration 2 Goals
 - [ ] Capturing player happiness is fully implemented.
 - [x] Player attributes can be set.
 - [x] Government initalization menu.
-- [ ] Create save games.
+- [x] Create save games.
 - [X] Fix governments across levels
 
 What we Achieved so Far:
@@ -84,6 +84,7 @@ What we Achieved so Far:
 + Added a Help Menu
 + Government class now Garbage Collects properly.
 + Government and support is now tied to the level.
++ Create save game files upon proper exit of game.
 
 
 
