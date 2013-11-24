@@ -65,10 +65,9 @@ public class Player extends Mob{
 	 * @param y the y position on the level to add the player to
 	 * @param input the input handler for the player
 	 */
-	public Player(Level level, int x, int y, InputHandler input, double support) {
+	public Player(Level level, int x, int y, InputHandler input) {
 		super(level, "PLAYER", x, y, 1);
 		this.input = input;
-		supportMap.put(level.getImagePath(), support);
 	}
 
 	/* (non-Javadoc)

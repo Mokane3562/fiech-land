@@ -3,10 +3,11 @@ package ca.proj.game.level;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -39,12 +40,12 @@ import ca.proj.game.level.tiles.Tile;
  * this program. If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-public class Level{
+public class Level {
 
 	public static byte[] tiles;
 	public static int width;
 	public static int height;
-	public List<Entity> entities = new ArrayList<Entity>();
+	public CopyOnWriteArrayList<Entity> entities = new CopyOnWriteArrayList<Entity>();
 	private String imagePath;
 	private BufferedImage image;
 	public boolean getTileId;
@@ -54,7 +55,8 @@ public class Level{
 	/**
 	 * Creates a level from the specified image.
 	 * 
-	 * @param imagePath the path to the image on the disk
+	 * @param imagePath
+	 *            the path to the image on the disk
 	 */
 	public Level(String imagePath) {
 		if (imagePath != null) {
@@ -110,7 +112,8 @@ public class Level{
 	}
 
 	/**
-	 * Alters a tile on the level by replacing it with another tile configuration.
+	 * Alters a tile on the level by replacing it with another tile
+	 * configuration.
 	 * 
 	 * @param x the x coordinate of the tile to be altered
 	 * @param y the x coordinate of the tile to be altered
@@ -126,7 +129,7 @@ public class Level{
 	 * Please add a description.
 	 */
 	public void tick() {
-		for (Entity e : entities) {
+		for(Entity e : entities){
 			e.tick();
 		}
 		for (Tile t : Tile.tiles) {
@@ -187,7 +190,7 @@ public class Level{
 	 * @return the tile at the specific location
 	 */
 	public Tile getTile(int x, int y) {
-		if (0 > x || x >= width || 0 > y || y >= height){
+		if (0 > x || x >= width || 0 > y || y >= height) {
 			return Tile.VOID;
 		}
 		return Tile.tiles[tiles[x + y * width]];
@@ -212,7 +215,8 @@ public class Level{
 	}
 
 	/**
-	 * Removes a specific instance of an entity from the level's list of entities.
+	 * Removes a specific instance of an entity from the level's list of
+	 * entities.
 	 * 
 	 * @param entity the entity to be removed
 	 */
@@ -249,7 +253,7 @@ public class Level{
 		return government;
 	}
 
-	/** 
+	/**
 	 * Sets the government to a specific type.
 	 * 
 	 * @param government the new government
@@ -268,13 +272,14 @@ public class Level{
 	}
 
 	public Player getPlayer() {
-		for(Entity e : entities){
-			if(e instanceof Player){
-				return (Player)e;
+		for (Entity e : entities) {
+			if (e instanceof Player) {
+				return (Player) e;
 			}
 		}
 		return null;
 	}
+
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}

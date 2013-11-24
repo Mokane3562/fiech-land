@@ -94,6 +94,7 @@ public class Game extends Canvas implements Runnable {
 	private String initialLevel = "/levels/waterfall-grassland.png";
 	private static ArrayList<String> loadedLevels = new ArrayList<String>();
 	private static Map<String, Government> governmentMap = new HashMap<String, Government>();
+
 	/**
 	 * Create the game and set properties for the window.
 	 * 
@@ -111,8 +112,7 @@ public class Game extends Canvas implements Runnable {
 
 		frame.add(this, BorderLayout.CENTER);
 		frame.pack();
-		
-	    
+
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -152,7 +152,6 @@ public class Game extends Canvas implements Runnable {
 	 * @param levelPath
 	 */
 	public static void startLevel(String levelPath) {
-
 		if (loadedLevels.contains(levelPath)) {
 			loadPreviousLevel(levelPath);
 		} else {
@@ -164,7 +163,10 @@ public class Game extends Canvas implements Runnable {
 			governmentMap.put(levelPath, level.getGovernment());
 			int x = (int) (Math.sqrt(level.tiles.length)) * 4;
 			int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-			player = new Player(level, x, y, input, 0.0);
+			if (player == null) {
+				player = new Player(level, x, y, input);
+			}
+			player.getSupportMap().put(level.getImagePath(), 0.0);
 			level.addEntity(player);
 			for (int i = 0; i < NUM_NPCS; i++) {
 				int nx = rand.nextInt(x * 2);
@@ -307,23 +309,37 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 
-	public static void saveAndQuit(){
+	public static void saveAndQuit() {
 		stop();
 		saveGameToDisk();
 		quit();
 	}
+
 	private static void saveGameToDisk() {
 		XStream xstream = new XStream();
-		String xml = xstream.toXML(player);
-		System.out.print(xml);
+		PrintWriter out;
+		String xml;
 		try {
-			PrintWriter out = new PrintWriter("./player.xml");
+			// Serialize player
+			out = new PrintWriter("./player.xml");
+			xml = xstream.toXML(player);
 			out.println(xml);
 			out.close();
+			// Serialize loaded levels
+			out = new PrintWriter("./loadedLevels.xml");
+			xml = xstream.toXML(loadedLevels);
+			out.println(xml);
+			out.close();
+			// Serialize governments.
+			out = new PrintWriter("./governmentMap.xml");
+			xml = xstream.toXML(governmentMap);
+			out.println(xml);
+			out.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**
@@ -399,8 +415,8 @@ public class Game extends Canvas implements Runnable {
 	public static boolean isRunning() {
 		return running;
 	}
-	
-	public static Map<String, Government> getGovernmentMap(){
+
+	public static Map<String, Government> getGovernmentMap() {
 		return governmentMap;
 	}
 

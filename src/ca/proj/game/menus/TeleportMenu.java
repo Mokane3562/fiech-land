@@ -89,15 +89,7 @@ public class TeleportMenu extends JFrame {
 		waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				try {
-					waterfallGrasslandButton_ActionPerformed(evt);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (CloneNotSupportedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				waterfallGrasslandButton_ActionPerformed(evt);
 			}
 		});
 		waterfallGrasslandButton.setBackground(Color.WHITE);
@@ -114,15 +106,7 @@ public class TeleportMenu extends JFrame {
 		ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				try {
-					ancientRuinsButton_ActionPerformed(evt);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (CloneNotSupportedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				ancientRuinsButton_ActionPerformed(evt);
 			}
 		});
 		ancientRuinsButton.setBackground(Color.WHITE);
@@ -198,23 +182,23 @@ public class TeleportMenu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(returnToGameButton);
 
-		for (Component j : cp.getComponents() ){
-			if (j instanceof JButton){
+		for (Component j : cp.getComponents()) {
+			if (j instanceof JButton) {
 				j.setFont(new Font("Sans", Font.BOLD, 14));
 			}
-			
+
 		}
 		cp.setBackground(new Color(0x3399FF));
 
 		setVisible(true);
 	}
 
-	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) throws InterruptedException, CloneNotSupportedException {
+	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/waterfall-grassland.png");
 		closeMenu();
 	}
 
-	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) throws InterruptedException, CloneNotSupportedException {
+	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/ancient-ruins.png");
 		closeMenu();
 	}
