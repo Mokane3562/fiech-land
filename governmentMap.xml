@@ -1,51 +1,6 @@
 <map>
   <entry>
     <string>/levels/waterfall-grassland.png</string>
-    <ca.proj.game.entities.Government>
-      <gov>DEMOCRACY</gov>
-      <leader>
-        <x>512</x>
-        <y>512</y>
-        <name>PLAYER</name>
-        <speed>1</speed>
-        <numSteps>0</numSteps>
-        <isMoving>false</isMoving>
-        <movingDir>1</movingDir>
-        <scale defined-in="ca.proj.game.entities.Mob">1</scale>
-        <colour>-810286849</colour>
-        <scale>1</scale>
-        <isSwimming>false</isSwimming>
-        <tickCount>1425</tickCount>
-        <lastElectionTime>1385306379323</lastElectionTime>
-        <happinessScore>0</happinessScore>
-        <MAX__HAPPINESS>1000</MAX__HAPPINESS>
-        <actionPoints>0</actionPoints>
-        <wealthModifier>10</wealthModifier>
-        <resourcesModifier>10</resourcesModifier>
-        <politicsModifier>10</politicsModifier>
-        <solitudeModifier>10</solitudeModifier>
-        <militaryModifier>10</militaryModifier>
-        <ATTRIBUTE__TOTAL>100</ATTRIBUTE__TOTAL>
-        <supportMap>
-          <entry>
-            <string>/levels/waterfall-grassland.png</string>
-            <double>70.33333333333334</double>
-          </entry>
-          <entry>
-            <string>/levels/ancient-ruins.png</string>
-            <double>80.66666666666666</double>
-          </entry>
-        </supportMap>
-      </leader>
-      <ministers/>
-    </ca.proj.game.entities.Government>
-  </entry>
-  <entry>
-    <string>/levels/ancient-ruins.png</string>
-    <ca.proj.game.entities.Government>
-      <gov>DEMOCRACY</gov>
-      <leader reference="../../../entry/ca.proj.game.entities.Government/leader"/>
-      <ministers/>
-    </ca.proj.game.entities.Government>
+    <null/>
   </entry>
 </map>

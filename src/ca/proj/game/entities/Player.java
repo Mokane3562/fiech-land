@@ -55,6 +55,9 @@ public class Player extends Mob{
 	private  int militaryModifier = 0;
 	private  final int ATTRIBUTE_TOTAL = 100;
 	
+	//Used when saving the player
+	public String currentLevel = Game.level.getImagePath();
+	
 	private Map<String, Double> supportMap = new HashMap<String, Double>();
 
 	/**
@@ -341,6 +344,10 @@ public class Player extends Mob{
 	
 	public Map<String, Double> getSupportMap() {
 		return supportMap;
+	}
+	
+	public void setInput(InputHandler i){
+		input = i;
 	}
 
 }

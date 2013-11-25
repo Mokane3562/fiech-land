@@ -55,8 +55,7 @@ public class Level {
 	/**
 	 * Creates a level from the specified image.
 	 * 
-	 * @param imagePath
-	 *            the path to the image on the disk
+	 * @param imagePath the path to the image on the disk
 	 */
 	public Level(String imagePath) {
 		if (imagePath != null) {

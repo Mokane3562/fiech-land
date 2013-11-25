@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -43,7 +45,9 @@ import ca.proj.game.Game;
 public class Menu extends JFrame {
 
 	private JButton startNewGameButton = new JButton();
+	private JButton loadSaveGameButton = new JButton();
 	private JButton returnToGameButton = new JButton();
+	private JButton saveGameButton = new JButton();
 	private JButton quitGameButton = new JButton();
 
 	private boolean running = Game.isRunning();
@@ -66,10 +70,20 @@ public class Menu extends JFrame {
 		setLocation(x, y);
 		setResizable(false);
 		Container cp = getContentPane();
-		cp.setLayout(null);
+		BoxLayout boxLayout = new BoxLayout(cp, BoxLayout.Y_AXIS);
+		cp.setLayout(boxLayout);
 
-		startNewGameButton.setBounds(168, 80, 305, 57);
-		startNewGameButton.setText("Start New Game");
+		Dimension buttonSize = new Dimension(305, 40);
+		Dimension minSize = new Dimension(0, 5);
+		Dimension prefSize = new Dimension(0, 5);
+		Dimension maxSize = new Dimension(0, 5);
+
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		startNewGameButton.setMinimumSize(buttonSize);
+		startNewGameButton.setPreferredSize(buttonSize);
+		startNewGameButton.setMaximumSize(buttonSize);
+		startNewGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		startNewGameButton.setText("Start a New Game");
 		startNewGameButton.setMargin(new Insets(2, 2, 2, 2));
 		startNewGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -77,11 +91,32 @@ public class Menu extends JFrame {
 			}
 		});
 		startNewGameButton.setBackground(Color.WHITE);
-		startNewGameButton.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
+		startNewGameButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
 		cp.add(startNewGameButton);
+		
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		loadSaveGameButton.setMinimumSize(buttonSize);
+		loadSaveGameButton.setPreferredSize(buttonSize);
+		loadSaveGameButton.setMaximumSize(buttonSize);
+		loadSaveGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		loadSaveGameButton.setText("Load a Saved Game");
+		loadSaveGameButton.setMargin(new Insets(2, 2, 2, 2));
+		loadSaveGameButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				loadSaveGameButton_ActionPerformed(evt);
+			}
+		});
+		loadSaveGameButton.setBackground(Color.WHITE);
+		loadSaveGameButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(loadSaveGameButton);
 
-		returnToGameButton.setBounds(168, 168, 305, 57);
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		returnToGameButton.setMinimumSize(buttonSize);
+		returnToGameButton.setPreferredSize(buttonSize);
+		returnToGameButton.setMaximumSize(buttonSize);
+		returnToGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		returnToGameButton.setText("Return to Game");
 		returnToGameButton.setMargin(new Insets(2, 2, 2, 2));
 		returnToGameButton.addActionListener(new ActionListener() {
@@ -90,12 +125,33 @@ public class Menu extends JFrame {
 			}
 		});
 		returnToGameButton.setBackground(Color.WHITE);
-		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
+		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
 		cp.add(returnToGameButton);
 
-		quitGameButton.setBounds(168, 256, 305, 57);
-		quitGameButton.setText("Exit Game");
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		saveGameButton.setMinimumSize(buttonSize);
+		saveGameButton.setPreferredSize(buttonSize);
+		saveGameButton.setMaximumSize(buttonSize);
+		saveGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		saveGameButton.setText("Save Game to Disk");
+		saveGameButton.setMargin(new Insets(2, 2, 2, 2));
+		saveGameButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				saveGameButton_ActionPerformed(evt);
+			}
+		});
+		saveGameButton.setBackground(Color.WHITE);
+		saveGameButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
+		cp.add(saveGameButton);
+
+		cp.add(new Box.Filler(minSize, prefSize, maxSize));
+		quitGameButton.setMinimumSize(buttonSize);
+		quitGameButton.setPreferredSize(buttonSize);
+		quitGameButton.setMaximumSize(buttonSize);
+		quitGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		quitGameButton.setText("Save and Quit");
 		quitGameButton.setMargin(new Insets(2, 2, 2, 2));
 		quitGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -103,9 +159,11 @@ public class Menu extends JFrame {
 			}
 		});
 		quitGameButton.setBackground(Color.WHITE);
-		quitGameButton.setBorder(BorderFactory.createEtchedBorder(0, Color.GREEN,
-				Color.BLACK));
+		quitGameButton.setBorder(BorderFactory.createEtchedBorder(0,
+				Color.GREEN, Color.BLACK));
 		cp.add(quitGameButton);
+
+		
 
 		for (Component j : cp.getComponents() ){
 			if (j instanceof JButton){
@@ -128,6 +186,21 @@ public class Menu extends JFrame {
 				    JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	public void loadSaveGameButton_ActionPerformed(ActionEvent evt) { 
+		if (running == false) {
+			Game g = new Game("/levels/fiech-land.png");
+			g.start();
+			Game.loadGameFromDisk("./player.xml", "./loadedLevels.xml", "./governmentMap.xml");
+			closeMenu();
+		} else {
+			JOptionPane.showMessageDialog(this,
+				    "Please restart the application to load a game!",
+				    "Already Running!",
+				    JOptionPane.WARNING_MESSAGE);
+		}
+	}
+	
 	public void returnToGameButton_ActionPerformed(ActionEvent evt) { 
 		if (running == false) {
 			JOptionPane.showMessageDialog(this, "No game running!",
@@ -136,6 +209,12 @@ public class Menu extends JFrame {
 			closeMenu();
 		}
 	}
+	
+	public void saveGameButton_ActionPerformed(ActionEvent evt) { 
+		Game.saveGameToDisk();
+		closeMenu();
+	}
+	
 	public void quitGameButton_ActionPerformed(ActionEvent evt) { 
 		Game.saveAndQuit();
 	}

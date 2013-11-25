@@ -8,7 +8,10 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -156,7 +159,6 @@ public class Game extends Canvas implements Runnable {
 			loadPreviousLevel(levelPath);
 		} else {
 			Random rand = new Random();
-
 			level = new Level(levelPath);
 			loadedLevels.add(levelPath);
 			level.setGovernment(null);
@@ -315,7 +317,7 @@ public class Game extends Canvas implements Runnable {
 		quit();
 	}
 
-	private static void saveGameToDisk() {
+	public static void saveGameToDisk() {
 		XStream xstream = new XStream();
 		PrintWriter out;
 		String xml;
@@ -340,6 +342,47 @@ public class Game extends Canvas implements Runnable {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static void loadGameFromDisk(String playerFile, String loadedLevelsFile, String governmentMapFile){
+		XStream xstream = new XStream();
+		String playerFile1 = "";
+		String loadedLevelsFile1 = "";
+		String governmentMapFile1 = "";
+		try {
+			playerFile1 = new String(Files.readAllBytes(Paths.get(playerFile)));
+			loadedLevelsFile1 = new String(Files.readAllBytes(Paths.get(loadedLevelsFile)));
+			governmentMapFile1 = new String(Files.readAllBytes(Paths.get(governmentMapFile)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		gameEvents = new GameEvents();
+		player = new Player(level, 512, 512, input);
+		player = (Player)xstream.fromXML(playerFile1);
+		player.setInput(input);
+		governmentMap = (HashMap<String, Government>)xstream.fromXML(governmentMapFile1);
+		loadedLevels = (ArrayList<String>)xstream.fromXML(loadedLevelsFile1);
+		
+		Random rand = new Random();
+		level = new Level(player.currentLevel);
+		level.setGovernment(governmentMap.get(player.currentLevel));
+		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
+		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
+		player.x = x;
+		player.y = y;
+		level.addEntity(player);
+		for (int i = 0; i < NUM_NPCS; i++) {
+			int nx = rand.nextInt(x * 2);
+			int ny = rand.nextInt(y * 2);
+			while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
+				nx = rand.nextInt(x * 2);
+				ny = rand.nextInt(y * 2);
+
+			}
+			npc = new NPC(level, nx, ny);
+			level.addEntity(npc);
+		}
 	}
 
 	/**

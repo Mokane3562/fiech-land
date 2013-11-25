@@ -10,8 +10,8 @@
   <colour>-810286849</colour>
   <scale>1</scale>
   <isSwimming>false</isSwimming>
-  <tickCount>1425</tickCount>
-  <lastElectionTime>1385306379323</lastElectionTime>
+  <tickCount>454</tickCount>
+  <lastElectionTime>0</lastElectionTime>
   <happinessScore>0</happinessScore>
   <MAX__HAPPINESS>1000</MAX__HAPPINESS>
   <actionPoints>0</actionPoints>
@@ -19,16 +19,13 @@
   <resourcesModifier>10</resourcesModifier>
   <politicsModifier>10</politicsModifier>
   <solitudeModifier>10</solitudeModifier>
-  <militaryModifier>10</militaryModifier>
+  <militaryModifier>60</militaryModifier>
   <ATTRIBUTE__TOTAL>100</ATTRIBUTE__TOTAL>
+  <currentLevel>/levels/waterfall-grassland.png</currentLevel>
   <supportMap>
     <entry>
       <string>/levels/waterfall-grassland.png</string>
-      <double>70.33333333333334</double>
-    </entry>
-    <entry>
-      <string>/levels/ancient-ruins.png</string>
-      <double>80.66666666666666</double>
+      <double>0.0</double>
     </entry>
   </supportMap>
 </ca.proj.game.entities.Player>
