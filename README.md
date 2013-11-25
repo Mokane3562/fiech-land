@@ -1,3 +1,20 @@
+Game Controls
+=============
+ESC - Display the Main Menu
+F1 - Display the Help Menu
+F2 - Display Government Action
+F3 - Display Military actions
+F4 - Display Political actions menu
+F5 - Display Resource actions
+F6 - Display wealth actions
+WASD - Movement of the player
+UP,DOWN,LEFT,RIGHT - Movement of the player
+T - Display the teleport menu
+E - Get support of the territory
+G - Start a government
+I - Investigate an Item
+ENTER - In game select actions
+K - Display Player coordinates in the terminal
 Iteration 1 Goals
 =================
 - [ ] Implement an isometric tile-based board.
