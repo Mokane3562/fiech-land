@@ -37,11 +37,11 @@ public abstract class Tile {
 	public static final Tile WATER = new AnimatedTile(4, new int[][] {{0, 5}, {1, 5}, {2, 5}, {1, 5}}, Colours.get(-1, 004, 115, -1), 0x0FF0000FF, 900);
 	public static final Tile WATERFALL = new AnimatedTile(5, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(004, 335, 115, 225), 0x0FF009696, 250);
 	public static final Tile WATERFALLSPLASH = new AnimatedTile(6, new int[][] {{6, 5}, {7, 5}, {8, 5}, {7, 5}}, Colours.get(004, 335, 115, 225), 0x0FF00FFFF, 200);
+	public static final Tile CLOUD = new AnimatedTile(7, new int[][] {{0, 5}, {1, 5}, {2, 5}, {1, 5}}, Colours.get(-1, 555, 444, -1), 0x0FFFFFFFF, 1500);
+	//public static final Tile SPACE = new AnimatedTile(8, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(004, 335, 115, 225), 0x0FF009696, 250);
 	
 	//TRIGGER TILES
 	public static final Tile TELEPORT_TILE = new BasicTile(13, 10, 0, Colours.get(321, 000, 444, 542), 0x0FF666666);
-	
-	
 	
 	protected byte id;
     protected boolean solid;
