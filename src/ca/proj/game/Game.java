@@ -126,7 +126,7 @@ public class Game extends Canvas implements Runnable {
 	 * Initialize the values we will use for color.
 	 */
 	public void init() {
-		// Fills th array with values that we can use as colors.
+		// Fills the array with values that we can use as colors.
 		int index = 0;
 		for (int r = 0; r < 6; r++) {
 			for (int g = 0; g < 6; g++) {

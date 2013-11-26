@@ -138,10 +138,11 @@ public class InputHandler implements KeyListener {
 			investigate.toggle(isPressed);
 		}
 		// Hold an election
+		
 		if (keyCode == KeyEvent.VK_E) {
 			election.toggle(isPressed);
 		}
-		// Hold an election
+		// Start a government
 		if (keyCode == KeyEvent.VK_G) {
 			// startGovernment.toggle(isPressed);
 			new GovernmentInitMenu("Setup your Government");
