@@ -55,6 +55,12 @@ public class Player extends Mob{
 	private  int militaryModifier = 0;
 	private  final int ATTRIBUTE_TOTAL = 100;
 	
+	public static boolean triggeredFiechLand = false;
+	public static boolean triggeredWaterGrass = false;
+	public static boolean triggeredDesert = false;
+	public static boolean triggeredThreeLakes = false;
+	public static boolean triggeredAncient = false;
+	
 	//Used when saving the player
 	public String currentLevel = Game.level.getImagePath();
 	
@@ -128,6 +134,47 @@ public class Player extends Mob{
 				lastElectionTime = System.currentTimeMillis();
 			}
 		}
+		//Fiech land
+		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 10) {
+			triggeredFiechLand = true;
+		}
+		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 10) {
+			triggeredFiechLand = false;
+		}
+		
+		//Water-grassland
+		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 11) {
+			triggeredWaterGrass = true;
+		}
+		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 11) {
+			triggeredWaterGrass = false;
+		}
+
+		//Desert
+		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 12) {
+			triggeredDesert = true;
+		}
+		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 12) {
+			triggeredDesert = false;
+		}
+
+		//Three-lakes
+		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 13) {
+			triggeredThreeLakes = true;
+		}
+		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 13) {
+			triggeredThreeLakes = false;
+		}
+
+		//Ancient ruins
+		if(level.getTile(this.x >> 3,  this.y >> 3).getId() == 14) {
+			triggeredAncient = true;
+		}
+		if (level.getTile(this.x >> 3, this.y >> 3 ).getId() != 14) {
+			triggeredAncient = false;
+		}
+
+
 		tickCount++;
 		
 	}

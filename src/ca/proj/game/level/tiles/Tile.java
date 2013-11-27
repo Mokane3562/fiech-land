@@ -32,8 +32,8 @@ public abstract class Tile {
 	public static final Tile STONE = new BasicSolidTile(1, 1, 0, Colours.get(222, 333, 444, 333), 0xFF555555);
 	public static final Tile GRASS = new BasicTile(2, 2, 0, Colours.get(-1, 131, 141, -1), 0x0FF00FF00);
 	public static final Tile SAND = new BasicTile(3, 3, 0, Colours.get(-1, 542, 555, -1), 0x0FFFFF000);
-	public static final Tile SKY = new BasicSolidTile(10, 0, 0, Colours.get(235, -1, -1, -1), 0xFF5DA9FF);
-	public static final Tile BRIDGE = new BasicSolidTile(11, 0, 0, Colours.get(320, 320, 430, 320), 0xFF914800);
+	public static final Tile SKY = new BasicSolidTile(15, 0, 0, Colours.get(235, -1, -1, -1), 0xFF5DA9FF);
+	public static final Tile BRIDGE = new BasicSolidTile(16, 0, 0, Colours.get(320, 320, 430, 320), 0xFF914800);
 	
 	//ANIMATED TILES
 	public static final Tile WATER = new AnimatedTile(4, new int[][] {{0, 5}, {1, 5}, {2, 5}, {1, 5}}, Colours.get(-1, 004, 115, -1), 0x0FF0000FF, 900);
@@ -44,7 +44,11 @@ public abstract class Tile {
 	public static final Tile RAINBOW_2 = new AnimatedTile(9, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(035, 005, 305, 503), 0x0FFFF00FF, 250);
 	
 	//TRIGGER TILES
-	public static final Tile TELEPORT_TILE = new BasicTile(13, 10, 0, Colours.get(321, 000, 444, 542), 0x0FF666666);
+	public static final Tile FIECHLAND = new BasicTile(10, 10, 0, Colours.get(321, 000, 444, 542), 0x0FF666666);
+	public static final Tile WATERGRASS = new BasicTile(11, 11, 0, Colours.get(-1, 000, 510, -1), 0x0FF820000);
+	public static final Tile DESERT = new BasicTile(12, 12, 0, Colours.get(321, 170, 444, 542), 0x0FF948550);
+	public static final Tile THREELAKES = new BasicTile(13, 12, 0, Colours.get(-1, 320, 542, -1), 0x0FFFFEEEE);
+	public static final Tile ANCIENT = new BasicTile(14, 13, 0, Colours.get(-1, 300, 222, -1), 0x0FFCB0000);
 	
 	protected byte id;
     protected boolean solid;

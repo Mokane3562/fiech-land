@@ -56,16 +56,19 @@ public class GameEvents {
 	 */
 	public void renderInterface(Screen screen, int x, int y) {
 
-		double playerSupp = Game.player.getLevelSupport(); // playerSupp => player support value
-		DecimalFormat df = new DecimalFormat("##.##");  // format playerSupp to 2 decimal places
+		double playerSupp = Game.player.getLevelSupport(); // playerSupp =>
+															// player support
+															// value
+		DecimalFormat df = new DecimalFormat("##.##"); // format playerSupp to 2
+														// decimal places
 		Font.render(df.format(playerSupp) + "%", screen, x + 50, y, cyan, 1); // support
 		// percent
 		// displayed
 		// in-game
 		if (Game.level.getGovernment() != null) {
 
-			Font.render(Game.getGovernmentMap().get(Game.level.getImagePath()).getLeaderName(), screen, x,
-					y, orange, 1);
+			Font.render(Game.getGovernmentMap().get(Game.level.getImagePath())
+					.getLeaderName(), screen, x, y, orange, 1);
 		} else {
 			Font.render("null", screen, x, y, green, 1);
 		}
@@ -83,6 +86,41 @@ public class GameEvents {
 	 */
 	public void renderPlayerEvents(Screen screen, int x, int y,
 			InputHandler input, Player player, Level level) {
+		if (Player.triggeredFiechLand == true) {
+			Font.render("Fiech-Land", screen, x + 65, y + 37, Colours.get(-1, 135,
+					-1, 000), 1);
+			if (input.enter.isPressed()) {
+				Game.startLevel("/levels/fiech-land.png");
+			}
+		}
+		if (Player.triggeredFiechLand == true) {
+			Font.render("Water-Grassland", screen, x + 65, y + 37, Colours.get(-1, 135,
+					-1, 000), 1);
+			if (input.enter.isPressed()) {
+				Game.startLevel("/levels/waterfall-grassland.png");
+			}
+		}
+		if (Player.triggeredFiechLand == true) {
+			Font.render("Desert-Border", screen, x + 65, y + 37, Colours.get(-1, 135,
+					-1, 000), 1);
+			if (input.enter.isPressed()) {
+				Game.startLevel("/levels/desert-border.png");
+			}
+		}
+		if (Player.triggeredFiechLand == true) {
+			Font.render("Three-Lakes", screen, x + 65, y + 37, Colours.get(-1, 135,
+					-1, 000), 1);
+			if (input.enter.isPressed()) {
+				Game.startLevel("/levels/three-lakes.png");
+			}
+		}
+		if (Player.triggeredFiechLand == true) {
+			Font.render("Ancient-Ruins", screen, x + 65, y + 37, Colours.get(-1, 135,
+					-1, 000), 1);
+			if (input.enter.isPressed()) {
+				Game.startLevel("/levels/ancient-ruins.png");
+			}
+		}
 
 	}
 
