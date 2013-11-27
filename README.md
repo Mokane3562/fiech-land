@@ -15,6 +15,7 @@ G - Start a government
 I - Investigate an Item
 ENTER - In game select actions
 K - Display Player coordinates in the terminal
+
 Iteration 1 Goals
 =================
 - [ ] Implement an isometric tile-based board.
