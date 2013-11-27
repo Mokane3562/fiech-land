@@ -23,7 +23,6 @@ import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 
-import ca.proj.game.SpringUtilities;
 
 import ca.proj.game.Game;
 
