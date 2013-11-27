@@ -87,35 +87,35 @@ public class GameEvents {
 	public void renderPlayerEvents(Screen screen, int x, int y,
 			InputHandler input, Player player, Level level) {
 		if (Player.triggeredFiechLand == true) {
-			Font.render("Fiech-Land", screen, x + 65, y + 37, Colours.get(-1, 135,
+			Font.render("Fiech-Land", screen, x + 40, y + 37, Colours.get(-1, 135,
 					-1, 000), 1);
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/fiech-land.png");
 			}
 		}
-		if (Player.triggeredFiechLand == true) {
-			Font.render("Water-Grassland", screen, x + 65, y + 37, Colours.get(-1, 135,
+		if (Player.triggeredWaterGrass == true) {
+			Font.render("Water-Grassland", screen, x + 40, y + 37, Colours.get(-1, 135,
 					-1, 000), 1);
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/waterfall-grassland.png");
 			}
 		}
-		if (Player.triggeredFiechLand == true) {
-			Font.render("Desert-Border", screen, x + 65, y + 37, Colours.get(-1, 135,
+		if (Player.triggeredDesert == true) {
+			Font.render("Desert-Border", screen, x + 40, y + 37, Colours.get(-1, 135,
 					-1, 000), 1);
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/desert-border.png");
 			}
 		}
-		if (Player.triggeredFiechLand == true) {
-			Font.render("Three-Lakes", screen, x + 65, y + 37, Colours.get(-1, 135,
+		if (Player.triggeredThreeLakes == true) {
+			Font.render("Three-Lakes", screen, x + 40, y + 37, Colours.get(-1, 135,
 					-1, 000), 1);
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/three-lakes.png");
 			}
 		}
-		if (Player.triggeredFiechLand == true) {
-			Font.render("Ancient-Ruins", screen, x + 65, y + 37, Colours.get(-1, 135,
+		if (Player.triggeredAncient == true) {
+			Font.render("Ancient-Ruins", screen, x + 40, y + 37, Colours.get(-1, 135,
 					-1, 000), 1);
 			if (input.enter.isPressed()) {
 				Game.startLevel("/levels/ancient-ruins.png");
