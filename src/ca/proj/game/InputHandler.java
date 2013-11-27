@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import ca.proj.game.menus.GovernmentInitMenu;
 import ca.proj.game.menus.HelpMenu;
+import ca.proj.game.menus.Map;
 import ca.proj.game.menus.Menu;
 import ca.proj.game.menus.TeleportMenu;
 import ca.proj.game.Key;
@@ -179,6 +180,10 @@ public class InputHandler implements KeyListener {
 		// Display WealthActionMenu
 		if (keyCode == KeyEvent.VK_F6) {
 			// TODO Add proper menus
+		}
+		//Show the map.
+		if (keyCode == KeyEvent.VK_M) {
+			new Map("World Overview");
 		}
 
 	}
