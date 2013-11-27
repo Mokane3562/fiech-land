@@ -32,13 +32,16 @@ public abstract class Tile {
 	public static final Tile STONE = new BasicSolidTile(1, 1, 0, Colours.get(222, 333, 444, 333), 0xFF555555);
 	public static final Tile GRASS = new BasicTile(2, 2, 0, Colours.get(-1, 131, 141, -1), 0x0FF00FF00);
 	public static final Tile SAND = new BasicTile(3, 3, 0, Colours.get(-1, 542, 555, -1), 0x0FFFFF000);
+	public static final Tile SKY = new BasicSolidTile(10, 0, 0, Colours.get(235, -1, -1, -1), 0xFF5DA9FF);
+	public static final Tile BRIDGE = new BasicSolidTile(11, 0, 0, Colours.get(320, 320, 430, 320), 0xFF914800);
 	
 	//ANIMATED TILES
 	public static final Tile WATER = new AnimatedTile(4, new int[][] {{0, 5}, {1, 5}, {2, 5}, {1, 5}}, Colours.get(-1, 004, 115, -1), 0x0FF0000FF, 900);
 	public static final Tile WATERFALL = new AnimatedTile(5, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(004, 335, 115, 225), 0x0FF009696, 250);
 	public static final Tile WATERFALLSPLASH = new AnimatedTile(6, new int[][] {{6, 5}, {7, 5}, {8, 5}, {7, 5}}, Colours.get(004, 335, 115, 225), 0x0FF00FFFF, 200);
 	public static final Tile CLOUD = new AnimatedTile(7, new int[][] {{0, 5}, {1, 5}, {2, 5}, {1, 5}}, Colours.get(-1, 555, 444, -1), 0x0FFFFFFFF, 1500);
-	//public static final Tile SPACE = new AnimatedTile(8, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(004, 335, 115, 225), 0x0FF009696, 250);
+	public static final Tile RAINBOW_1 = new AnimatedTile(8, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(500, 530, 550, 050), 0x0FFFF0000, 250);
+	public static final Tile RAINBOW_2 = new AnimatedTile(9, new int[][] {{3, 5}, {4, 5}, {5, 5}, {4, 5}}, Colours.get(035, 005, 305, 503), 0x0FFFF00FF, 250);
 	
 	//TRIGGER TILES
 	public static final Tile TELEPORT_TILE = new BasicTile(13, 10, 0, Colours.get(321, 000, 444, 542), 0x0FF666666);
@@ -61,7 +64,7 @@ public abstract class Tile {
     public Tile(int id, boolean isSolid, boolean isEmitter, int levelColour) {
     	this.id = (byte) id;
     	if (tiles[id] != null) throw new RuntimeException("Duplicate tile id on " + id);
-    	if (id == 5){
+    	if (id == 5 || id == 8 || id == 9){
     		isSolid = true;
     	}
     	this.solid = isSolid;
