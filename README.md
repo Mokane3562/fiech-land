@@ -15,6 +15,7 @@ G - Start a government
 I - Investigate an Item
 ENTER - In game select actions
 K - Display Player coordinates in the terminal
+M - Bring up world map
 
 Iteration 1 Goals
 =================
