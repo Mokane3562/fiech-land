@@ -23,7 +23,6 @@ import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 
-
 import ca.proj.game.Game;
 
 /**
@@ -53,6 +52,7 @@ public class TeleportMenu extends JFrame {
 	private JButton threeLakesButton = new JButton();
 	private JButton desertBorderButton = new JButton();
 	private JButton fiechLandButton = new JButton();
+	private JButton blankButton = new JButton();
 	private JButton returnToGameButton = new JButton();
 
 	/**
@@ -65,8 +65,8 @@ public class TeleportMenu extends JFrame {
 
 		super(title);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		int frameWidth = 275;
-		int frameHeight = 500;
+		int frameWidth = 400;
+		int frameHeight = 400;
 		setSize(frameWidth, frameHeight);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = (d.width - getSize().width) / 2;
@@ -74,47 +74,67 @@ public class TeleportMenu extends JFrame {
 		setLocation(x, y);
 		setResizable(false);
 		Container cp = getContentPane();
-		FlowLayout boxLayout = new FlowLayout(FlowLayout.CENTER);
-		cp.setLayout(boxLayout);
+		GridLayout gridLayout = new GridLayout(3, 3);
+		cp.setLayout(gridLayout);
 
 		Dimension buttonSize = new Dimension(128, 128);
+
+		blankButton.setMinimumSize(buttonSize);
+		blankButton.setPreferredSize(buttonSize);
+		blankButton.setMaximumSize(buttonSize);
+		blankButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			}
+		});
+		blankButton.setBackground(Color.BLUE);
+		cp.add(blankButton);
 
 		waterfallGrasslandButton.setMinimumSize(buttonSize);
 		waterfallGrasslandButton.setPreferredSize(buttonSize);
 		waterfallGrasslandButton.setMaximumSize(buttonSize);
-		//waterfallGrasslandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// waterfallGrasslandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		// waterfallGrasslandButton.setText("WaterFall-Grassland");
-		//waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
+		// waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				waterfallGrasslandButton_ActionPerformed(evt);
 			}
 		});
-		//waterfallGrasslandButton.setBackground(Color.WHITE);
-		//waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
-		//		Color.GREEN, Color.BLACK));
-		try {
-			Image img = ImageIO.read(getClass().getResource(
-					"/levels/waterfall-grassland.png"));
-			waterfallGrasslandButton.setIcon(new ImageIcon(img));
-		} catch (IOException ex) {
+		// waterfallGrasslandButton.setBackground(Color.WHITE);
+		// waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
+		// Color.GREEN, Color.BLACK));
+
+		if (Game.level.getImagePath() == "/levels/waterfall-grassland.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/waterfall-grassland-x.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/waterfall-grassland.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
 		}
 		cp.add(waterfallGrasslandButton);
 
 		ancientRuinsButton.setMinimumSize(buttonSize);
 		ancientRuinsButton.setPreferredSize(buttonSize);
 		ancientRuinsButton.setMaximumSize(buttonSize);
-		//ancientRuinsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// ancientRuinsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		// ancientRuinsButton.setText("Ancient-Ruins");
-		//ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
+		// ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				ancientRuinsButton_ActionPerformed(evt);
 			}
 		});
-		//ancientRuinsButton.setBackground(Color.WHITE);
-		//ancientRuinsButton.setBorder(BorderFactory.createEtchedBorder(0,
-		//		Color.GREEN, Color.BLACK));
+		// ancientRuinsButton.setBackground(Color.WHITE);
+		// ancientRuinsButton.setBorder(BorderFactory.createEtchedBorder(0,
+		// Color.GREEN, Color.BLACK));
 		try {
 			Image img1 = ImageIO.read(getClass().getResource(
 					"/levels/ancient-ruins.png"));
@@ -126,17 +146,17 @@ public class TeleportMenu extends JFrame {
 		threeLakesButton.setMinimumSize(buttonSize);
 		threeLakesButton.setPreferredSize(buttonSize);
 		threeLakesButton.setMaximumSize(buttonSize);
-		//threeLakesButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// threeLakesButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		// threeLakesButton.setText("Three-Lakes");
-		//threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
+		// threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
 		threeLakesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				threeLakesButton_ActionPerformed(evt);
 			}
 		});
-		//threeLakesButton.setBackground(Color.WHITE);
-		//threeLakesButton.setBorder(BorderFactory.createEtchedBorder(0,
-		//		Color.GREEN, Color.BLACK));
+		// threeLakesButton.setBackground(Color.WHITE);
+		// threeLakesButton.setBorder(BorderFactory.createEtchedBorder(0,
+		// Color.GREEN, Color.BLACK));
 		try {
 			Image img2 = ImageIO.read(getClass().getResource(
 					"/levels/three-lakes.png"));
@@ -148,17 +168,17 @@ public class TeleportMenu extends JFrame {
 		desertBorderButton.setMinimumSize(buttonSize);
 		desertBorderButton.setPreferredSize(buttonSize);
 		desertBorderButton.setMaximumSize(buttonSize);
-		//desertBorderButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// desertBorderButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		// desertBorderButton.setText("Desert-Border");
-		//desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
+		// desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
 		desertBorderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				desertBorderButton_ActionPerformed(evt);
 			}
 		});
-		//desertBorderButton.setBackground(Color.WHITE);
-		//desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
-		//		Color.GREEN, Color.BLACK));
+		// desertBorderButton.setBackground(Color.WHITE);
+		// desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
+		// Color.GREEN, Color.BLACK));
 		try {
 			Image img3 = ImageIO.read(getClass().getResource(
 					"/levels/desert-border.png"));
@@ -170,16 +190,16 @@ public class TeleportMenu extends JFrame {
 		fiechLandButton.setMinimumSize(buttonSize);
 		fiechLandButton.setPreferredSize(buttonSize);
 		fiechLandButton.setMaximumSize(buttonSize);
-		//fiechLandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// fiechLandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		// fiechLandButton.setText("Fiech-Land");
-		//fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
+		// fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
 		fiechLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				fiechLandButton_ActionPerformed(evt);
 			}
 		});
-		//fiechLandButton.setBackground(Color.WHITE);
-		//fiechLandButton.setBorder(BorderFactory.createEmptyBorder());
+		// fiechLandButton.setBackground(Color.WHITE);
+		// fiechLandButton.setBorder(BorderFactory.createEmptyBorder());
 		try {
 			Image img4 = ImageIO.read(getClass().getResource(
 					"/levels/fiech-land.png"));
@@ -191,7 +211,7 @@ public class TeleportMenu extends JFrame {
 		returnToGameButton.setMinimumSize(buttonSize);
 		returnToGameButton.setPreferredSize(buttonSize);
 		returnToGameButton.setMaximumSize(buttonSize);
-		//returnToGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// returnToGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		returnToGameButton.setText("Return to Game");
 		returnToGameButton.setMargin(new Insets(2, 2, 2, 2));
 		returnToGameButton.addActionListener(new ActionListener() {
@@ -199,7 +219,7 @@ public class TeleportMenu extends JFrame {
 				returnToGameButton_ActionPerformed(evt);
 			}
 		});
-		//returnToGameButton.setBackground(Color.WHITE);
+		// returnToGameButton.setBackground(Color.WHITE);
 		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 
