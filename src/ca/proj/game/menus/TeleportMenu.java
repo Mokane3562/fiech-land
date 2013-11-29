@@ -20,6 +20,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 
@@ -56,6 +57,7 @@ public class TeleportMenu extends JFrame {
 	private JButton blankButton2 = new JButton();
 	private JButton blankButton3 = new JButton();
 	private JButton blankButton4 = new JButton();
+	private JButton returnToGameButton = new JButton();
 
 	/**
 	 * Creates a new teleport menu frame.
@@ -125,7 +127,7 @@ public class TeleportMenu extends JFrame {
 		});
 		blankButton2.setBackground(Color.BLUE);
 		cp.add(blankButton2);
-		
+
 		ancientRuinsButton.setMinimumSize(buttonSize);
 		ancientRuinsButton.setPreferredSize(buttonSize);
 		ancientRuinsButton.setMaximumSize(buttonSize);
@@ -138,14 +140,14 @@ public class TeleportMenu extends JFrame {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/ancient-ruins-x.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				ancientRuinsButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		} else {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/ancient-ruins.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				ancientRuinsButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		}
@@ -163,14 +165,14 @@ public class TeleportMenu extends JFrame {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/three-lakes-x.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				threeLakesButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		} else {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/three-lakes.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				threeLakesButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		}
@@ -188,19 +190,19 @@ public class TeleportMenu extends JFrame {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/desert-border-x.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				desertBorderButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		} else {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/desert-border.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				desertBorderButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		}
 		cp.add(desertBorderButton);
-		
+
 		blankButton3.setMinimumSize(buttonSize);
 		blankButton3.setPreferredSize(buttonSize);
 		blankButton3.setMaximumSize(buttonSize);
@@ -223,29 +225,36 @@ public class TeleportMenu extends JFrame {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/fiech-land-x.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				fiechLandButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		} else {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
 						"/levels/fiech-land.png"));
-				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+				fiechLandButton.setIcon(new ImageIcon(img));
 			} catch (IOException ex) {
 			}
 		}
 		cp.add(fiechLandButton);
 
-		blankButton4.setMinimumSize(buttonSize);
-		blankButton4.setPreferredSize(buttonSize);
-		blankButton4.setMaximumSize(buttonSize);
-		blankButton4.addActionListener(new ActionListener() {
+		returnToGameButton.setMinimumSize(buttonSize);
+		returnToGameButton.setPreferredSize(buttonSize);
+		returnToGameButton.setMaximumSize(buttonSize);
+		returnToGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				returnToGameButton_ActionPerformed(evt);
 			}
 		});
-		blankButton4.setBackground(Color.BLUE);
-		cp.add(blankButton4);
+		returnToGameButton.setBackground(Color.BLUE);
+		String helpText = "<html>Return to<br>"
+				+ "Game</html>";
+		JLabel helpInfo = new JLabel(helpText, JLabel.CENTER);
+		helpInfo.setFont(new Font("Sans", Font.BOLD, 20));
+		returnToGameButton.add(helpInfo);
+		cp.add(returnToGameButton);
 		
+
 		cp.setBackground(new Color(0x555555));
 		setVisible(true);
 	}
@@ -253,26 +262,31 @@ public class TeleportMenu extends JFrame {
 	public void waterfallGrasslandButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/waterfall-grassland.png");
 		closeMenu();
+		new TeleportMenu("Teleport to...");
 	}
 
 	public void ancientRuinsButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/ancient-ruins.png");
 		closeMenu();
+		new TeleportMenu("Teleport to...");
 	}
 
 	public void threeLakesButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/three-lakes.png");
 		closeMenu();
+		new TeleportMenu("Teleport to...");
 	}
 
 	public void desertBorderButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/desert-border.png");
 		closeMenu();
+		new TeleportMenu("Teleport to...");
 	}
 
 	public void fiechLandButton_ActionPerformed(ActionEvent evt) {
 		Game.startLevel("/levels/fiech-land.png");
 		closeMenu();
+		new TeleportMenu("Teleport to...");
 	}
 
 	public void returnToGameButton_ActionPerformed(ActionEvent evt) {
