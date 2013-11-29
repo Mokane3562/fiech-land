@@ -52,8 +52,10 @@ public class TeleportMenu extends JFrame {
 	private JButton threeLakesButton = new JButton();
 	private JButton desertBorderButton = new JButton();
 	private JButton fiechLandButton = new JButton();
-	private JButton blankButton = new JButton();
-	private JButton returnToGameButton = new JButton();
+	private JButton blankButton1 = new JButton();
+	private JButton blankButton2 = new JButton();
+	private JButton blankButton3 = new JButton();
+	private JButton blankButton4 = new JButton();
 
 	/**
 	 * Creates a new teleport menu frame.
@@ -79,31 +81,24 @@ public class TeleportMenu extends JFrame {
 
 		Dimension buttonSize = new Dimension(128, 128);
 
-		blankButton.setMinimumSize(buttonSize);
-		blankButton.setPreferredSize(buttonSize);
-		blankButton.setMaximumSize(buttonSize);
-		blankButton.addActionListener(new ActionListener() {
+		blankButton1.setMinimumSize(buttonSize);
+		blankButton1.setPreferredSize(buttonSize);
+		blankButton1.setMaximumSize(buttonSize);
+		blankButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 			}
 		});
-		blankButton.setBackground(Color.BLUE);
-		cp.add(blankButton);
+		blankButton1.setBackground(Color.BLUE);
+		cp.add(blankButton1);
 
 		waterfallGrasslandButton.setMinimumSize(buttonSize);
 		waterfallGrasslandButton.setPreferredSize(buttonSize);
 		waterfallGrasslandButton.setMaximumSize(buttonSize);
-		// waterfallGrasslandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		// waterfallGrasslandButton.setText("WaterFall-Grassland");
-		// waterfallGrasslandButton.setMargin(new Insets(2, 2, 2, 2));
 		waterfallGrasslandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				waterfallGrasslandButton_ActionPerformed(evt);
 			}
 		});
-		// waterfallGrasslandButton.setBackground(Color.WHITE);
-		// waterfallGrasslandButton.setBorder(BorderFactory.createEtchedBorder(0,
-		// Color.GREEN, Color.BLACK));
-
 		if (Game.level.getImagePath() == "/levels/waterfall-grassland.png") {
 			try {
 				Image img = ImageIO.read(getClass().getResource(
@@ -121,115 +116,136 @@ public class TeleportMenu extends JFrame {
 		}
 		cp.add(waterfallGrasslandButton);
 
+		blankButton2.setMinimumSize(buttonSize);
+		blankButton2.setPreferredSize(buttonSize);
+		blankButton2.setMaximumSize(buttonSize);
+		blankButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			}
+		});
+		blankButton2.setBackground(Color.BLUE);
+		cp.add(blankButton2);
+		
 		ancientRuinsButton.setMinimumSize(buttonSize);
 		ancientRuinsButton.setPreferredSize(buttonSize);
 		ancientRuinsButton.setMaximumSize(buttonSize);
-		// ancientRuinsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		// ancientRuinsButton.setText("Ancient-Ruins");
-		// ancientRuinsButton.setMargin(new Insets(2, 2, 2, 2));
 		ancientRuinsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				ancientRuinsButton_ActionPerformed(evt);
 			}
 		});
-		// ancientRuinsButton.setBackground(Color.WHITE);
-		// ancientRuinsButton.setBorder(BorderFactory.createEtchedBorder(0,
-		// Color.GREEN, Color.BLACK));
-		try {
-			Image img1 = ImageIO.read(getClass().getResource(
-					"/levels/ancient-ruins.png"));
-			ancientRuinsButton.setIcon(new ImageIcon(img1));
-		} catch (IOException ex) {
+		if (Game.level.getImagePath() == "/levels/ancient-ruins.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/ancient-ruins-x.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/ancient-ruins.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
 		}
 		cp.add(ancientRuinsButton);
 
 		threeLakesButton.setMinimumSize(buttonSize);
 		threeLakesButton.setPreferredSize(buttonSize);
 		threeLakesButton.setMaximumSize(buttonSize);
-		// threeLakesButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		// threeLakesButton.setText("Three-Lakes");
-		// threeLakesButton.setMargin(new Insets(2, 2, 2, 2));
 		threeLakesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				threeLakesButton_ActionPerformed(evt);
 			}
 		});
-		// threeLakesButton.setBackground(Color.WHITE);
-		// threeLakesButton.setBorder(BorderFactory.createEtchedBorder(0,
-		// Color.GREEN, Color.BLACK));
-		try {
-			Image img2 = ImageIO.read(getClass().getResource(
-					"/levels/three-lakes.png"));
-			threeLakesButton.setIcon(new ImageIcon(img2));
-		} catch (IOException ex) {
+		if (Game.level.getImagePath() == "/levels/three-lakes.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/three-lakes-x.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/three-lakes.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
 		}
 		cp.add(threeLakesButton);
 
 		desertBorderButton.setMinimumSize(buttonSize);
 		desertBorderButton.setPreferredSize(buttonSize);
 		desertBorderButton.setMaximumSize(buttonSize);
-		// desertBorderButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		// desertBorderButton.setText("Desert-Border");
-		// desertBorderButton.setMargin(new Insets(2, 2, 2, 2));
 		desertBorderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				desertBorderButton_ActionPerformed(evt);
 			}
 		});
-		// desertBorderButton.setBackground(Color.WHITE);
-		// desertBorderButton.setBorder(BorderFactory.createEtchedBorder(0,
-		// Color.GREEN, Color.BLACK));
-		try {
-			Image img3 = ImageIO.read(getClass().getResource(
-					"/levels/desert-border.png"));
-			desertBorderButton.setIcon(new ImageIcon(img3));
-		} catch (IOException ex) {
+		if (Game.level.getImagePath() == "/levels/desert-border.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/desert-border-x.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/desert-border.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
 		}
 		cp.add(desertBorderButton);
+		
+		blankButton3.setMinimumSize(buttonSize);
+		blankButton3.setPreferredSize(buttonSize);
+		blankButton3.setMaximumSize(buttonSize);
+		blankButton3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			}
+		});
+		blankButton3.setBackground(Color.BLUE);
+		cp.add(blankButton3);
 
 		fiechLandButton.setMinimumSize(buttonSize);
 		fiechLandButton.setPreferredSize(buttonSize);
 		fiechLandButton.setMaximumSize(buttonSize);
-		// fiechLandButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		// fiechLandButton.setText("Fiech-Land");
-		// fiechLandButton.setMargin(new Insets(2, 2, 2, 2));
 		fiechLandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				fiechLandButton_ActionPerformed(evt);
 			}
 		});
-		// fiechLandButton.setBackground(Color.WHITE);
-		// fiechLandButton.setBorder(BorderFactory.createEmptyBorder());
-		try {
-			Image img4 = ImageIO.read(getClass().getResource(
-					"/levels/fiech-land.png"));
-			fiechLandButton.setIcon(new ImageIcon(img4));
-		} catch (IOException ex) {
+		if (Game.level.getImagePath() == "/levels/fiech-land.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/fiech-land-x.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/fiech-land.png"));
+				waterfallGrasslandButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
 		}
 		cp.add(fiechLandButton);
 
-		returnToGameButton.setMinimumSize(buttonSize);
-		returnToGameButton.setPreferredSize(buttonSize);
-		returnToGameButton.setMaximumSize(buttonSize);
-		// returnToGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		returnToGameButton.setText("Return to Game");
-		returnToGameButton.setMargin(new Insets(2, 2, 2, 2));
-		returnToGameButton.addActionListener(new ActionListener() {
+		blankButton4.setMinimumSize(buttonSize);
+		blankButton4.setPreferredSize(buttonSize);
+		blankButton4.setMaximumSize(buttonSize);
+		blankButton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				returnToGameButton_ActionPerformed(evt);
 			}
 		});
-		// returnToGameButton.setBackground(Color.WHITE);
-		returnToGameButton.setBorder(BorderFactory.createEtchedBorder(0,
-				Color.GREEN, Color.BLACK));
-
-		cp.add(returnToGameButton);
-		for (Component j : cp.getComponents()) {
-			if (j instanceof JButton) {
-				j.setFont(new Font("Sans", Font.BOLD, 14));
-			}
-
-		}
+		blankButton4.setBackground(Color.BLUE);
+		cp.add(blankButton4);
+		
 		cp.setBackground(new Color(0x555555));
 		setVisible(true);
 	}
