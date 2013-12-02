@@ -227,8 +227,4 @@ public class MilitaryActionMenu extends JFrame {
 		WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
 	}
-
-	public static void main(String[] args){
-		new MilitaryActionMenu("Military Action Menu");
-	}
 }
