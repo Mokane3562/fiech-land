@@ -181,6 +181,7 @@ public class GovernmentInitMenu extends JFrame {
 
 	public void democracyButton_ActionPerformed(ActionEvent evt) {
 		ArrayList<String> possibilities = new ArrayList<String>();
+		int n = JOptionPane.NO_OPTION;
 		for (Government g : Game.getGovernmentMap().values()) {
 			if (g != null) {
 				if (g.getLeader() == Game.player) {
@@ -188,16 +189,27 @@ public class GovernmentInitMenu extends JFrame {
 				}
 			}
 		}
-		String countryName = JOptionPane
-				.showInputDialog("Please enter a name for your new country!");
-		while (countryName.length() < 3) {
-			countryName = JOptionPane
-					.showInputDialog("Please enter a name for your new country!\n"
-							+ "Name must be greater than 3 characters long!");
-		}
-		System.out.println("you named the country:" + countryName);
+		if (possibilities.size() > 0) {
+			JFrame frame = new JFrame();
+			n = JOptionPane.showConfirmDialog(frame,
+					"Would you like green eggs and ham?", "An Inane Question",
+					JOptionPane.YES_NO_OPTION);
 
-		Game.level.startGovernment(Gov_Type.DEMOCRACY, countryName);
+		}
+		if (n == JOptionPane.YES_OPTION) {
+			// Display the list of countries
+		} else {
+			String countryName = JOptionPane
+					.showInputDialog("Please enter a name for your new country!");
+			while (countryName.length() < 3) {
+				countryName = JOptionPane
+						.showInputDialog("Please enter a name for your new country!\n"
+								+ "Name must be greater than 3 characters long!");
+			}
+			System.out.println("you named the country:" + countryName);
+
+			Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
+		}
 		closeMenu();
 	}
 
