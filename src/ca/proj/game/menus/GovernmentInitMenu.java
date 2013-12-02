@@ -50,6 +50,7 @@ public class GovernmentInitMenu extends JFrame {
 
 	private JButton democracyButton = new JButton();
 	private JButton dictatorshipButton = new JButton();
+	private JButton addToExistingButton = new JButton();
 	private JButton cancelButton = new JButton();
 
 	public GovernmentInitMenu(String title) {
@@ -132,7 +133,26 @@ public class GovernmentInitMenu extends JFrame {
 			dictatorshipButton.setBorder(BorderFactory.createEtchedBorder(0,
 					Color.GREEN, Color.BLACK));
 			cp.add(dictatorshipButton);
+			
+			//Add to existing
+			cp.add(new Box.Filler(minSize, prefSize, maxSize));
+			addToExistingButton.setMinimumSize(buttonSize);
+			addToExistingButton.setPreferredSize(buttonSize);
+			addToExistingButton.setMaximumSize(buttonSize);
+			addToExistingButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+			addToExistingButton.setText("Add to existing");
+			addToExistingButton.setMargin(new Insets(2, 2, 2, 2));
+			addToExistingButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					addToExistingButton_ActionPerformed(evt);
+				}
+			});
+			addToExistingButton.setBackground(Color.WHITE);
+			addToExistingButton.setBorder(BorderFactory.createEtchedBorder(0,
+					Color.GREEN, Color.BLACK));
+			cp.add(addToExistingButton);
 
+			//Add cancel button
 			cp.add(new Box.Filler(minSize, prefSize, maxSize));
 			cancelButton.setMinimumSize(buttonSize);
 			cancelButton.setPreferredSize(buttonSize);
@@ -180,25 +200,7 @@ public class GovernmentInitMenu extends JFrame {
 	}
 
 	public void democracyButton_ActionPerformed(ActionEvent evt) {
-		ArrayList<String> possibilities = new ArrayList<String>();
-		int n = JOptionPane.NO_OPTION;
-		for (Government g : Game.getGovernmentMap().values()) {
-			if (g != null) {
-				if (g.getLeader() == Game.player) {
-					possibilities.add(g.getCountryName());
-				}
-			}
-		}
-		if (possibilities.size() > 0) {
-			JFrame frame = new JFrame();
-			n = JOptionPane.showConfirmDialog(frame,
-					"Add this territory to an existing government?", "Add to existing...",
-					JOptionPane.YES_NO_OPTION);
-
-		}
-		if (n == JOptionPane.YES_OPTION) {
-			// Display the list of countries
-		} else {
+		
 			String countryName = JOptionPane
 					.showInputDialog("Please enter a name for your new country!");
 			while (countryName.length() < 3) {
@@ -209,11 +211,27 @@ public class GovernmentInitMenu extends JFrame {
 			System.out.println("you named the country:" + countryName);
 
 			Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
-		}
+		
 		closeMenu();
 	}
 
 	public void dictatorshipButton_ActionPerformed(ActionEvent evt) {
+		
+			String countryName = JOptionPane
+					.showInputDialog("Please enter a name for your new country!");
+			while (countryName.length() < 3) {
+				countryName = JOptionPane
+						.showInputDialog("Please enter a name for your new country!\n"
+								+ "Name must be greater than 3 characters long!");
+			}
+			System.out.println("you named the country:" + countryName);
+
+			Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
+		
+		closeMenu();
+	}
+	
+	public void addToExistingButton_ActionPerformed(ActionEvent evt) {
 		ArrayList<String> possibilities = new ArrayList<String>();
 		int n = JOptionPane.NO_OPTION;
 		for (Government g : Game.getGovernmentMap().values()) {
@@ -232,17 +250,6 @@ public class GovernmentInitMenu extends JFrame {
 		}
 		if (n == JOptionPane.YES_OPTION) {
 			// Display the list of countries
-		} else {
-			String countryName = JOptionPane
-					.showInputDialog("Please enter a name for your new country!");
-			while (countryName.length() < 3) {
-				countryName = JOptionPane
-						.showInputDialog("Please enter a name for your new country!\n"
-								+ "Name must be greater than 3 characters long!");
-			}
-			System.out.println("you named the country:" + countryName);
-
-			Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
 		}
 		closeMenu();
 	}
