@@ -25,7 +25,7 @@ import ca.proj.game.entities.Government.Gov_Type;
 
 /**
  * 
- * GovernmentInitMenu.java displayed when initializing a governemnt
+ * GovernmentInitMenu.java displayed when initializing a government
  * 
  * Copyright (C) 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
  * 
