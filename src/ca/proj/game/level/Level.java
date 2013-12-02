@@ -237,9 +237,10 @@ public class Level {
 
 	/**
 	 * Starts a democratic government.
+	 * @param countryName 
 	 */
-	public void startGovernment(Gov_Type gov) {
-		government = new Government(gov);
+	public void startGovernment(Gov_Type gov, String countryName) {
+		government = new Government(gov, countryName);
 		Game.getGovernmentMap().put(this.getImagePath(), government);
 	}
 
@@ -277,9 +278,5 @@ public class Level {
 			}
 		}
 		return null;
-	}
-
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
 	}
 }

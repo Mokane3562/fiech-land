@@ -97,7 +97,6 @@ public class Game extends Canvas implements Runnable {
 	private String initialLevel = "/levels/waterfall-grassland.png";
 	private static ArrayList<String> loadedLevels = new ArrayList<String>();
 	private static Map<String, Government> governmentMap = new HashMap<String, Government>();
-
 	/**
 	 * Create the game and set properties for the window.
 	 * 

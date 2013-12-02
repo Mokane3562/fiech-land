@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -21,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
+import ca.proj.game.entities.Government;
 import ca.proj.game.entities.Government.Gov_Type;
 
 /**
@@ -70,8 +72,33 @@ public class GovernmentInitMenu extends JFrame {
 		Dimension prefSize = new Dimension(0, 5);
 		Dimension maxSize = new Dimension(0, 5);
 
-		// Add Democratic gov't button
-		if (Game.player.getLevelSupport() > 50) {	
+		if (Game.level.getGovernment() != null){
+			String helpText = "<html>There is already a<br>"
+					+ "government in place</html>";
+			JLabel helpInfo = new JLabel(helpText, JLabel.CENTER);
+			helpInfo.setAlignmentX(Component.CENTER_ALIGNMENT);
+			helpInfo.setFont(new Font("Sans", Font.BOLD, 48));
+			cp.add(helpInfo);
+
+			cp.add(new Box.Filler(minSize, prefSize, maxSize));
+			cancelButton.setMinimumSize(buttonSize);
+			cancelButton.setPreferredSize(buttonSize);
+			cancelButton.setMaximumSize(buttonSize);
+			cancelButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+			cancelButton.setText("Return to Game");
+			cancelButton.setMargin(new Insets(2, 2, 2, 2));
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					closeMenu();
+				}
+			});
+			cancelButton.setBackground(Color.WHITE);
+			cancelButton.setBorder(BorderFactory.createEtchedBorder(0,
+					Color.GREEN, Color.BLACK));
+			cp.add(cancelButton);
+		}
+		else if (Game.player.getLevelSupport() > 50) {
+			// Add Democratic gov't button
 			cp.add(new Box.Filler(minSize, prefSize, maxSize));
 			democracyButton.setMinimumSize(buttonSize);
 			democracyButton.setPreferredSize(buttonSize);
@@ -81,15 +108,7 @@ public class GovernmentInitMenu extends JFrame {
 			democracyButton.setMargin(new Insets(2, 2, 2, 2));
 			democracyButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					try {
-						democracyButton_ActionPerformed(evt);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (CloneNotSupportedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					democracyButton_ActionPerformed(evt);
 				}
 			});
 			democracyButton.setBackground(Color.WHITE);
@@ -107,15 +126,7 @@ public class GovernmentInitMenu extends JFrame {
 			dictatorshipButton.setMargin(new Insets(2, 2, 2, 2));
 			dictatorshipButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
-					try {
-						dictatorshipButton_ActionPerformed(evt);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (CloneNotSupportedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					dictatorshipButton_ActionPerformed(evt);
 				}
 			});
 			dictatorshipButton.setBackground(Color.WHITE);
@@ -169,15 +180,47 @@ public class GovernmentInitMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void democracyButton_ActionPerformed(ActionEvent evt)
-			throws InterruptedException, CloneNotSupportedException {
-		Game.level.startGovernment(Gov_Type.DEMOCRACY);
+	public void democracyButton_ActionPerformed(ActionEvent evt) {
+		ArrayList<String> possibilities = new ArrayList<String>();
+		for (Government g : Game.getGovernmentMap().values()){
+			if (g != null){
+				if (g.getLeader() == Game.player){
+					possibilities.add(g.getCountryName());
+				}
+			}
+		}
+		String countryName = JOptionPane
+				.showInputDialog("Please enter a name for your new country!");
+		while (countryName.length() < 3) {
+			countryName = JOptionPane
+					.showInputDialog("Please enter a name for your new country!\n"
+							+ "Name must be greater than 3 characters long!");
+		}
+		System.out.println("you named the country:" + countryName);
+
+		Game.level.startGovernment(Gov_Type.DEMOCRACY, countryName);
 		closeMenu();
 	}
 
-	public void dictatorshipButton_ActionPerformed(ActionEvent evt)
-			throws InterruptedException, CloneNotSupportedException {
-		Game.level.startGovernment(Gov_Type.DICTATORSHIP);
+	public void dictatorshipButton_ActionPerformed(ActionEvent evt) {
+		ArrayList<String> possibilities = new ArrayList<String>();
+		for (Government g : Game.getGovernmentMap().values()){
+			if (g != null){
+				if (g.getLeader() == Game.player){
+					possibilities.add(g.getCountryName());
+				}
+			}
+		}
+		String countryName = JOptionPane
+				.showInputDialog("Please enter a name for your new country!");
+		while (countryName.length() < 3) {
+			countryName = JOptionPane
+					.showInputDialog("Please enter a name for your new country!\n"
+							+ "Name must be greater than 3 characters long!");
+		}
+		System.out.println("you named the country:" + countryName);
+		
+		Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
 		closeMenu();
 	}
 

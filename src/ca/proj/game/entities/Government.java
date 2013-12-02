@@ -1,10 +1,8 @@
 package ca.proj.game.entities;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import ca.proj.game.Game;
-import ca.proj.game.level.Level;
 
 /**
  * 
@@ -38,14 +36,16 @@ public class Government{
 	private Gov_Type gov;
 	private Player leader = null;
 	private ArrayList<Player> ministers = new ArrayList<Player>(10);
+	private String countryName;
 	
 	/**
 	 * Creates a new Government object.
 	 * 
 	 * @param gov the government type
 	 */
-	public Government(Gov_Type gov) {
+	public Government(Gov_Type gov, String cName) {
 		this.setGovType(gov);
+		this.setCountryName(cName);
 		chooseLeader();
 	}
 
@@ -128,5 +128,17 @@ public class Government{
 	 */
 	public void replaceMinister(Player oldPlayer, Player newPlayer){
 		ministers.set(ministers.indexOf(oldPlayer), newPlayer);
+	}
+
+	public String getCountryName() {
+		return countryName;
+	}
+
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+	
+	public Player getLeader(){
+		return leader;
 	}
 }
