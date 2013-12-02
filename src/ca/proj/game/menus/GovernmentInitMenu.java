@@ -17,6 +17,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.Game;
@@ -70,7 +71,7 @@ public class GovernmentInitMenu extends JFrame {
 		Dimension maxSize = new Dimension(0, 5);
 
 		// Add Democratic gov't button
-		if (Game.player.getLevelSupport() > 50) {
+		if (Game.player.getLevelSupport() > 50) {	
 			cp.add(new Box.Filler(minSize, prefSize, maxSize));
 			democracyButton.setMinimumSize(buttonSize);
 			democracyButton.setPreferredSize(buttonSize);
@@ -121,47 +122,47 @@ public class GovernmentInitMenu extends JFrame {
 			dictatorshipButton.setBorder(BorderFactory.createEtchedBorder(0,
 					Color.GREEN, Color.BLACK));
 			cp.add(dictatorshipButton);
-			
+
 			cp.add(new Box.Filler(minSize, prefSize, maxSize));
 			cancelButton.setMinimumSize(buttonSize);
-		    cancelButton.setPreferredSize(buttonSize);
-		    cancelButton.setMaximumSize(buttonSize);
-		    cancelButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		    cancelButton.setText("Cancel");
-		    cancelButton.setMargin(new Insets(2, 2, 2, 2));
-		    cancelButton.addActionListener(new ActionListener() {
-		    	public void actionPerformed(ActionEvent evt) {
-		    		closeMenu();
-		    	}
-		    });
-		    cancelButton.setBackground(Color.WHITE);
-		    cancelButton.setBorder(BorderFactory.createEtchedBorder(0,
+			cancelButton.setPreferredSize(buttonSize);
+			cancelButton.setMaximumSize(buttonSize);
+			cancelButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+			cancelButton.setText("Cancel");
+			cancelButton.setMargin(new Insets(2, 2, 2, 2));
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					closeMenu();
+				}
+			});
+			cancelButton.setBackground(Color.WHITE);
+			cancelButton.setBorder(BorderFactory.createEtchedBorder(0,
 					Color.GREEN, Color.BLACK));
-		    cp.add(cancelButton);
-		} else{
+			cp.add(cancelButton);
+		} else {
 			String helpText = "<html>You do not have<br>"
 					+ "enough support!</html>";
 			JLabel helpInfo = new JLabel(helpText, JLabel.CENTER);
 			helpInfo.setAlignmentX(Component.CENTER_ALIGNMENT);
 			helpInfo.setFont(new Font("Sans", Font.BOLD, 48));
 			cp.add(helpInfo);
-			
+
 			cp.add(new Box.Filler(minSize, prefSize, maxSize));
 			cancelButton.setMinimumSize(buttonSize);
-		    cancelButton.setPreferredSize(buttonSize);
-		    cancelButton.setMaximumSize(buttonSize);
-		    cancelButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		    cancelButton.setText("Return to Game");
-		    cancelButton.setMargin(new Insets(2, 2, 2, 2));
-		    cancelButton.addActionListener(new ActionListener() {
-		    	public void actionPerformed(ActionEvent evt) {
-		    		closeMenu();
-		    	}
-		    });
-		    cancelButton.setBackground(Color.WHITE);
-		    cancelButton.setBorder(BorderFactory.createEtchedBorder(0,
+			cancelButton.setPreferredSize(buttonSize);
+			cancelButton.setMaximumSize(buttonSize);
+			cancelButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+			cancelButton.setText("Return to Game");
+			cancelButton.setMargin(new Insets(2, 2, 2, 2));
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					closeMenu();
+				}
+			});
+			cancelButton.setBackground(Color.WHITE);
+			cancelButton.setBorder(BorderFactory.createEtchedBorder(0,
 					Color.GREEN, Color.BLACK));
-		    cp.add(cancelButton);
+			cp.add(cancelButton);
 		}
 		cp.setBackground(new Color(0x3399FF));
 

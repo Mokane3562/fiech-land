@@ -145,7 +145,7 @@ public class InputHandler implements KeyListener {
 		// Start a government
 		if (keyCode == KeyEvent.VK_G) {
 			// startGovernment.toggle(isPressed);
-			new GovernmentInitMenu("Setup your Government");
+			new GovernmentInitMenu("Setup your Government and Country");
 		}
 		// Menu / Quit
 		if (keyCode == KeyEvent.VK_ESCAPE) {

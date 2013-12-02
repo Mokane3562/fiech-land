@@ -92,7 +92,42 @@ public class TeleportMenu extends JFrame {
 		});
 		blankButton1.setBackground(Color.BLUE);
 		cp.add(blankButton1);
+		
+		desertBorderButton.setMinimumSize(buttonSize);
+		desertBorderButton.setPreferredSize(buttonSize);
+		desertBorderButton.setMaximumSize(buttonSize);
+		desertBorderButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				desertBorderButton_ActionPerformed(evt);
+			}
+		});
+		if (Game.level.getImagePath() == "/levels/desert-border.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/desert-border-x.png"));
+				desertBorderButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/desert-border.png"));
+				desertBorderButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		}
+		cp.add(desertBorderButton);
 
+		blankButton2.setMinimumSize(buttonSize);
+		blankButton2.setPreferredSize(buttonSize);
+		blankButton2.setMaximumSize(buttonSize);
+		blankButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			}
+		});
+		blankButton2.setBackground(Color.BLUE);
+		cp.add(blankButton2);
+		
 		waterfallGrasslandButton.setMinimumSize(buttonSize);
 		waterfallGrasslandButton.setPreferredSize(buttonSize);
 		waterfallGrasslandButton.setMaximumSize(buttonSize);
@@ -118,40 +153,6 @@ public class TeleportMenu extends JFrame {
 		}
 		cp.add(waterfallGrasslandButton);
 
-		blankButton2.setMinimumSize(buttonSize);
-		blankButton2.setPreferredSize(buttonSize);
-		blankButton2.setMaximumSize(buttonSize);
-		blankButton2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-			}
-		});
-		blankButton2.setBackground(Color.BLUE);
-		cp.add(blankButton2);
-
-		ancientRuinsButton.setMinimumSize(buttonSize);
-		ancientRuinsButton.setPreferredSize(buttonSize);
-		ancientRuinsButton.setMaximumSize(buttonSize);
-		ancientRuinsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				ancientRuinsButton_ActionPerformed(evt);
-			}
-		});
-		if (Game.level.getImagePath() == "/levels/ancient-ruins.png") {
-			try {
-				Image img = ImageIO.read(getClass().getResource(
-						"/levels/ancient-ruins-x.png"));
-				ancientRuinsButton.setIcon(new ImageIcon(img));
-			} catch (IOException ex) {
-			}
-		} else {
-			try {
-				Image img = ImageIO.read(getClass().getResource(
-						"/levels/ancient-ruins.png"));
-				ancientRuinsButton.setIcon(new ImageIcon(img));
-			} catch (IOException ex) {
-			}
-		}
-		cp.add(ancientRuinsButton);
 
 		threeLakesButton.setMinimumSize(buttonSize);
 		threeLakesButton.setPreferredSize(buttonSize);
@@ -178,41 +179,6 @@ public class TeleportMenu extends JFrame {
 		}
 		cp.add(threeLakesButton);
 
-		desertBorderButton.setMinimumSize(buttonSize);
-		desertBorderButton.setPreferredSize(buttonSize);
-		desertBorderButton.setMaximumSize(buttonSize);
-		desertBorderButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				desertBorderButton_ActionPerformed(evt);
-			}
-		});
-		if (Game.level.getImagePath() == "/levels/desert-border.png") {
-			try {
-				Image img = ImageIO.read(getClass().getResource(
-						"/levels/desert-border-x.png"));
-				desertBorderButton.setIcon(new ImageIcon(img));
-			} catch (IOException ex) {
-			}
-		} else {
-			try {
-				Image img = ImageIO.read(getClass().getResource(
-						"/levels/desert-border.png"));
-				desertBorderButton.setIcon(new ImageIcon(img));
-			} catch (IOException ex) {
-			}
-		}
-		cp.add(desertBorderButton);
-
-		blankButton3.setMinimumSize(buttonSize);
-		blankButton3.setPreferredSize(buttonSize);
-		blankButton3.setMaximumSize(buttonSize);
-		blankButton3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-			}
-		});
-		blankButton3.setBackground(Color.BLUE);
-		cp.add(blankButton3);
-
 		fiechLandButton.setMinimumSize(buttonSize);
 		fiechLandButton.setPreferredSize(buttonSize);
 		fiechLandButton.setMaximumSize(buttonSize);
@@ -237,6 +203,42 @@ public class TeleportMenu extends JFrame {
 			}
 		}
 		cp.add(fiechLandButton);
+		
+
+		blankButton3.setMinimumSize(buttonSize);
+		blankButton3.setPreferredSize(buttonSize);
+		blankButton3.setMaximumSize(buttonSize);
+		blankButton3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+			}
+		});
+		blankButton3.setBackground(Color.BLUE);
+		cp.add(blankButton3);
+
+		ancientRuinsButton.setMinimumSize(buttonSize);
+		ancientRuinsButton.setPreferredSize(buttonSize);
+		ancientRuinsButton.setMaximumSize(buttonSize);
+		ancientRuinsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				ancientRuinsButton_ActionPerformed(evt);
+			}
+		});
+		if (Game.level.getImagePath() == "/levels/ancient-ruins.png") {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/ancient-ruins-x.png"));
+				ancientRuinsButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		} else {
+			try {
+				Image img = ImageIO.read(getClass().getResource(
+						"/levels/ancient-ruins.png"));
+				ancientRuinsButton.setIcon(new ImageIcon(img));
+			} catch (IOException ex) {
+			}
+		}
+		cp.add(ancientRuinsButton);
 
 		returnToGameButton.setMinimumSize(buttonSize);
 		returnToGameButton.setPreferredSize(buttonSize);

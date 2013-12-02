@@ -34,12 +34,10 @@ public class Government{
 	public enum Gov_Type {
 		DEMOCRACY, DICTATORSHIP
 	}
-	
-	
 
 	private Gov_Type gov;
 	private Player leader = null;
-	ArrayList<Player> ministers = new ArrayList<Player>(10);
+	private ArrayList<Player> ministers = new ArrayList<Player>(10);
 	
 	/**
 	 * Creates a new Government object.
