@@ -233,7 +233,9 @@ public class GovernmentInitMenu extends JFrame {
 	
 	public void addToExistingButton_ActionPerformed(ActionEvent evt) {
 		ArrayList<String> possibilities = new ArrayList<String>();
+		JFrame frame = new JFrame();
 		int n = JOptionPane.NO_OPTION;
+		String countryName = null;
 		for (Government g : Game.getGovernmentMap().values()) {
 			if (g != null) {
 				if (g.getLeader() == Game.player) {
@@ -242,14 +244,31 @@ public class GovernmentInitMenu extends JFrame {
 			}
 		}
 		if (possibilities.size() > 0) {
-			JFrame frame = new JFrame();
 			n = JOptionPane.showConfirmDialog(frame,
 					"Add this territory to an existing government?", "Add to existing...",
 					JOptionPane.YES_NO_OPTION);
 
+		} else {
+			JOptionPane.showMessageDialog(frame,
+				    "You are not the leader of \n "
+				    + "any current governments",
+				    "No Governments",
+				    JOptionPane.WARNING_MESSAGE);
 		}
 		if (n == JOptionPane.YES_OPTION) {
-			// Display the list of countries
+			countryName = (String)JOptionPane.showInputDialog(
+			                    frame,
+			                    "Select the country:",
+			                    "Select the country...",
+			                    JOptionPane.PLAIN_MESSAGE,
+			                    null, possibilities.toArray(),
+			                    possibilities.toArray()[0]);
+		}
+		for(Government g : Game.getGovernmentMap().values()){
+			if (g.getCountryName() == countryName){
+				Game.getGovernmentMap().put(Game.level.getImagePath(), g);
+				break;
+			}
 		}
 		closeMenu();
 	}
