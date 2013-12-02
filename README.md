@@ -26,10 +26,9 @@ CS3716 Project
 + F6 - Display wealth actions(Not active)
 + WASD - Movement of the player
 + UP,DOWN,LEFT,RIGHT - Movement of the player
-+ T - Display the teleport menu
++ T - Display the teleport menu and world map
 + E - Get support of the territory
 + G - Start a government
 + I - Investigate an Item(Not active)
 + ENTER - In game select actions
 + K - Display Player coordinates in the terminal
-+ M - Bring up world map

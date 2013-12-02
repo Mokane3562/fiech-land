@@ -9,13 +9,12 @@ Game Controls
 + F6 - Display wealth actions(Not active)
 + WASD - Movement of the player
 + UP,DOWN,LEFT,RIGHT - Movement of the player
-+ T - Display the teleport menu
++ T - Display the teleport menu and world map
 + E - Get support of the territory
 + G - Start a government
 + I - Investigate an Item(Not active)
 + ENTER - In game select actions
 + K - Display Player coordinates in the terminal
-+ M - Bring up world map
 
 Iteration 1 Goals
 =================
@@ -86,7 +85,7 @@ Iteration 2 Goals
 - [x] Player attributes can be set.
 - [x] Government initalization menu.
 - [x] Create save games.
-- [X] Fix governments across levels
+- [x] Fix governments across levels
 
 What we Achieved so Far:
 ------------------------
