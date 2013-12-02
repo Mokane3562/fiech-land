@@ -72,7 +72,7 @@ public class GovernmentInitMenu extends JFrame {
 		Dimension prefSize = new Dimension(0, 5);
 		Dimension maxSize = new Dimension(0, 5);
 
-		if (Game.level.getGovernment() != null){
+		if (Game.level.getGovernment() != null) {
 			String helpText = "<html>There is already a<br>"
 					+ "government in place</html>";
 			JLabel helpInfo = new JLabel(helpText, JLabel.CENTER);
@@ -96,8 +96,7 @@ public class GovernmentInitMenu extends JFrame {
 			cancelButton.setBorder(BorderFactory.createEtchedBorder(0,
 					Color.GREEN, Color.BLACK));
 			cp.add(cancelButton);
-		}
-		else if (Game.player.getLevelSupport() > 50) {
+		} else if (Game.player.getLevelSupport() > 50) {
 			// Add Democratic gov't button
 			cp.add(new Box.Filler(minSize, prefSize, maxSize));
 			democracyButton.setMinimumSize(buttonSize);
@@ -182,9 +181,9 @@ public class GovernmentInitMenu extends JFrame {
 
 	public void democracyButton_ActionPerformed(ActionEvent evt) {
 		ArrayList<String> possibilities = new ArrayList<String>();
-		for (Government g : Game.getGovernmentMap().values()){
-			if (g != null){
-				if (g.getLeader() == Game.player){
+		for (Government g : Game.getGovernmentMap().values()) {
+			if (g != null) {
+				if (g.getLeader() == Game.player) {
 					possibilities.add(g.getCountryName());
 				}
 			}
@@ -204,23 +203,35 @@ public class GovernmentInitMenu extends JFrame {
 
 	public void dictatorshipButton_ActionPerformed(ActionEvent evt) {
 		ArrayList<String> possibilities = new ArrayList<String>();
-		for (Government g : Game.getGovernmentMap().values()){
-			if (g != null){
-				if (g.getLeader() == Game.player){
+		int n = JOptionPane.NO_OPTION;
+		for (Government g : Game.getGovernmentMap().values()) {
+			if (g != null) {
+				if (g.getLeader() == Game.player) {
 					possibilities.add(g.getCountryName());
 				}
 			}
 		}
-		String countryName = JOptionPane
-				.showInputDialog("Please enter a name for your new country!");
-		while (countryName.length() < 3) {
-			countryName = JOptionPane
-					.showInputDialog("Please enter a name for your new country!\n"
-							+ "Name must be greater than 3 characters long!");
+		if (possibilities.size() > 0) {
+			JFrame frame = new JFrame();
+			n = JOptionPane.showConfirmDialog(frame,
+					"Would you like green eggs and ham?", "An Inane Question",
+					JOptionPane.YES_NO_OPTION);
+
 		}
-		System.out.println("you named the country:" + countryName);
-		
-		Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
+		if (n == JOptionPane.YES_OPTION) {
+			// Display the list of countries
+		} else {
+			String countryName = JOptionPane
+					.showInputDialog("Please enter a name for your new country!");
+			while (countryName.length() < 3) {
+				countryName = JOptionPane
+						.showInputDialog("Please enter a name for your new country!\n"
+								+ "Name must be greater than 3 characters long!");
+			}
+			System.out.println("you named the country:" + countryName);
+
+			Game.level.startGovernment(Gov_Type.DICTATORSHIP, countryName);
+		}
 		closeMenu();
 	}
 
