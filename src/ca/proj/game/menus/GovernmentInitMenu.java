@@ -192,7 +192,7 @@ public class GovernmentInitMenu extends JFrame {
 		if (possibilities.size() > 0) {
 			JFrame frame = new JFrame();
 			n = JOptionPane.showConfirmDialog(frame,
-					"Would you like green eggs and ham?", "An Inane Question",
+					"Add this territory to an existing government?", "Add to existing...",
 					JOptionPane.YES_NO_OPTION);
 
 		}
@@ -226,7 +226,7 @@ public class GovernmentInitMenu extends JFrame {
 		if (possibilities.size() > 0) {
 			JFrame frame = new JFrame();
 			n = JOptionPane.showConfirmDialog(frame,
-					"Would you like green eggs and ham?", "An Inane Question",
+					"Add this territory to an existing government?", "Add to existing...",
 					JOptionPane.YES_NO_OPTION);
 
 		}
