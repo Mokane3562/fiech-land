@@ -121,6 +121,22 @@ public class Game extends Canvas implements Runnable {
 		frame.setVisible(true);
 
 	}
+	
+	/**
+	 * Start the thread for the game
+	 */
+	public synchronized void start() {
+		running = true;
+		new Thread(this).start();
+
+	}
+
+	/**
+	 * Stop the game thread.
+	 */
+	public synchronized static void stop() {
+		running = false;
+	}
 
 	/**
 	 * Initialize the values we will use for color.
@@ -146,108 +162,8 @@ public class Game extends Canvas implements Runnable {
 		input = new InputHandler(this);
 		// Start the default level in the game.
 		startLevel(initialLevel);
-		addEntities();
 	}
 
-	/**
-	 * Start the level and add the player, and GameEvent manager.
-	 * 
-	 * @param levelPath
-	 */
-	public static void startLevel(String levelPath) {
-		if (loadedLevels.contains(levelPath)) {
-			loadPreviousLevel(levelPath);
-		} else {
-			Random rand = new Random();
-			level = new Level(levelPath);
-			loadedLevels.add(levelPath);
-			level.setGovernment(null);
-			governmentMap.put(levelPath, level.getGovernment());
-			int x = (int) (Math.sqrt(level.tiles.length)) * 4;
-			int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-			if (player == null) {
-				player = new Player(level, x, y, input);
-			}
-			player.getSupportMap().put(level.getImagePath(), 0.0);
-			level.addEntity(player);
-			for (int i = 0; i < NUM_NPCS; i++) {
-				int nx = rand.nextInt(x * 2);
-				int ny = rand.nextInt(y * 2);
-				while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
-					nx = rand.nextInt(x * 2);
-					ny = rand.nextInt(y * 2);
-
-				}
-				npc = new NPC(level, nx, ny);
-				level.addEntity(npc);
-			}
-			gameEvents = new GameEvents();
-		}
-	}
-
-	private static void loadPreviousLevel(String levelPath) {
-		Random rand = new Random();
-		level = new Level(levelPath);
-		level.setGovernment(governmentMap.get(levelPath));
-		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
-		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-		player.x = x;
-		player.y = y;
-		level.addEntity(player);
-		for (int i = 0; i < NUM_NPCS; i++) {
-			int nx = rand.nextInt(x * 2);
-			int ny = rand.nextInt(y * 2);
-			while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
-				nx = rand.nextInt(x * 2);
-				ny = rand.nextInt(y * 2);
-
-			}
-			npc = new NPC(level, nx, ny);
-			level.addEntity(npc);
-		}
-	}
-
-	/**
-	 * Add any other entities to the level.
-	 */
-	public void addEntities() {
-
-	}
-
-	/**
-	 * Starts a level where the player keeps their stats and enters a new level.
-	 * 
-	 * @param levelPath
-	 * @param x
-	 * @param y
-	 */
-	public static void startOtherLevel(String levelPath, int x, int y) {
-		level = new Level(levelPath);
-		level.addEntity(player);
-	}
-
-	/**
-	 * Start the thread for the game
-	 */
-	public synchronized void start() {
-		running = true;
-		new Thread(this).start();
-
-	}
-
-	/**
-	 * Stop the game thread.
-	 */
-	public synchronized static void stop() {
-		running = false;
-	}
-
-	/**
-	 * Close the window.
-	 */
-	public void close() {
-		frame.dispose();
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -310,11 +226,133 @@ public class Game extends Canvas implements Runnable {
 			}
 		}
 	}
+	
+	/**
+	 * Keeps game logic in sync with rendering.
+	 */
+	public void tick() {
+		tickCount++;
+		level.tick();
+	}
 
-	public static void saveAndQuit() {
-		stop();
-		saveGameToDisk();
-		quit();
+	/**
+	 * Render the tiles on the board, the player, etc
+	 */
+	public void render() {
+		BufferStrategy bs = getBufferStrategy();
+		if (bs == null) {
+			createBufferStrategy(3);
+			return;
+		}
+
+		// Set the "camera" position
+		xOffset = player.x - (screen.width / 2);
+		yOffset = player.y - (screen.height / 2);
+
+		// Render the tiles first.
+		level.renderTiles(screen, xOffset, yOffset);
+
+		for (int x = 0; x < level.width; x++) {
+			int colour = Colours.get(-1, -1, -1, 000);
+			if (x % 10 == 0 && x != 0) {
+				colour = Colours.get(-1, -1, -1, 500);
+			}
+
+		}
+		// Render any objects or other entities to the screen.
+		level.renderEntities(screen); // ENTITIES
+
+		// Render the player stats HUD
+		gameEvents.renderInterface(screen, xOffset, yOffset);
+		// Show messages about events in the game, ie enter a territory.
+		gameEvents.renderPlayerEvents(screen, xOffset, yOffset, input, player,
+				level);
+
+		for (int y = 0; y < screen.height; y++) {
+			for (int x = 0; x < screen.width; x++) {
+				int colourCode = screen.pixels[x + y * screen.width];
+				if (colourCode < 255)
+					pixels[x + y * WIDTH] = colours[colourCode];
+
+			}
+		}
+
+		Graphics g = bs.getDrawGraphics();
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+
+		g.dispose();
+		bs.show();
+
+	}
+	
+	/**
+	 * Start the level and add the player, and GameEvent manager.
+	 * 
+	 * @param levelPath
+	 */
+	public static void startLevel(String levelPath) {
+		if (loadedLevels.contains(levelPath)) {
+			loadPreviousLevel(levelPath);
+		} else {
+			Random rand = new Random();
+			level = new Level(levelPath);
+			loadedLevels.add(levelPath);
+			level.setGovernment(null);
+			governmentMap.put(levelPath, level.getGovernment());
+			int x = (int) (Math.sqrt(level.tiles.length)) * 4;
+			int y = (int) (Math.sqrt(level.tiles.length)) * 4;
+			if (player == null) {
+				player = new Player(level, x, y, input);
+			}
+			player.getSupportMap().put(level.getImagePath(), 0.0);
+			level.addEntity(player);
+			for (int i = 0; i < NUM_NPCS; i++) {
+				int nx = rand.nextInt(x * 2);
+				int ny = rand.nextInt(y * 2);
+				while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
+					nx = rand.nextInt(x * 2);
+					ny = rand.nextInt(y * 2);
+
+				}
+				npc = new NPC(level, nx, ny);
+				level.addEntity(npc);
+			}
+			gameEvents = new GameEvents();
+		}
+	}
+
+	private static void loadPreviousLevel(String levelPath) {
+		Random rand = new Random();
+		level = new Level(levelPath);
+		level.setGovernment(governmentMap.get(levelPath));
+		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
+		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
+		player.x = x;
+		player.y = y;
+		level.addEntity(player);
+		for (int i = 0; i < NUM_NPCS; i++) {
+			int nx = rand.nextInt(x * 2);
+			int ny = rand.nextInt(y * 2);
+			while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
+				nx = rand.nextInt(x * 2);
+				ny = rand.nextInt(y * 2);
+
+			}
+			npc = new NPC(level, nx, ny);
+			level.addEntity(npc);
+		}
+	}
+
+	/**
+	 * Starts a level where the player keeps their stats and enters a new level.
+	 * 
+	 * @param levelPath
+	 * @param x
+	 * @param y
+	 */
+	public static void startOtherLevel(String levelPath, int x, int y) {
+		level = new Level(levelPath);
+		level.addEntity(player);
 	}
 
 	public static void saveGameToDisk() {
@@ -412,63 +450,19 @@ public class Game extends Canvas implements Runnable {
 					"Save Files not Found Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	
 	/**
-	 * Keeps game logic in sync with rendering.
+	 * Close the window.
 	 */
-	public void tick() {
-		tickCount++;
-		level.tick();
+	public void close() {
+		frame.dispose();
 	}
 
-	/**
-	 * Render the tiles on the board, the player, etc
-	 */
-	public void render() {
-		BufferStrategy bs = getBufferStrategy();
-		if (bs == null) {
-			createBufferStrategy(3);
-			return;
-		}
 
-		// Set the "camera" position
-		xOffset = player.x - (screen.width / 2);
-		yOffset = player.y - (screen.height / 2);
-
-		// Render the tiles first.
-		level.renderTiles(screen, xOffset, yOffset);
-
-		for (int x = 0; x < level.width; x++) {
-			int colour = Colours.get(-1, -1, -1, 000);
-			if (x % 10 == 0 && x != 0) {
-				colour = Colours.get(-1, -1, -1, 500);
-			}
-
-		}
-		// Render any objects or other entities to the screen.
-		level.renderEntities(screen); // ENTITIES
-
-		// Render the player stats HUD
-		gameEvents.renderInterface(screen, xOffset, yOffset);
-		// Show messages about events in the game, ie enter a territory.
-		gameEvents.renderPlayerEvents(screen, xOffset, yOffset, input, player,
-				level);
-
-		for (int y = 0; y < screen.height; y++) {
-			for (int x = 0; x < screen.width; x++) {
-				int colourCode = screen.pixels[x + y * screen.width];
-				if (colourCode < 255)
-					pixels[x + y * WIDTH] = colours[colourCode];
-
-			}
-		}
-
-		Graphics g = bs.getDrawGraphics();
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-
-		g.dispose();
-		bs.show();
-
+	public static void saveAndQuit() {
+		stop();
+		saveGameToDisk();
+		quit();
 	}
 
 	/**
