@@ -108,7 +108,8 @@ Iteration 3 Goals:
 ==================
 - [ ] Fix government logic (Country > Government > Election)
 - [x] Map overview with player location
-- 
+
+
 Bugs to be fixed:
 -----------------
 * Player is in the main menu for the time, clicks load game. Window pops up blank and error occurs
