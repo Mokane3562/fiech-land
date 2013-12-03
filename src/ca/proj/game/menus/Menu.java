@@ -23,23 +23,22 @@ import ca.proj.game.Game;
 
 /**
  * 
- * Menu.java is displayed to start new games and exit the game.
- * Copyright (C) 2013 
- * Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Menu.java is displayed to start new games and exit the game. Copyright (C)
+ * 2013 Tyler Stacey, Mark Gauci, Ryan Martin, Mike Singleton
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
  */
 @SuppressWarnings("serial")
 public class Menu extends JFrame {
@@ -55,7 +54,8 @@ public class Menu extends JFrame {
 	/**
 	 * Creates a new menu frame.
 	 * 
-	 * @param title the title of the frame
+	 * @param title
+	 *            the title of the frame
 	 */
 	public Menu(String title) {
 
@@ -94,7 +94,7 @@ public class Menu extends JFrame {
 		startNewGameButton.setBorder(BorderFactory.createEtchedBorder(0,
 				Color.GREEN, Color.BLACK));
 		cp.add(startNewGameButton);
-		
+
 		cp.add(new Box.Filler(minSize, prefSize, maxSize));
 		loadSaveGameButton.setMinimumSize(buttonSize);
 		loadSaveGameButton.setPreferredSize(buttonSize);
@@ -163,45 +163,43 @@ public class Menu extends JFrame {
 				Color.GREEN, Color.BLACK));
 		cp.add(quitGameButton);
 
-		
-
-		for (Component j : cp.getComponents() ){
-			if (j instanceof JButton){
+		for (Component j : cp.getComponents()) {
+			if (j instanceof JButton) {
 				j.setFont(new Font("Sans", Font.BOLD, 14));
 			}
-			
+
 		}
 		cp.setBackground(new Color(0x3399FF));
 
 		setVisible(true);
 	}
-	public void startNewGameButton_ActionPerformed(ActionEvent evt) { 
+
+	public void startNewGameButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			new TerritoryMenu("Choose a Territory");
 			closeMenu();
 		} else {
 			JOptionPane.showMessageDialog(this,
-				    "Please restart the application to start a new game!",
-				    "Already Running!",
-				    JOptionPane.WARNING_MESSAGE);
+					"Please restart the application to start a new game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	public void loadSaveGameButton_ActionPerformed(ActionEvent evt) { 
+
+	public void loadSaveGameButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			Game g = new Game("/levels/fiech-land.png");
 			g.start();
-			Game.loadGameFromDisk("./player.xml", "./loadedLevels.xml", "./governmentMap.xml");
+			Game.loadGameFromDisk("./player.xml", "./loadedLevels.xml",
+					"./governmentMap.xml");
 			closeMenu();
 		} else {
 			JOptionPane.showMessageDialog(this,
-				    "Please restart the application to load a game!",
-				    "Already Running!",
-				    JOptionPane.WARNING_MESSAGE);
+					"Please restart the application to load a game!",
+					"Already Running!", JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	public void returnToGameButton_ActionPerformed(ActionEvent evt) { 
+
+	public void returnToGameButton_ActionPerformed(ActionEvent evt) {
 		if (running == false) {
 			JOptionPane.showMessageDialog(this, "No game running!",
 					"Not Running!", JOptionPane.WARNING_MESSAGE);
@@ -209,13 +207,18 @@ public class Menu extends JFrame {
 			closeMenu();
 		}
 	}
-	
-	public void saveGameButton_ActionPerformed(ActionEvent evt) { 
-		Game.saveGameToDisk();
-		closeMenu();
+
+	public void saveGameButton_ActionPerformed(ActionEvent evt) {
+		if (!Game.running) {
+			JOptionPane.showMessageDialog(null, "No game to save!",
+					"Game not running", JOptionPane.WARNING_MESSAGE);
+		} else {
+			Game.saveGameToDisk();
+			closeMenu();
+		}
 	}
-	
-	public void quitGameButton_ActionPerformed(ActionEvent evt) { 
+
+	public void quitGameButton_ActionPerformed(ActionEvent evt) {
 		Game.saveAndQuit();
 	}
 

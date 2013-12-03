@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,6 +19,7 @@ import java.util.Map;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 import ca.proj.game.entities.Government;
@@ -29,8 +31,6 @@ import ca.proj.game.gfx.SpriteSheet;
 import ca.proj.game.level.Level;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 /**
  * 
@@ -97,6 +97,7 @@ public class Game extends Canvas implements Runnable {
 	private String initialLevel = "/levels/waterfall-grassland.png";
 	private static ArrayList<String> loadedLevels = new ArrayList<String>();
 	private static Map<String, Government> governmentMap = new HashMap<String, Government>();
+
 	/**
 	 * Create the game and set properties for the window.
 	 * 
@@ -320,6 +321,18 @@ public class Game extends Canvas implements Runnable {
 		XStream xstream = new XStream();
 		PrintWriter out;
 		String xml;
+		File f1 = new File("./player.xml");
+		File f2 = new File("./loadedLevels.xml");
+		File f3 = new File("./governmentMap.xml");
+		if (f1.exists()){
+			f1.delete();
+		}
+		if (f2.exists()){
+			f2.delete();
+		}
+		if (f3.exists()){
+			f3.delete();
+		}
 		try {
 			// Serialize player
 			out = new PrintWriter("./player.xml");
@@ -342,45 +355,61 @@ public class Game extends Canvas implements Runnable {
 		}
 
 	}
-	
-	public static void loadGameFromDisk(String playerFile, String loadedLevelsFile, String governmentMapFile){
+
+	public static void loadGameFromDisk(String playerFile,
+			String loadedLevelsFile, String governmentMapFile) {
 		XStream xstream = new XStream();
 		String playerFile1 = "";
 		String loadedLevelsFile1 = "";
 		String governmentMapFile1 = "";
-		try {
-			playerFile1 = new String(Files.readAllBytes(Paths.get(playerFile)));
-			loadedLevelsFile1 = new String(Files.readAllBytes(Paths.get(loadedLevelsFile)));
-			governmentMapFile1 = new String(Files.readAllBytes(Paths.get(governmentMapFile)));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		gameEvents = new GameEvents();
-		player = new Player(level, 512, 512, input);
-		player = (Player)xstream.fromXML(playerFile1);
-		player.setInput(input);
-		governmentMap = (HashMap<String, Government>)xstream.fromXML(governmentMapFile1);
-		loadedLevels = (ArrayList<String>)xstream.fromXML(loadedLevelsFile1);
-		
-		Random rand = new Random();
-		level = new Level(player.currentLevel);
-		level.setGovernment(governmentMap.get(player.currentLevel));
-		int x = (int) (Math.sqrt(level.tiles.length)) * 4;
-		int y = (int) (Math.sqrt(level.tiles.length)) * 4;
-		player.x = x;
-		player.y = y;
-		level.addEntity(player);
-		for (int i = 0; i < NUM_NPCS; i++) {
-			int nx = rand.nextInt(x * 2);
-			int ny = rand.nextInt(y * 2);
-			while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
-				nx = rand.nextInt(x * 2);
-				ny = rand.nextInt(y * 2);
-
+		File f1 = new File(playerFile);
+		File f2 = new File(loadedLevelsFile);
+		File f3 = new File(governmentMapFile);
+		if (f1.exists() && f2.exists() && f3.exists()) {
+			try {
+				playerFile1 = new String(Files.readAllBytes(Paths
+						.get(playerFile)));
+				loadedLevelsFile1 = new String(Files.readAllBytes(Paths
+						.get(loadedLevelsFile)));
+				governmentMapFile1 = new String(Files.readAllBytes(Paths
+						.get(governmentMapFile)));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			npc = new NPC(level, nx, ny);
-			level.addEntity(npc);
+			gameEvents = new GameEvents();
+			player = new Player(level, 512, 512, input);
+			player = (Player) xstream.fromXML(playerFile1);
+			player.setInput(input);
+			governmentMap = (HashMap<String, Government>) xstream
+					.fromXML(governmentMapFile1);
+			loadedLevels = (ArrayList<String>) xstream
+					.fromXML(loadedLevelsFile1);
+
+			Random rand = new Random();
+			level = new Level(player.currentLevel);
+			level.setGovernment(governmentMap.get(player.currentLevel));
+			int x = (int) (Math.sqrt(level.tiles.length)) * 4;
+			int y = (int) (Math.sqrt(level.tiles.length)) * 4;
+			player.x = x;
+			player.y = y;
+			level.addEntity(player);
+			for (int i = 0; i < NUM_NPCS; i++) {
+				int nx = rand.nextInt(x * 2);
+				int ny = rand.nextInt(y * 2);
+				while (level.getTile(nx >> 3, ny >> 3).isSolid()) {
+					nx = rand.nextInt(x * 2);
+					ny = rand.nextInt(y * 2);
+
+				}
+				npc = new NPC(level, nx, ny);
+				level.addEntity(npc);
+			}
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"The required Save Game files are missing!\n"
+							+ "Starting a new game in Fiech-Land!",
+					"Save Files not Found Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
