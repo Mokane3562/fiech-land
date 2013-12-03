@@ -1,7 +1,7 @@
 #fiech-land
 
 CS3716 Project
-* Project History: [HISTORY.md]
+* Project History: [HISTORY.md](HISTORY.md)
 
 ##Run the Project
 
