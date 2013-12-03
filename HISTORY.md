@@ -115,7 +115,7 @@ Bugs to be fixed:
 * Fixed ~~Player is in the main menu for the time, clicks load game. Window pops up blank and error occurs~~
 * Fixed ~~Player in in the main menu for the first time, clicks save game to disk. window closes. no game to save(?)~~
 * Can't find cause of the error ~~Player is in a new game in any map, presses an action button and two equivalent windows pop up for several actions **have to click x on each window!**~~
-* Fixed~~A current government is in place. No changing gov't(?)~~
-* Window closes automatically, can't replicate~~Close gov't menu after choosing gov't for a map~~
+* Fixed ~~A current government is in place. No changing gov't(?)~~
+* Window closes automatically, can't replicate ~~Close gov't menu after choosing gov't for a map~~
 * Fixed ~~When a player saves a game and exits, save game can be loaded only once after that time. cannot be loaded for several times in the future,
   even if player clicks "save and exit" each time~~
