@@ -7,11 +7,11 @@ CS3716 Project
 
 ### Option 1 - Use the .jar
 + Open a terminal in the directory containing the jar and run the following command:
- * java -jar fiech-land.jar
+ * java -jar [fiech-land.jar](fiech-land.jar)
  
 ### Option 2 - Import the [eclipse](http://www.eclipse.org/) project:
 + Open [eclipse](http://www.eclipse.org/)
-+ File > Import > General > Archive File (fiech-land.zip)
++ File > Import > General > Archive File [fiech-land.zip](fiech-land.zip)
 + After completion of the import:
  * Right click project in the 'Package Explorer'
  * Run As > Java Application > 'Menu - ca.proj.game.menus'
