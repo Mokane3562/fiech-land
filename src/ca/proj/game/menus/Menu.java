@@ -222,6 +222,7 @@ public class Menu extends JFrame {
 		if (running == false) {
 			JOptionPane.showMessageDialog(this, "No game running!",
 					"Not Running!", JOptionPane.WARNING_MESSAGE);
+			closeMenu();
 		} else {
 		Game.saveAndQuit();
 		}
