@@ -1,29 +1,30 @@
-   234 ./src/ca/proj/game/menus/ResourceActionMenu.java
-   261 ./src/ca/proj/game/menus/PoliticsActionMenu.java
-   232 ./src/ca/proj/game/menus/WealthActionMenu.java
-   155 ./src/ca/proj/game/menus/Menu.java
-   382 ./src/ca/proj/game/menus/AttributeMenu.java
-    75 ./src/ca/proj/game/menus/HelpMenu.java
-   251 ./src/ca/proj/game/menus/TeleportMenu.java
+   281 ./src/ca/proj/game/menus/GovernmentInitMenu.java
+   232 ./src/ca/proj/game/menus/ResourceActionMenu.java
+   256 ./src/ca/proj/game/menus/PoliticsActionMenu.java
+   231 ./src/ca/proj/game/menus/WealthActionMenu.java
+   237 ./src/ca/proj/game/menus/Menu.java
+   383 ./src/ca/proj/game/menus/AttributeMenu.java
+    81 ./src/ca/proj/game/menus/HelpMenu.java
+   306 ./src/ca/proj/game/menus/TeleportMenu.java
    272 ./src/ca/proj/game/menus/TerritoryMenu.java
-   235 ./src/ca/proj/game/menus/MilitaryActionMenu.java
-   253 ./src/ca/proj/game/menus/GovernmentActionMenu.java
+   230 ./src/ca/proj/game/menus/MilitaryActionMenu.java
+   254 ./src/ca/proj/game/menus/GovernmentActionMenu.java
     42 ./src/ca/proj/game/Key.java
    124 ./src/ca/proj/game/entities/Mob.java
    241 ./src/ca/proj/game/entities/NPC.java
-   344 ./src/ca/proj/game/entities/Player.java
-   135 ./src/ca/proj/game/entities/Government.java
+   400 ./src/ca/proj/game/entities/Player.java
+   140 ./src/ca/proj/game/entities/Government.java
     64 ./src/ca/proj/game/entities/Entity.java
-   384 ./src/ca/proj/game/Game.java
+   488 ./src/ca/proj/game/Game.java
     63 ./src/ca/proj/game/level/tiles/BasicTile.java
     39 ./src/ca/proj/game/level/tiles/BasicSolidTile.java
     63 ./src/ca/proj/game/level/tiles/AnimatedTile.java
-   127 ./src/ca/proj/game/level/tiles/Tile.java
+   134 ./src/ca/proj/game/level/tiles/Tile.java
    282 ./src/ca/proj/game/level/Level.java
-   157 ./src/ca/proj/game/InputHandler.java
+   186 ./src/ca/proj/game/InputHandler.java
     54 ./src/ca/proj/game/gfx/Colours.java
     73 ./src/ca/proj/game/gfx/SpriteSheet.java
     47 ./src/ca/proj/game/gfx/Font.java
    136 ./src/ca/proj/game/gfx/Screen.java
-    88 ./src/ca/proj/game/GameEvents.java
-  4813 total
+   126 ./src/ca/proj/game/GameEvents.java
+  5465 total

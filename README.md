@@ -11,7 +11,7 @@ CS3716 Project
  
 ### Option 2 - Import the [eclipse](http://www.eclipse.org/) project:
 + Open [eclipse](http://www.eclipse.org/)
-+ File > Import > General > Archive File fiech-land.zip
++ File > Import > General > Existing Projects Into Workspace fiech-land.zip
 + After completion of the import:
  * Right click project in the 'Package Explorer'
  * Run As > Java Application > 'Menu - ca.proj.game.menus'
