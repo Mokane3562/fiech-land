@@ -209,7 +209,7 @@ public class Menu extends JFrame {
 	}
 
 	public void saveGameButton_ActionPerformed(ActionEvent evt) {
-		if (!Game.running) {
+		if (running = false) {
 			JOptionPane.showMessageDialog(null, "No game to save!",
 					"Game not running", JOptionPane.WARNING_MESSAGE);
 		} else {
@@ -219,7 +219,12 @@ public class Menu extends JFrame {
 	}
 
 	public void quitGameButton_ActionPerformed(ActionEvent evt) {
+		if (running == false) {
+			JOptionPane.showMessageDialog(this, "No game running!",
+					"Not Running!", JOptionPane.WARNING_MESSAGE);
+		} else {
 		Game.saveAndQuit();
+		}
 	}
 
 	/**
